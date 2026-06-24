@@ -1,0 +1,65 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT_ID: termcaller-hackathon # TODO: update to your GCP project ID
+  REGION: us-central1
+  SERVICE_NAME: termcaller-app
+  BUCKET_NAME: termcaller-sqlite-data
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # We can run tests here before deploying
+      # - name: Install Dependencies & Test
+      #   run: |
+      #     npm install
+      #     cd frontend && npm ci && cd ..
+      #     cd backend && npm ci && cd ..
+      #     # Add test command here
+
+      - name: Google Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          # You need to set this up in GCP (Workload Identity Federation)
+          # OR use credentials json (less secure)
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+          
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          source: .
+          flags: |
+            --execution-environment=gen2
+            --allow-unauthenticated
+            --add-volume=name=sqlite-data,type=cloud-storage,bucket=${{ env.BUCKET_NAME }}
+            --add-volume-mount=volume=sqlite-data,mount-path=/mnt/data
+            --set-env-vars=DATABASE_URL=file:/mnt/data/database.sqlite
+            
+      - name: Show Output
+        run: echo ${{ steps.deploy.outputs.url }}

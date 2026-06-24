@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Illustration {
+  id        String   @id @default(uuid())
+  title     String?
+  imageUrl  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  callouts  Callout[]
+}
+
+model Callout {
+  id             String       @id @default(uuid())
+  illustrationId String
+  illustration   Illustration @relation(fields: [illustrationId], references: [id], onDelete: Cascade)
+  
+  identifier     String       // e.g., "7", "A", "arrow-1"
+  sourceTerm     String       // e.g., "bracket", "cover"
+  
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  concepts       ConceptCandidate[]
+}
+
+model ConceptCandidate {
+  id               String   @id @default(uuid())
+  calloutId        String
+  callout          Callout  @relation(fields: [calloutId], references: [id], onDelete: Cascade)
+  
+  candidateConcept String   // e.g., "Mounting bracket"
+  definition       String   // e.g., "Rigid structural component..."
+  
+  createdAt        DateTime @default(now())
+}

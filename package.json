@@ -1,0 +1,26 @@
+{
+  "name": "termcaller",
+  "version": "1.0.0",
+  "description": "Technical documentation is the foundation for high-quality translation.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npx tsx watch src/index.ts",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build": "cd frontend && npm run build && cd ../backend && npx tsc",
+    "start": "cd backend && npx tsx src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
