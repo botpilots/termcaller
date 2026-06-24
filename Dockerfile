@@ -10,8 +10,8 @@ RUN npm run build
 FROM node:20-alpine
 WORKDIR /app
 
-# We need sqlite3 for Prisma
-RUN apk add --no-cache sqlite
+# We need python and build tools for native dependencies like better-sqlite3
+RUN apk add --no-cache python3 make g++ sqlite
 
 # Copy root package.json if it exists (optional, helps with workspaces)
 COPY package*.json ./

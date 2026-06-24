@@ -3,7 +3,7 @@ name: Deploy to Cloud Run
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   PROJECT_ID: termcaller-hackathon # TODO: update to your GCP project ID
