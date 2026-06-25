@@ -1,28 +1,24 @@
 import type { Illustration, PrismaClient } from '@prisma/client';
 
 /**
- * Upsert illustration metadata from validate/discovery.
+ * Upsert illustration metadata from extraction or validate/discovery.
  * Never overwrites an existing figureNumber or touches callouts.
  */
 export async function upsertIllustration(
   prisma: PrismaClient,
   projectId: string,
   pageNumber: number,
-  discoveredFigureNumber?: string | null
+  figureNumber = '1'
 ): Promise<Illustration> {
-  const trimmed = discoveredFigureNumber?.trim() ?? '';
+  const trimmed = figureNumber.trim() || '1';
 
   const existing = await prisma.illustration.findUnique({
-    where: { projectId_pageNumber: { projectId, pageNumber } },
+    where: {
+      projectId_pageNumber_figureNumber: { projectId, pageNumber, figureNumber: trimmed },
+    },
   });
 
   if (existing) {
-    if (!existing.figureNumber && trimmed) {
-      return prisma.illustration.update({
-        where: { id: existing.id },
-        data: { figureNumber: trimmed },
-      });
-    }
     return existing;
   }
 
@@ -30,7 +26,7 @@ export async function upsertIllustration(
     data: {
       projectId,
       pageNumber,
-      figureNumber: trimmed || null,
+      figureNumber: trimmed,
     },
   });
 }

@@ -68,7 +68,7 @@ model Illustration {
   projectId    String
   project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   pageNumber   Int
-  figureNumber String?
+  figureNumber String   @default("1")
   title        String?
   imageUrl     String?
   createdAt    DateTime @default(now())
@@ -76,7 +76,7 @@ model Illustration {
 
   callouts Callout[]
 
-  @@unique([projectId, pageNumber])
+  @@unique([projectId, pageNumber, figureNumber])
 }
 
 model Callout {

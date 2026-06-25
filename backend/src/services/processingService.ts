@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import { analyzePageWithGemini } from './geminiService.js';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
 import { TimeoutError } from '../utils/withTimeout.js';
-import { upsertIllustration } from './illustrationUpsert.js';
 import { scanPdfPages } from '../utils/pdfPageScan.js';
 import crypto from 'crypto';
 
@@ -55,7 +54,6 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
           }
 
           console.log(`[Processing] Page ${pageNumber}: extracting...`);
-          await upsertIllustration(prisma, projectId, pageNumber);
 
           console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
           const result = await analyzePageWithGemini(pageData.imageBase64, fetchAdjacentImages);
@@ -116,8 +114,12 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               });
             }
 
+            const figureNumber = concept.figureNumber?.trim() || '1';
+
             let illustration = await prisma.illustration.findUnique({
-              where: { projectId_pageNumber: { projectId, pageNumber } },
+              where: {
+                projectId_pageNumber_figureNumber: { projectId, pageNumber, figureNumber },
+              },
             });
 
             if (!illustration) {
@@ -125,13 +127,8 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                 data: {
                   projectId,
                   pageNumber,
-                  figureNumber: concept.figureNumber || null,
+                  figureNumber,
                 },
-              });
-            } else if (concept.figureNumber && !illustration.figureNumber) {
-              illustration = await prisma.illustration.update({
-                where: { id: illustration.id },
-                data: { figureNumber: concept.figureNumber },
               });
             }
 

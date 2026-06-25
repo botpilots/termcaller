@@ -61,7 +61,7 @@ const discoverAndValidateSchema = {
   properties: {
     figureNumber: {
       type: Type.STRING,
-      description: 'Explicit figure number if stated (e.g. "4.1"), otherwise empty string.',
+      description: 'Page-local figure index: "1" for the first illustration in reading order on this page, then "2", "3", etc. Ignore document-printed figure numbers.',
     },
     unreferencedCallouts: validationSchema.properties.unreferencedCallouts,
     uncalledReferences: validationSchema.properties.uncalledReferences,
@@ -117,7 +117,7 @@ I am providing a manual page image. Read the page text and illustration directly
 Do NOT invent part names.
 
 INSTRUCTIONS:
-1. figureNumber: explicit figure number if stated (e.g. "Figure 4.1" → "4.1"), otherwise empty string.
+1. figureNumber: page-local index starting at "1" in reading order. Ignore document-printed numbers. Use "1" when only one illustration.
 2. unreferencedCallouts: labels visible in the image but not explained in the page text. List identifiers only.
 3. uncalledReferences: the text assigns a callout label but that label is missing from the illustrations.
 4. labelMismatches: text assigns label X but the image shows label Y for the same part. Use empty string for sourceTerm when unknown.
@@ -178,7 +178,7 @@ export function pickValidateMode(
   if (illustration?.callouts && illustration.callouts.length > 0) {
     return 'withConcepts';
   }
-  if (illustration?.figureNumber) {
+  if (illustration) {
     return 'standalone';
   }
   return 'discoverAndValidate';

@@ -47,14 +47,15 @@ export function buildExtractedConceptsFromCallouts(
   }));
 }
 
-async function loadIllustrationWithCallouts(
+async function loadIllustrationsForPage(
   prisma: PrismaClient,
   projectId: string,
   pageNumber: number
-): Promise<IllustrationWithCallouts | null> {
-  return prisma.illustration.findUnique({
-    where: { projectId_pageNumber: { projectId, pageNumber } },
+): Promise<IllustrationWithCallouts[]> {
+  return prisma.illustration.findMany({
+    where: { projectId, pageNumber },
     include: { callouts: { include: { concept: true } } },
+    orderBy: { figureNumber: 'asc' },
   });
 }
 
@@ -137,59 +138,83 @@ export async function validateAllProjectFigures(
         return null;
       }
 
-      const illustration = await loadIllustrationWithCallouts(prisma, projectId, pageNumber);
-      const mode = pickValidateMode(illustration);
-      const { validation, figureNumber: discoveredFigureNumber } = await validatePageByMode(
-        pdfPath,
-        pageNumber,
-        totalPages,
-        mode,
-        illustration,
-        pageData.imageBase64
-      );
+      const illustrations = await loadIllustrationsForPage(prisma, projectId, pageNumber);
+      const pageResults: FigureValidationItemResult[] = [];
 
-      const upserted = await upsertIllustration(
-        prisma,
-        projectId,
-        pageNumber,
-        mode === 'discoverAndValidate' ? discoveredFigureNumber : undefined
-      );
+      if (illustrations.length === 0) {
+        const mode: PageValidateMode = 'discoverAndValidate';
+        const { validation, figureNumber: discoveredFigureNumber } = await validatePageByMode(
+          pdfPath,
+          pageNumber,
+          totalPages,
+          mode,
+          null,
+          pageData.imageBase64
+        );
 
-      if (!upserted.figureNumber) {
-        return null;
+        const upserted = await upsertIllustration(
+          prisma,
+          projectId,
+          pageNumber,
+          discoveredFigureNumber?.trim() || '1'
+        );
+
+        pageResults.push({
+          pageNumber,
+          figureNumber: upserted.figureNumber,
+          calloutCount: 0,
+          mode,
+          validation,
+        });
+        return pageResults;
       }
 
-      const calloutCount = illustration?.callouts.length ?? 0;
+      for (const illustration of illustrations) {
+        const mode = pickValidateMode(illustration);
+        const { validation } = await validatePageByMode(
+          pdfPath,
+          pageNumber,
+          totalPages,
+          mode,
+          illustration,
+          pageData.imageBase64
+        );
 
-      return {
-        pageNumber,
-        figureNumber: upserted.figureNumber,
-        calloutCount,
-        mode,
-        validation,
-      };
+        pageResults.push({
+          pageNumber,
+          figureNumber: illustration.figureNumber,
+          calloutCount: illustration.callouts.length,
+          mode,
+          validation,
+        });
+      }
+
+      return pageResults;
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Validation failed';
       console.error(`[Validation] Page ${pageNumber} failed:`, error);
 
-      const illustration = await loadIllustrationWithCallouts(prisma, projectId, pageNumber);
-      if (!illustration?.figureNumber) {
+      const illustrations = await loadIllustrationsForPage(prisma, projectId, pageNumber);
+      if (illustrations.length === 0) {
         return null;
       }
 
-      return {
+      return illustrations.map((illustration) => ({
         pageNumber,
         figureNumber: illustration.figureNumber,
         calloutCount: illustration.callouts.length,
         mode: pickValidateMode(illustration),
         error: message,
-      };
+      }));
     }
   });
 
   const results: FigureValidationItemResult[] = [];
   for (const item of rawResults) {
-    if (item !== null) {
+    if (item === null) continue;
+    if (Array.isArray(item)) {
+      results.push(...item);
+    } else {
       results.push(item);
     }
   }

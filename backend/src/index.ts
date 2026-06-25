@@ -13,6 +13,7 @@ import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projects.js';
 import keywordRoutes from './routes/keywords.js';
 import validationRoutes from './routes/validation.js';
+import corpusRoutes from './routes/corpus.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/keywords', keywordRoutes);
 app.use('/api/validation', validationRoutes);
+app.use('/api/corpus', corpusRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'API is running' });

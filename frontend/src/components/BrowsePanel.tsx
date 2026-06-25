@@ -1,4 +1,4 @@
-import { Loader2, LogOut, Tag, Image, Play, ShieldCheck } from 'lucide-react';
+import { Loader2, LogOut, Tag, Image, Play, ShieldCheck, Filter } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 export type BrowseTab = 'keywords' | 'figures';
@@ -21,6 +21,7 @@ export function BrowseSectionHeader({
   disabled,
   variant = 'blue',
   icon,
+  middle,
 }: {
   title: string;
   actionLabel: string;
@@ -30,6 +31,7 @@ export function BrowseSectionHeader({
   disabled?: boolean;
   variant?: 'blue' | 'amber';
   icon?: 'extract' | 'validate';
+  middle?: ReactNode;
 }) {
   const colors =
     variant === 'amber'
@@ -39,8 +41,9 @@ export function BrowseSectionHeader({
   const Icon = icon === 'validate' ? ShieldCheck : Play;
 
   return (
-    <div className="flex items-center justify-between gap-2 mb-3">
-      <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{title}</h2>
+    <div className="flex items-center gap-1.5 mb-3 min-w-0">
+      <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider shrink-0">{title}</h2>
+      {middle ? <div className="flex-1 flex justify-center min-w-0">{middle}</div> : <div className="flex-1" />}
       <button
         type="button"
         onClick={onAction}
@@ -59,6 +62,43 @@ export function BrowseSectionHeader({
   );
 }
 
+const KEYWORD_SORT_MODES = ['frequency', 'both', 'rarity'] as const;
+const KEYWORD_SORT_LABELS: Record<(typeof KEYWORD_SORT_MODES)[number], string> = {
+  frequency: 'Count',
+  both: 'Priority',
+  rarity: 'Distinctive',
+};
+const KEYWORD_SORT_HINTS: Record<(typeof KEYWORD_SORT_MODES)[number], string> = {
+  frequency: 'Most figures in this document',
+  both: 'Frequent here, rare across manuals',
+  rarity: 'Most distinctive vs. other manuals',
+};
+
+export function KeywordSortToggle({
+  value,
+  onChange,
+}: {
+  value: (typeof KEYWORD_SORT_MODES)[number];
+  onChange: (mode: (typeof KEYWORD_SORT_MODES)[number]) => void;
+}) {
+  const cycle = () => {
+    const index = KEYWORD_SORT_MODES.indexOf(value);
+    onChange(KEYWORD_SORT_MODES[(index + 1) % KEYWORD_SORT_MODES.length]);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={cycle}
+      title={`${KEYWORD_SORT_HINTS[value]} — click to change`}
+      className="inline-flex items-center gap-1.5 px-2 py-1 text-sm text-gray-600 border border-gray-200 bg-white rounded-md hover:bg-gray-50 transition-colors shrink-0"
+    >
+      <Filter size={14} className="text-gray-400" />
+      {KEYWORD_SORT_LABELS[value]}
+    </button>
+  );
+}
+
 export function BrowsePanel({
   activeTab,
   onTabChange,
@@ -73,43 +113,43 @@ export function BrowsePanel({
   ];
 
   return (
-    <div className="flex border-r border-gray-200 bg-gray-50 shrink-0">
-      <div className="flex flex-col w-11 border-r border-gray-200 bg-white">
-        {tabs.map(({ id, label, icon: Icon }) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => onTabChange(id)}
-            title={label}
-            className={`flex flex-col items-center justify-center gap-1 py-4 px-1 text-[10px] font-semibold uppercase tracking-wide transition-colors border-l-2 ${
-              activeTab === id
-                ? 'border-blue-600 bg-blue-50 text-blue-800'
-                : 'border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-700'
-            }`}
-          >
-            <Icon size={16} />
-            <span
-              className="leading-tight"
-              style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+    <div className="flex flex-col h-full shrink-0 border-r border-gray-200 bg-gray-50">
+      <div className="flex flex-1 min-h-0">
+        <div className="flex flex-col w-11 shrink-0 border-r border-gray-200 bg-white">
+          {tabs.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => onTabChange(id)}
+              title={label}
+              className={`flex flex-col items-center justify-center gap-1 py-4 px-1 text-[10px] font-semibold uppercase tracking-wide transition-colors border-l-2 ${
+                activeTab === id
+                  ? 'border-blue-600 bg-blue-50 text-blue-800'
+                  : 'border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+              }`}
             >
-              {label}
-            </span>
-          </button>
-        ))}
-      </div>
+              <Icon size={16} />
+              <span
+                className="leading-tight"
+                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+              >
+                {label}
+              </span>
+            </button>
+          ))}
+        </div>
 
-      <div className="w-72 flex flex-col">
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="w-80 min-w-0 overflow-y-auto p-4">
           {progressSlot}
           {listContent}
         </div>
+      </div>
 
-        <div className="p-4 border-t border-gray-200 bg-white flex justify-between items-center">
-          <div className="text-sm font-medium text-gray-700 truncate">{username}</div>
-          <button onClick={onLogout} className="text-gray-500 hover:text-red-600 p-1 shrink-0">
-            <LogOut size={18} />
-          </button>
-        </div>
+      <div className="shrink-0 p-4 border-t border-gray-200 bg-white flex justify-between items-center gap-2">
+        <div className="text-sm font-medium text-gray-700 truncate">{username}</div>
+        <button onClick={onLogout} className="text-gray-500 hover:text-red-600 p-1 shrink-0">
+          <LogOut size={18} />
+        </button>
       </div>
     </div>
   );

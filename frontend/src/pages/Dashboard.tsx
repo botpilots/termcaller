@@ -4,7 +4,7 @@ import { Folder, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
 import { SimilarityCluster, type SimilarityResult } from '../components/SimilarityCluster';
-import { BrowsePanel, ProgressBanner, BrowseSectionHeader, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
+import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
 import { OccurrencesTable, type CalloutRow } from '../components/OccurrencesTable';
 import {
   ValidationAnomalies,
@@ -12,6 +12,13 @@ import {
   figureHasAnomalies,
   type FigureValidationResult,
 } from '../components/ValidationAnomalies';
+import {
+  rankKeywords,
+  type CorpusWordRank,
+  type KeywordPriority,
+  type KeywordSortMode,
+} from '../utils/keywordPriority';
+import { countFiguresForKeyword, groupCalloutsByFigure } from '../utils/figureOccurrences';
 
 interface Concept {
   id: string;
@@ -40,6 +47,7 @@ interface Keyword {
   sourceTerm: string;
   concepts: Concept[];
   callouts?: Callout[];
+  priority?: KeywordPriority;
 }
 
 interface Project {
@@ -48,6 +56,10 @@ interface Project {
   pdfPath?: string | null;
   keywords?: Keyword[];
   illustrations?: Illustration[];
+}
+
+function figureKey(pageNumber: number, figureNumber: string) {
+  return `${pageNumber}:${figureNumber}`;
 }
 
 interface Progress {
@@ -88,26 +100,36 @@ export const Dashboard = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [browseTab, setBrowseTab] = useState<BrowseTab>('keywords');
   const [selectedKeywordId, setSelectedKeywordId] = useState<string | null>(null);
-  const [selectedFigurePage, setSelectedFigurePage] = useState<number | null>(null);
+  const [selectedFigureId, setSelectedFigureId] = useState<string | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [activeTab, setActiveTab] = useState<MainTab>('callouts');
   const [similarityResult, setSimilarityResult] = useState<SimilarityResult | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [similarityError, setSimilarityError] = useState<string | null>(null);
-  const [figureValidations, setFigureValidations] = useState<Record<number, FigureValidationResult>>({});
-  const [figureValidationErrors, setFigureValidationErrors] = useState<Record<number, string>>({});
+  const [figureValidations, setFigureValidations] = useState<Record<string, FigureValidationResult>>({});
+  const [figureValidationErrors, setFigureValidationErrors] = useState<Record<string, string>>({});
   const [isValidatingAll, setIsValidatingAll] = useState(false);
   const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
+  const [corpusWordRank, setCorpusWordRank] = useState<CorpusWordRank | null>(null);
+  const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
   const eventSourceRef = useRef<EventSource | null>(null);
 
-  const selectedKeyword = keywords.find(k => k.id === selectedKeywordId) ?? null;
+  const rankedKeywords = useMemo(
+    () => rankKeywords(keywords, corpusWordRank, keywordSortMode),
+    [keywords, corpusWordRank, keywordSortMode]
+  );
 
-  const selectedFigure = figures.find(f => f.pageNumber === selectedFigurePage) ?? null;
+  const selectedKeyword = rankedKeywords.find(k => k.id === selectedKeywordId) ?? null;
+
+  const selectedFigure = figures.find(f => f.id === selectedFigureId) ?? null;
+  const selectedFigureKey = selectedFigure
+    ? figureKey(selectedFigure.pageNumber, selectedFigure.figureNumber ?? '1')
+    : null;
   const figureValidation =
-    selectedFigurePage !== null ? (figureValidations[selectedFigurePage] ?? null) : null;
+    selectedFigureKey !== null ? (figureValidations[selectedFigureKey] ?? null) : null;
   const figureValidationError =
-    selectedFigurePage !== null ? (figureValidationErrors[selectedFigurePage] ?? null) : null;
+    selectedFigureKey !== null ? (figureValidationErrors[selectedFigureKey] ?? null) : null;
 
   const selectedProject = projects.find(p => p.id === selectedProjectId) ?? null;
   const hasPdf = Boolean(selectedProject?.pdfPath);
@@ -133,10 +155,14 @@ export const Dashboard = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('/api/projects');
-        setProjects(response.data);
-        if (response.data.length > 0) {
-          setSelectedProjectId(response.data[0].id);
+        const [projectsResponse, corpusResponse] = await Promise.all([
+          axios.get('/api/projects'),
+          axios.get('/api/corpus/word-rank'),
+        ]);
+        setProjects(projectsResponse.data);
+        setCorpusWordRank(corpusResponse.data);
+        if (projectsResponse.data.length > 0) {
+          setSelectedProjectId(projectsResponse.data[0].id);
         }
       } catch (error) {
         console.error('Failed to fetch projects', error);
@@ -148,7 +174,7 @@ export const Dashboard = () => {
   useEffect(() => {
     setBrowseTab('keywords');
     setSelectedKeywordId(null);
-    setSelectedFigurePage(null);
+    setSelectedFigureId(null);
     setActiveTab('callouts');
     setSimilarityResult(null);
     setSimilarityError(null);
@@ -166,7 +192,7 @@ export const Dashboard = () => {
   }, [selectedKeywordId]);
 
   useEffect(() => {
-    const keywordList = keywords;
+    const keywordList = rankedKeywords;
     if (browseTab !== 'keywords') return;
     if (!keywordList.length) {
       setSelectedKeywordId(null);
@@ -175,18 +201,18 @@ export const Dashboard = () => {
     if (!selectedKeywordId || !keywordList.some(k => k.id === selectedKeywordId)) {
       setSelectedKeywordId(keywordList[0].id);
     }
-  }, [keywords, selectedKeywordId, browseTab]);
+  }, [rankedKeywords, selectedKeywordId, browseTab]);
 
   useEffect(() => {
     if (browseTab !== 'figures') return;
     if (!figures.length) {
-      setSelectedFigurePage(null);
+      setSelectedFigureId(null);
       return;
     }
-    if (selectedFigurePage === null || !figures.some(f => f.pageNumber === selectedFigurePage)) {
-      setSelectedFigurePage(figures[0].pageNumber);
+    if (selectedFigureId === null || !figures.some(f => f.id === selectedFigureId)) {
+      setSelectedFigureId(figures[0].id);
     }
-  }, [figures, selectedFigurePage, browseTab]);
+  }, [figures, selectedFigureId, browseTab]);
 
   useEffect(() => {
     if (!selectedProjectId) return;
@@ -233,7 +259,11 @@ export const Dashboard = () => {
             });
           }
 
-          newKeywords.sort((a, b) => a.sourceTerm.localeCompare(b.sourceTerm));
+          newKeywords.sort(
+            (a, b) =>
+              countFiguresForKeyword(b.callouts) - countFiguresForKeyword(a.callouts) ||
+              a.sourceTerm.localeCompare(b.sourceTerm)
+          );
           return newKeywords;
         });
       });
@@ -265,7 +295,7 @@ export const Dashboard = () => {
   const handleBrowseTabChange = (tab: BrowseTab) => {
     setBrowseTab(tab);
     if (tab === 'keywords') {
-      setSelectedFigurePage(null);
+      setSelectedFigureId(null);
     } else {
       setSelectedKeywordId(null);
       if (selectedProjectId) {
@@ -325,14 +355,15 @@ export const Dashboard = () => {
 
     try {
       const response = await axios.post(`/api/projects/${selectedProjectId}/figures/validate-all`);
-      const next: Record<number, FigureValidationResult> = {};
-      const errors: Record<number, string> = {};
+      const next: Record<string, FigureValidationResult> = {};
+      const errors: Record<string, string> = {};
       for (const item of response.data.results) {
+        const key = figureKey(item.pageNumber, item.figureNumber);
         if (item.validation) {
-          next[item.pageNumber] = item.validation;
+          next[key] = item.validation;
         }
         if (item.error) {
-          errors[item.pageNumber] = item.error;
+          errors[key] = item.error;
         }
       }
       setFigureValidations(next);
@@ -372,15 +403,10 @@ export const Dashboard = () => {
     }
   };
 
-  const keywordRows: CalloutRow[] = (selectedKeyword?.callouts ?? []).map(callout => {
-    const concept = callout.concept ?? selectedKeyword?.concepts[0];
-    return {
-      identifier: callout.identifier,
-      pageNumber: callout.pageNumber ?? 0,
-      figureNumber: callout.figureNumber,
-      definitionText: concept?.definitionText,
-    };
-  });
+  const keywordRows: CalloutRow[] = groupCalloutsByFigure(
+    selectedKeyword?.callouts ?? [],
+    selectedKeyword?.concepts[0]?.definitionText
+  );
 
   const figureRows: CalloutRow[] = useMemo(() => {
     if (!selectedFigure) return [];
@@ -434,6 +460,11 @@ export const Dashboard = () => {
           disabled={!hasPdf || !selectedProjectId}
           variant="blue"
           icon="extract"
+          middle={
+            keywords.length > 0 ? (
+              <KeywordSortToggle value={keywordSortMode} onChange={setKeywordSortMode} />
+            ) : undefined
+          }
         />
         {!hasPdf && !hasExistingData ? (
           <div className="text-sm text-gray-500 text-center py-8">
@@ -453,7 +484,7 @@ export const Dashboard = () => {
           </div>
         ) : (
           <ul className="space-y-1">
-            {keywords.map(keyword => (
+            {rankedKeywords.map(keyword => (
               <li key={keyword.id}>
                 <button
                   type="button"
@@ -464,8 +495,17 @@ export const Dashboard = () => {
                       : 'text-gray-700 hover:bg-gray-100 border border-transparent'
                   }`}
                 >
-                  {keyword.sourceTerm}{' '}
-                  <span className="text-gray-400 font-normal">({keyword.callouts?.length || 0})</span>
+                  <span className="flex items-center justify-between gap-2">
+                    <span>{keyword.sourceTerm}</span>
+                    <span className="text-gray-400 font-normal shrink-0">
+                      ({countFiguresForKeyword(keyword.callouts)})
+                    </span>
+                  </span>
+                  {keyword.priority && (
+                    <span className="block text-[10px] text-gray-400 font-normal mt-0.5">
+                      rarity {(keyword.priority.corpusRarity * 100).toFixed(1)}%
+                    </span>
+                  )}
                 </button>
               </li>
             ))}
@@ -508,8 +548,9 @@ export const Dashboard = () => {
         ) : (
           <ul className="space-y-1">
             {figures.map(figure => {
-              const validation = figureValidations[figure.pageNumber];
-              const pageError = figureValidationErrors[figure.pageNumber];
+              const key = figureKey(figure.pageNumber, figure.figureNumber ?? '1');
+              const validation = figureValidations[key];
+              const pageError = figureValidationErrors[key];
               const validated = validation !== undefined;
               const hasError = Boolean(pageError);
               const hasIssues = validated && figureHasAnomalies(validation);
@@ -518,15 +559,15 @@ export const Dashboard = () => {
               <li key={figure.id}>
                 <button
                   type="button"
-                  onClick={() => setSelectedFigurePage(figure.pageNumber)}
+                  onClick={() => setSelectedFigureId(figure.id)}
                   className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
-                    selectedFigurePage === figure.pageNumber
+                    selectedFigureId === figure.id
                       ? 'bg-blue-100 text-blue-900 font-medium border border-blue-200'
                       : 'text-gray-700 hover:bg-gray-100 border border-transparent'
                   }`}
                 >
                   <span className="font-medium flex items-center gap-1.5">
-                    Fig. {figure.figureNumber}
+                    Fig. {figure.figureNumber ?? '1'}
                     {(validated || hasError) && (
                       <span
                         className={`inline-block w-2 h-2 rounded-full shrink-0 ${
@@ -598,8 +639,8 @@ export const Dashboard = () => {
                       <p className="text-sm text-gray-500 mt-0.5">
                         {selectedKeyword.concepts.length} concept
                         {selectedKeyword.concepts.length !== 1 ? 's' : ''} ·{' '}
-                        {selectedKeyword.callouts?.length || 0} occurrence
-                        {(selectedKeyword.callouts?.length || 0) !== 1 ? 's' : ''}
+                        {countFiguresForKeyword(selectedKeyword.callouts)} figure
+                        {countFiguresForKeyword(selectedKeyword.callouts) !== 1 ? 's' : ''}
                       </p>
                     </div>
 
@@ -674,7 +715,9 @@ export const Dashboard = () => {
                 ) : browseTab === 'figures' && selectedFigure ? (
                   <div>
                     <div className="mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900">Figure {selectedFigure.figureNumber}</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        Figure {selectedFigure.figureNumber ?? '1'}
+                      </h3>
                       <p className="text-sm text-gray-500 mt-0.5">
                         Page {selectedFigure.pageNumber} · {selectedFigure.callouts.length} callout
                         {selectedFigure.callouts.length !== 1 ? 's' : ''}

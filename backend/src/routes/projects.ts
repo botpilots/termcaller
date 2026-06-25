@@ -11,6 +11,7 @@ import {
   type IllustrationWithCallouts,
 } from '../services/figureValidationService.js';
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
+import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
 
 const router = express.Router();
 
@@ -98,7 +99,8 @@ router.get('/:id', authenticateToken, async (req: AuthRequest, res) => {
     }
 
     const pdfPath = await resolveProjectPdfPath(project, prisma);
-    res.json({ ...project, pdfPath: pdfPath ?? project.pdfPath });
+    const keywords = attachKeywordPriorities(project.keywords, project.illustrations);
+    res.json({ ...project, keywords, pdfPath: pdfPath ?? project.pdfPath });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to fetch project details' });
@@ -174,12 +176,9 @@ router.get('/:id/figures', authenticateToken, async (req: AuthRequest, res) => {
     }
 
     const figures = await prisma.illustration.findMany({
-      where: {
-        projectId: id,
-        figureNumber: { not: null },
-      },
+      where: { projectId: id },
       include: illustrationInclude,
-      orderBy: { pageNumber: 'asc' },
+      orderBy: [{ pageNumber: 'asc' }, { figureNumber: 'asc' }],
     });
 
     res.json(figures);
@@ -233,16 +232,16 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
     }
 
     const illustration = (await prisma.illustration.findFirst({
-      where: { projectId: id, pageNumber },
+      where: {
+        projectId: id,
+        pageNumber,
+        ...(req.query.figureNumber ? { figureNumber: String(req.query.figureNumber) } : {}),
+      },
       include: illustrationInclude,
     })) as IllustrationWithCallouts | null;
 
     if (!illustration) {
       return res.status(404).json({ error: 'No illustration found for this page' });
-    }
-
-    if (!illustration.figureNumber) {
-      return res.status(400).json({ error: 'Figure is not identified — validation requires a figure number' });
     }
 
     const pdfDocument = await import('pdfjs-dist/legacy/build/pdf.mjs').then(m =>
