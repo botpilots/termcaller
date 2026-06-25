@@ -2,7 +2,6 @@
  * Build service-manual domain corpus from PDFs and plain-text manuals.
  *
  * Outputs:
- *   backend/data/service-manual-corpus/words.txt     — all tokens, space-separated
  *   backend/data/service-manual-corpus/word-rank.json — vocab + parallel frequency arrays
  *   backend/data/service-manual-corpus/build-manifest.json — per-source checksums for incremental rebuild
  *   backend/data/service-manual-corpus/cache/*.tokens.txt — per-source token cache
@@ -186,13 +185,9 @@ async function main() {
   pruneStaleManifest(manifest, activeIds);
   pruneStaleCache(CACHE_DIR, activeIds);
 
-  const wordsPath = path.join(OUTPUT_DIR, 'words.txt');
-  const wordsStream = fs.createWriteStream(wordsPath, { encoding: 'utf8' });
-
   const termFreq = new Map<string, number>();
   const termDocFreq = new Map<string, number>();
   let totalTokens = 0;
-  let firstToken = true;
   let skippedCount = 0;
 
   for (const source of sources) {
@@ -204,9 +199,6 @@ async function main() {
     const uniqueInDoc = new Set(tokens);
 
     for (const token of tokens) {
-      if (!firstToken) wordsStream.write(' ');
-      wordsStream.write(token);
-      firstToken = false;
       termFreq.set(token, (termFreq.get(token) ?? 0) + 1);
       totalTokens++;
     }
@@ -216,14 +208,9 @@ async function main() {
     }
   }
 
-  await new Promise<void>((resolve, reject) => {
-    wordsStream.end(() => resolve());
-    wordsStream.on('error', reject);
-  });
-
   saveManifest(MANIFEST_PATH, manifest);
 
-  console.log(`\nWrote ${totalTokens.toLocaleString()} tokens to ${wordsPath}`);
+  console.log(`\nIndexed ${totalTokens.toLocaleString()} tokens across ${sources.length} source(s)`);
   if (skippedCount > 0) {
     console.log(`Skipped extraction for ${skippedCount}/${sources.length} unchanged source(s)`);
   }
@@ -243,11 +230,8 @@ async function main() {
   console.log(`Writing ${wordRank.v.length.toLocaleString()} ranked terms to ${rankPath}`);
   fs.writeFileSync(rankPath, JSON.stringify(wordRank));
 
-  const wordsBytes = fs.statSync(wordsPath).size;
   const rankBytes = fs.statSync(rankPath).size;
-  console.log(
-    `\nDone. words.txt: ${(wordsBytes / 1024 / 1024).toFixed(2)} MB, word-rank.json: ${(rankBytes / 1024).toFixed(1)} KB (${((1 - rankBytes / wordsBytes) * 100).toFixed(1)}% smaller)`
-  );
+  console.log(`\nDone. word-rank.json: ${(rankBytes / 1024).toFixed(1)} KB`);
 }
 
 main().catch((err) => {

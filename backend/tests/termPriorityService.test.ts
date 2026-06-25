@@ -63,4 +63,15 @@ describe('termPriorityService', () => {
     const priority = computeKeywordPriority('bolt', 0);
     expect(priority.score).toBe(0);
   });
+
+  it('weights figure count more strongly than log1p would at equal rarity', () => {
+    const low = computeKeywordPriority('screw', 2);
+    const high = computeKeywordPriority('screw', 12);
+    const logLow = Math.log1p(2) * low.corpusRarity;
+    const logHigh = Math.log1p(12) * high.corpusRarity;
+
+    const newRatio = high.score / low.score;
+    const oldRatio = logHigh / logLow;
+    expect(newRatio).toBeGreaterThan(oldRatio);
+  });
 });

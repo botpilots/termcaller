@@ -4,5 +4,6 @@
 /backend/.ocr-run.log
 /backend/data/service-manual-corpus/cache/
 /backend/data/service-manual-corpus/build-manifest.json
+/backend/data/service-manual-corpus/words.txt
 /service_manuals/*
 !/service_manuals/*_hocr_searchtext.txt

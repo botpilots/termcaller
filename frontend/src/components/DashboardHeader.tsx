@@ -1,5 +1,6 @@
 import React from 'react';
 import { Plus, Download } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface Project {
   id: string;
@@ -25,7 +26,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
     <header className="shrink-0 border-b border-gray-200 bg-white px-6 py-3">
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-4 min-w-0">
-          <h1 className="text-xl font-bold text-gray-900 shrink-0">Termcaller</h1>
+          <BrandLogo size="sm" variant="dark" className="shrink-0 items-start!" />
 
           <select
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-2 min-w-[12rem] max-w-xs"

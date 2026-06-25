@@ -24,6 +24,9 @@ export interface ResolvedCorpusStats {
 
 export type KeywordSortMode = 'frequency' | 'both' | 'rarity';
 
+/** Sub-linear exponent for figure count; between log (~0) and linear (1). */
+export const PRIORITY_FIGURE_EXPONENT = 0.75;
+
 export interface KeywordPriority {
   score: number;
   figureCount: number;
@@ -119,7 +122,8 @@ export function computeKeywordPriority(
   corpus: CorpusWordRank
 ): Omit<KeywordPriority, 'rank'> {
   const stats = resolveCorpusStats(sourceTerm, corpus);
-  const projectTf = Math.log1p(figureCount);
+  const projectTf =
+    figureCount > 0 ? Math.pow(figureCount, PRIORITY_FIGURE_EXPONENT) : 0;
   const score = projectTf * stats.corpusRarity;
 
   return {
