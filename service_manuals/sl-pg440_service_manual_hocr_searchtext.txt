@@ -1,0 +1,1113 @@
+U\ss
+multi-stage noise SH
+aise DIGITAL] MASH
+DIGITAL AUDIO
+NEW MECHANISM SERIES (RAEO111Z) SPECIFICATIONS
+i Audio No. of channels Frequency. response
+2 (left and right, stereo) 2-—20,000Hz, +1dB
+Output voltage 2V (at OdB) Dynamic range 92dB SIN 100dB
+Total harmonic distortion Wow and flutter
+DA converter
+Output impedance
+Load impedance Headphone output level
+0.007% (1 kHz, 0dB)
+Below measurable limit
+MASH (1 bit)
+Approx. 1kQ
+More than 10kQ
+15mW max. 32Q (adjustable) *
+f ¥
+Technics
+Service Manual
+ORDER NO. AD9212407C1
+Compact Disc Player
+SL-PG440
+Colour
+(K) ... Black Type Area
+Suffix for Aye Model No. a a a 0
+° Technics (or Panasonic) developed the world’s first MASH type DAC and ADC. MASH technology was invented by NTT (LSI Labs).
+e MASH is a trademark of NTT.
+i Pickup
+Wavelength 780nm i General
+Power consumption 12W
+AC 120V, 60Hz
+430 x 102.6 x 283.4mm
+(16 "8/46" X 4 1/39” X 11 5/9") Weight 3.4kg (7.5 Ib)
+Power supply Dimensions (W x H x D)
+Note:
+Design and specifications are subject to change without notice. Weight and dimensions are approximate.
+SL-PG440 . .
+Mi CONTENTS
+PRECAUTION OF LASER DIODE...........s:ssssssssssssssssessessseseenenseaes 2 TROUBLESHOOTING GUIDE .........:sssssssssssessesseeesersesseeeee 17, 18
+SAFETY PRECAUTION...... 2 MEASURMENTS AND ADJUSTMENTS........c:scssscssssssesseees 19, 20 ACCESSORIES ........:0000 wi 3 TERMINAL FUNCTION OF IC’S .......ccscsssssssssssessesessesesereess 21~24 CONNECTIONG.......cccssssssssessssssesessesseeessestsnesesseessseees we 3 BLOCK DIAGRAM .........:ssssssssssessees sone 25~27 w FRONT PANEL CONTROLS AND FUNCTIONS...... 4 SCHEMATIC DIAGRAM ............. we 28~33 CONCERNING THE REMOTE CONTROL..............++ 5 PRINTED CIRCUIT BOARDG..........s:sssssssssssssesesenesssseeeaenens 34~36 BASIC OPERATION PROCEDURE ............ssssssssssesseesees we 6 WIRING CONNECTION DIAGRAM ..........sssssssssssessssenesensesseees 37 HANDLING PRECAUTIONS FOR TRAVERSE DECK..............+. 7 INTERNAL CONNECTION OF EL.......cscscssssssssorssssessnsenensesenennees 38 DISASSEMBLY INSTRUCTION ........csssssssssssssssessssessenesseees 8~13 EXPLODED VIEWG.........csssssssessseesees we 39~41 DISPLAY FUNCTION OF AUTOMATICALLY-ADJUSTED REPLACEMENT PARTS LIST.........ssssssssssssssssessssesersesesessens 42~44 RESULTS (SELF-CHECK FUNCTION)... RESISTORS AND CAPACITORG.........:s:sssssstsessseesessesessees 45, 46 DIGITAL SERVO SYSTEM.......ssssssssssssseseessssessserseseesessesees NCCC) (Cee 46
+li PRECAUTION OF LASER DIODE
+CAUTION: This unit utilizes a class 1 laser. Invisible laser radiation is emitted from the optical pickup lens when the unit is turned on: 1. Do not look directly into the pickup lens. wy Do not use optical instruments to look at the pickup lens. Do not adjust the preset variable resistor on the optical pickup. Do not disassemble the optical pickup unit. If the optical pickup is replaced, use the manufactures specified replacement pickup only. Use of control or adjustments or performance of procedures other than those specified herin may result in hazardous radiation exposure.
+PAP wn
+Hi SAFETY PRECAUTION (this “safety precaution” is applied only in U.S.A.)
+Before servicing, unplug the power cord to prevent an electric shock. wy When replacing parts, use only manufacturer’s recommended components for safety.
+Check the condition of the power cord. Replace if wear or damage is evident.
+After servicing, be sure to restore the lead dress, insulation barriers, insulation papers, shields, etc.
+Before returning the serviced equipment to the customer, be sure to make the following insulation resistance
+test to prevent the customer from being exposed to a shock hazard.
+GUE GON) sf
+INSULATION RESISTANCE TEST
+e
+1. Unplug the power cord and short the two prongs of the plug with a jumper wire.
+2. Turn on the power switch.
+3. Measure the resistance value with ohmmeter between the jumpered AC plug and each exposed metal cabinet ry part, such as screwheads antenna, control shafts, handle brackets, etc. Equipment with antenna terminals should read between 3MQ and 5.2MQ to all exposed parts. (Fig. A) Equipment without antenna terminals should read approximately infinity to all exposed parts. (Fig. B)
+Note: Some exposed parts may be isolated from the chassis by design. These will read infinity.
+Antenna terminal
+Exposed Exposed metal metal part part Ohmmeter Ohmmeter (Fig. A) (Fig. B) Resistance = 3MQ2—5.2MQ Resistance = Approx oo
+4. If the measurement is outside the specified limits, there is a possibilty of a shock hazard. The equipment should be repaired and rechecked before it is returned to the customer.
+li ACCESSORIES
+AC power supply cord (polarized) 1 pe. (For U.S.A.: SJA175-1, for Canada: SJA172)
+Stereo connection cable (SUP2249-3) 1 pe.
+MICONNECTIONS |
+Before making connections, be sure that the power of this unit and all other system components is first turned off. See the operating instructions of the amplifier or the cassette deck for details. ;
+Rear panel of this unit
+(white)
+1 Connect stereo connection cable.
+1 Connect the stereo connection cable (in- cluded) to the “CD” or ““AUX”’ terminals of the amplifier.
+2 Connect the synchro edit cable (SJP2257T, in- cluded with the cassette deck) to the ‘“SYN- CHRO EDIT” terminal of the Technics cassette deck.
+2 Connect synchro edit cable.
+SL-PG440
+<
+Remote control transmitter (RAK-SL304W) 1 pe.
+Te
+Batteries ‘‘AAA” (RO3/UM4) 2 pcs. for remote control transmitter
+Note: These are available on sale route.
+Household AC outlet
+3 Connect AC power supply cord.
+3 Connect the AC power supply cord (included) to the “AC OUTLET” of the amplifier or the household AC- outlet (AC 120 V/60 Hz).
+- __ SL-PG@440 |
+Mj FRONT PANEL CONTROLS AND FUNCTIONS
+Control section
+@) Power switch (POWER) @ Random button (RANDOM)
+@) Disc tray © Repeat button (REPEAT)
+@) Remote control signal sensor: @ Disc tray open/close button (4 OPEN/CLOSE) (REMOTE SENSOR)
+@ Skip buttons (44 SKIP, >>| SKIP) @ Numeric buttons (1-10, 0, >10)
+@® Stop button (m™ STOP) © Buttons for program function Program button (PROGRAM) ® Pause button (11 PAUSE)
+eClear button (CLEAR) @ Play button (> PLAY)
+ile alpha ® Search buttons (<< SEARCH PP) © Buttons for CD-Edit function
+eTape length button (TAPE LENGTH) Peak search button (PEAK SEARCH)
+©Tape side select button (SIDE A/B) @ Auto cue button (AUTO CUE)
+eDisc link button (DISC LINK) Headphones jack (PHONES)
+eTime fade button (TIME FADE) @ Time mode select button (TIME MODE) Headphones volume control (PHONES LEVEL)
+Remote control section
+@0) Remote control transmission window @) Level control buttons (V LEVEL A) @i) A-B repeat button (A-B REPEAT)
+SL-PG44(
+li CONCERNING THE REMOTE CONTROL Battery installation
+ww
+Use of batteries
+Operation notes
+1 Open cover.
+XE
+Ne
+1 Open the cover. Press gently and slide the cover out.
+2 Insert the batteries included with this unit. When you need to replace these batteries, use two UM-4 “AAA”, IEC RO3 (1.5 V) or equivalent batteries.
+Do not mix old and new batteries or batteries of different types (carbon and alkaline, etc).
+The average battery life is about one year. Although the battery life varies depending on how often the device is used, you should gener- ally replace the batteries about once a year.
+Replace the batteries if commands from the remote control transmit- ter do not operate the unit even when the transmitter is held close to the front panel.
+Never subject batteries to excessive heat or flame; do not attempt to disassemble them; and be sure they are not short-circuited.
+If you will not be using the remote control for a long period of time, remove the batteries and store in a cool, dark place.
+Aim the remote control's transmission window toward the CD player’s sensor. Avoid any obstacles.
+<=
+Pie | Saale aay. 7
+CD player
+Cre 7 meters (23 ft.)
+Use the remote control with a 60-degree angle of the CD player. Maximum distance is within 7 meters (23 ft.) directly facing toward the CD player.
+Q Insert batteries (included).
+3 Close cover.
+Be sure to insert batteries so that their positive (+) and negative (—) polarities match the indications in the compartment. Batter- ies installed incorrectly may leak and cause damage.
+Refer to “Use of batteries” below for additional information.
+3 Close the cover.
+If a battery leaks, remove all batteries and dispose of them properly. Thoroughly clean the battery compartment before inserting new bat- teries.
+If the leaking electrolyte comes in contact with skin or clothes, flush with water immediately.
+Keep batteries out of reach of children. Do not use rechargeable-type (nickel-cadmium) batteries. Do not attempt to recharge alkaline or carbon batteries.
+Always remove old, weak, or worn-out batteries and dispose of them properly.
+Do not dispose of used batteries in household rubbish.
+"—~ Avoid dust.
+Be sure the transmission window and the CD player’s sensor are free from dust. Excessive dust might prevent reception.
+If direct sunlight or another strong light source strikes the remote control signal sensor part of the CD player, it may impair the remote control's operation. If there is a problem, place the CD player away from the light source.
+If this unit is installed in a rack with glass doors, the glass doors’ thickness or color might make it necessary to use the remote-control transmitter a shorter distance from the unit.
+SL-PG440
+li BASIC OPERATION PROCEDURE
+1 2
+OPEN/CLOSE
+Press POWER to switch on the power. If there is a disc in the disc tray, play will start from the first track.
+Press 4 OPEN/CLOSE to open the disc tray and insert a disc.
+(Also available from the remote control) Label must face upward.
+Before attempting to use the remote control transmitter to open the disc tray, make sure that there are no obstructions in front of the unit.
+Press 4 OPEN/CLOSE again to close the disc tray.
+(Also available from the remote control)
+Total number of tracks Total playing time
+Lights when the total number of tracks exceeds 17
+The total playing time displayed includes the silent sections between tracks. For this reason, it may be a few seconds longer than the playing time indicated on the disc.
+You can skip this step and press B PLAY. The disc tray will be automatically closed and then play will start from the first track.
+OPEN/CLOSE
+‘AUTO PHONES PHOWES LEVEL
+©
+4
+Press ® PLAY. (Also available from the remote control) Index number
+(For discs without index number,
+i ; " will be continuously displayed.)
+Track number in play
+Elapsed time —_ Play indicator
+The unit stops automatically when the last track finishes playing.
+li HANDLING PRECAUTIONS FOR TRAVERSE DECK
+The laser diode in the traverse deck (optical pickup) may break down due to potential difference caused by static
+electricity of clothes or human body. So, be careful of electrostatic breakdown during repair of the traverse deck (optical pickup).
+1.
+Handling of traverse deck (optical pickup)
+Do not subject the traverse deck (optical pickup) to static electricity as it is extremely sensitive to electrical shock.
+Variable resistor (Do not turn)
+Optical pickup
+SL-PG440
+2. To prevent the breakdown of the laser diode, an antistatic shorting pin is inserted into the flexible board (FPC board).
+When removing or connecting the short pin, finish the job in as short time as possible.
+3. Take care not to apply excessive stress to the flexible board (FPC board).
+4. Do not turn the variable resistor (laser power adjustment). It has already been adjusted.
+Lens (Do not touch)
+FPC board (Handle it carefully)
+Be sure to short this position Clip Shorting pin
+(Use the shorting pin or clip)
+e Grounding for electrostatic breakdown prevention
+1. Human body grounding Use the anti-static wrist strap to discharge the static electricity from your body.
+2. Work table grounding Put a conductive material (sheet) or steel sheet on the area where the optical pickup is placed, and
+Wrist strap (Anti-static bracelet) ground the sheet.
+Caution: 1MQ
+The static electricity of your clothes will not be
+grounded through the wrist strap. So, take care not to let your clothes touch the traverse deck (optical
+<< |
+Cr" "“\
+SK
+pickup). Iron plate or some metals to conduct electricity
+ell SL-PG440
+li DISASSEMBLY INSTRUCTION
+1. Remove the 5 screws( @ ~ ®).
+mea Removal of the power switch P.C.B. Procedure 1-2-3
+1. Remove the 1 flat cable(CN801). 2. Remove the 1 connector(CP790),
+Front panel ass’y
+Power switch P.C.B.
+3. Remove the 2 screws(@, @). 4. Remove the front panel ass’y in the direction of arrow.
+(Ria Removal of the FL/operation P.C.B. Procedure 1-2-5
+FL/operation P.C.B.
+x Pull out the phones level knob with using adhesive tape when removing
+the knob.
+Adhesive
+~ Headphones jack P.C.B.
+Phones pressure plate
+Co Phones level , knob Pe 1. Pull out the phones level knob. aT) 2. Remove the 1 screw(@).
+3. Remove the phones pressure plate.
+1. Remove the 4 screws( @ ~ @). 2. Release the 8 claws,
+w
+Removal of the loading unit Procedure 1-2-7
+(3) 1. Remove the 1 connector(CN404). 2. Remove the 4 screws( @ ~ @).
+Procedure 1-2-9
+1. Remove the 1 flat cable(CN1 1). 2. Remove the 1 connector(CN404), 3. Remove the 4 screws( @ ~ @).
+Ref.No. 8 Procedure 1-2-7-8
+Power supply P.C.B. Clamp plate Tray holder
+1. Remove the 3 screws(@~®). 1. Remove the 1 flat cable(CN701 5 2. Remove the clamp plate in the direction of arrow. 2. Remove the 3 screws(@~ ®). 3. Remove the tray holder.
+Ref.No. Removal of the fixed plate,magnet Removal of the guide shaft and guide 10 and magnet holder ass’y shaft holder Procedure Procedure 1>2-9-10 | 1>2>9-11
+1. Remove the 3 screws( @ ~ ©). 2. Remove the guide shaft and guide shaft holder in the direction of arrow.
+e Release the 3 claws.
+SL-PG440
+Procedure 1-2-7-9 —>11->12
+Disc tray
+1. Push the 2 levers in the direction of arrow @ until the 2. Remove the disc tray in the direction of arrow@). traverse deck unit goes down and the disc tray slightly in the direction of arrow@.
+aia te Removal of the servo P.C.B. Procedure 1-2-7-13
+Traverse motor terminals (2 points)
+XX Push the top of the connector in the direction of arrow@, and then pull out the flexible cable in the direction of arrow. @
+Top of connector Flexible cable
+4. Remove the FPC board(CN701),
+Spindle motor terminals (2 points)
+Flexible cable
+, Shorting pin
+Polarity of loading motor terminals
+Note: Insert a shorting pin into the 1. Remove the 3 screws(@~ ®). traverse unit flexible cable. 2. Unsolder the spindle motor terminals(2 points). (Refer to “handling precautions 3. Unsolder the traverse motor terminals(2 points). for traverse deck” on page 7.)
+Ref.No. Removal of the loading motor P.C.B. 14 and loading motor ass’y
+Procedure 1-2-7-9 —>11-12-14
+(3) Loading motor ¥ P.C.B.
+“oN
+terminals (2 points)
+3. Remove the 1 screw(@). 4. Unsolder the loading motor terminals(2 points).
+1. Remove the belt. 2. Remove the 2 screws(@, @).
+SL-PG44(
+Le Removal of the traverse deck unit
+Pr r 1 oe 1. Widen the boss by using 2. Pull out the pin in the
+a regular screwdriver or direction of arrow.
+similar object. a
+Traverse deck unit
+1. Remove the 3 pins. 2. Release the claw and then remove the traverse deck unit in the direction of arrow.
+— Removal of the conversion lever
+Removal of the lock lever
+Procedure Procedure 1->2-7-—9 1>2-7-9 >11—-12-16 >11—>-12-13 >15—-16—-17
+Claw
+1. Remove the assistance spring.
+2. Push the claw(A) in the direction of arrow@, and then move the slide plate(1) in the direction of arrow@®,.
+3. Remove the conversion lever in the direction of arrow @).
+1. Remove the lock lever spring. 2. Release the claw in the direction of arrow @, and then remove the lock lever in the direction of arrow®).
+ie Removal of the traverse chassis
+Procedure 1-2-7-9 >11—-12-13 —>15—-16—-17 —18
+Traverse chassis
+Claws(B)
+1. Push the claw(A) in the direction of arrow @, and then 2. Push the 2 claws(B) in the direction of arrow @), and then move the slide plate(1) in the direction of arrow@). remove the traverse chassis.
+I ___ SL-PG440 |
+Removal of the slide plate(1) and slide plate(2)
+Procedure 1-2-7-9 >11-13—-15 —-16—-17—-18
+Slide plate(2)
+i Removal of the slide plate(1) i Removal of the slide plate(2) ° Move the slide plate(1) in the direction of arrow@, and ° Move the slide plate(2) in the direction of arrow@, and remove the slide plate(1) in the direction of arrow®. remove the slide plate(2) in the direction of arrow@.
+dari How to check the servo P.C.B. Procedure 1+2>7—20
+Loading unit
+Power switch
+Front panel ass'y
+1. Install the front panel ass’y to the unit. 4. Place the test disc on the disc tray, and then push 2. Connect the connector(CN404, CP790) and flexible cable OPEN/CLOSE switch to close the disc tray. (CN801) to the main P.C.B. 5. Place the loading unit sideways as shown above.
+3. Turn on the power switch, and then push the OPEN/CLOSE _ 6. When checking the solder surface of the servo P.C.B., switch to open the disc tray. do as shown above.
+. Ground terminal Headphones jack P.C.B. (Output terminal)
+Procedure 1-2—-4-—-5
+FL/operation P.C.B. 4. Place the main P.C.B. vertically, and then install
+. FL/operation P.C.B. to the main P.C.B. 1. Remove the 4 screws(@~@). 5. Connect the ground terminal(Output terminal) to the
+2. Connect the flexible cable(CN801) of the headhones jack chassis with lead wire. P.C.B. 6. When checking the soldered surfaces of the main P.C.B.
+3. Connect the connector(CP790) of the FL/operation P.C.B. do as shown above.
+SL-PG440
+Hi INSTALLING SERVO P.C.B.
+1. Before installing the servo P.C.B., move the optical pickup toward the outer edge from the mark “ A”. (Otherwise, the rest detect switch(S701) mounted
+on the servo P.C.B. may be damaged.)
+2. Connect the flexible cable to the connector(CN701).
+3. Install the servo P.C.B. in the traverse deck unit with the three screws.
+4. Solder the two ternimals of the traverse motor and the two terminals of the spindle motor.
+* Note: Connect the flexible cable to the connector (CN701) firmly. Tighten the screws before soldering the terminals.
+4 Spindle motor terminal
+ww  HBINSTALLING DISC TRAY
+Traverse deck unit
+Conversion lever.
+y aN (3 Guide shaft holder eo Zi
+—a
+By a)
+y, J
+Nog Screw
+Lock lever
+1. Move lock lever in the direction of arrow @ and conversion lever in the direction of arrow@. (Traverse deck unit rises.)
+2. Install the guide shaft on the loading unit.
+Disc tray
+7. Slide the drive gear(2) ass’y in the direction of arrow®@. 8. Hold the disc tray and slide the under tray fully the direction of arrow©. (Slide but very little and the drive gear is engaged with drive gear(2) ass’y.]
+Screw
+Optical pickup
+Disc tray
+2 SS I
+g Drive gear(2) ass'y Guide shaft holder
+3. Install the disc tray on the guide shaft holder with the screws as shown above.
+4. Slide the drive gear(2) ass’y fully in the direction of arrow@).
+5. Slide the disc tray fully in the direction of arrow@.
+6. Lay the disc tray down in the direction of arrow®.
+Traverse unit
+Slide plate(1) Disc tray
+9. Slide the conversion lever fully in the direction of arrow
+@, and the drive gear(2) ass’y engages with the slide plate(1). (The traverse deck unit is lowered.)
+10. Slide the disc tray in the direction of arrow®.
+cml _ SL-PG440
+li DISPLAY FUNCTION OF AUTOMATICALLY-ADJUSTED RESULTS (SELF-CHECK FUNCTION)
+The unit contains a function which displays the result of the automatically adjustment of the servo circuits (tracking, forcus servo, etc.) as an error code on the FL display.
+The error code display serves as a repair guide showing the automatically adjustment circuit is at fault. The procedures for displaying the error codes are given below.
+e Procedures to display the error code
+1. Press the key to turn the unit ON. Next, press the key to open the disc tray, load the test disc (SZZP1054C) on the tray, close the tray by pressing the key again, and finally press the key to turn the unit OFF.
+2. While simultaneously pressing and holding the three keys, [TAPE LENGTH], [PROGRAM], and [44 SEARCH (8)], press the key again. When the unit is turned on and the FL display is lit up, immediately release the three keys. An error code will appear on the FL display (e.g. “E-0”).
+3. The error code provides a rough indication of which servo circuit is malfunctioning.
+e Error code based troubleshooting
+> The unit is satisfactory if the error code is E-0 of E-2. 3X Before testing, check that the test disc is free of scratches and dirt and optical pickup is clean.
+‘ Normal the values of Signal to check voltage and waveform Signal :
+MCLK 1C702 @ pin PLAY sy
+(e702, Opin= | LE fu oe SENSE | 16702 @ pin jast | 16702 @ pin
+Wie |All: N=
+(C702 @ pin
+FL error code Symptom display
+Probable cause
+Focus and tracking offset adjustments did not complete in the specified time period.
+@ Clocks X1 and X2, power supply VDD, and reset/RST, all on 1C702
+@ MDATA, MCLK, MLD, and SENSE signals to/from the mechanism controller
+® Scratches or contaminants on disc surface
+Disc play ® Focus and tracking servo circuits (check 1C702 @ pin unstable waveforms, voltages, and part constangs.) [| KICK | 1C702 @ pin
+® Spindle driver circuit ® Optical pickup
+JFLOCK | 1¢702 © pin [RF DET | 16702 @ pin
+| Rr | TJ701 a Sas 3.4V 0.5 p8.0.2W01V.
+10702 © pin Ria 1C702 @ pin Anan 2.4V
+Focus gain adjustment did not complete in the specified
+time period.
+Tracking gain adjustment did not complete in the specified
+time period.
+@® Scratches or contaminants on disc surface
+@ Focus servo circuit (check waveforms, voltages, and part constants.)
+® Optical pickup
+(6702 @ pin /TLOCK | 1C702 @ pin
+RF |
+FE
+OFT
+K
+FE TE
+OF
+@® Scratches or contaminants on disc surface
+@ Tracking circuit (check waveforms, voltages, and part constants.)
+® Optical pickup
+(0702 ® pin /TLOCK | 16702 @ pin
+(C702@ pin FLOCK | 1C702 @ pin
+Perform the same check as for error codes <E4, E6> and <E8, A>.
+SL-PG440
+@ DIGITAL SERVO SYSTEM
+The newly-developed digital servo system is adopted in the servo circuit of the unit’s CD player instead of the ordinary analog servo system.
+y 1. The diagrams shown below represent differences between the analog servo and digital servo systems. The HEAD AMP. output signals (i.e., focus error and tracksing error output signals) are analog. These analog signals are converted to the 8-bit digital signals through the MN66271. The MN66271 performs the following adjustments automatically; focus offset, tracking offset, focus gain, tracking gain, and tracking balance adjustments.
+The outputs from the MN66271 such as the focus coil driving signal, tracking coil driving signal, and traverse motor driving signal are converted to analog signals again and sent to the coils and motor to perform proper servo control for a disc.
+ANALOG SERVO SYSTEM NSISESESISTS)
+6 VRs require adjustment AN8373
+, To EMF demodulation Digital audio RF signal——= & D/A conv. ———— playback = |] [f°
+Focus coil
+Focus error output signal
+Tracking coil
+Tracking error output signal
+DIGITAL SERVO SYSTEM
+Only 1 VRrequires adjustment = © fe----—==—-
+; 5 (best eye adjustment) AN8802 | TEEM o 3 f demodulation| t——_______- Digital audio -
+playback
+Focus error output signal
+Focus coil Lens
+i] =" aarti
+Traverse coil
+ania y;'; 7° 7 ganas Microcomputer
+Soft microprogram processing
+Tracking error output signal
+Renewed Digital Servo Circuit
+The SL-PG440 employs a renewed digital servo circuit. ¢ Improved vibration resistance: This new circuit has the following improvements over The double floating head mechanism uses rubber and : the former circuit: spring mountings. @ e Reduced operation. noise: fo=50 Hz (former) > 20Hz (new) A double-stage noise reduction system is employed in e Reduced component count: the loading mechanism. Three ICs used in the former model were integrated into ¢ Shortened access time (from 2.9sec. to 1.9sec.) a single chip. The traverse gears have been improved. Former model: MN6626, MN6650, AN8800
+— New model: MN66271
+od __ SL-PG440
+rt
+2. The servo processor IC (MN66271) of the newly-developed digital servo circuit automatically performs the following adjustments which were originally adjusted manually in the conventional analog servo circuit: (1) Focus offset, (2) Tracking offset, (3) Focus gain, (4) Tracking gain, and (5) Tracking balance. Therefore, you do not have to perform the above-mentioned electrical adjustments. The unit optimizes the servo for each loaded disc. [You must perform the best eye (PD balance) adjustment manually.]
+The following flow chart shows the sequence of automatic adjustments.
+e Flow chart on automatic adjustment sequence
+START Focus search operation: ON
+Focus offset adjustment Tracking offset adjustment “Because the microcomputer precisely performs : automatic adjustments as shown in the flow chart,
+it will take approx. 5 seconds to finish reading TOC data if a used disc is eccentric one or its surface is
+Temporary adjustment of focus gain warped.
+Spindle motor starts rotation
+No
+Does focus pull in? Approx. 2.5 sec.
+Yes
+Focus servo operation: ON
+Tracking servo operation: ON
+Temporary adjustment of tracking gain Tracking balance adjustment
+No
+Does tracking pull in?
+Yes Fine adjustment of focus gain Fine adjustment tracking gain
+li TROUBLESHOOTING GUIDE
+No CD playback
+Does the test disc rotate?
+y
+NO Remove the test di
+YES Turn on close switch (;
+Check if TOC
+NO reading is performed.
+Does optical picku move?
+Optical inner tri outer tri
+Does “PLAY” appear on the display?
+No access
+Below 700 mV or no output Check oputput at of TJ701 (ARF)
+Does lens make
+Playing time appear on the display vertical movement:
+YES Are there outputs NG At about 1 Vp-p at pins ©, @ and @ of 1C702? eis Does laser diode 9 ® BCLK is pin @ of IC702L caine on? ‘@® LRCK OK at “HIGH” or “’LOW’? @® SRDATA (CLVS) YES
+Is pin © of CN702 at “HIGH” or “LOW”?
+Are there outputs at pins @ and @ of CN702?
+OK “He
+Load the
+test disc Is there an output at pin @ of 1C702?
+(KICK) Turn on close
+es 47kQ 1C702 failure ailure Remains at
+“Hy Check pin @ of 1C701. (RFDET)
+NO uy Had
+Changes “Ey” or zat No waveform or upper and
+x lower amplitudes are not equal.
+‘emains at ed . Check pin @
+of CN702. (FLOCK)
+Check pin @ of 1C701. (FE)
+| ra Upper and lower Changes 9 amplitudes of
+“HY or “L waveform are equal.
+Optical pickup . 1C702 failure C703 failure C701 failure 1C703 fail failure sca ‘a
+SL-PG440
+or
+NO
+ckup moves toward k once, and then toward k slightly (2 or 3 mm).
+Check the position At outer or around middle track
+of optical pickup.
+At inner track
+Is pin © of CN702 at “HIGH” or “’LOW’?
+“L’ (OV) v
+ail cheseds Hb Inner track limit switch sete is defective is short-circuited. or disconnected
+"uae Is pin ® of CN702
+at “HIGH” or “’LOW’2
+Are there outputs at pins @ and @ of 16703?
+Optical pickup failure
+NG
+Measure voltage across R701.
+Below 0.4 V
+Are there outputs pins ©@ and @ of 10703?
+Is there an output at pin @ of IC702? (FOD)
+1C703 failure
+NG
+NG
+Above 0.4 V
+Optical pickup failure
+OK
+Traverse deck failure
+> Above 0.6 V
+from
+Measure voltage between © and © of Q701.
+In there an output at pin @ of 1C702? (TRV)
+Below 0.6 V
+OK
+1C702 failure 1C703 failure from
+1C701 failure
+lj MEASUREMENTS AND ADJUSTMENTS
+SL-PG440
+Warning: This product uses a laser diode. Refer to caution statements on page 2.
+Measuring Instruments and Special Tools
+* Test discs
+1. Playability test disc (SZZP1054C) 2. Uneven test disc (SZZP1056C)
+* Musical program disc (ordinary)
+(1) MECHANICAL ADJUSTMENT
+eWhen the traverse deck is replaced, making adjustments is not necessary. (The traverse deck ass’y is already adjusted.) ¢ Make adjustments to improve playability if the traverse deck has not been replaced. 1. Connect the oscilloscope’s CH. 1 probe across (RF) (+) and (VREF) (—) on the servo P.C.B.
+Oscillosocpe setting: VOLT * SWEEP westsaveZervccssiis 0.5us. Input coupling
+. Switch the player power ON, and play track 19 on the test disc (SZZP1056C).
+(Playing any other track will prevent, the HEX screws from being accessed.)
+. Leave the player in play mode and place the traverse deck as shown under Ref. No. 20 on page 12.
+. Alternately adjust the HEX screws with the 2.0mm allen. wrench (SZZP1101C) until the vertical fluctuation of RF signal is minimized and the eye pattern is most stretched.
+(Refer to Fig. 2 on page 20)
+. After completing the adjustment, lock the HEX
+screws with lock paint (RZZOLO01).
+BEST EYE (PD BALANCE) ADJUSTMENT . Connect the oscilloscope’s CH. 1 probe across
+(RF) (+) and (VREF) (—) on the servo P.C.B.
+Oscillosocpe setting: VOLT SWEEP seit. ceszens 0.5us. Input coupling . Switch the player power ON, and play the 1kHz (track 1) on the test disc (SZZP1054C). . Adjust VR701 until the vertical fluctuation of RF signal is minimized and the eye pattern is most stretched. (Refer to Fig. 1 on page 20)
+Dual-beam oscilloscope with bandwidth of 30MHz or better (with EXT. trigger and 1:1 probe).
+Allen wrench (M2.0) (SZZP1101C)
+Lock paint (RZZOLO01)
+AAALAC AAA XO
+NNAAAARAA ARRAY? RS ouoeneneueuee
+SoSvoeeCEOLSEES | | RY SOSASCSCNCAIZESZSCAZAAZ NZ
+% Most stretched eye pattern.
+A Ware Neee eee “Y\\\ ana Oy AYRE
+% Most stretched eye pattern.
+___SL-PG440
+(3) CHECK OF PLAY OPERATION AFTER ADJUSTMENT
+Checking Skip Search Checking Playability . Play an ordinary musical program disc. . Play the 0.7mm black dot and the 0.7mm wedge Wy) . Press the skip button to check for normal skip search on the test disc (SZZP1054C) and verify that no operation (in both the forward and reverse direc- sound skip or noise occurs. tions). . Play the middle tracks of the uneven test disc
+(SZZP1056C) and verify that no sound skip or Checking Manual Search noise occurs. . Play an ordinary musical program disc. . Press the manual search button to check for smooth manual search operations at either low or high speed (in both the forward and reverse directions).
+e Adjustment points Hole for mechanical adjustment Ly)
+Servo P.C.B.
+Best eye (PD balance) adjustment
+(VREF )
+Fig. 1
+HEX screws
+Servo P.C.B.
+The elevation angle can be adjusted through this pot only after track 19 on the SZZP1056C test disc has been played. v
+Allen wrench Fig. P) (SZZP1101C)
+MI TERMINAL FUNCTION OF IC’S
+¢ 1C601 (MN187164PKZ1): System control & FL drive
+Clock input terminal
+(4.2336 MHz) OSC1 XI ae (Not used, connected to GND) Pe | XO p= | (Not used, open) 7 P27 Loading motor “open” (OPEN) command signal Loading motor “close” command signal Disc holder “open” detection raose ety ‘ca Disc holder “close” detection eer ees Ez Rest position detection signal (Not used, open)
+Synchro record control signal
+Remote control signal Optical servo condition (track cross) input Optical servo condition (focus) input
+pa fa o rm g zZ.-U Oo” J
+P15 (REMOCON)
+P14 (SENSE)
+—_ Es a og fom) 3
+10
+Division
+Optical servo condition (tracking) input
+Status signal (CRC, CUE, CLVS, TTSTOP, FCLV, SQOkK)
+Reset signal input
+Command clock signal Command load signal
+(“L”: LOAD)
+Command data signal Sub-code Q register clock Sub-code Q data
+Sub-code block clock (f=75Hz) (Not used, open)
+(Not used, connected to GND)
+P12 (TLOCK) P11 (D MUTE)
+P7 (RST) P4
+(SQCk)
+P1 (SUBQ)
+SYNC
+Gx rs sj
+| —_
+= 2a S
+b Ls)
+3/8 | foe) ele
+M
+80 P47 Is 5 Key return signal 37 P40 38 D9
+FL digit signal
+FL segment signal and key scan signal
+__ SL-PG440
+e 1C702 (MN66271RA): Digital servo processor/digital signal processor/digital filter/D/A converter
+ie] me |oten | mn Division
+Soe oe [= [aeons [eee = faemenrn |
+Power supply (digital circuit) terminal
+js | ov | = | GND (digital circuit) terminal pe fom fo” Digital audio interface signal pr] mou |r| Command clock signal jf woare | | Command data signal Bi aie
+(OFT, FESL, NACEND, NAJEND,
+cel ee
+POSAD, SFG)
+[1] ree} 0 — Rial ae et
+[12 | moc | 0 |ficnate mate
+jf ucck fo ea block clock
+14 } sack | | Sub-code Q register clock
+js | sua | 0 | Sub-code Q data
+je | owre fon Muting input (“H”: MUTE) Deere jf mer | | Reset signal (“L”: reset) Sos
+Frequency division clock signal PMCK (Not used, open) 1 Be (= Tor x ck=88.2 kHz)
+2] te [0 |rmesenn sinter |
+DVpp1
+Command load signal (“L”: LOAD)
+Sense signal
+10 Division Traverse drive signal
+Turntable motor drive signal (Se ON)
+Turntable motor drive signal (Forced mode)
+Turntable motor drive signal (Servo error signal)
+Kick pulse output
+Tracking drive signal output
+Focus drive signal output
+D/A drive output (TVD, ECS, TRD, FOD, FBAL, TBAL) normal voltage input terminal
+Focus balance adj. output Tracking balance adj. output
+NO LS)
+TVD
+vu a
+ECM
+ECS
+KICK
+nD “I
+Nh De] - oO
+TRD
+FOD
+VREF
+30 FBAL
+31 TBAL
+wo Nh
+4 m
+Focus error signal (analog input) Tracking error signal (analog input)
+RF envelope signal
+Oscillation det. signal (“H”: det.)
+Off frack signal (“H”: Off track) Track cross signal input
+RF detection signal (“L”: detection)
+34
+Bs)
+FENV
+35 VDET
+© o -— m
+[o>]
+OFT
+37 TRCRS
+38 /RFDET
+Dropout detection signal (“H”: dropout)
+40 LDON Laser power control (‘“‘H”: ON)
+wo iw]
+Tracking error shunt output (“H”: dropout)
+-S —
+TES
+42 PLAY Play signal (‘“H”: play)
+Double velocity status signal (“H”: double)
+RF signal input
+Reference current input DSL bias terminal (Not used, open)
+1/0 DSL loop filter terminal
+pale] a oS a > mn ba mT 1
+El
+N 1s] n = TT
+1/0 PLL loop filter terminal
+110 VCO loop filter terminal (Not used, open) Power supply (analog circuit) terminal (2) GND (analog circuit) terminal EFM signal (Not used, open) PLL extract clock (f=4.3218 MHz) Phase comparated signal of
+EFM and PCK (Not used, open)
+Sub-code serial output data (Not used, open) Sub-code serial output clock (Not used, open)
+Crystal oscillator terminal (f=16.9344 MHz)
+Power supply terminal Byte clock signal
+Sub-code frame clock signal (f CLDCK=7.35kHz: Normal) (Not used, open)
+Uv [aes Ee TT
+8
+o < (@) fe) a]
+G < ie) fe] ho
+a —_ ée <=
+o Q Ls)
+a pe] e |
+m
+mul
+=
+El
+es) U 2) A
+a a n n 18] (== i?) is] ~z [e)
+57 Vsg
+fale]
+x<
+BYTCK
+/CLDCK
+SL-PG44(¢
+0 Division Crystal frame clock (Not used, open) oe | IPFLAG Feces Interpolation flag terminal 2s | FLAG ae Flag terminal
+Turntable servo phase synchro
+signal (“H”: CLV, “L”: Rough servo)
+Sub-code CRC check terminal Cay: OK, ees NG)
+De-emphasis ON signal (“H”: ON)
+Re-synchronizing signal of frame sync. (Not used, open)
+BS) m ” <
+Reset terminal after “MASH” circuit
+Inst2 ITEST Be
+Test terminal (Normal: “H”)
+Power supply (analog circuit) terminal (1)
+GND (analog circuit) terminal (1) OUTR Rch audio signal Polarity direction control terminal of RF signal Frequency control terminal of con ileal crystal oscillator Test terminal (Normal: “L”) “SMCK” terminal frequency
+select (“L”: SMCK=4.2336 MHz)
+“SUBQ” terminal mode select 0 | SSee in| (“H”: Q code buffer)
+Bey ey [e)
+> [e) BA
+n —-
+an rc
+N El ps) n m Fr
+~J
+| 3 jal = vu BE m m Fie lire
+a
+SL-PG440
+e 1C701 (AN8802SCE1V): Servo amp
+0 Division Photo detector Bch input without delay PDA Photo detector Ach input without delay LPD  isailmet, Laser PD signal LD [amo Laser power auto control output MPI ein RF amp terminal cc pp lane Power supply terminal ladles RF amp signal Po: AGC detection capacitor input RF detect capacitor connection HPF-AMP capacitor connection terminal
+LD APC ON/OFF SH": ON, “LY LOEF).
+Tracking error shunt input (“H”: shunt)
+Play signal
+“He: ON, “L? OFF)
+Double velocity (“H”: double, “L”: single)
+10 Division BDO -—o— Dropout detection control RF det. signal inppet (“L": det) Tracking error zero cross output
+Off track detection (“H”: det.)
+Oscillation det. signal (“H”: det.)
+Envelope output terminal Oscillation detect input terminal
+Tracking error signal Focusing error signal Potention amp output Potention amp input
+} 28 TBAL ert Tracking balance adj. input } 29 FBAL sacle Focus balance adj. input
+vu =) > =)
+18
+— N
+als rs. 4 < rm +
+22 ENV
+> = < vu ie
+AGC
+ht > | oa m m
+ae Ps) mT
+=
+|= [3 =e (2) m >
+0
+A Uv of
+a
+1) N Uv =
+13 LDON
+=
+>
+TES Reference voltage output
+Photo detector Ach input with Photo detector Bch input with
+inbailcael Driver power supply (1) PGND1 = Driver GND terminal (1) Motor driver (1) output terminal Di- (-) p14 ie: ing driver (1) output terminal | o | Motor driver (2) output terminal (=) Motor driver (2) output terminal (+) Motor driver (3) output terminal () Motor driver (3) output terminal (+) Motor driver (4) output terminal (=) | 22 | Motor driver (4) output terminal (+)
+= Lys)
+15 PLAY
+16 VEL
+ale
+Reference voltage input Motor driver (2) input (Not used, open)
+i|s|s| bP
+REF
+< Q re)
+N
+=e oa
+oO
+Be
+N
+foe)
+D2+
+Q is) = ak =
+Zz [@)
+7 NRESET 1
+o is] 7
+rp =b
+=) is) > [%) +
++
+N
+nh
+a
+PC2
+IN1
+=
+= —- is) + oO
+BLOCK DIAGRAM
+AN8802SCEIV
+SERVO AMP \ OPTICAL PICKUP ait 8 10 aaa =) (eg Ra) (a a aa a o 4 Z s
+RF EO AGC Beye! H. cliper (B.P.F.)
+BDO detector LPF, pe s é Semiconductor laser
+| = Photo detector | | U iJ es ii: a 7 | | J = i if 3 rae
+| 5] AMPI é Vref | U Vref Vref ——— ——— | us a 7 | r |] PDAD \ > JPoe0 ven ner H Fiat 2] POA | | <— f= = = | | | . 41 a eae N eae : it | pa | rrehey 1 fg | F | | | | 3 | | | Vref | | | 8 | wal 0 | | - 4 32] PoBp | 3 AS ZIP POB | H | | = | eo . i
+VR701 (BEST EYE ADJUSTMENT)
+oO
+| o ji dis tea AN8389SEI [vec Pvec! Pvecal
+Reset INRESE ys
+jFOCUS COIL/ TRACKING | signal . | COIL/ TRAVERSE moToR/| gemerotor SPINDLE MOTOR | SS
+Focus coil { | Trocking Tracking coil coil drive be | | | AA—— TRAVERSE Traverse MOTOR motor drive SPINDLE Spindle -Wwe— MOTOR I7Jo2—_| motor e drive
+| [_svo__cno! PGND2| 3
+Oo 5,8 |I4 2
+MN66271IRA SERVO PROCESSOR/DIGITAL SIG!
+DIGITAL FILTER/D/A CONVERTE
+4 | a a o oe . Syndrome gital audio oy calculation interface 44] ARF Phase Frequency OSL comparator comparator
+Synchronizing i]
+Protection
+EFM data
+demodulator
+de—enphosis
+attenuation
+S/P converter
+TES|I4 | ] a. T 39800 38 JRF DET
+Synchronizing interpolation protection
+PLAY]IS o Ph 34 )RF ENV 71 jase defference OFTRA2ZO 32 RAM Pack limiter Fe address detector/
+converter
+| ee eee ee
+generator auto cue CLV servo Sub-code
+demodulator
+TEJ24 33jTE o Ne sy OFT CROSS J19 Vref eS Y
+37] TRCR' re) TEBPF 423 res
+El i eee re
+Ti gt 3D Y register U i> | TH | -vret | Vref | | Servo output D/A converter a | port x w ° x °o i F 4 rs) © =} < a °o > = r g ————*h ee) a ee 13 14 1S 16 | Reset signal generator _ $27 Jes 26k fre os iy Bey ae =a ¢ *§ *§ "8 ae ¢ | x °o b=) > a n oO = 1S riz 2 7 = i) - (TLOCK) ~ 2h P13 — SYSTEM '6Api4 z (SENSE) a a | mar os 0 a a a fee 2S ee ze 8 10 $790 St (CLOSE)/ (0 5 GND TA7291S 1¢c790 a MOTOR DRIVE MOR!
+NAL PROCESSOR/
+OS Arai 57 J
+a v >
+a =4° |
+DVssI AVssl AVss2
+O) L ch
+3 | Q80In, 804 2
+| OUTPUT xr q | ‘ |
+v OQ) R ch
+|
+|
+|
+|
+Q851v853
+LRCKJ2 > Muting control
+SR Bul 3 Headphones I able HEADPHONES
+| i BAI5218N | / . | veence S/ Headphones LEVEL) omr
+ming enerator
+RCDHC-278-E
+REMOTE SENSOR
+Z
+Microcomputer interface
+SYNCHRO EDIT
+20 24 22
+Om em On ae S- ms OS UT ‘om as & re fe a5 f6 3! 86 Fe b 8 go 6: oF ae Q ~- = = = « S me wi = a MNI87I64PKZI = =
+CONTROL & FL DRIVE
+P25 @Y(OPEN SW)
+TRANSFORMER
+— oo f° S601I~632
+Regulotor
+KEY MATRIX
+FL DISPLAY
+AC IN
+SL-PG440
+Note: — : Audio signal
+| SL-PG@440 |
+i SCHEMATIC DIAGRAM (Parts list on pages 43~46)
+(This schematic diagram may be modified at any time with development of new technology.)
+Note:
+e $601~612, : Numeric (0O~10) switches. $601: 1, S602: 2, S603: 3, $604: 4, S605: 5, S606: 6, $607: 7, S608: 8, S609: 9, $610: 10, S611: >10, S612: 0
+° $613 : Disc holder open/close (A OPEN/CLOSE) switch. © $614,615 : Skip (SKIP) switches. (S614: <q, S615: PPI) e S616 : Stop (i STOP) switch. e S617 : Pause (ff PAUSE) switch. © $618 : Play (B PLAY) switch. e $619 : Peak level search (PEAK SEARCH) switch. e $620 : Auto cue (AUTO CUE) switch. e $621 : Edit tape length (TAPE LENGTH) switch. e $622 : Tape side sdect (SIDE A/B) switch ° $623 : Disc link (DISC LINK) switch. ° $624 : Time fade (TIME FADE) switch. e $625 : Program (PROGRAM) switch. ° $626 : Clear (CLEAR) switch. e $627 : Recall (RECALL) switch. ° $628 : Time mode (TIME MODE) switch. e $629, 630 : Search (SEARCH) switches. (S629: <<, S630: PP) e $631 : Repeat (REPEAT) switch. e $632 : Random (RANDOM) switch. ° $633 : Power (POWER) switch. e $701 : Rest detector in “OFF” position. (It turns “ON” when optical pickup comes to innermost periphery.) e $790 : Disc holder “close” detector switch. e $791 : Disc holder “open” detector switch.
+e The voltage value and waveforms are the reference voltage of this unit measured by DC electronic voltmeter (high impedance) and oscilloscope on the basis of chassis.
+¢ Terminal guide of IC’s, transistors and diodes
+BA4558FT1 AN8802SCE1V AN8389SE1
+RCDHC-278-E
+32
+| 2SB709STW
+SS
+E
+Accordingly, there may arise some error in voltage values and waveforms depending upon the internal impedance of the tester or the measuring unit.
+* The parenthesized are the values of voltage generated during playing (Test disc 1kHz, L+R, OdB), others are voltage values in stop mode.
+e Important safety notice:
+Components identified by A\ mark have special
+characteristics important for safety. Furthermore,
+special parts which have purposes of fire-retardant
+(resistors), high-quality sound (capacitors), low-noise
+(resistors), etc. are used. When replacing any of
+components, be sure to use only manufacturer’s
+specified parts shown in the parts list. e The supply parts number is described alone in the replacement parts.
+[Part No | Original Part No. | Supply part No._|
+e Signal line numa / enema: Positive voltage lines and negative voltage lines #s t Audio signal line
+Caution!
+IC and LSI are sensitive to static electricity.
+Secondary trouble can be prevented by taking care during
+repair.
+e Cover the parts boxes made of plastics with aluminum foil.
+e Ground the soldering iron.
+e Put a conductive mat on the work table.
+© Do not touch the pins of IC or LSI with fingers directly.
+MN66271RA TA7291S BA15218N
+2SA1309QRSTA 2SC3311QRSTA 2SD1450RSTTA UN4112TA UN4212TA
+DTA114ESTP
+1SS254TA SVD1SR35200V
+Ca ca Cathode
+A
+MTZJ5REBTA MTZJ8R2CTA MTZJ27DTA
+Zi
+AOPTICAL PICKUP = 2SB709STW Lo LASER POWER a
+CRORGKOXO! OOOOVOWO
+:
+MOTOR
+M701 TRAVERSE MOTOR
+@) on
+> w
+S ©. ©)
+4.7K £4
+OOOO ®
+g ©)
+@) @) 900 b>
+a
+(45v)
+F 9)
+c712 TP4! MO.I O
+2ms.0.1V/DIV.
+TP42
+R708 220K
+SL-PG440
+BEST EYE ADJ.\-a9y
+Sass x >| Gs | vr7or on 1OK(B) oO PLAY — '2VP-P je701
+0.5ps.0.2v/0IV.
+SERVO AMP Cc7I6 KS560P . bee E D G B (4.9Vv) Ov 4.9Vy0V (5) > a a & Ic701 o wo a ab Ee US Ue fa} wu a a f=) > ° oO N a B)—@) (9) 2.4V ov ov 4.8V] 48V] Ov (ov) Peete Ox to eo BE av C748 K270P +— t—k- c709 Ii KO.047 =F —|+—4 c742 K0.027 ~H Jt 4 C710 KISOOP “* + E Dc BA,
+1ov220
+C734
+04+@)
+1C703
+AN8389SE|
+FOCUS COIL /TRACKING COIL/ TRAVERSE MOTOR/
+SPINOLE MOTOR DRIVE
+AN8802SCEIV
+moowp
+4.9V
+N\\ [eevee
+F=16.9344MHz 1c702
+1c702
+MN6627!RA
+SERVO PROCESSOR /DIGITAL SIGNAL PROCESSOR/ DIGITAL FILTER/O/A CONVERTER
+2, ° v @) a) oO ° x
+c722 DIOP =F 55 es l¢ xR (S ioe = & c72i 2.39V P-P F =16.9344MHZz c7is K 0.22 c7I9 KO.22 vo s=d =e ras) ete a
+2Vp-p
+0.5 ps. O2V/01V.
+Fb w ° G6) >
+ov l4. e) LDON () ©) SEY TReRS
+PLAY
+OV (2.4V!
+1kHz,0dB
+5v
+T=13.6ms.
+PLAY
+c725 K1OO0OP
+c726 K 1000P.
+PLAY
+win | 400mv p-p
+2ms.0.2V/DIV.
+300mvV PP
+2ms. O.1V/DIV.
+¢ R738 22K -ra7moodoowop
+22rAnxre
+PLAY
+OTPI8
+> sv 2 a i 1M, =e T=13.6ms,
+TP22 6 CN702 #23) Leh OUT | (22) A.GND | a Qi) Rech OUT 4.9V ov O.1 ps. 2V/D1V (9) 0. GND \ es cit (8) LD SW 9 \ A> se) TX 0 | 74V-, x () +B (1) | ©) P.GND | B (4) MCLK | c @G) M DATA | D ee MLD — wo SENSE i (0) / FLOCK | | G (2) / TLock | H (8) B LKCK | ! ) SQCK 1 J ©) SUBQ Li K 46) 0. MUTE Il (@) STAT Pl M 7 RST Wal N (@) sMcK mi (i) REST SW 49v S701 TP! (REST) 5 oO TPIS 9 7.4V
+Toll main CIRCUIT
+(CN404)
+i)
+11 12 13 14 15
+EN FL/oreration circuit
+FL6OI (RSLOO87-F)
+FL DISPLAY
+ABCDEFGHIug
+i iseeeard CP790 -26V. | +} G D aly JIHGFEDCB LEV 3S] a] @ 4 4 a2 Li
+IC60]
+IC60I MNI87I64PKZI SYSTEM CONTROL & FL DRIVE
+HGFEDCBA
+HGFEDCB A 4.2Vp-p
+IM
+F=4.2336MHz
+xronmoo
+C60.
+B 2° 2
+J
+Cc D 1c602 fs! < < z RCDHC-278-E ¢ 5 & = to oF nu Sy xa REMOTE SENSOR Sau Sa oa Sa ao a °8 28 oo
+rril
+$622 $623 $624 $621 (SIDE A/B) (DISC LINK) (TIME FADE) (TAPE LENGTH) —a —_—_ oe
+Q60l
+2SC331IQRSTA REGULATOR
+| $626 $627 $628 $625 (CLEAR) (RECALL) (TIME MODE) ( PROGRAM) a x —L. — —. & — oe D 1 =] $630 S63! $632 $629 <q (> SEARCH) (REPEAT) (RANDOM) ( 44SEARCH) A = — — i © aia § | Sa eae $6 E oe aN S619 S618 S617 $620 = (PEAK SEARCH) (P PLAY) (M1 PAUSE) (AUTO CUE) —— —— —. — F ies: Ses Uf = eos 2 ieee | Ss6i5 sé6l4 S613 S616
+(DPR SKIP) (H44SKIP) (4 OPEN/CLOSE) (STOP)
+16 17 18 19 20
+Qi
+2SBI238QSTV6 REGULATOR
+12,13 2SD2037EFTA REGULATOR
+ane O-O-O @-O-@
+©-O-O+ s791 LOADING
+(OPEN) MOTOR
+48v R23 1
+$790 (CLOSE)
+MTZJ27 DTA
+73V. a52 Qs! < UN4212TA 2SAI309QRSTA 5 RESET SIGNAL RESET SIGNAL mo Vieni 1c790 GENERATOR GENERATOR og m3 7 TA7291S = 0 S MOTOR DRIVE ° i 9 i yx z q 2 2 Q51 eS Dds! 8 nN. J) POWER SWITCH CIRCUIT va aandiy AS633 (POWER) rac AQs0os | ai ol 7.5V IL7VU10.4V) (Lae A = Icll REGULATOR a cS FI LM2940T5M ag) REGULATOR pane | D805, 806 f —— I = MTZJBR2CTA Et | (4) (5) - 15.) S  —@ CN402 @ 3 aah Ragone e dere ogo Ie ood (4) S}— | L ~}— Q806,807 2SAIZ09QRSTA REGULATOR U (7) Q85! Li = UN4I12TA (| MUTING CONT. C N 35 Q853 Resa Bo sy uote 3.3K aa a) ( a 3%, zy ‘eo “ Q85l (ov) c= a8s2 its) ey —| UN4212TA MUTING CONT. a] Q8s2 ul omy Iceot © Aer BA4558FTI ToBI servo W 0.01 L.P. FILTER AMP geo SIRCULT. a SST (CN702) Ory R805] R807 ICBOI(1/2)] 7.5V — ss Ks) Leech bi o a® | sia 8% 38 al o— | av #87 os B87. te} webct: B & (2) 6.8V HB -A 2 P-p a ty Oo a gel Be oot ooT xn 2et 2 Role | a i> ae woe | sas IC801(1/2) c804 390P
+21
+22 23
+24
+SL-PG440
+[J Power suppvy circuit
+RI3 Ri2 Apt7o1 15 15 cNII CN7Ol == a ALTO! WWW (1) oO ¢ $ | C57V —— 4 a i JK7O1 A 013 [ } S Rersie ’ = AC 120V SVDIER35200V av , Su 1C; el, (60Hz) So 1S, ? sav] jy 3 6) 6) ? AC 9.9V 4 [ [e] HEADPHONES yack CIRCUIT PLAY PLAY Mls VP lesen q 1kH2,0dB 1 kHz, 048 SVDISR35200V (LEVEL:CENTER) (LEVEL: CENTER) Aoi7 75v |) ca73 Lez7i SVDISR35200V S ,/| 1ovaz 2.2uH = Ele vs as and fre 2g 0 0 an 5 om o cnsol ft Fce7i > x Ss a go 5] & ORBIT S I > ina ° Do 120K N nl [dd Ow wy ae 3! © wo Ja q z| 5m R878 2 a =~ ~ 120K
+Apis SVDISR35200V
+VR871-2 1OK(A) R874 I8K C876 0.01
+rier 1OvIO
+“R872
+BAIS218N HEADPHONES AMP
+1853
+ITAII4ESTP AUTING CONT.
+——) 2.2V
+(-1.8V)
+~ a < -7.8V
+R402 IK B R401 IK Q40! ev ax | ste ov 2 etn A Coat S07 So7T 951 So Q401 os te UN4212TA SWITCHING (SYNCHRO EDIT) A B c8o7 R821 A 10v47 220 RBIS 560 oo 5 Bo b 83 D8ol ISS254TA ISS254TA D802 aay D804 x 6 fe} 1s8254TA OW \SS254TA gs 5 Xe) R820 560 C808 R822 Bie: !ova7 = 220 801,802 Q803 ,804 PLAY 2SC331IQRSTA 2SDI450RSTTA MUTING DRIVE MUTING DRIVE 4
+1kHz,0dB
+HEADPHONES GND87! JK401 (3) SYNCHRO © EDIT ) JKBOL O) Lch OUTPUT O) Rch
+1 2 Mi PRINTED CIRCUIT BOARDS
+SL-PG44(
+5 6 7 8 9
+Bi FL/OPERATION PC.B.(REPI459A-S)
+SYNCHRO EDIT
+(TIME rage) (DISC-LINK). (SIDE_A/By==TAPE.LENGTH)
+S62: 4 S622—_/ $621 mh. RARRARERA A RD DD eS eA eS (he ot ieee’ are D602 1234 5 67 8 9 10 tl 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2 | 7 (ip a I © |=
+hy item =\7—— oe aN OE ERE EEN, A ™ CG [> oF pools poore {oo D603 5 Lea Lj Uj Ne uss) D605 i (TIME MODE) (RECALL) (CLEAR) (PROGRAM) C604 $628 5627 $626 $625 are : Cy ae qin qi-n 5 ie 1e6ol x601 ont on | | lot. ee | [oe| (P| & (aol Y me ZAC ia) fe (tee a Lf Sseges re ae > : feral 323130292827 262524232221 2019 18 1716 1514131211109 876543219 ' 2 a er a “Fest bese qs (1 Od (9) (8) (2) (6) (5) (4) (3) reo ah eh a S610 $609 S60B_—S607_— $606_ © $605 $604_ $608 oto ae cal ote! lis aa Ce a ae TN ea A | | | | | | fe? AS) [7S] OR OF) -y FOL70 hy =O OF mM =O| OFM OH) | [NOI/O*y || OOH LS Loud to 4 Loos LL SSL NU LE pteSreredommlo mm Lt NYE _ Oy NaS peewee se S30 DN PSL Ze = CN602 ICN6O 1 [eres B55 2 oly Sas ens weCZesee ely rc} 2 (PEAK SEARCH) oC eis (MPAUSE) ( Zaes {> at
+LOADING MOTOR PC.B.(REPO767) 'D) fle
+S791“S790:
+» Rid, C Fe aris | alo1 oe a : 73 7 Ree) ale is aE > Ey ¥ hil Ql2 oT ty? ¥ 8 E E Li! e a  cl2 Si o af |S ay =¥ ac TCE °To 3 3 a ake 654321) St ste 50805 ap pd TTT St, 85! ddl 7 a7 {2} -_—-- 2] ° em ncaa = EDIT ips j ™m aeeaelic B Bika . : 3 g0s06 234 8 +3 la rt sls Gozo. A 3? Qi 6) z 3-TSBIST > > Sig ere uM 8 g i8 8 le ae a (da ChE : i
+at o-3- 0) (8 19 . SL 5 a” oO kd in Tipe Seo! Jug
+a ti wae a aQre © #9802 : = =F
+ra ; SL-PG440 | Li.
+‘ee 10 11 12 13 14
+POWER SUPPLY PC.B. (REPI395A-P)
+(120V 60Hz)
+*\ PT7OI (Power \ transformer)
+G HEADPHONES JACK PC.B. (REPI459A-S)
+li WIRING CONNECTION DIAGRAM [a rower SUPPLY RC.B. Nove:
+BLK ----Black WHT -::-White HEADPHONES JACK PC.B.
+PT701 (Power transformer)
+EDIT hich) (Reh)
+OPTICAL PICKUP
+AI SERVO PC.B. M701
+TRAVERSE MOTOR
+CN702
+M702 SPINDLE MOTOR
+[J voavine MOTOR PC.B.
+1 LOADING MOTOR |
+|B | FL/OPERATION PC.B. POWER SWITCH P.C.B.
+CN6O! CN602 CN603
+SL-PG440 it~”
+@ INTERNAL CONNECTION OF FL
+e Grid connection diagram
+6G 3G
+PG@M LINIK PEAK
+i —> — =_ = = a = =_
+reef e [| 7 | = [aoa aoe] _
+ae eee,
+SL-PG44
+lM EXPLODED VIEWS
+¢ Cabinet and chassis parts
+SL-PG440
+20
+o uJ = S re Yn Zz <x oO =
+15
+14
+13
+12
+11
+¢ Loading mechanism parts
+parts, apply the specified grease to
+the areas marked “x x” as shown
+Note: When changing loading mechanism in the drawing.
+| SL-PG440
+| ‘(MEREPLACEMENT PARTS LIST
+Notes: *Important safety notice: Components identified by A mark have special characteristics important for safety. Furthermore, special parts which have purposes of fire-retardant (resistors), high-quality sound (capacitors), low-noise (resistors), etc. are used.
+When replacing any of components, be sure to use only manufacturer's specified parts shown in the parts list. *The parenthesized indications in the Remarks columns specify the areas. (Refer to the cover page for area.)
+Parts without these indications can be used for all areas. = ae : stares
+*Warning: This product uses a laser diode. Refer to caution statements on page 2. ruoo4s—_|GUIDE. SHAFT ere ceeeae |
+Ref.No. | Part No. | Part Name & Description Remarks 115
+117 RMAD327-1 [CLAMP PLATE 1 RKMO114-K [CABINET 118 RMRO334 | FIXED PLATE 2 SNE2129-1 [SCREW 119 RXQ0123. [MAGNET HOLDER ASS’ Y 3 XTBS3+8JF21 [SCREW 120 RFKNLPG440-K [DRIVE GEAR(2) ASS’ Y n RE20522 [FLAT CABLE(6P) 121 RGQ0088-K [DISC TRAY pnp | 5 RGKO313-K | TRAY ORNAMENT 122 RHD20009-1 [SCREW fn | 6 RGROOS2M-A [REAR PANEL = 123 XTB3+25GF2 — [SCREW 7 REKJLPG440AK |CHASSIS ASS’ Y 124 XTN26+6G {SCREW pnp 7-1 |RKAOO53-A snr 125 pee SCREW 8 RMRO359 [MECHANISM SPACER 126 RAEO1112 [TRAVERSE DECK UNIT 9 RMNO185-1 [FL HOLDER 126k __|sicb112 __| FLOATING RUBBER (A) Se 10 RFKGLPG440PK |FRONT PANEL ASS’ Y 1268 SHGD113-1 | FLOATING RUBBER (B) 10-1 RKWO127B | FRONT ORNAMENT PLATE 126 Frovoes BELT i RGUO278E-K [10 KEY BUTTON 126D SNSD38 SCREW aa 12 [Reun4s7A-K2 ‘(wat Burton RMEO109 | FLOATING SPRING 1B RGUO468-K2 SUB BUTTON 128 ~fs23-1 FIXED PIN(A) 14 RGWOO4S FOS LEVEL KNOB 129 RMSO350 | FIXED PIN(B) 15 __|Pro0 PHONES PRESSURE PLATE 130 RMRO533-K TRAVERSE CHASSIS 16 XTBS26+8) [SCREW 131 xTv2+6G [SCREW 17 SHE187-2 _|P.C.B. SUPPORT 18 __[suno20 POWER BUTTON PACKING MATERTAL po 19 XTB3+20JF2 [SCREW Pt | 20 XTB3+8JF2 [SCREW Pl RPG1397 __| PACKING CASE 21 [rez0528 | FLAT CABLE (23P) | P2 RPNO416 {CUSHION aay = P3 Rpq0272 ‘| PAD LOADING MECHANISM P4 XZBGOX65A012Z [PROTECTION BAG (UNIT) pte PS wzsaxa0nns PROTECTION BAG (CORD) 101 RFKJLPG440BK |MECHANISM CHASSIS ASS’ Y mal 101A RDGO142 ‘| INTERMEDIATE GEAR ACCESSORIES foie — longed GEAR (1) 101¢ RoPO041 [INTERMEDIATE PULLEY Al ROT1705-P [INSTRUCTION MANUAL () 102 REMO019 [LOADING MOTOR ASS’ Y Al RFKSLPG440PC INSTRUCTION MANUAL ASS'Y — | (PC) 103 RMAD339 | TRAY HOLDER SJAI75-1 [AC POWER SUPPLY CORD 104 RMEOO63 LOCK LEVER SPRING Pe SJAL72 AC POWER SUPPLY CORD 105 RME0087 [ASSISTANCE SPRING A3 $JP2249-3 [STEREO CONNECTION CABLE 106 RMGO158 BELT A SQx7179 [WARRANTY CARD ) 107 RMLO177 [CONVERSION LEVER Ad SQXx7183 [WARRANTY CARD (PC) 108 RMLO178-1 [LOCK LEVER AS SQX9129-1 _|SERVICENTER LIST 109 jams SLIDE PLATE (2) a5 {soxoiai _{SERVICENTER LIST (PO) 110 RMM0079 [SLIDE PLATE (1) a6 RAK-SL304W [REMOTE CONTROL TRANSMITTER 11 XTN26+66 ~jsareW AG-1 RKKOO20-K BATTERY COVER FOR R/C TRANSMITTER [112 XYN2+F6FZ {SCREW [113 RDBOO36 GUIDE SHAFT HOLDER = 114 RHD20010 {SCREW
+fat ae Peseription cease |
+tte |
+INTEGRATED CIRCUIT (S)
+SL-PG440
+Part Name & Description Remarks
+prota |__| osc ILLaToR (s)
+i
+Q52
+UN4212TA TRANSISTOR
+ios evezzaen [oes
+ICl1 LM29407T5 _| IC, REGULATOR A X601 RSXY4M23MO1T [OSCILLATOR (4. 2336MHlz) 1601 __|MN187164PKZ1 |IC, SYSTEM CONTROL8FL DRIVE : 1602 __{RCDHC-278 _|IC, REMOTE SENSOR 1¢790 _|Ta7291S _| IC, MOTOR DRIVE 1¢801___|SVIBA4558F | IC, L.P. F. FL601 ——_|RSLOO87-F —_|DISPLAY TUBE 1871 ___|[BA15218N _|IC, HEADPHONES AMP SWITCH (ES) TRANSISTOR S) S601 SH, 1
+qu 2SB1238QSTV6 |TRANSISTOR $602 SH, 2 Q12,13 _|28D2037EFTA | TRANSISTOR S603 EVQ21405R | SH, 3 Qi4 2SA1309A-R | TRANSISTOR S604 EVQ21405R —_|SH, 4 Q51 2SA1309A-R | TRANSISTOR S605 levazi405R — [SW, 5
+= = ———
+D606
+MIZJSR6BTA
+01 UN4212TA __[ TRANSISTOR S607 Evg21405R —_|SW,7 Q601 28C3311A-Q | TRANSISTOR soos ——[evazi405r [sw 8 QB01, 802 [28C3311A-Q | TRANSISTOR S609 EvO21405R —_|SW, 9 Q803, 804 [2SD1450RTA | TRANSISTOR S610 Evo21405R —_[SH, 10 0805 28C3311A-Q {TRANSISTOR S611 Evg21405R —_|SW, >10 Q806, 807 |2SA1309A-R | TRANSISTOR S612 Evg2i405R —_|SH,0 0851 UN4112 TRANSISTOR S613 Evg21405R —_[SH, OPEN/CLOSE 9852 UN4212TA _| TRANSISTOR S614 Evq21405R —_|SW, SKIP (R) 0853 DTALL4ESTP | TRANSISTOR S615 EvQ21405R —_|SW, SKIP(F) S616 Evg21405R —_|SW, STOP DIODE (S) S617 EVQ21405R —_ |SW, PAUSE S618 —_—_[evazi405R —_|SW, PLAY Dii-14 _|svp1sr35200a [DIODE S619 EvQ21405R —_|SW, PEAK SEARCH Dis MIZJ8R2CTA [DIODE $620 EVQ21405R |W, AUTO CUE D16 MI‘ZJ27DTA S621 EvQ21405R —_ |SH, TAPE LENGTH D17,18 _[SVD1SR35200A EVQ21405R _|SH, SIDE A/B Dig MIZJeR2cTA [DIODE 8623 EVQ21405R —_ |SH, DISC LINK Ds1-53 —_|isszsata_—_[DIODE S624 Evg21405R |W, TIME FADE D601-605 _|18S254TA $625 EVQ21405R —_|SH, PROGRAM
+SW, CLEAR
+=
+801-804 [1SS254TA S627 SW, RECALL D805, 806 |MIZJBRZCTA [DIODE 3628 SW, TIME MODE 8629 __[evozi405r __|SW, SEARCH(R) VARIABLE. RESISTOR S) S630 | Evazi405R __|SW, SEARCH(F) see S631 [evazi405R _|SW, REPEAT vre7i___[EVJcBOFOZAI4 |. R, PHONES LEVEL 8632 |Evaz1405R __ | SW, RANDOM 8633 __[RsP28010 __|SH, POWER = S790 |RSHIAO0S _|SW, CLOSE DETECTOR S791 ___|RSHIAOOS _|SW, OPEN DETECTOR L701, 702 _|SLaxao0-D [coi [871-873 _|ELEXT2R2KAG [COIL CONNECTOR ASS’ Y
+TRANSFORMER (S)
+PT701
+RTP1K4C011
+POWER TRANSFORMER
+s+ a L TTTPPET PI aaGaaaunaune
+BT601 REX0459 CONNECTOR ASS’ Y
+CONNECTOR (S) AND SOCKET (S)
+SL-PG440
+Part Name & Description
+tase me i seit
+CN11 RJS1A6606 SOCKET (6P)
+CN401 RJUOOSKOO8M1 |SOCKET (8P)
+CN402 RJUOO3KOO6M1 |SOCKET (6P)
+ems AND SOCKET(S) |
+CN701 RJUO35TO16-1 | CONNECTOR (16P)
+SOCKET (23P)
+CN403 RJUOO3KOO8M1 |SOCKET (8P)
+CN702 RJSIA6723-1Q
+CN404 RJS1A6823
+SOCKET (23P)
+CN601 RJTOO3KO08-1 |CONNECTOR (8P)
+CN602 RJTOOSKOOG-1 |CONNECTOR (6P)
+CN603 RJTOO3KO08-1 | CONNECTOR (8P)
+SJT30643-V | CONNECTOR (6P)
+RJS1A6605
+SOCKET (5P)
+RJP6G17ZA
+CONNECTOR (6P)
+[EARTH PLATE
+GND871 RMCO063
+EARTH PLATE
+JK401 RJJ33TO1 JK701 SJSD16
+JACK (S) SYNCHRO EDIT AC INLET
+JK801 RJH3201N
+JK871 QJA04552C
+HEADPHONES
+<SERVO P. ¢. B. >
+INTEGRATED CIRCUIT (S)
+1¢701 AN8802SCE1V |1C, SERVO AMP
+|
+= <==
+cs
+10702 MN66271RA
+IC, SERVO PROCESSOR
+10703 AN8389SE1
+IC, MOTOR DRIVE
+TRANSISTOR (S)
+2SB709S
+TRANSISTOR
+VARIABLE RESISTOR (S)
+=
+alee
+EVNDXAAOOB14 |V. R, BEST EYE ADJUSTMENT
+At
+OSCILLATOR (S) X701 RSXZ16M9MO2T |OSCILLATOR (16. 9344MHz)
+SWITCH(ES)
+$701 RSMO006-P
+SW, REST DETECTOR
+i RESISTORS AND CAPACITORS
+Values & Remarks
+Values & Remarks
+Notes : * Capacity values are in microfarads (uF) unless specified otherwise, P=Pico-farads (pF) F=Farads (F) * Resistance values are in ohms, unless specified otherwise, 1 K=1,000 (OHM), 1M=1,000k (OHM)
+Values & Remarks
+| SL-PG440>
+R879, 880 |ERDS27J473 | 1/4¥ 47K ERJGGEYJ333V |1/10W 33K [ _ [resistors R881, 882 [eRDS2TJ101 1/4" 100 __[exsncetsaray V/i0W 4.7K R726 ERJGGEYJ473V |1/10W 47K R11 ~_leroszrsiz3 | 1/AW 12K | CAPACITORS R727 ERJGGEYJ103V [1/108 10K R12,13  |ERDS2TJI50T | 1/4¥ 15 it all R728 ERJGGEYJ392V |1/10W 3. 9K R15,16  |ERDS2TJ472. | 1/4W 4. 7K cii,12  {EcBTiE1032F | 25V 0.01U [ERJGGEYJ331V [1/10W 330 R17 _[eRos21821 [An 820 C13 [ECEALEU2228 25V 22000 ERJ6GEYJ392V |1/10W 3. 9K ERDS2TJIRO | 1/4¥ 1.0 C15 EOBTLHIO2KBS | SOV 1000 R734-736 | ERJGGEYJ1O1V 1/10v 100 lerps2tJa73 | 1/4W 47K C18,19  {ECAlHMa70B | Sov 470 R738 ERJGGEYJ223V |1/10V 22K R22 eroszrsa72 al 1/4H 4.7K ECBTLE1032F | 25V 0.01U ERJGGEYJ681V |1/10¥ 680 R23 ERDS2TJIRO | 1/4¥ 1.0 —ECALANDI1B 10V 3300 R741-743  |ERJ6GEYJ562V |1/10W 5. 6K Re4—_[ERDS2TJ680T [aan 68 ~_|EceaosKat018 [ea 1000 ERJGGEYJ103V |1/10W 10K ERDS2TJ472 | 1/4W 4. 7K ECEALAKA330B | 10V 330 _[eRusceYa1S5V |1/10" 1. 5M R51 ‘lervsztsa72 | 1/4W 4.7K -[RceateKad7on | 25va7u ERUBGEYSIOGV | 1/8 10K R52 ERDS2TJ153 | 1/4¥ 15K C28 EcALeMZ21B | 25V 2200 R747 ERJOGEYJ473V |1/10W 47K ERDS2TJ184T | 1/4W 180K ECFRIE1042F5 | 25V 0. 1U ii = R54 lenps21J472 | 1/4W 4. 7K CHIP JUMPERS ie BRDS2TJ562 | 1/4¥ 5.6K C601-604 |EcBTIE1032F | 25V 0.01U ‘Ss ERDS2TJ184T | 1/AW 180K ECAIAKF820E | 10V  82U ERJSGEYOROOA | CHIP JUMPER -[erosztsi03 | 1/4¥ 10K c8oi,802 |lEcBTiHIO2KB5 | 50V 1000P RJ721, 722 |ERJ6GEYOROOA | CHIP JUMPER ERDS2TJ101 | 1/4¥ 100 (803-806 /ECCRIH391J5 | SOV  390P RJ724-726 |ERJ6GEYOROOA | CHIP JUMPER R401, 402 ERDS2TJ102 | 1/4¥ 1K (807,808 |ECEALAN470S tov 47 ae Ee ae R403 ERDS2TJ273 a 1/AW 27K 809,810 |ECBTIHIO2KB5 | 50V 1000P CAPACITORS ERDS2TJ100 | 1/4¥ 10 (817,818 |ECEAIAKA330B | 10V 33 E R421 [ERDS2TJ102 [aw 1K 819-822 |EcBTiE1032F | 25V 0.01U ECEAQJKA220 | 6.3V  22U R601 ERDS2TJ2R2T | 1/4 2.2 C851 ECBTiEL03zF | 25 0.010 [eceatrKaoior | Sov R602, 603 |ERDS2TJ101 | 1/4¥ 100 (871,872 |ECEALAKN100B| 10V  10U 6703 eceansKanour 6.3V 100 lenps2TJ472 | 1/4W 4.7K 873,874 [BCEALAKN470B | JOV 470 ECUZIELO4MBN | 25V 0. 1U ERDS2TJ101 | 1/4¥ 100 875-879 ECBTIE1032F | 25V 0.01U ECEALHKAO101 | 50V  1U ReO1, 802 [eRDS2TJI02 | 1/AW 1K Ex ECUELHLOLJCN | 50V  100P R803, 804 lERDS2TJ224T | 1/4W 220K ECUELHA72KBN | 50V 4700P R805, 806 | ERDS2TJ822 | 1/4W 8.2K ole RESISTORS BCUELCA73KBN |" 16V 0.0470 R807, 808 |ERDS2TJ123 | 1/4¥ 12K [ ECUELHIS2KBN | 50V 1500P R809-812 |ERDS2TJ393 | 1/4¥ 39K ERIOGEYIIOO _[1/10K 10 C711, 712 _[ECUZIELO4MBN | 25V 0.1 ERpsztz21 | 1/aW 220 R702 _[eRUeGEYa47IV 1/10W 470 ECUVIC1O4MBM | 16V 0. 1U R815, 816 [ERDS2TJ102 | 1/4W 1K R703 ERJGGEY823 [1/10 82K ECEAQJKALO1I | 6.3V  100U Ra17, 818 _|ERDSZT¥473 [i/aW 47K R704 ERJ6GEYJ102A |1/10W 1K C715 ~_[ceaoaKad701 | 6.3V 470 Ré19, 820 |eRDSZTVS61 | 1/4¥ 560 R705 [ERJOGEYJ103V |1/10W 10K ECUELHS61KBN | 50V  560P R821, 822 |ERDS2TJ221 | 1/4W 220 R706 ERJGGEYIIOZA [1/108 IK ECUZIE104MBN | 25V 0. 1U R831 ERDS2T222 | 1/AW 2.2K R707 _[eRiscevua7av 1/10W 47K 718, 719 [ECUVIC224KeM | 160. 220 ferosztsio2 | 1/4¥ 1K [ERJGGEYJ224V |1/10W 220K 721,722 |ECUEIHLOODCN | Sov 1oP ERDS2TJ102 | 1/4¥ 1K ERJGGEYIGBIV [1/10N 68K 6723 ECEALAKA2211 | 10V 2200 es ERDS2TJ680T | 1/4W 68 ERJ6GEYJ154V |1/10W 150K C724 ECUVICLOANEM | 16V 0. 1U [erps2ry472 | 1/4W 4.7K R72 _|ERJOGEYJ47IV li/iow 470 C725, 726 ECUELHIO2KBN| 16V 0.1U ERDS2TJ222 | 1/4W 2.2K R714 ERJ6GEYOROOA |1/10W 0. 00 C727, 728 ECEAINPKOIOI | Sov IU | Al R854 ERDS2T332_ | 1/AW 3.3K R717-720 |ERJ6GEYJ1024 [1/10W 1K -[Bouzie1o4amBN | 250.10 re7i, 872 [ERDS2TJI22_ | 1/4W 1.2K [erseceystoiv | 1/8” 100 C731, 732 |ECAOSSD1511 | 6.3V  150U R873-876 |ERDS2TJ183T | 1/4¥ 18K [ERJBGEYJ473V |1/10W 47K 6733 ECUZIE1O4MBN | 25V 0. 1U ERDS2TJ124T | 1/4W 120K ERJGGEYJ182V |1/10W 1. 8K ECEALAKA2211 | 10V 2200
+_/ 1PG@A40
+C735-737 |ECUZNE104MBN | 25V  0.1U 16V_ 0. 15U 25V 0.027U 25V 0. 1U 25V 8200P 16V 0.047U SOV SP SOV 2200P SOV 270P
+Hi PACKAGING
+wy as =
+—_
+—
+_ (CUSHION@®OO: RPNO416) ~
+Printed in Japan — H930105820 NH/YU/TN

@@ -1,0 +1,905 @@
+Form 631 (666)
+SERVICE MANUAL
+FOR
+SINGER SEWING MACHINES
+OF
+CLASSES 237
+For detailed information concerning operation threading, choice of needles, etc.. see instruction, book:
+Machine 237 - Form 608. (For USA And Canada) and 609 (other than USA and Canada).
+COMPANY Copyright under International Copyright Union
+* A Trademark of THE SINGER COMPANY printed in Italy
+PROPERTY OF THE SINGER COMPANY
+This is a private and confidential communication to and for the use of only the em- ployees of The Singer Company, and its affiliated companies. Reproduction, sale,
+distribution, or publication thereof to the public is forbidden.
+DESCRIPTION OF MACHINES 237
+For straight stitch and zig zag manual stitching. Foot Power (Machine 237/1)
+Electric power (Machine 237/38)
+Lock stitch.
+Drop Feed .
+Adjustable reverse feed.
+Needle Catalogue 2020 (15x1) - Threaded from left to right.
+Central bobbin oscillating transverse shuttle.
+Shuttle race latch which permits quick opening of the shuttle race for easy removal of shuttle.
+Semi-automatic bobbin winder attached to arm and protruding through the plastic top cover.
+Needle bar and presser bar do not project above the top of the machine.
+Control panel. This panel contains the Trade Mark, machine class number, stitch graduations (in stit- ches per inch and length of stitch in millimeters) indications for needle position lever and indica- tions for bight control lever, which controls the width of the zig zag or ornamental aiien up to a maximum of 4 mm.
+Numerically graduated thread tension device. Maximum stitch length - 6 per inch.
+Needle bar stroke - 1.228 inches.
+Presser bar lift - .290 to .300 inches.
+Bed - 14.5/8 inches long - 7 inches wide. Working space at right of needle - 6.7/8 inches. Speed - up to 1100 R.P.M.
+Weight of machine: 28 lbs.
+PREPARATION OF MACHINE FOR INSPECTION
+Before any extensive inspection is undertaken to find causes of faulty operation machine should be thoroughly cleaned. and oiled.
+Remove all lint, dust or foreign particles from machine.
+Wipe machine clean and dry. Oil the machine as instructed below and on page 5.
+NOTE: UNDER EXTREME CONDITIONS - IF GREASE OR DIRT HAS BECOME TACKY, AP- PLY VARSOL TO ALL OIL HOLES AND RUN MACHINE. CONTINUE APPLYING VARSOL UN- TIL MACHINE RUNS FREELY: WIPE DRY AND APPLY OIL. AFTER COMPLETE OILING, WIPE MACHINE DRY.
+LUBRICATION
+Fig. 2 Front View - Oiling.
+LUBRICATION (continued)
+Fig. 5 Bottom View Oiling.
+TO SET PRESSER FOOT AT CORRECT HEIGH)
+IMPORTANT: Unless presser foot is set at correct height, attachments for these machines may not function properly on presser bar.
+CAUTION: Throat plate must be flush with bed slide while setting presser foot height.
+CHECK:
+“Raise presser bar lifter to bring presser foot to highest position. Needle clamp must clear presser foot. Lower presser bar if interference occurs”’.
+Test alignment of presser foot to feed slots in throat plate and to feed. Fig. 7 shows presser foot in correct alignment. Height and alignment of presser foot must be set at the same time.
+“When presser bar is lowered, presser foot must rest squarely on throat plate’.
+SETTING: 1. Loosen set screw A, Fig. 6. 2. Raise or lower presser bar, as required.
+3. Align presser foot and securely tighten set screw A.
+Fig. 6 Setting Presser Foot at Correct Height.
+Fig. 7. Presser Foot in Alignment with Slots in Throat
+Plate and with Fee
+Dog.
+TO SET FEED DOG AT CORRECT HEIGHT
+Fig. 8. Feed Adjustments.
+PREPARATION:
+1. Set stitch length regulator for 12 stitches per inch, as shown in Fig. 9.
+2. Turn hand wheel over toward you until feed dog is at its highest position.
+CHECK:
+With feed dog at its highest position, slightly less than a full depth of teeth should project above top surface of throat plate, as shown in Fig. 10.
+Fig. 9. Stitch Length Regulator Set for 12 Stitches.
+SETTING:
+1. Turn hand wheel over toward you to bring feed dog to its highest position.
+2. Loosen clamping screw B, Fig. 8.
+3. Move crank C up or down as required to bring feed dog to correct height.
+4. While maintaining this setting, securely tighten clamping screw B.
+f { STRAIGHT EDGE '
+FEED DOG
+.040 to
+‘043 inch "PLATE
+Fig. 10. Feed Dog at Correct Height.
+TO SET FEED DOG LENGTHWISE IN THROAT PLATE SLOTS
+Fig. 11.
+PREPARATION: 1. Set feed dog atcorrect height, asinstructed above.
+2. Set stitch length regulator for 12 stitches per inch, as shown in Fig. 9.
+CHECK: While turning hand wheel over toward you, feed
+dog should come as close as possible to front of throat plate slots without striking throat plate.
+SETTING: 1. Loosen nut D, Fig. 11.
+2. Turn eccentric stud E, moving feed dog toward front or rear, as required.
+3. While correct setting is maintained, securely tighten nut D.
+TO SET FEED DOG SIDEWISE IN THROAT PLATE SLOTS AND TO ELIMINATE END PLAY OR BINDING OF FEED ROCK SHAFT AND FEED LIFTING ROCK SHAFT
+Fig. 12. Setting Feed Dog Sidewise and Adjusting for End Play or Binding.
+PREPARATION: Set feed dog at correct height, as instructed on page 6. 7 CHECK FOR BINDING OR END PLAY OF FEED CHECK: LIFTING ROCK SHAFT.
+Feed dog should be located centrally (along the bed) in feed slots of throat plate.
+SETTING: (See fig. 12) SETTING:
+1. Loosen set screws F which hold cylindrical cen- 1. Loosen set screws K which hold cylindrical cen- ters G and H for feed rock shaft R in position. ters | and feed lifting rock shaft S in position.
+2. To position feed dog toward either left or right 2. Lightly tap cylindrical centers | equally upon loose screws F making the side shift of the feed Feed Lifting Rock Shaft S so that it rides freely rock shaft using a metal hammer or drift. without end play or binding.
+3. When feed dog is centralized in throat plate 3. Then securely tighten set screws K.
+make certain the cylindrical centers G and H hold feed rock shaft R freely without end play or binding.
+4. Then securely tighten screws F.
+TO CHECK FOR BINDING OR END PLAY OF OSCILLATING ROCK SHAFT.
+SETTING: (See Fig. 12 page 7)
+1. Loosen set screws L which hold centers M and oscillating rock shaft T in position.
+2. Move centers M equally so that shaft T rides freely without end play or binding.
+3. Securely tighten set screws L.
+TO CHECK FOR BINDING OR END PLAY OF OSCILLATING SHAFT.
+SETTING: (See Fig. 12 page 7)
+1. Open shuttle race gate and remove shuttle. 2. Turn hand wheel over toward you until set screws V appear.
+3. Loosen set screws V in collar O and adjust collar O until oscillating shaft N turns freely without end play or binding.
+4. Securely tighten set screws V.
+NOTE: CHECK EACH SETTING AFTER TIGHT- ENING SET SCREWS OR LOCK NUTS, AND RE-ADJUST IF NECESSARY.
+Should shafts L and M still bind, check feed bar Q for end play or binding.
+SETTING:
+Remove feed rock shaft assembly as instructed on page 17 and adjust feed bar screw centres as instructed on page 18.
+Fig. 13. To adjust Thread Clearance.
+TO CHECK THE POSITION OF THE NEEDLE IN RELATION TO THE SHUTTLE AND SHUTTLE RACE CAP. PREPARATION:
+Set m/c for straight stitching and centre needle
+position. Fit needle, Cat. 2020, size 18, remove throat plate and arm top cover.
+CHECK:
+The shuttle point should come as close as pos- sible to the small groove side of the needle without touching the needle. Clearance betwee needle and front edge of shuttle race cap should be approxi- mately .010 inches, see fig. 13A.
+.010” inches
+Fig. 13A. Position of shuttle Race CAP in relation to the needle.
+SETTING: (see fig. 12 pag. 7, fig. 30 pag. 20 and fig. 13A.)
+1. Loosen exagon head screw T6, fig. 30 pag. 20.
+2. Adjust shuttle race frame J until correct posi- tion in relation to the needle is obtained.
+3. Securely tighten screw T6. 4. Loosen screw Z, fig. 13A
+5. Adjust position of shuttle race cap and tigh- ten screws Z.
+6. Replace throat plate and arm top cover.
+TO CHECK THREAD CLEARANCE BETWEEN SHUTTLE CUSHION SPRING AND SHUTTLE.
+PREPARATION:
+1. Remove bobbin case.
+2. Turn hand wheel over toward you until needle bar is at its highest position.
+CHECK:
+With needle bar at its highest position, clearance between shuttle and shuttle cushion spring (spring not compressed) should be equal to the thickness of a paper match folder or a business card.
+SETTING:
+1. To close gap, lightly tap outside of shuttle driver X, Fig. 13, with a brass drift.
+2. To open gap, lightly tap inside of shuttle driver X, Fig. 13 with brass drift.
+TO CHECK FOR BINDING OR END PLAY OF SHUTTLE RACE FRAME ASSEMBI Y
+PREPARATION: 1. Set machine for straight stitching.
+2. Set needle lever position in center lever position.
+SETTING: (See Fig. 12 pag. 7) 1. Open shuttle race gate and remove shuttle.
+2. Turn hand wheel over toward you until two set
+screws Z appear.
+3. Loosen set screws Z in collar Y and adjust col- lar until oscillating shaft turns freely without binding or end play.
+4. Securely tighten screws Z.
+5. Check position of needle in relation to the shuttle and if necessary readjust as instructed above.
+TO SET THE TAKE-UP SPRING
+Fig. 14. Setting the Stroke.
+TIMING THE STROKE: (See Fig. 14)
+The take-up spring should complete its action and be at rest against stop B1 as eye of needle enters fabric.
+Loosen screw C1 and move slack regulator D1 down (to the right) to complete take-up spring action earlier (shorter stroke); move regulator D1 up the left) to complete take-up spring action later (longer stroke).
+Then tighten screw C1.
+SETTING THE TENSION:
+Tension on take-up spring should be just sufficient to take-up slack of needle thread until point of needle reaches fabric.
+Loosen stud set screw E1, Fig. 15 and remove entire tension assembly. Turn numbered dial to “O" releasing tension. Hold tension assembly so that component parts are in position shown by dotted line in Fig. 17. Place spring end F1 in groove of sprocket G1 so that take-up spring A1 hangs
+= xz = qc _
+je 15. Fig. 16. Stud Set Screw. “O" Setting.
+Fig. 17. Setting the tension.
+down in a vertical position. This is the normal setting.
+To increase tension on take-up spring, move spring end F1 right to next groove of sprocket to G1; to decrease tension, move spring end left to next groove.
+Replace assembly, draw take-up spring so that it rests on regulator stop B1, Fig. 14, and recheck tension. Tighten stud set screw E1, Fig. 5.
+TO ADJUST NEEDLE THREAD TENSION
+This machine is equipped with a one-cycle dial tension which, when set correctly, offers a barely perceptible tension at ‘“O"’ to a maximum at the end of one complete turn of thumb nut.
+At “O" there should be a barely perceptible amount of tension, as otherwise, difficulty may be experienced when sewing satin stitching and other forms of closed ornamental stitching.
+ADJUSTMENT:
+Pull thread through tension discs to test amount of tension on thread at ‘‘O” position. At this point there should be a slight pull on the thread to indicate there is minimum tension which gradually increases with the turning of thumb nut H1 to the right, providing a full range of tension with one
+revolution of the thumb nut. If the pull is too strong for a minimum tension, press in dial Ji to disen- gage pin K1 on nut from dial, and reset pin in next hole to left of previous setting. Repeat this adjust- ment until a point of no tension is reached. Then advance one hole to right to give minimum tension at zero position.
+TO SET NEEDLE BAR AT CORRECT HEIGHT
+Fig. 18. Setting Needle Bar at Correct Height.
+PREPARATION: 1. Remove throat plate. 2. Remove face plate.
+CHECK:
+1. Turn handwheel over toward you until needle bar is at its lowest point. The upper timing mark on needle bar should now be in line with the bottom of the needle bar frame (upper needle bar bearing).
+2. Continue turning handwheel over toward you until lower timing mark on needle bar is in line with bottom of needle bar frame (upper needle bar bearing).
+The shuttle point should now be directly in line with the needle and a short 1/8" above the top of the needle eye.
+SETTING:
+1. With needle bar at its lowest point, loosen set screw L1, Fig. 18 and raise or lower needle bar, as required.
+2. Wile maintaining correct needle bar height, make certain needle bar stays correctly turned, i.e., needle clamp and thumb screw be parallel with the front edge of the bed, and securely tighten set screw L1.
+3. Replace throat plate.
+4. Replace face plate.
+CHECK FOR BINDING OR END PLAY OF UPRIGHT SHAFT
+PREPARATION: 1. Remove arm top cover.
+SETTING: (See Fig. 30 pag. 20):
+1. Loosen exagon head screw T6 one quarter
+(1/4) turn.
+2. Press down upon the crank H6 against casting while pressing the upright shaft lower crank (from underside of machine) up against casting.
+3. Securely tighten exagon head screw T6.
+4. Check position of needle in relation to shuttle as instructed at page 8 and if necessary re- adjust.
+TO ELIMINATE END PLAY OR BINDING IN THREAD TAKE-UP MECANISM
+01
+P1
+Fig. 19. Thread Take-up Mechanism to Eliminate End Play or Binding in Thread Take-up Mechanism.
+PREPARATION:
+Remove Face Plate and Top Cover.
+SETTING: (See Fig. 19).
+1.
+Turn hand wheel toward you until take-up crank set screw M1 is accessible from top of machine.
+. Loosen Hinge pin set screw O1.
+. Loosen set screw M1 and adjust take-up crank
+Q1 until there is a minimum of end play in take-up lever R1 without binding.
+4. Firmly secure set screw M1, making certain
+11
+that itis Tightened against flat on take-up crank Q1.
+. Check that take-up lever R1 moves freely without
+binding.
+. Turn hand wheel over toward you. Loosen clam-
+ping screw in hole O1, adjust hinge pin P1 un- til take-up lever link S1 moves freely and securely tighten clamping screw O1. tighten clamping screw O1.
+. Check that take-up mechanism moves freely
+without binding.
+. Replace face plate and arm top cover.
+REMOVALS AND REPLACEMENTS NEEDLE THREAD TENSION
+Fig. 20. Needle. Thread Tension Assembly.
+REMOVAL: (See Fig. 20).
+1. Turn thumb H1 to left (anticlockwise) until “O" on numbered dial J1 stops at center line on indicator 04, Fig. 20.
+2. Press in dial J1, separating pin K1 in thumb nut H1 from hole in dial J1, unscrew thumb nut H1 and remove it from tension stud.
+3. Remove stop washer Q4 spring P4 and tension indicator O4 from tension stud.
+4. Then, as a unit, remove tension disc assembly (thread guard N4, tension discs M4, and take-up spring A‘).
+5. Remove tension releasing pin R4.
+NOTE: IT IS NOT NECESSARY TO REMOVE TENSION STUD FROM MACHINE. IT IS SHOWN REMOVED IN FIG. 20. TO ILLUSTRATE COM- PLETE ASSEMBLY. SEE PAGE 9 FOR INSTRUC- TIONS ON REMOVAL OF TENSION ASSEMBLY AS A UNIT.
+REPLACEMENT:
+1. Make certain that tension releasing pin R4 is in place as shown in insert, Fig. 20.
+2. Place tension discs M4 on thread guard N4 as shown in Fig. 21.
+3. Pass take-up spring eyelet T1 under thread guard with coils of spring above tension discs as shown in Fig. 21.
+4. Align coils of spring with holes in discs and place this assembly on tension stud as shown in insert Fig. 20 Extension S4 of thread- guard N4 enters hole provided in machine head.
+NOTE: TAIL F1, FIG. 21, ENTERS ONE OF THE GROOVES IN REAR OF TENSION STUD (SEE INSTRUCTIONS “SETTING THE TENSION" ON PAGE 9).
+451 [8
+12
+Fig. 21. Fig. 22. Tension Disc Stop Washer and Assembly. Tension Spring.
+. Replace indicator 04, Fig. 20 with open side
+facing out and with plus (+) and minus (—) signs at top.
+. Hold these assembled parts against shoulder
+of stud and place tension spring P4, Fig. 20, so that the half coil at front is in the lower position, on tension stud.
+. Place stop washer Q4 on stud so that its exten-
+sion points upward away from machine on tension stud as shown in Fig. 22.
+. Replace numbered dial J1 so that stop on in-
+side of dial is to right of stop washer Q4 extension.
+. Push dial J1 to compress spring to facilitate
+replacement of thumb nut H1.
+. Replace thumb nut H1 carefully guiding pin
+K1 into one of the holes in dial J1.
+Adjust assembly as instructed on page 9.
+REMOVALS AND REPLACEMENTS
+HAND WHEEL AND CLAMP STOP MOTION FLANGED
+C2 x1
+BUSHING
+Fig. 23. Hand Weel and Bobbin Winder Assembly.
+REMOVAL: (See Fig. 23)
+1. Disengage belt from hadwheel or remove hand attachment.
+2. Remove stop screw U1 from clamp stop motion screw V1,
+3. Remove clamp stop motion screw V1, washer W1 and hand wheel from arm shaft.
+IF IT IS FOUND NECESSARY TO RENEW CLAMP STOP MOTION FLANGED BUSHING Xt1, CONTINUE AS FOLLOWS:
+4. Loosen set screw Y1 (cone point) and set screw Z1 (flat point).
+5. Remove clamp stop motion flanged bushing X1 from arm shaft (if necessary using an extractor).
+REPLACEMENT:
+ITEMS 1 TO 3 APPLY ONLY IF CLAMP STOP MOTION FLANGED BUSHING HAS BEEN RE- NEWED.
+1. Replace the new clamp stop motion flanged bushing X1 on the arm shaft, ensuring that the cone point on screw Y1 fits into the Vee groove Z2 on the arm shaft.
+2. While holding the arm shaft against the front bearing face adjust flanged bushing X1 against ist bearing face, until the arm shaft rotates freely with minimum end play.
+. Securely tighten set screws Y1 and Z1.
+. Replace hand wheel.
+. Replace washer W1.
+. Replace clamp stop motion screw V1 and tighten.
+TN Da FF w
+. Replace stop screw U1 in clamp stop motion screw V1 and tighten.
+NOTE: IF STITCHING MECHANISM DOES NOT RELEASE OR DRIVE WHEN CLAMP STOP MO- TION SCREW V1 IS ADJUSTED, REMOVE SCREWS U1 AND V1. REMOVE WASHER X1, ROTATE IT 180° AND REPLACE. REPLACE SCREWS V1 AND U1.
+BOBBIN WINDER
+REMOVAL: 1. Remove arm top cover.
+2. Remove screw A2 and washer B2.
+REPLACEMENT:
+1. Replace bobbin winder.
+2. Replace screw A2 and washer B2. 3. Replace arm top cover.
+REMOVALS AND REPLACEMENTS STITCH LENGTH REGULATOR
+REMOVAL: (See Fig. 25) ,
+1.
+Remove hand wheel as instructed on page 13. (It is not necessary to remove the clamp stop motion flanged bushing).
+. Remove top cover, remove screws which fasten
+front panel to machine arm, remove front panel retaining rings (inside of arm) see fig. 24.
+. Move regulator lever to lowest position.
+. Remove large hinge screw C2, Fog. 23, page 13,
+with its washer from arm casting.
+. Pull entire regulator, with front panel out of ma-
+chine arm.
+REPLACEMENT:
+fe
+Install regulator in arm, making certain that re- gulator fits on slide block of feed forked connec- tion, as shown in Fig. 25.
+. Replace large hinge screw C2, Fig. 23, page 13
+with its washer through arm casting and into regulator.
+. Position indicator plate and fasten to arm with
+screws, and retaining rings (inside of arm) Fig. 24.
+. Replace hand wheel as instructed on page 12.
++
+9
+Fig. 24. Inside arm front panel retaining rings.
+STITCH LENGTH REGULATOR
+Fig. 25. Stitch Length Regulator.
+FEED LIFTING ROCK SHAFT
+REMOVAL: (See Fig. 12 page 7).
+1
+Loosen set screws K and withdraw cylinder cen- tres 1.
+2. Remove feed lifting rock shaft S, by sliding rol-
+ler out of feed bar fork, and rock shaft fork over lifting cam on oscillating rock shaft fork over lifting cam on oscillating rock shaft T.
+14
+REPLACEMENT:
+1.
+Install feed lifting rock shaft in reverse order of removal.
+. Adjust as instructed on page 7 ensuring that
+feed bar bears fully on roller, and rock shaft fork on lifting cam.
+. Check feed dog height as instructed on page 6.
+REMOVALS AND REPLACEMENTS
+V2 N YM L Z2G62D2F2 €E2
+OSCILLATING ROCK SHAFT
+REMOVAL: (See Fig. 26)
+is
+Turn hand wheel over toward you until oscilla- ting rock shaft fork is inside arm casting.
+. Loosen nut D2 and remove stud E2 from connec-
+ting rod F2.
+3. Loosen set screws L and withdraw centers M.
+A iN
+REPLACEMENT:
+te
+4. Remove oscillating rock shaft T. OSCILLATING REMOVAL: (See Fig. 26) 2 Remove shuttle. and leave gate open. 3 2. Turn hand wheel over toward you until oscilla- 4 ting shaft crank, drive pin G2 is in a convenient 5
+position for removal.
+6
+. Drive out pin G2. . Turn hand wheel over toward you until oscil-
+lating shaft crank set screw 12 appears (see inset, Fig. 26).
+5. Loosen set screw 12.
+. Loosen oscillating shaft collar set screws V and
+. Loosen rear oscillating shaft collar set screws Z
+and Z2.
+. With brass drift tap oscillating shaft N away
+from oscillating shaft crank H2.
+. Once clear of crank H2, shaft N should withdraw
+easily through shuttle race frame and bed bearing. At same time remove collar O. and Y.
+REPLACEMENT:
+1,
+Insert oscillating shaft N (with shuttle driver) in shuttle race frame.
+15
+Install in reverse order of removal, ensuring that connecting rod F2 is in its correct position i.e., itis not displaced too far towards either end of machine, causing binding on armshaft or oscillating rock shaft bearing.
+. Check as instructed on page 8.
+SHAFT
+. Slide through shuttle race and replace collar O. . Continue sliding shaft on through bed bearing. . Replace collar Y.
+. Slide through upright shaft crank slide block. . Assemble new oscillating crank H2 (see inset)
+ensuring that slide block fits into oscillating rock shaft fork.
+. Check as instructed on page 8. . Replace shuttle and close gate.
+TO TIME OSCILLATING SHAFT.
+Ti 2.
+5.
+Remove throat plate’and face plate.
+Turn hand wheel over toward you until lower timing mark on needle bar is in line with bottom of needle bar frame upper needle bar bearing.
+. Turn oscillating shaft until point of shuttle is
+directly in line with needle.
+. Securely tighten set screws 12 on crank H2,
+ensuring that crank slide block is fitted evenly into oscillating rock shaft fork.
+Check timing and readjust if necessary.
+REMOVALS AND REPLACEMENTS SHUTTLE RACE FRAME
+REMOVAL: (See Fig. 26) 2. Adjust approximately only at this point and com- 1. Remove oscillating shaft as instructed on page PISS. aauuesment: Anes. aaep 9. 15. 3. Replace oscillating shaft in reverse order of 2. Remove shuttle race frame J. Faovat 4. Control needle position in relation to the shuttle
+REPLACEMENT: race cap and readjust as instructed on page 8. 1. Install shuttle race frame in reverse order of removal. FEED ROCK SHAFT ASSEMBLY PREMOVAL: (See Fig. 26) REPLACEMENT: 1. Remove oscillating shaft as instructed on page 16. 1. Install feed rock shaft R with feed assembly : U in reverse order of removal, ensuring that feed 2. Remove shuttle race frame as instructed above. bar fits on roller. 3. arg stp and remove eccentric stud E from 2. Check as instructed on page 7 for end play, BSG TOF : binding and feed dog position. 4. Loosen set screws F and withdraw centers H and G. NOTE: IF REQUIRED, TO MAINTAIN CORRECT : POSITION OF FEED FORKED CONNECTION L2, 5. Remove feed rock shaft R with feed bar as- |.E., IT DOES NOT BIND ON FEED CAM OR FEED sembly U. REGULATOR, ADJUST FEED BAR U ON FEED
+ROCK SHAFT R AS INSTRUCTED ON PAGE 17.
+3. Check feed bar settings as instructed on page 7. 4. Replace shuttle race frame as instructed above.
+5. Replace oscillating shaft as instructed on page 15.
+16
+REMOVALS AND REPLACEMENTS
+N2
+D2
+FEED BAR ASSEMBLY
+REMOVAL: (See Fig. 27)
+1G
+Remove feed rock shaft assembly as instructed on page 16.
+. Loosen lock nuts M2, withdraw screw centres
+N2 and 02 and remove feed bar assembly U from feed rock shaft R.
+REPLACEMENT:
+Te
+Replace feed bar assembly on feed rock shaft, and initially tighten screw centres N2 and 02 equally upon feed bar.
+. Install feed rock shaft assembly only, and check
+as instructed on page 7.
+4. 5.
+6.
+is
+17
+. It is necessary to position feed dog to left, loosen
+screw centre N2 and tighten screw centre O2. To position feed dog to right, loosen screw centre O2 and tighten screw centre N2. Adjust screw centres O2 and N2 until feed bar moves freely without end play or binding, and tighten lock nuts M2.
+Check feed bar for end play or binding.
+Install feed rock shaft assembly only, and check as instructed on page 7.
+Replace shuttle race frame as instructed on pa- ge 16.
+Replace oscillating shaft as instructed on page 15.
+REMOVALS AND REPLACEMENTS CRANK CONNECTING ROD
+PREPARATION:
+Remove arm top cover and turn hand wheel toward
+front of machine, until crank connecting rod is at its lowest position.
+REMOVAL:
+1
+Loosen nut D2, Fig. 27, page 17,.and remove screw stud E2, Fig. 27, page 17.
+. Remove cap screws P2 and remove cap Q2.
+(Note position by shape of boss X, Fig. 28, for replacement).
+. Remove connecting rod through bottom of ma-
+chine.
+REPLACEMENT:
+is
+Insert connecting rod into arm, with stud oil hole facing front, from bottom of machine, between oscillating rock shaft and front side of arm casting, so that it fits around bottom of arm shaft bearing.
+. Replace cap Q2 over top of arm shaft bearing,
+facing direction as on removal, and fasten with screws P2.
+CRANK CONNECTING ROD X
+Fig. 28. Crank Connecting Rod.
+3. Replace screw stud E2, Fig. 27, page 17, enga-
+ging connecting rod with oscillating rock shaft.
+4. Replace nut D2 and tighten securely.
+FEED FORKED CONNECTION
+REMOVAL: (See Fig. 27, page 16)
+. Remove arm top cover.
+. Loosen arm shaft counterbalance and feed cam
+set screws.
+. Slide arm shaft counterbalance and feed cam
+towards face plate to free forked connection.
+. Loosen nut D, and remove eccentric stud E,
+disengaging feed forked connection L2 from feed rock shaft R.
+. Remove feed forked connection L2 from arm,
+through bottom of machine.
+18
+REPLACEMENT:
+ale
+Insert feed forked connection L2 into arm, from bottom of machine so that the slide block fits in the stitch length regulator.
+. Replace eccentric stud E, engaging feed forked
+connection with feed rock shaft.
+. Replace feed cam on arm shaft and tighten set
+screw into the proper slot.
+. Replace arm shaft counterbalance and tighten
+set screw in the proper hole on feed cam.
+. Set feed dog lengthwise as instructed on page 6.
+REMOVALS AND REPLACEMENTS NEEDLE BAR
+REMOVAL: (See Fig. 29)
+ib
+Remove arm top cover.
+2. Remove face plate.
+3. Remove needle bar thread guard.
+4. Remove needle clamp.
+5. Loosen screw L1 and push needle bar from bottom removing it from top of arm.
+REPLACEMENT:
+1. Insert needle bar from top sliding it through needle bar bracket upper hole, bearing hole, needle bar connecting stud and needle bar bracket lower hole.
+2. Replace needle clamp.
+3. Replace needle bar thread guard positioning it in needle bar slot then, using a screwdriver, fit it in proper seat.
+4. Adjust needle bar height as instructed on page 10.
+5. Securely tighten screw L1.
+fez)
+Replace face plate and arm top cover.
+Fig. 29.
+PRESSER BAR
+REMOVAL: (See Fig. 29)
+Ais
+Remove face plate, presser foot, thumb screw and top cover.
+2. Remove pressure regulating thumb screw T2.
+3. Remove extension pin U2 with spring from top
+of machine.
+. Loosen screw A and remove presser bar from
+machine.
+19
+REPLACEMENT:
+1. Install presser bar assembly in reverse order of its removal.
+2. Replace presser foot on presser bar.
+3. Adjust presser foot at correct height and align foot with feed dog slots in throat plate, as in- structed on page 5.
+4. Securely tighten screw A. 5. Replace face plate and arm top cover.
+REMOVALS AND REPLACEMENTS NEEDLE BAR VIBRATING BRACKET
+Q1
+REMOVAL: (See Fig. 30)
+1.
+Remove arm top cover, face plate, presser foot and presser bar thumb screw T2.
+2. Loosen screw J6.
+3. Loosen screws C6 and D6.
+>
+Cowon Oo
+. Pull out bushings F6 and E6 respectively from
+top and bottom of machine.
+. Remove extension pin U6 from top of machine. . Remove needle bar vibrating bracket assembly. . Remove retaining ring B6.
+. Loosen clamping screw L1.
+. Remove needle driving arm S6.
+. Remove needle bar.
+. Remove presser bar with guide bracket without
+loosening clamping screw V2.
+REPLACEMENT:
+1. Assemble needle bar, presser bar and needle
+2.
+bar driving arm on needle bar vibrating bracket.
+Assemble needle bar vibrating bracket.
+3. Set needle bar at correct height as instructed on
+page 10.
+Fig. 30. Needle Bar Vibrating Bracket.
+4. Adjust needle on throat plate as instructed on page 22.
+5. Adjust needle position in relation to the shuttle and shuttle race cap as instructed on page 8.
+NOTE: PRESSER BAR LOWER BUSHING MUST BE PUSHED UP UNTIL ELIMINATION OF END PLAY, WITHOUT BINDING OF NEEDLE BAR VIBRATING BRACKET.
+REMOVAL AND REPLACEMENT THREAD TAKE UP MECHANISM
+PREPARATION:
+Ve
+Remove arm top cover and face plate.
+REMOVAL (See Fig. 19 page 11)
+le
+af WwW HY
+Remove needle bar vibrating bracket as instruc- ted on page 20.
+. Loosen set screw O1.
+. Loosen set screw MI in needle bar crank. . Withdraw needle thread take-up assembly. . Remove needle bar connecting link.
+UPRIGHT
+PREPARATION:
+us
+Remove arm top cover
+REMOVAL: (See Fig. 30 page 20)
+fe
+CAUTION: Do not remove the horizontal arm shaft from this machine. If this becomes necessary the machine should be returned to the Factory.
+Remove oscillating shaft as instructed on page 15;
+. Remove oscillating rock shaft as instructed on
+page 15.
+. Loosen exagon head screw T6. . Remove upright arm shaft assembly from bot-
+tom of machine.
+REPLACEMENT:
+ie
+2.
+Replace needle thread take-up in reverse order of its removals.
+Firmly secure set screw M1 making certaint that it is tightened against flat on take-up crank Q1.
+. Tighten set screw O1 while turning hand wheel
+over toward you.
+. Check for end play as instructed on page 11. . Replace needle bar frame assembly as instructed
+on page 20.
+. Replace arm top cover and face plate.
+ARM SHAFT
+REPLACEMENT:
+le
+wo rm
+Replace upright arm shaft in reverse order of its removal.
+. Replace oscillating shaft as instructed on page 15. . Check position of the needle in relation to the
+shuttle and shuttle race cup as instructed on page 8.
+HORIZONTAL ARM SHAFT
+21
+The Worm Gear and the Cam Gear have been
+lapped together at the Factory and should be kept in mesh throughout all other removals and replacements.
+TO CHECK THE POSITION OF THE NEEDLE IN RELATION TO ALL PURPOSE THROAT PLATE .
+PREPARATION:
+1. Remove arm top cover. 2. Remove presser foot. 3. Insert needle N. 18.
+CHECK (see Fig. 31)
+1. Needle n. 18 should be centered in throat plate needle slot.
+2. Set machine for maximum zig zag amplitude.
+3. Slowly turn handwheel; observe the needle. It must not rubb either at right or left of throat pla-
+te slot. Fig. 31. Position of needle in throat plate slot.
+ADJUSTMENT: (see Fig. 30 pag. 20)
+1. Loosen needle bar driving arm set screw J6. 3. Securely tighten screw J6. 2. Move needle bar diving arm as required to bring 4. Check distance between needle and shuttle needle at the correct position. point and adjust ad instructed on page 8.
+TO TIME THE PENDULUM MOVEMENT OF THE NEEDLE BAR
+er ea i ea ee
+PREPARATION: ra 4 + - ‘ \ \
+| I
+1. Remove arm top cover and face plate. | Kk /
+2. Set needle position lever at center position C. ; I jf |
+1 | / \
+3. Set big amplitude lever at maximum zig-zag amplitude, position 5.
+| j
+1 ly \ : ly \! Fig. 32. Fig. 33. Correct Pendulum Incorrect Pendulum movement movement.
+CHECK:
+While slowly turning handwheel over toward you, observe movement of needle bar.
+Needle should begin its pendulum movement at about same height above throat plate as showed in fig. 32. Needle should reach its peak of ascent midway between two extreme positions of needle.
+There should be no pendulum movement while the needle is moving through the material. Fig. 34.
+To time pendulum movement of needle bar (continued)
+Check correctness of zig-zag as per followings
+Set Bight Controls In Order Listed
+Test + 1-Straight stitch at central position.
+Test + 2-Straight stitch at left position.
+Test + 3-Straight stitch at right position.
+Test + 4-Maximum zig-zag stitch at central, coordinated with Test + 1.
+Test + 5-Maximum zig-zag stitch at left position, coordinated with Test +# 2.
+Test + 6-Maximum zig-zag stitch at right position, coordinated with Test + 3.
+Fig. 35. Needle Perforation Test.
+uw a wee ee ew ee ae ae mm mr rr rrr mre rer rrrrr- - O- a --0--0------0--@----@ -O -----0 -------------
+x ---OF -0 ------@ -9 -----0--0 -----------@ -------
+---------------------0 ----------------0-
+---0--------0 - -------9 - ----0 -------------
+é | ° |
+Conclusion
+Puncture must not be at X but coin- cide at central needle position.
+Puncture must not be at X but coin- cide at left needle position.
+Puncture must not be at X but coin- cide at right needle position.
+Puncture must not be at X but at central position.
+Puncture must not be at X but coin- cide at left needle position.
+Puncture must be at X but coincide at right needle position.
+Figs. 35 and 36 illustrate correct preforations by lines of for Test + 4. Figs. 37 and 38 show incorrect lines of stitching for Test + 4.
+To time pendulum movement of needle bar (continued) Zig-zag stitch, various widths, central needle position
+G
+Fig. 39. Central Needle Position (Various Widths of Bight).
+SETTING lever H at any desired setting between 1 and # 5 positions and position lever G in central position, as shown in Fig. 39.
+STITCHING: Zig-zag stitching produced at width desired up to maximum bight, the needle swinging equally to the right and to the left of the central position. Variations of this stitching are shown in Fig. 40.
+Zig-zag stitch, various widths, left needle position
+Ft= ZF Fi} [sm
+G
+Fig. 41. Left Needle Position (Various Widths of Bight).
+SETTING: Bight lever H at any desired setting between ‘1"’ and + 5 positions and position lever G over to extreme left, as shown in Fig. 41.
+STITCHING: Zig-zag stitching produced at width desired up to maximum bight- the needle swinging from the extreme left toward the right.
+Variations of this stitching are shown in Fig. 42.
+Zig-zag stitch, various widths, right needle position
+Fig. 43. Right Needle Position (Various Widths of Bight).
+24
+SETTING: Bight lever H at any desired position between ‘1’ and +# 5 positions and position lever G over to extreme right as shown in Fig. 48.
+STITCHING: Zig-zag stitching produced at width desired up to maximum bight-the needle swinging from extreme right toward the left. Variations of this stitching are shown in Fig. 44.
+Fig. 42.
+Fig. 44.
+To time pendulum movement of the needle bar (continued)
+Fig. 45. Time Pendulum movement.
+SETTING (See Fig. 45)
+f*
+Set needle position lever at center and bight amplitude lever at straight stitching position (see C and 1 fig. 34 pag. 22).
+. Turn hand wheel toward you until worm set
+screw B and C are accessible from top of machine
+3. Loosen worm gear set screw B and C.
+4. Align hole on cam, M, with slot on cam fol-
+lower, L.
+5. Turn hand wheel slowly over toward you while preventing worm gear D from rotating by means of screw driver, until needle bar reaches its highest point.
+6. Tighten set screw C.
+7. Check for correct pendulum movement and if necessary re-adjust.
+8. Securely tighten worm gear set screw B.
+9. Replace arm top cover.
+TO ELIMINATE END PLAY ON HORIZONTAL ARM SHAFT
+PREPARATION:
+Remove arm top cover and face plate.
+ADJUSTMENT: (See fig. 35)
+le
+Loosen set screw N and O in collar P.
+2. Push needle bar crank toward hand wheel end of machine while firmly pressing collar P against bushing in machine head. Then tighten set screws N and O.
+3. Replace arm top cover and face plate.
+25
+To time pendulum movement of the needle bar (continued)
+CHECK POSITION OF NEEDLE POSITION LEVER (See Fig. 45)
+1. Set needle position lever G at center.
+2. Turn hand wheel toward you until needle bar reaches its highest point and the hole on cam L, is perfectly aligned with slot on follower, M.
+3. With machine set as at point | and 2 and moving the bight amplitude lever H back and forward through all length of its stroke, the needle should not move.
+SETTING: 1. Loosen screw E.
+2. While moving lever H as indicated above move cam follower P to the right or left until needle bar movement is eliminated.
+3. Securely tighten screw E.
+CHECK FOR STRAIGHT STITCH (See Fig. 45) CHECK: 1. Set lever G to the center position.
+2. Set lever H to the straight stitch position.
+3. Turning hand wheel towards you the needle bar should not move.
+SETTING:
+1. Loosen screw F.
+2. Move lever H to the maximum left without mo- ving zig-zag mechanism.
+3. Tighten screw F. 4. Move lever H to the maximum zig zag amplitude.
+5. While turning hand wheel move lever H from left to right until needle bar completely stops.
+6. Loosen screw F and without moving zig-zag mechanism bring lever H in straight stitch po- sition seat.
+7. Securely tighten screw F.
+8. Check for no movement of needle bar frame straight stitch and if necessary, readjust.
+9. Replace arm top cover, face plate and presser foot.
+TO ELIMINATE PLAY BETWEEN NEEDLE BAR VIBRATING CAM AND GEAR, AND WORM GEAR
+PREPARATION:
+Remove arm top cover ADJUSTMENT (see fig. 30 and 45 on page 20 and 25)
+1. Loosen needle bar vibrating cam and gear ec- centric stud set screw Q (fig. 30).
+26
+2. Turn needle bar vibrating cam and gear eccentric
+stud Q1 (Fig. 45) lightly to eliminate play, without binding.
+3. Firmly tighten set screw Q.
+4. Replace arm top cover.
+WIRING DIAGRAM FOR MACHINES FITTED WITH B.A. 60 MOTOR, CONTROLLER AND S-7 LIGHT
+OOO
+THREE-PIN TERMINAL (MALE HALF)
+Fig. 46 B.A. 60 Motor Terminal Board Connection Guide.
+WIRING DIAGRAM FOR MACHINES FITTED WITH B.Z. 60 MOTOR, CONTROLLER AND S-7 LIGHT
+Strain Relief
+TO LIGHT
+TO MOTOR MOTOR
+Fig. 47 B.Z. 60 Motor Terminal Connection Guide.
+27
+TO FIT COMPLETE MOTOR SET ON MACHINE
+1. Place motor on machine arm motor bracket seat. 4. Assemble light by inserting bracket in the proper
+2. Assemble motor bracket screw A. seat on arm and clamp with screw B.
+5. Place foot controller on floor under table, with
+3. Assemble the belt and lower motor until belt foot pedal and foot rest in front the operator.
+reaches a reasonable tension (not too tight or too slack). Then tighten screw A.
+oOo a fF WwW NH
+HINTS FOR ADJUSTERS AND MECHANICS
+CHECK THESE POINTS WHEN A MACHINE BINDS
+. Sprung or cracked bed or arm incurred during
+transit.
+. Bent arm shaft.
+. Bent needle bar.
+. Bent take-up lever.
+. Thread take-up crank set too tightly.
+. Misalignment of thread take-up lever link hinge
+stud.
+. Insufficient thread clearance between heel of
+shuttle and shuttle driver.
+. Shuttle jammed with thread or fluff.
+9. Binding or end play in oscillating shaft.
+10.
+11.
+12. 13. 14,
+15.
+Feed dog striking end or rubbing on side of throat plate slot.
+Feed lifting rock shaft, feed rock shaft and oscillating rock shaft centers too tight.
+Feed bar centers too tight. Bent feed fork.
+Insufficient clearance between arm and clamp stop motion flanged bushing.
+Burrs or damage to bearing surfaces.
+TO “RUN-IN” THE MACHINE
+When a machine is completely assembled and adjusted, it should be checked for binding. Lubricate the machine, as instructed on pages 3 and 4. Then “run-in” tho machine with an electric motor for from 5 to 10 minutes at a medium speed or until all moving parts run smoothly when machine is turned over by hand.
+“Running-in” a machine should be done after every installation of an oscillating
+shaft, and after every general repair.
+INDEX
+MACHINE 237 Page Adjustments
+PARITinR RLG bende te san tiics sce occu eWtair dene ers a> Sereies OF te al eine. aac lean Wr Shad wee eel 25 TIT Le RA ica PE ce ce Dv oe nen AR era 17 Feed Dog (side and lengthwise)... 1... eee eee ee ee ees 6 BS Se ae ae eae a er ee ae i a eer arte ear ee a 6 POGCMEG ROCKTON iene @ imden abe ee Aled 6, Shai wea ew era e ye atey ee oo 7 Pre CRE RECT E sin Pater el oai hoe Fie Tin, cas RSs te as 8c Uwe sehen, Wa Foran ewe ep 7 PRGTIZCHEe EE erate corccn a eeiice Mae See he tance Gee) eae elapse Soe ae ee hee 25 ESR UE aa re ek Sie ote ce: come pes nana OO TR a EOE OTC 10 Needle Position in Relation to the Shuttle and shuttle Race Cap ....... 8 Needle Position in Relation to the All Purpose Throat Plate.......... 22 PORES TOC AP IROIOIN pom) fare <einss sh) snteringmesral A, 8s aber weneel Whe pp eynicer ene ew 9 CIRC NM SIROCKSTENT oie tock Camel ch el ood Ge, Soe pais at &, wae SO AN Oe 8 PME ESHA ere Farr ache ca ler ore aries b. oo \sctas oy 57s) Byay Dhyat a (al We aercas eT oy bal SL 8 PPOMR GT SOOVARIEIONIL so krsey/e ira tgnce i'w lotsa vector atsevrer o> waedweGeraurn we oko Soe ARR en erte 6 SaLiTiRttes ARCO TENG orc ike 5-0) vSalvat ete. Greece. d aie’ We A cbabh a MR Eanes whl Bink 8 SIHUIMMCIOUING pica eco AN ise: afseis.ccarah eancelier site wp saa nce a-eciys 0! are, 86 8 SSaEIET Ie TAI MR Pie hatican ries hats! yok Oey lis) ora (ap honky bre rel wONTa) welligehw tn tewayie 10 Time Pendulum Movement of Needle Bar ......... 0.0 ce eee nneee 22 SORUEIU CHO ARGH CONG: ie: se cee) SC an cee ww veriniece 8 Wee eats, a Oe 9 SSO ULCES REEMA ONO ea rea 's.. ssa tia eta cele y Jena lat a <a in wee ene aS Ue lerTer emcee 9 APCS MUA Ca aris lala a catalase wks ASC D. io gk Moises aint ovoee Metin a lelcete 8 TAPS SERG= UT NMIGCIIENIIGIN seco 6 eon aire cel eek WS cs, 1p elu 8: Bhd rier w elo se 11 To Eliminate Play Between Needle Bar Vibrating Cam and Gear and Worm Gear 26 GUM ESE eel 1 ies eae eee eerie Atelier aarti ae 10 POEMS OTE OCA PATNI ee 0 aa Seal a ack besten, a vey- es arOs Be Op Pe ee) eae ve sere 3 PN GIOr- ACIUStOrS ANG MECHANICS «6. npiscc hes ee ee Were 8 eo eveceare a es 28 AUR ana CePeRd ara ame tose cere nearer taco ty eaah ini. eka Stay a: Tialoy laivvelral as oislewtered. Weird. binatelgPia. farsemye 5 HAAS PANG LIO LORS EIS PGOCRLON  areire atts a: se car cs, ta. Wahu a “ede cea! es) ope mas ie, sn wales 3 Removals and Replacements: Arm Shaft .........0 000 eeu eens 21 ESOL tis VEN EvCmaitaiaa reteset ei glsink ote). ote wu. cored aces clas ww. Me--8 Gevsanv'sy agp RAO, 13 Clamp: Stop Motion Flanged Bushing .... 5606 cure ce ee ee 13 RE CRO MCTIOHUETOG: <2) )6 aris’ site fae cs a, 8) SL Si fa, gr Sv oireretey et oe webgancene we Sa 18 See PAPE MENTE R Rca is lanats. ‘oy. 6, Val.Js\veipis ve toh.tenetrtoy PCAN TAs POM IGG w Ta) lel Vw deal de 17 ROGUMEGINBM RC OMNOCHON «a ral disc. tyislsawad, orci) <e.lee ev-vieni gio e: oy pene: wr ae aoe 18 MOGCNEITINGOROCKTONGI sc iceb an tele teys. ecole ene of Goat ena we a poe ea) wee 14 Preeeel MEME VRIIC CAPER thn Py am vehcota.r wt oa seen orleriercslvat by a TST Wile Gorse: Sel yaceuietharad er weien ss 16 PGT Cave ee PAGEROIEN YS sete i ee os, arrenabriga ay We caramire slam Uaip Yet iler8) 19.) velo io! A Da 13 USNCRCIRMES EA re bur tht edy erage Se aa fay av we SURE a AO (adams «aa Rs Sm stp oe oa what al bear 19 NICS et SANS a TTUM PONT Fay 0: oe. is: ee ace <aLigacer (WD oS hletiebeey ser Wo wn stat Swag owen el tee Nal 12 Rey Ned REET EIEN PRESG RANELT oxo) soso) a5 sh oh gata ihn ce, aye TOs at Ta Tee iehth) weer Malle ahaa se 15 NCAT TCR CHIMIC My eta, wick care e arse Saree Gris: aire a a ge hotel cah BEETS, Ai WTR 15 Perce Ma SEN ite eet oR 25 TRO a cis 6 ales mek 9 cer Ge et Fai ol-@ Vek” wi haga eee bic ala 19 Sth TE eC ha re ei eer ar kes 16 SCHON TASC LLC F aa 3 ooh passa lean ae cartel eA a WOR ae IS cee “pce 14 ROBE CPAKG=UPAIMIOCHANISM: © 6% <3. 6-0 ce ee uieme: oo Woot Bite sees ee Oe ee ee 21 MIPLNITRCAN LO LEMS RAIN citar wit reuseviae trays) coisa, ie AER ctars| a as -sSih tem gen prbaer agnd lai ola 27
+* A Trademark of THE SINGER COMPANY
+;| = §Q0GO0106 |»
+\ a
+15
+t:} SINGER 23/
+(re 377
+Ve
+~ & F | | 262 KINDLY REFER TO THE REVERSE 2—@ 215 SIDE OF THIS FORM FOR THE
+216 APPLICABLE PART NUMBERS
+THE SINGER COMPANY ight Under International Copyright Union —_ Printed in Italy - Mod. 616
+Illustn. Ref. No.
+45863 335/855 50150/832 10985:
+45343 /852 173669/616 125314 45865 /807 173670/616 51682/852
+45352 173671 /616
+352017/616 352015 /616 352016 /823 352104/852 352032 /833 352113/809 173796 /851 141055 /809 109864 /851 352105 /851 125336 /852 2824 /832
+109843 /809 125338 /852
+170065 /650
+170063/832 109850/832 32774/852 20308 /997 352030/851 352031
+352180/851 352066/852 352033/853 50150/832 352040/853 50150/832 352035 /819 352036 /833 352038 /809 352037 /833 352039 51045 /832 352209 352042 1130/819
+352206 /833 352045
+352047/830
+Part no.
+List of Parts for 237 Machine
+Description
+ae Thread Regulator and Tension Thread
+uide
+Slack Thread Regulator and Tension Thread
+Guide Screw
+Tension Stud Set Screw
+Tension Stud, complete, 109852 with 81480
+Tension Releasing Pin
+Thread Take-up spring
+Tension Disc
+Thread Take-up Spring Thread Guard
+Tension Indicator Flange
+Tension spring
+Tension Indicator Flange stop washer
+Tension Indicator
+Tension Regulating Thumb Nut, complete,
+20316 with 45339
+Tension Stud, complete, 109852 with 51682
+Tension Graduated, complete, 109852 with
+45343, 45865, 51682, 66774, 125314, 173669,
+173670, 173556 and two 2102
+Face Plate, complete, 352016 with 352015
+Face Plate
+Face Plate Thread Guard
+Face Plate Clamping Screw
+Tension Releasing Lever
+Tension Releasing Lever Hinge screw
+Presser Bar Lifter
+Presser Bar Lifter Hinge Screw Stud
+Throat Plate Screw
+Throat Plate
+Shuttle Race Slide
+Shuttle Race Slide Spring
+Shuttle Race Slide Spring Screw
+Shuttle Race Slide, complete, 125336 with 2824
+and two 109843
+Shuttle Bobbin Case Latch Lever
+Shuttle Bobbin Case Latch Spring
+Shuttle Bobbin Case Latch
+Shuttle Bobbin Case with 2136
+Shuttle Tension Spring
+Shuttle Tension Regulating Screw
+Shuttle Bobbin Case, complete, 81417/901 with
+591, 15278, 81418 and 2975
+Shuttle Bobbin (Plastic)
+Shuttle Body
+Shuttle complete, 2515 with 81417 and 81348
+2 geal Regulating Thumb Screw Extension n
+Presser Bar Spring
+Presser Bar Guide Bracket Set Screw
+Presser Bar Guide Bracket
+Presser Bar Guide Bracket,
+with 454
+Presser Bar
+Presser Foot Thumb Screw
+Presser Foot Shank
+Presser Foot Hinge Pin
+Presser Foot Plate
+Presser Foot Hinged complete, 352030 with
+20308 and 32774
+Arm Top Cover Screw
+Pressure Regulating Thumb Screw
+Needle Bar vibrating Bracket Upper Hinge Stud
+papathal
+Needle Bar vibrating Bracket Upper Hinge Stud
+Set Screw
+Needle Bar vibrating Bracket Lower Hinge Stud
+Paahing)
+Needle Bar vibrating Bracket Lower Hinge
+Stud Set Screw
+Needle Bar Driving Arm
+Needle Bar Driving Arm washer
+Needle Bar vibrating Bracket
+Needle Bar Driving Arm Retaining Ring
+Needle Bar vibrating Bracket, complete, 352038
+with 352035, 352036 and 352037
+Needle Bar vibrating cam and Gear Stud Set
+Screw
+Thread Take-up Crank, complete, 352206 with
+352041 and 1130
+Needle Bar Connecting Link
+Thread Take-up Lever Link Cap Screw
+Thread Take-up Crank
+Needle Bar Connecting Stud, complete, 352044
+with 454, 352046 and 352047
+Needle Bar Connecting Stud Shank
+Needle Bar Connecting Stud
+Needle Bar Connecting Stud Set Screw
+Needle Bar Connecting Stud Hing Pin
+complete, 3467
+i
+_~ 7
+IIlustn.
+Part no.
+Ref. No.
+86820 86822 /803 86821 /900 140575 /851 352130/810 352131
+352075
+173794 352074/701 173794 501589 173881 /832 500075 /002 501591 352147 /852
+352081 /809
+352083 /833 51045/832 51045 /832 507549/809
+352021
+22238 /856 45847 45915/852 352020 /852 352016 /829 352180/851 173571 185/851 352118/616 185/851 35216 /832 352094 /852 507549/809 352119
+50150/832 352050/803 352055 352052/833 352051 352053 352192/803 352191 /803 1520/809 352054 /833 440/833 90018/819 113298 /832 90017 /833
+173553/819 23183/851 90032
+352197 352073
+208/809 352072 352071 /809
+Description
+Needle Bar with needle stop Pin 4625
+Needle Clamp Gib
+Needle Clamp Body, finish code 807
+Needle Clamp Thumb Screw
+Needle Bar Thread Guard
+Needle Bar complete, 86820 with 86821, 86822,
+140545 and 352130
+Shuttle Race Gate, complete, 352074 with two
+173794
+Shuttle Race Gate Position Pin (Rollod)
+Shuttle Race Gate
+Shuttle Race Gate Hinge Pin (Rolled)
+Shuttle Race Gate Hinge Spring
+Shuttle Race Gate Hinge
+Shuttle Race Gate Latch Hinge Screw
+Shuttle Race Gate Latch Hinge Screw Spring
+Shuttle Race Gate Latch (sintered metal)
+Shuttle Race Cap Screw
+Shuttle Race Cap
+Shuttle Race Frame
+Shuttle Race Frame complete, 352075 with
+501589, 173881, 50075, 501591, 352147, 352080,
+352081 and two 662.
+Oscillating Shaft complete, 23486 with 352078,
+125065, 173794 and two 51229
+Shuttle Driver Cushion Spring
+Shuttle Driver Complete, 23484 with 23485
+Oscillating Shaft
+Shuttle Driver Cushion Spring Set Screw
+Shuttle Driver Pin (Rolled)
+Oscillating Shaft Collar (face Plate End)
+Oscillating Shaft Collar Set Screw
+Oscillating Shaft Collar complete, 352110 with
+two 352177
+Shuttle Race Frame Guide Pin
+Shuttle Race Frame Guide Pin Clamping Screw
+Machine Hinge Connection Screw
+Nortel winder Thread Tension Bracket Screw u
+Bobbin winder Thread Tension Bracked,
+complete, 352020 with 45915, 45847 and 22238
+Bobbin winder Thread Tension Rivet
+Bobbin winder Thread Tension Disc Spring
+Bobbin winder Thread Tension Disc
+Bobbin winder Thread Tension Bracket
+Arm Top Cover Thread Guard
+Arm Top Cover Set Screw
+Arm Spool Pin
+Tension Bracket Screw
+Arm Top Cover
+Bobbin winder Stop Latch Screw
+Bobbin winder Stop Latch Screw washer
+Bobbin winder Stop Latch
+Bobbin winder Stop Latch Screw Nut
+Arm Top Cover Complete, 352118 with 352016,
+352021, 352164, 352094, two 507549 and two 185
+Needle Bar vibrating and Cam Gear position
+Plate Hinge Stud Set Screw
+Needle Var vibrating and cam Gear Position
+Plate Hinge Stud
+Needle Bar Driving Arm Slide Complete,
+352191 with 352192, 352051, 352052, 352053,
+352054 and 1520
+Needle Bar Driving Armslide Hinge Screw Stud
+Needle Bar Driving Arm Slide
+see Bar vibrating and cam Gear Position jate
+— Bar vibrating cam and Gear Eccentric u
+Needle Bar vibrating cam and Gear
+Needle Bar Driving Arm Slide Stud Nut
+eit Bar Position Lever Finger Grip Holder ring
+Thread Take-up Lever Link Hinge Stud Set
+Screw
+Thread Take-up Lever Link Hinge Stud Re-
+taining Rings
+Thread Take-up Lever Link Hinge Stud
+Thread Take-up Lever Link
+Thread Take-up Lever Hinge Stud
+Thread Take-up Lever
+Thread Take-up Lever complete, 23183 with
+90017 and 173553
+Thread Take-up complete, 90033 with 352043
+Feed Rock Shfat complete, 352071 with 352072,
+125270, two 208 and two 15445
+Feed Dog Screws
+Feed Dog
+Feed Bar
+Hlustn. Ref. No.
+Ilustn. ef. No.
+Part no. Description Part no. Description
+141 15445 Feed Bar Screw center Complete, 315 with 1519 211 896/809 Feed Lifting Rock Shaft Crank Clamping Screw 142 315/832 Feed Bar Screw Center 212 173824/809 Feed Lifting Rock Shaft Crank complete, 1912 143 1519/809 Feed Bar Screw Center Nut with 896 113292 and 113290 144 125270/809 Feed Rock Shaft 213 173821/809 Feed Lifting Rock Shaft 145 125048/832 Feed Rock Shaft Center (Left) 214 173822 Feed Lifting Rock Shaft complete, 173821 with 146 1045/832 Feed Rock Shaft Center Set Screw 173824 147 $52180/851 Arm Top Cover Set Screw 215 125048/832 Feed Lifting Rock Shaft Center (Left) 148 352095/809 Bobbin winder Lever Hinge Screw 216 51045/832 Feed Lifting Rock Shaft Centers Set Screws 149  352026/830 Bobbin winder Lever Hinge Screw Friction 217 352068 Bight Amplitude Control Leder Complete, washer 352064 with 352067 and 183130 150 15072 Bobbin winder Position Pin 218 352067 Bight Amplitude Control Lever Finger Grip 151 #920/994 Bobbin winder Spindle complete, 352065 with 352056 and 140805 152 1920/650 Bobbin winder Spindle with Position Pin 15072 219 352065/833 Bight Amplitude Control Lever Finger Grip 153  352024/852 Bobbin winder Lever complete, 352022 with Holder Spring 352023 220 183130/819 Bight Amplitude Control Finger Grip Aolder 154 173770/701 Bobbin winder Pulley Spring sed Screw 155 15287/701 Bobbin winder Friction Ring (Rubber) 221 352064 Bight Amplitude Control Lever 352062 with 156 352025/852 Bobbin winder complete, 352024 with 1920, Bushing 352063 173770 and 15287 222 140805/833 Bight Amplitude Control Lever Finger Grip Set 157 352069/803 Bight Amplitude Control Lever Hinge Screw Screw 158 21202/809 Needle Bar Driving Arm Connecting Regulating 223 352056/852 Bight Amplitude Control Lever Finger Grip Lever slide Friction washer 224 50150/832 Needle Bar Driving Arm Connecting Stud Set 159 352070/830 Needle Bar Driving Arm Connecting Lever Screw Regulating Slide 225 352097 Needle Bar Driving Arm Connecting Stud 160 352061 Needle Bar Driving Arm Connecting Lever 226 352098 Needle Bar Driving Arm Connecting Stud complete, 352058 with 352059 complete, 352097 with 50150 161  352059/819 Needle Bar Driving Arm Connecting Lever 227 352102 Arm Shaft (Upright) Upper Bracked complete, Slide Block Stud 352098 with 352099, 352100, 352101 and 50150 162 %52058/819 Needle Bar Driving Arm Connecting Lever 228 352050 Needle Bar Driving Arm Connecting Lever 163 140805/833 Needle Bar Position Lever Finger Grip Set Hinge Stud Screw 229 352101 Arm Shaft (Upright) Upper Crank 164 352056/852 Needle Bar Position Lever Finger Grip 230 50150/832 Needle Bar Driving Arm Connecting Stud Set 165 352060/806 Needle Bar Driving Arm Connecting Lever Slide Screw Block 231 352100 Arm Shaft Upper Crank Clamping Screw 166 1036/833 Thread Take-up Cranck Set Screw 232 352099/833 Needle Bar Driving Arm Connecting Stud 167 4889/914 Needle Bar Crank Retaining Ring 168 173600/003 Needle Bar Crank complete, 4885 with 1036 233 90186 Clamp Stop Motion Flanged Bushing complete, 169 30033 Thrzad Take-up complete, 90632 with 113298 50311 with 140558 and 173817 and two 90018 234 50311/833 Clamp stop Motion Flanged Bushing Set Screw 170 =©352187 Arm Shaft Bushing * 234A 173817/001 Clamp stop Motion Flanged Bushing 171 435/833 Arm Shaft Bushing Set Screw 235  140558/833 Clamp Stop Motion Flanged Bushing Set 172 140886/830 Needle Bar Crank Position Screw Screw 173 $07218/900 Arm Shaft Thrust Collar 236 352029/616 Hand wheel 174 453/830 Arm Shaft Trust Collar Clamping Screw 237 2020/832 Clamp stop Motion Clamp washer 175 507218 Arm Shaft Trust Collar complete, 507218 with 238 248/851 Clamp stop Motion Clamp stop Screw 453 239 256/853 « Clam stop Motion Clamp Screw 176 507513/803 Arm Shaft Horizontal Driving vorm Gear 240 256/851 Clamp stop Motion Clamp Screw with 248 851 177 0150/8832 Arm Shaft (Horizontal) Driving worm Gear 241 352182/830 Front Panel Retaining Rings Clamping Screw 242 208/809 Bight Amplitude and Needle position control 178 507579 Arm Shaft Horizontal Driving worm Gear com- levers position Indicator Plate Screws plete, 507513 with two 50150 243 352057 Bight Amplitude and Needle Position Control 179 352207 Arm Shaft (Horizontal) Lever Position Indicator Plate 180 4940/997 Arm Shaft Counter balance 244 252174 Singer medallion 181. 1285/833 Arm Shaft Counter balance and Feed cam 245 352125/632 Front Panel : Position Screw 246 352116/632 Front Panel (for U.S.A. - C.P.D.) complete, 182 171509 Arm Shaft Counter balance Complete, 1285 352125 with 352179 and 352174 with 4940 246 352117/632 Front Panel (for other countries) complete, 183 352194 Feed Cam 352125 with 352179 and 352174 184 {285/833 Feed Cam position Screw 247 352179/819 Stitch Indicator Seat Reinforcing Plate 185 352195 Feed cam with 1285 and 352184 248 352175/871 Front Panel Clamping Screws 186 352184 Feed cam Elastic ing 249 352112/802 Feed Regulator Stitch Indicator Spring 187 = 35: Arm Shaft (Horizontal) complete, 173600 with 250 352193 Feed Regulator Stitch Indicator e 352207, 352187, 507579, 171509, 507218 and 352195 251 113144/855 Feed Regulator Thumb Nut 188 173756/002 Feed Forked Connection with 81459 252 352027/819 Feed Regulator Thumb Nut Screw Stud 189 1459/9000 Feed Forked Connection Slide Block Stud 253 352088 Feed Regulator Thumb Nut Screw Stud comp- 190 173756/903 Feed Forked Connection (finish code 809) plete 352027 with 113144 191 170046/806 Feed Forked Connection Slide Block 254 352091 Arm Shaft (Upright) 192 173890/809 Feed Regulator 255 173794 Arm Shaft (Upright) Lower Cranke pin (Rolled) 193 125399 Feed Regulator Hinge Screw Friction washer 256 352092 Arm Shaft (Upright) complete, 352090 with 194 50353/809 Feed Regulator Hinge Screw 352091 and 173794 195 125049/832 Feed Rock Shaft Center (Right) 257 352089 Arm Shaft (Upright) Lower Crank 196 1381/832 Feed Forked Connection Hinge Screw 258 81459/819 Arm Shaft (Upright) Lower Crank Slide Block 197 1520/809 Feed Forked Connection Hinge Screw Nut Stud 198 352171 Shuttle Driver Complete, 352170 with 352111 259 352090 Arm Shaft (Upright) Lower Crank complete, and 352079 352089 with 81459 199 352205 Oscillating Shaft Collar (Hand wheel End) 260 170046/806 Arm Shaft (Upright) Lower Crank Slide Block Complete, 352111 with two 352177 261 125048/832 Oscillating Rock Shaft Center (Left) 200 352204/832 Oscillating Shaft Collar Set Screw 262 51045/832 Oscillating Rock Shaft Centers Set Screws 201 203 Oscillating Shaft Collar 263  352084/809 Oscillating Rock Shaft 202 173794 Oscillating Shaft Crank Pin (Rolled) 264 1520/809 Crank Connecting Rod Hinge Screw Nut 203 50150/832 Oscillating Shaft Crank Clamping Screw 265 125049/832 Feed Rock Shaft Center (Right) 204  352085/803 Oscillating Shaft Crank Slide Black 266 141254/832 Crank Connecting Rod Hinge Screw 205 %52086/819 Oscillating Shaft Crank Slide Block Stud 267 125049/832 Oscillating Rock Shaft Center (Right) 206 352087 Oscillating Shaft Crank 268 896/832 Crank Connecting Rod cap Screw 207 2088 Oscillating Shaft Crank complete, 352085 with 269 173894/901 Crank Connecting Rod cap 352086, 352087 and 50150 270 173894/900 Crank Connecting Rod 208 13292/819 Feed Lifting Rock Shaft Crank Roller Stud 271 173894/651 Crank Connecting Rod complete, 173894/900 209 13290933 _ Feed Lifting Rock Shaft Crank Roller with 173894/901 and two 896 210 1912 S94 272 352167/616 Hand wheel (Universal) Hand Attachment, can
+“Feed Lifting Rock Shaft Crank - also be used for Motor or Treadle
+~~

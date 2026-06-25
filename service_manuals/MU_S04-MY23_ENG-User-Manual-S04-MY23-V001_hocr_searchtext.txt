@@ -1,0 +1,2398 @@
+User Manual MU_S04 MY23_ENG - User Manual S04 MY23 (V001)
+Vehicle information Provided with the vehicle
+Model:
+Official SILENCE service: Client acceptance:
+Contact telephone number: Date:
+Plate number:
+Vehicle identification number:
+Date of registration or delivery of vehicle:
+User manual:
+No Yes
+Keys:
+Charger cable:
+Emergency kit:
+Operational consulting:
+2 Vehicle information
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Introduction
+Thank you for your trust in choosing an S04.
+With your new S04, you will enjoy a vehicle with the most advanced technology and high-quality equipment.
+We recommend that you carefully read this User Manual to become familiar with your vehicle and make the most of all its features in your day-to-day driving.
+Information on handing the vehicle is complemented with instructions for vehicle operation and maintenance. This guarantees your safety and preservation of your vehicle’s value. We also provide you with valuable practical tips and suggestions to drive your vehicle efficiently and in an environmentally friendly way.
+We hope you enjoy your vehicle and always have a nice trip.
+SILENCE Team
+Introduction 3
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+About this manual
+This manual describes the equipment in the vehicle at the time this text was completed. Some of the equipment described as follows will be added at a later date or are only available on certain markets.
+Some of the equipment and features described herein are not included in all kinds or makes of a model and may be changed or modified based on technical and market requirements. Under no circumstances may this be interpreted as false advertising.
+Certain details in the illustrations may differ from your vehicle. They should be viewed as a standard representation.
+Directional indications (left, right, forward, back) in this manual refer to the direction in which the vehicle drives, unless specified otherwise.
+The audio-visual material merely aims to help users to better understand some of the car’s functions.
+It does not replace the user manual. Please see the user manual for complete information and warnings.
+Equipment marked with an asterisk is only serially provided with certain model makes. It is supplied as an option only for certain makes or only supplied in certain countries.
+Registered trademarks are marked with an ®. If this symbol is not present, this does not guarantee the absence of a trademarked term.
+This means that the section continues on the next page.
+You may access the information in this manual with the:
+• Thematic index with the manual’s
+general structure by chapters.
+*
+®
+>>
+CAUTION
+Texts preceded by this symbol contain information on your safety and warn you of possible danger of accidents or injury.
+INFORMATION
+Texts preceded by this symbol contain additional information.
+WARNING
+Texts preceded by this symbol are to warn you about possible damage to the vehicle.
+4 About this manual
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Most updated version
+To see the most recently updated version of the manual:
+• scan the QR code
+• or enter this address into your web browser: https://www.silence.eco/en/user-manual
+About this manual 5
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Content
+Vehicle information .............................................. 2 Provided with the vehicle ..................................... 2 Introduction .......................................................... 3 About this manual ................................................4
+Most updated version ................................................ 5
+Outside view .........................................................8 Inside view .......................................................... 10 Safety ...................................................................12
+Safe driving .................................................................12 Safety first! .................................................................12 Before driving .............................................................12 Factors bearing on safety ........................................12 Safety equipment ......................................................13 Correct vehicle occupant position .........................13 Correct seat position ................................................13 Number of seats ....................................................... 14 Risks of sitting in incorrect position .......................15 Pedals ........................................................................ 16
+Seat belts .............................................................16
+Why wear seat belts ................................................ 16 Control lights ............................................................ 16 The protective role of seat belts ............................17 Important safety instructions to use seat belts ..17 Frontal accidents and laws of physics ................. 18 Proper seat belt adjustment .................................. 19 Buckle and unbuckle your seat belt ..................... 19 Proper belt placement ............................................20 Transporting children ................................................21 Introduction ................................................................21
+Wheels ................................................................ 23
+Wheels and tyres .....................................................23
+General observations ..............................................23 New wheels and tyres ............................................24 Tyre life cycle .............................................................26 Wear indicators ........................................................27 Snow chains ...............................................................27
+Emergencies ........................................................29
+Troubleshooting........................................................29 Emergency kit ...........................................................29 Towing the S04 ..........................................................31 Exterior vehicle lighting .......................................... 33 Interior vehicle lighting ........................................... 33 Fuses ........................................................................... 33 Replacing the windscreen wiper ...........................34 Windscreen washer reservoir ................................ 35
+Use ...................................................................... 39
+Driver’s seat...............................................................39 Instrument dashboard ............................................ 40 Turn signals ................................................................ 41 Clock ........................................................................... 41 Gear indicator ...........................................................42 Current indicator ......................................................43 Battery charge ..........................................................43 Driving modes ...........................................................44 Speedometer ............................................................46 Menu ...........................................................................46 Dashboard .................................................................49 Parking brake .............................................................49 Windscreen defogging ............................................50 Hazard lights .............................................................50 Door lock ....................................................................51 Air conditioning .........................................................51
+Ventilation .................................................................52 Multi-function wheel .............................................. 53 Instrument dashboard menu .................................54 Locking and unlocking the vehicle ........................ 61 Information ............................................................... 61 Locking and unlocking the driver’s door ............. 61 Locking and unlocking the passenger’s door .....62 Back door ...................................................................63 Front bonnet .............................................................64 Controls for windows ..............................................65 Electric opening and closing windows .................65 Vehicle lights .............................................................66 Control lights ............................................................66 Light control ..............................................................66 Turn signal lever and high beams .........................68 Hazard lights .............................................................69 Lighting for instrument panel, screens, and swit- ches .............................................................................69 Interior and reading lights ......................................69 Visibility ......................................................................70 Windscreen lever .....................................................70 Adjusting outside mirrors ........................................71 Manually retracting outside mirrors ......................71 Sunscreens .................................................................72 Adjusting the driver’s seat ......................................72 Transporting luggage ...............................................72 Mesh storage bag .....................................................74 Start driving ...............................................................74 Starting up the vehicle ............................................75 Stopping the vehicle ................................................75 Changing the start-up sequence ..........................76
+6 Content
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+“My Silence” APP ......................................................77 Batteries .....................................................................78 Introduction ...............................................................78 Safety instructions ...................................................78 Temperature ..............................................................79 Battery charge indicator in % (SoC) ................... 80 Autonomy ................................................................. 80 Good battery charging practices ......................... 80 Good practices for proper battery maintenance ... 80 First aid measures ....................................................82 Fire protection measures ........................................82 Recycling the battery pack .....................................82 Direct vehicle charging ...........................................84 Battery charging .......................................................85
+Vehicle maintenance ...........................................91
+Maintenance and cleaning ..................................... 91 Basic observations .................................................... 91 Washing the vehicle................................................. 91 Instructions for cleaning and maintenance ........93 Windscreen wipers .................................................93 Headlamps/Rear optical sets ................................93 Wheels .......................................................................93 Hubcaps / Hubcap fittings .....................................93 Paint ............................................................................93 Decorate slats ...........................................................93 Windows ....................................................................93 Hubcaps / Hubcap fittings .....................................93 Plastic parts ...............................................................93 Instrument dashboard .............................................94 Paneles de mando ....................................................94 Textiles ........................................................................94
+Seat belts ...................................................................94 Take special care with... ...........................................94 Take the vehicle off the road .................................95 Collection of vehicles at the end of their life cycle and scrapping ............................................................96 Recycling electric or electronic equipment ........96
+Technical data ..................................................... 97
+Relevant information ...............................................97 Introduction ...............................................................97 Tyre pressure .............................................................97 Vehicle identification details ..................................97 Weights ......................................................................97 Fittings ........................................................................98 Dimensions ............................................................. 100
+Content 7
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Outside view
+Opening and closing
+Side doors
+Locking/Unlocking from inside
+>>> Page. 51
+Front bonnet
+Charging outlet >>> Page. 64
+Windscreen washer reservoir >>> Page. 35
+Towing the vehicle
+Front attachment point for towing
+>>> Page. 31
+Front lighting
+Low beams >>> Page. 66
+High beams >>> Page. 66
+Flash >>> Page. 66
+Turn signals >>> Page. 41
+Daytime running lights >>> Page. 67
+Front parking light >>> Page. 66
+8 Outside view
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+1
+4 3
+2
+1
+2
+3
+4
+Outside mirrors
+Adjustment >>> Page. 71
+Folding out/Retraction >>> Page. 71
+Turn signals >>> Page. 41
+Back door
+Opening >>> Page. 63
+Locking/Unlocking from inside
+>>> Page. 51
+Emergency kit >>> Page. 29
+Towing the vehicle
+Rear attachment point for towing
+>>> Page. 31
+Iluminación trasera
+Rear parking light
+Back-up light
+Turn signals
+Brake light
+Rear fog light >>> Page. 67
+Outside view 9
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+5
+7 8 9
+6
+5
+6
+7
+8
+9
+Inside view
+Adjusting mirrors
+Turn signal lever and light switch
+Instrument dashboard
+Windscreen lever and gear selector and driving mode
+Smartphone stand and charger
+Fuses
+Dashboard
+Botón de encendido
+Multi-function wheel
+Bonnet opening lever
+Electric window operator
+10 Inside view
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+1
+2
+3
+4
+5
+6
+1
+11 11
+10 9 8 7 6
+2 4 5 3
+11
+7
+8
+9
+10
+Seat belts
+Driver’s seat
+Passenger seat
+Left sunscreen
+Interior lighting
+Right sunscreen
+Inside view 11
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+1 4
+2 5
+3 6
+1 2 3
+4 5 6
+Safety
+Safe driving
+Safety first!
+Before driving
+Both for your own safety and your passenger’s, we recommend that you consider the following aspects before you start driving:
+– Make sure that the lights and turn
+signals are in perfect condition.
+– Check tyre pressure >>> Page.
+97.
+– Check that all windows provide
+good visibility.
+Factors bearing on safety
+As driver, you are responsible for your own safety and your passenger’s.
+– Always remain attentive to traffic
+and do not become distracted by your passenger or telephone calls.
+– Never drive when your faculties are
+impaired (e.g., under medication, drugs, alcohol).
+– Follow traffic rules and speed
+limits.
+– Always adapt your speed to the
+characteristics of the road, as well as weather conditions and traffic circumstances.
+– On long trips, stop regularly to
+rest, at least every two hours.
+– Whenever possible, avoid driving
+when tired or tense.
+– Make sure that luggage is properly
+secured >>> Page. 72.
+– Make sure that no objects prevent
+pedal operation >>> Page. 16.
+– Adjust mirrors >>> Page. 71.
+– Adjust the front seat >>> Page.
+72.
+– Protect children by using an
+appropriate child seat and correctly adjusting the seat >>> Page. 21.
+– Sit correctly. Also advise your
+passenger to sit correctly.
+– Adjust your seat belt correctly >>>
+Page. 20.
+– Tell your passenger to properly
+buckle their seat belt >>> Page. 19.
+WARNING
+• This chapter contains information of interest on handling the vehicle, both for the driver and the passenger. In other chapters on on-board documentation, there is other important information of which the driver and passenger must also be aware of their safety.
+12 Safety
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Correct vehicle occupant position
+Correct seat position
+Safety equipment
+Do not put yours or your passenger’s safety at risk. Safety equipment can reduce the risk of injury in the event of an accident. The following sections include part of your S04’s safety equipment:
+• three-point seat belts.
+The aforementioned safety equipment’s purpose is to protect you and your passenger the best way possible in the event of an accident. These safety systems will be of no use to you or your passenger if you sit in an incorrect position or use these systems inappropriately.
+Safety affects all of us!
+WARNING
+Driving under the effects of alcohol, drugs, medications, and narcotics can cause serious accidents that can even be lethal.
+• Alcohol, drugs, medications, and narcotics can considerably alter your perception, reaction time, and safety while driving, which could lead to loss of control over the vehicle.
+Fig. 1 - The correct distance between the driver and the wheel must be at least 25 cm (10 inches).
+Fig. 2 - Correct seat belt adjustment.
+Safety 13
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+As follows, we show correct seat positions for you and your passenger.
+People who cannot reach a correct seat position due to their physical constitution must ask about possible special devices at a specialised shop. Optimum protection is only granted by the seat belt in a correct position.
+SILENCE recommends that you see technical service.
+For your own safety and to avoid injury in the event of sharp movement or braking, or of accident, SILENCE recommends the following positions:
+Valid for all vehicle occupants:
+• Keep the back of your neck as close
+as possible to the headrest >>> Fig. 2
+• Always keep your feet in the
+footrest area while driving.
+• Properly adjust and buckle your
+seat belt >>> Fig. 2.
+The driver must also:
+• Have their back completely resting
+against the seat.
+• Adjust the seat so that the wheel is
+at least 25 cm (10 inches) from the sternum >>> Fig. 1 and you can hold it with both hands on both sides, from the outside, with your arms slightly bent.
+• Adjust the seat lengthwise so that
+you can press the pedals down all the way with your knees slightly bent, with a distance between the knee zone and the instrument dashboard of at least 10 cm (4 inches) >>> Fig. 1.
+• Always keep your feet in the
+footrest area to keep control over the vehicle at all times.
+Number of seats
+The vehicle has 2 seats in the front.
+Each seat is equipped with a seat belt.
+WARNING
+Sitting in an incorrect position in the vehicle can increase the risk of serious or lethal injury in the event of abrupt movement or braking, collision, or accident.
+• Before driving, all occupants must always be seated in a correct position and remain in this position during the entire trip. The same is true for seat belt placement.
+• Only transport as many people as seats with seat belts that the vehicle has.
+• While driving, always keep your feet in the footrest area. Never place them, for example, on top of the seat or instrument dashboard, and never put them out the window. Otherwise, not only will the seat belt be unable to offer you any protection, but it may also increase the risk of injury in the event of an accident.
+14 Safety
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Risks of sitting in incorrect position
+If you are not wearing your seat belt, or are wearing it improperly, this increases the risk of serious or lethal injury.
+Seat belts only guarantee optimum protection when worn properly.
+Sitting in an incorrect position considerably reduces the protective function of the seat belt. Consequently, you can suffer serious or even lethal injury. The risk of serious or lethal injury especially increases if the occupants of the vehicle knock into each other because they are not seated correctly.
+As driver, you are responsible for every individual, especially children, that you transport in your vehicle.
+As follows is an illustrative list of incorrect positions that could prove dangerous to vehicle occupants.
+When the vehicle is in movement:
+• Never stand inside the vehicle.
+• Never stand on the seats.
+• Never kneel on the seats.
+• Never lean on the instrument
+dashboard.
+• Never sit just on the front of the
+seat.
+• Never sit to the side.
+• Never lean outside the window.
+• Never put your feet outside the
+window.
+• Never put your feet on the
+instrument dashboard.
+• Never put your feet on the seat
+padding or on the back of the seat.
+• Never travel in the footrest area.
+• Never sit on top of the armrest.
+• Never travel without being seated in
+the seat with your seat belt on.
+• Never stay in the boot.
+WARNING
+Sitting in an incorrect position in the vehicle can increase the risk of serious or lethal injury in the event of accident, abrupt movement, or braking.
+• All occupants must always be correctly seated while driving and be wearing their seat belt correctly.
+• Vehicle occupants who are not seated correctly or are not wearing their seat belt run the risk of very serious or lethal injury.
+Safety 15
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+WARNING
+• If you cannot activate the pedals freely, critical situations may arise while driving.
+• Never place rugs or any other carpeting over the rugs already installed, since this reduces the pedal area and can prevent you from using them, with the consequent risk of accident.
+• Never place objects in the driver’s footrest area. They could move into the pedal area and prevent the driver from activating them.
+Pedals
+– Make sure that you can always
+press the brake and accelerator pedals without any problems.
+– Make sure that the pedals can
+return to their original position without any problems.
+– Make sure that the rugs are
+entirely attached, so that they do not move while driving or impede pedal operation.
+You may only use rugs that leave the pedal area unobstructed and that can be attached to keep them from moving. You can purchase suitable rugs at a specialised establishment. Elements to attach rugs have been placed in the footrest area.
+When one of the brake circuits fails, you have to press the brake pedal farther down to stop the vehicle.
+Wear suitable footwear
+Wear shoes that properly adjust to your foot and do not impede sensitivity when activating the pedals.
+The control light activates to remind you to buckle your seat belt.
+Before driving the vehicle:
+• Adjust your seat belt correctly.
+• Tell your passenger to correctly
+buckle their seat belt before beginning to drive.
+If you exceed a certain speed when you begin driving without buckling your seat belt (regardless of the passenger), or if the passenger unbuckles while driving, you will hear an acoustic signal for a few seconds. The warning light will also blink. The light will turn off when, with the on button activated, you buckle your seatbelt.
+Seat belts
+Why wear seat belts
+Control lights
+The driver has not buckled their seat belt.
+Lights up in red
+Fig. 3 - Pedal location
+16 Seat belts
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+The protective role of seat belts
+Properly worn seat belts keep occupants in the correct position.
+They also help to avoid uncontrolled movements that can cause serious injury and reduce the danger of flying out of the vehicle in the event of accident.
+Vehicle occupants who properly wear their seat belts will largely benefit from the fact that kinetic energy is absorbed by the seat belt. The structure of the front part also guarantees absorption of the released kinetic energy. This decreases the kinetic energy being released and, at the same time, the risk of injury. This is why you must put your seat belt on before you begin driving the vehicle, even for just a short trip.
+Also ensure that your passenger has buckled their belt. Statistics on traffic accidents have shown that correctly wearing your seat belt considerably reduces the risk of serious injury and increases the likelihood of surviving in the event of an accident.
+Fig. 4 - Drivers who wear their seat belt properly will not be thrown from the vehicle in the event of abrupt braking.
+Important safety instructions to use seat belts
+– Always wear your seat belt as
+described in this section.
+– Ensure that it is possible to wear
+your seat belt at all times and that the seat belts are not damaged.
+WARNING
+• If you are not wearing your seat belt, or are wearing it improperly, this increases the risk of serious or lethal injury.
+Seat belts provide maximum protection only if used correctly.
+• One same seat belt should never be used by two people at the same time (including children).
+• Never remove your seat belt while the vehicle is in movement; otherwise, there is risk of death.
+• The seat belt should not slide over hard or fragile objects (glasses, pens, etc.), since this could produce injury in the event of an accident.
+• The seat belt must never be caught, damaged, or rub against sharp edges.
+• Never wear your seat belt under your arm or in any other incorrect position.
+Seat belts 17
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Frontal accidents and laws of physics
+It is easy to explain how the laws of physics work in the event of a frontal accident: as soon as the vehicle begins to move, this creates, both in
+the vehicle and in its occupants, energy called “kinetic energy.”
+The magnitude of the “kinetic energy” mainly depends on the speed, weight of the vehicle, and weight of the occupants. The greater the weight, the greater the energy that must be “absorbed” in the event of an accident.
+However, the most important factor is the vehicle’s speed. For example, if speed doubles, from 25 km/h (15 mph) to 50 km/h (30 mph), the kinetic energy quadruples.
+Given that the vehicle’s occupants in our example do not have their seat belts buckled, in the event of collision, all of the occupants’ kinetic energy will only be absorbed by this impact.
+Even driving at a speed between 30 km/h (19 mph) and 50 km/h (30 mph), the force on the body in an accident can easily exceed one tonne (1,000 kg). The force on your body
+• Thick, unbuttoned garments (e.g., a coat over a sweater) make it difficult to correctly adjust seat belts, so they reduce their protective capacity.
+• Avoid obstructing the fastener with paper or similar objects, since the buckle cannot click into place.
+• Never modify the position of the seat belt with pins for the belt, fastener rings, or similar objects.
+• Seat belts with damage to the fabric, joints, automatic roller, or fastener can cause serious injury in the event of accident. For this reason, regularly check the condition of the seat belts.
+• After an accident, go to a specialised workshop to replace seat belts that have been excessively loosened due to the strain they underwent. It may be necessary to replace them, even if there is no visible damage. Moreover, you must check the belt’s points of attachment.
+• Never try to repair seat belts on your own. Seat belts must not be disassembled or modified in any way.
+• The belt must be kept clean, since if it is very dirty, its automatic roller’s operation may be jeopardised.
+Fig. 5 - Drivers not wearing their seat belt will be thrown forward.
+18 Seat belts
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+increases along with the speed at which you drive.
+Occupants of the vehicle who have not buckled their seat belts are not “united” with the vehicle. In the event of a frontal collision, these individuals will move at the same speed as the vehicle before the collision.
+This example is valid not only for frontal collision, but also for all kinds of accidents.
+Even when driving at a low speed, in the event of collision, there are forces on the body that cannot be counteracted just by leaning against one’s hands. In the event of a frontal collision, vehicle occupants who are not wearing their seat belt will be launched uncontrollably forward and will crash, for example, against the wheel, the instrument dashboard, or the windscreen.
+Proper seat belt adjustment
+Buckle and unbuckle your seat belt
+Fig. 6 - Insert the seat belt buckle in the fastener.
+Fig. 7 - Release the buckle from the belt fastener.
+When properly placed, seat belts keep occupants in the most protected position in the event of abrupt braking or accident.
+Buckle your seat belt before each trip >>> Fig. 6.
+• Properly adjust the front seat >>>
+Page. 13.
+• Pull the belt buckle and place the
+belt uniformly over your chest and pelvic region. Do not fold the belt when doing so.
+• Buckle the belt into the fastener on
+its seat.
+• Pull the belt to ensure that the
+buckle is properly inserted into the fastener.
+Unbuckle the seat belt >>> Fig. 7.
+• Only unbuckle the seat belt when
+the vehicle is stopped.
+• Press the red button on the
+fastener. The buckle will be released from the fastener.
+• Accompany the belt with your hand
+so that the belt rolls more easily, it
+Seat belts 19
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Proper belt placement
+Fig. 8 - Correctly adjusted seat belt, seen from the front and side.
+Fig. 9 - Seat belt placement for pregnant women.
+does not fold, and the covering is not damaged.
+and reduce the risk of serious or lethal injury when properly worn. For this reason, the seat belt must always be buckled, and you must ensure that the belt is in proper position.
+An improper position in the seat can lead to serious or even lethal injury >>> Page. 72.
+• The shoulder belt must always go
+over the middle of the shoulder, never over the neck, arm, or under the arm, or behind the back.
+• The lap seat belt must always go
+over the pelvic region and never over the abdomen.
+• Always keep the belt flat and tight
+against the body. If necessary, pull on the seat belt a bit.
+For pregnant women, the seat belt must be uniformly placed against the chest and as low as possible on the pelvic region and kept flat so it does not press against the stomach. It must also be used during the entire pregnancy. >>> Fig. 9.
+WARNING
+• The seat belt can only guarantee optimum protection when properly worn according to the occupant’s height.
+• Removing the seat belt while driving can cause serious or lethal injury in the event of accident or abrupt braking.
+• The seat belt or a loose seat belt can cause serious injury if the belt moves from rigid areas of the body to soft areas (e.g., to the abdomen).
+Seat belts only offer optimum protection in the event of an accident
+20 Seat belts
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Adapt the belt’s placement to the occupant’s height
+WARNING
+If the seat belt is improperly placed, this can lead to serious or lethal injury in the event of an accident.
+• The shoulder belt should go over the middle of the shoulder and never under the arm or over the neck.
+• The seat belt must be flat and tight against the upper part of the body.
+• The lap seat belt must go over the pelvic region and never over the abdomen. The seat belt must be flat and tight against the pelvis. If necessary, pull on the seat belt a bit.
+• For pregnant women, the lap belt must go as low as possible over the pelvic region, flat and “surrounding” the stomach >>> Fig. 9.
+• Do not fold the belt while wearing it.
+• Once the belt has been properly placed, do not pull it away from your body with your hand.
+• Do not put the belt over rigid or fragile objects, such as glasses, pens, or keys.
+• Never modify the position of the seat belt with pins for the belt, fastener rings, or similar objects.
+When, due to their physical constitution, individuals cannot reach the optimum seat belt position, they must ask at a specialised shop about possible special devices to achieve optimum belt protection. SILENCE recommends that you see technical service.
+The S04 does not have backseats. For this reason, you may carry a child in the passenger seat.
+WARNING
+WARNING
+Transporting children
+Introduction
+If you need to mount and use a car seat for babies or children, consider pertinent legal provisions and the assembly instructions of the manufacturer of the car seat for babies or children.
+INFORMATION
+Along with vehicle documentation, we recommend that you always carry the car seat manufacturer’s user manual in the vehicle.
+Unlike adults, babies and children do not have fully developed musculature or bone structure. For this reason, they run a greater risk of injury.
+To reduce the risk of injury, children may only be transported in chairs especially designed for them.
+Seat belts 21
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+You must follow applicable law in each country and the manufacturer’s regulations for using and mounting car seats.
+Classification of car seats in groups
+You must only use approved car seats that are suitable for the child.
+Standard ECE-R 44 or ECE-R 129 govern these seats. ECE-R means: regulation of the Economic Commission for Europe.
+Car seats by weight group
+Car seats are classified into 5 groups:
+Car seats approved by regulation ECE-R 44 or ECE-R 129 have the ECE-R 44 or ECE-R 129 approval mark (a capital E in a circle and, underneath, the control number).
+Car seats by approval categories
+Car seats may be categorised by universal approval, semi-universal approval, specific approval for the vehicle (all according to regulation ECE-R 44), or i-Size (according to regulation ECE-R 129).
+• Universal: car seats with universal
+approval may be mounted in all vehicles. It is not necessary to review any list of vehicle makes. For universal approval for ISOFIX, the car seat is additionally provided with a top tether.
+• Semi-universal: in addition
+to standard universal approval requirements, semi-universal approval requires safety devices to anchor the car seat that require additional tests. Car seats with semi- universal approval include a list of vehicle makes in which they may be mounted
+• Vehicle-specific: specific approval
+for a vehicle requires a separate dynamic test for the car seat for each vehicle make. Car seats with vehicle-specific approval also
+Group Child’s weight
+Group 0 Group 0+ Group 1 Group 2 Group 3
+Up to 10 kg Up to 13 kg
+From 9 to 18 kg From 15 to 25 kg From 22 to 36 kg
+include a list of vehicle makes in which they may be mounted.
+• i-Size: car seats with i-Size
+approval must meet the requirements set forth in regulation ECE-R 129 in terms of assembly and safety. Car seat manufacturers may indicate which seats have i-Size approval for this vehicle.
+22 Seat belts
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Baby car seat placement
+• Read and follow the baby car seat
+manufacturer’s user manual.
+• Place the baby car seat in its correct
+position and take the seat belt from the back rest of the vehicle.
+• Put the belt through the coloured
+marks you will see on the baby car seat and buckle the belt to the lower part of the seat.
+• Ensure that the belt is properly
+fixated by pulling on it, ensuring that the seat does not move.
+Attaching the child car seat with the seat belt
+• Place the seat belt and put it
+through the child car seat, following the car seat manufacturer’s instructions.
+• Ensure that the seat belt is not
+twisted.
+• Insert the belt buckle into the seat’s
+fastener until you hear it click.
+Children must ride with a restraint system that is appropriate for their age, weight, and height.
+In any event, read and consider the information and safety tips for using children car seats.
+WARNING Wheels
+Wheels and tyres
+General observations
+• If your vehicle has new tyres, drive
+with extreme prudence for the first 500 km.
+• If you must drive on kerbs or
+similar, do so slowly and, if possible, with your wheels perpendicular to the obstacle.
+• Occasionally check whether the
+tyres are damaged (holes, cuts, cracks, or dents). Remove all foreign objects from the tyre’s profile.
+• Damaged wheels or tyres must be
+immediately replaced.
+• Keep the tyres from being soiled by
+oil, grease, or fuel.
+• If you have lost one of the valve
+caps, replace it as soon as possible.
+• Mark wheels before dismounting
+them to keep the same rotation direction when you reassemble them.
+Wheels 23
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+• Keep dismounted wheels or tyres
+in a cool, dry, and if possible, dark location.
+Invisible damage
+Damage to tyres and wheels is often not visible to the naked eye. If the vehicle is vibrating unusually or tends to veer to the side, this may be a sign of tyre deterioration. Reduce speed as soon as possible if you suspect that has a wheel has been perforated. Check whether the tyres are damaged.
+If the outside of the tyre bears no sign of damage, keep driving slowly and prudently to the nearest specialised shop so they can check your vehicle.
+Foreign objects inserted in the tyre
+• Do not remove foreign objects if
+they have penetrated the inside of the tyre!
+• Use the Tyre Repair Kit >>> Page.
+29 to seal the damaged wheel. Go to a specialised shop for repair or replacement. SILENCE recommends going to a SILENCE
+dealer to do this.
+The tyre tread patching compound envelops the inserted foreign object and provisionally seals the tyre.
+Unidirectional tread tyres
+The sides of unidirectional tyres are marked with arrows. It is essential that you follow this mandatory rotation direction when mounting the wheels. This guarantees best use of the tyre’s properties in terms of aquaplaning, adherence, noise, and wear.
+Later accessory assembly
+If you wish to replace or refit the wheels, tyres, or hub caps, we recommend that you ask an official SILENCE service to consult on existing technical possibilities.
+• New tyres do not reach optimum adherence until after the first 500 km. As such, we recommend that you drive with caution to avoid possible accidents.
+• Never drive with damaged tyres. There is a risk of having an accident.
+• If the vehicle vibrates unusually or tends to veer to the side while driving, stop immediately and check the condition of the tyres.
+• Do not use used tyres when you do not know the circumstances under which they were used before.
+WARNING
+New wheels and tyres
+We recommend that you bring your vehicle to a specialised shop to conduct all work on wheels or tyres. They have the necessary knowledge and special tools and appropriate spare parts.
+• Even snow tyres lose adherence
+with ice. If you have put on new tyres, drive carefully and moderate your speed during the first 500 km.
+• You must always use the same type
+24 Wheels
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+• Only use combinations of tyres and wheels, as well as wheel bolts, which are suitable and approved by SILENCE. Otherwise, the vehicle may be damaged, and this can cause an accident.
+• For technical reasons, it is not possible to use wheels from other vehicles; in some
+cases, not even wheels from the same vehicle make.
+Do not exclusively select spare tyres based on nominal size because, although they have the same nominal size, they can greatly vary depending on the manufacturer. Lack of clearance can deteriorate the tyres or the vehicle and this can jeopardise road safety. Risk of accident!
+• Only use tyres older than 6 years in the event of an emergency, and only when driving prudently.
+• It is forbidden to mount run-flat tyres on your vehicle! This forbidden use may cause damage to your vehicle or cause accidents.
+WARNING
+of tyres, of the same size (wheel perimeter) and, if possible, tread, for all 4 wheels.
+• When you replace tyres, do not just
+replace one; change at least the two tyres on the same axle.
+• If you wish to equip your vehicle
+with a combination of tyres and wheels other than the ones assembled at the factor, ask at your specialised shop before purchasing them.
+The dimensions of combinations of wheels and tyres to use on your vehicle are specified in the vehicle’s additional documentation (e.g., EEC certificate of conformity). The additional documentation in the vehicle is specific to each country.
+Date of manufacture
+The date of manufacture is on the side of the tyre (or on the inner side of the wheel):
+DOT ... 2218 ...
+means, e.g., that the tyre was
+manufactured in week 22 of the year 2018.
+INFORMATION
+Used tyres must be disposed of according to applicable regulations.
+Wheels 25
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 10 - Pressure label.
+• You must ask at a SILENCE Assistance Centre about the possibility of mounting wheels or tyres of a size other than the ones originally mounted at SILENCE.
+• Do not use used tyres whose “history” you do not know.
+WARNING
+Tyre life cycle
+To lengthen the life cycle of the tyres, they must always be inflated to the proper pressure, and you must drive with moderation.
+• Check your tyre pressure at least
+once per month, and also before each long trip.
+• You must always check pressure
+when the tyres are cold. Do not reduce tyre pressure if they are hot.
+• Adapt tyre pressure to the load the
+vehicle is carrying.
+• Avoid driving too fast on curves and
+abrupt accelerations.
+• Occasionally check the tyres for
+irregular wear.
+Tyre pressure
+Inflation pressure is indicated on the adhesive label located on the back of the front left-hand door frame >>> Fig. 10. Insufficient or excessive pressure greatly reduces the life cycle of tyres and has a negative influence on how the vehicle behaves while driving. Tyre pressure is extremely important,
+especially when driving at high speeds.
+Tyre pressure must be adapted to the vehicle’s current load. If the vehicle is going to be completely loaded, you must increase the inflation pressure to the top load number indicated on the adhesive label.
+Driving style
+Fast driving on curves and abrupt acceleration and braking (squeaking brakes) increases wheel wear.
+Wheel balance
+The wheels on a new vehicle are balanced.
+However, different circumstances during use create imbalances (eccentricity) which manifest as vibrations through the wheel.
+Since imbalance also means greater wear on steering, suspension, and tyres, you must balance the wheels again. Wheels must also be balanced again after installing a new tyre and after each repair
+26 Wheels
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Failure in wheel alignment
+If the undercarriage is improperly adjusted, this not only increases wear on tyres, but also reduces safety while driving. If you observe excessive tyre wear, an official SILENCE service shop must check wheel alignment.
+Inappropriate handling of tyres and wheels can lead to sudden pressure loss in tyres, loss of tread, or even exploding tyres.
+• The driver is responsible for inflating all the vehicle’s tyres to the correct pressure. The recommended inflation pressure is indicated on a sticker >>> Fig. 10.
+• Regularly check tyre pressure and always keep it at the recommended inflation pressure. If the tyre’s pressure is too low, the tyre may overheat, causing the tread to come off and even explosion.
+• When the tyres are cold, they should always match the pressure on the sticker
+>>> Fig. 10.
+• Regularly check tyre pressure when tyres are cold. If necessary, adjust mounted tyre pressure when the tyres are cold.
+• Regularly check that the tyres show no signs of wear or damage.
+• Never exceed the speed and maximum load permitted for your vehicle’s tyre type.
+WARNING
+INFORMATION
+If tyre pressure is insufficient, it increases energy consumption.
+Wear indicators
+At regular intervals and crosswise from the direction the vehicle drives, there are wear indicators at the bottom of the original tyres’ tread that are 1.6 mm high >>> Fig. 11. The minimum profile depth permitted is reached when the tyres are worn down to the wear indicators. Replace the tyres with new ones.
+Fig. 11 - Wear indicator.
+Tyres must be replaced at the latest when the wear indicators are worn down. Otherwise, you run the risk of an accident.
+• Especially when driving under adverse weather conditions, such as rain and ice. It is important that the tread on the tyres be as deep as possible, and that it be approximately the same on the tyres on the rear and front axles.
+• Poor driving safety due to insufficient tread depth is clear especially when driving, with the risk of “aquaplaning” when driving through deep puddles, when driving on curves, and in braking behaviour.
+• If you do not adapt your speed, you can lose control of the vehicle.
+WARNING
+Snow chains
+After driving for a few metres, check that they are properly in place; correct their position if necessary
+by following manufacturer installation instructions.
+Remember the maximum speed of 50 km/h (30 mph).
+Wheels 27
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Using unsuitable chains or placing them incorrectly can cause accidents and considerable damage.
+• Always use suitable snow chains.
+• Follow manufacturer installation instructions for chains.
+• If driving with snow chains, never exceed the maximum permitted speed.
+WARNING
+If there is snow on the road, snow chains will not only improve traction, but also braking behaviour.
+If you use snow chains, you must dismount all hubcaps and decorative rings for tyres.
+INFORMATION
+• Dismount chains on trips without snow. Otherwise, they will worsen vehicle behaviour, damage the tyres, and quickly deteriorate.
+• If the chains are in direct contact with the tyre, they can damage or scratch it. SILENCE recommends always using covered snow chains.
+28 Wheels
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Emergencies
+Troubleshooting
+Emergency kit
+You will find a bag with the following components in the boot:
+1 Reflective vest
+1 Flat repair spray
+2 Emergency triangles
+1 Ring to tow the car
+1 Cable to charge the vehicle
+Fig. 12 - Emergency kit bag.
+You can repair small punctures with the flat repair spray.
+Carefully read the manufacturer instructions written on the container.
+Fig. 14 - Flat repair spray.
+Fig. 13 - Reflective vest.
+WARNING WARNING
+In the event that you need to use the flat repair spray:
+• Put the vehicle on the shoulder of the road.
+• Use your hazard lights to alert other vehicles.
+• Don the reflective vest BEFORE exiting the vehicle.
+• Signal the area with the triangles from the emergency kit and according to applicable regulations.
+In the event that you must use the vest:
+• You must don the reflective vest BEFORE exiting the vehicle. This will make you visible to other vehicles and keep you from being run over.
+• Take visual stock of your surroundings and exit the vehicle when it is safe to do so.
+Reflective vest
+Remove the vest from the bag and wear it properly, with the reflective bands on the outside.
+Flat repair spray
+Emergencies 29
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Unfold the three parts until they make a triangle shape.
+Next, open the legs so that it stands up correctly once on the ground.
+WARNING
+In the event that you must use the triangles:
+• Put the vehicle on the shoulder of the road.
+• Use your hazard lights to alert other vehicles.
+• Don the reflective vest BEFORE exiting the vehicle.
+• Signal the area with the triangles from the emergency kit and according to applicable regulations.
+• Collect the triangles when you are done using them.
+INFORMATION
+Place the triangle perpendicular to the road so that other vehicles can see it.
+• On two-lane roads: place one triangle in front and another behind at a distance of 50 metres from the vehicle. They must be visible from 100 metres away.
+Emergency triangles
+Fig. 15 - Emergency triangles.
+This will help you to be visible from both directions.
+• On motorways or toll ways: when the road is only one way, you need only place a triangle behind the vehicle at a distance of 50 metres. It must be visible from 100 metres away.
+• In the event of low visibility, like a curve or change in gradient, place the triangle before.
+Ring to tow the car
+The vehicle has 2 anchorage points:
+• on the front right part.
+Thread the ring into the orifice.
+• on the rear right part.
+To place the ring on the rear part, you must slide the protective cover downward.
+Fig. 16 - Placement of ring on the rear part.
+Place the cover back in its initial position when you remove the ring after the towing operation is complete.
+CAUTION
+30 Emergencies
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Introduction
+Towing means to pull someone else’s vehicle that cannot drive.
+The vehicle can be towed with a bar or with a tow cable.
+The maximum permitted speed is 10 km/h.
+Tow with a recovery vehicle
+The vehicle can be towed both from the front and from the back. SILENCE recommends that the vehicle be transported without the wheels touching the road.
+Towing the S04
+While towing a vehicle, driving behaviour and braking capacity considerably vary.
+Towing the vehicle with a cable or a tow bar can cause damage
+to the vehicle.
+• If you tow the vehicle with a cable or tow
+CAUTION
+CAUTION
+WARNING
+When dismounting and mounting the cover and the tow ring, damage can be caused to the vehicle.
+• To avoid damaging the vehicle, dismount and mount the cover and tow ring with care.
+WARNING
+If you push the vehicle with your hands, this can damage rear lights and large surfaces of the sheet metal. The rear spoiler may also be removed.
+• If you must push the vehicle, do not press on rear lights, large sheet metal surfaces, or the rear spoiler.
+bar, you must take special care.
+• If possible, have the vehicle towed with a recovery vehicle.
+If you cannot guarantee that the wheels rotate without any problems or that steering works after an accident, request aid from specialised personnel and, if necessary, transport the vehicle without the wheels
+touching the road. If applicable, inform the people involved in the towing process, especially the towing company headquarters and driver, that this is an electric vehicle.
+Tow cable and tow bar
+The tow bar is safer for towing and prevents damage to the vehicle. The tow cable should only be used if a tow bar is unavailable.
+The tow cable should be elastic to prevent damage to the vehicle.
+Use a synthetic fibre cable or a similar elastic material.
+Attach the tow cable or bar only to the anchor points provided to this end.
+Ensure that the tow cable is not twisted. Otherwise, the tow ring may unscrew during towing.
+Turn both vehicles and their hazard lights on. If applicable, consider other different provisions that may be applicable in this regard.
+To release the handbrake and allow the vehicle to move without driving it, follow these steps:
+Emergencies 31
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Turn the vehicle on:
+• Press the start/stop button until
+you hear at least 2 beeps.
+• Enter the applicable activation
+code. By default (when the vehicle leaves the factory), this is:
+Warning ( )àParking ( )à
+Warning ( àParking ( ). >>> Page. 75
+• Press the start/stop button once.
+Leave the vehicle in neutral (N):
+• Press the brake (keep pressing the
+brake until the end of the process).
+• Press the Parking (P) button.
+Activate transport mode:
+• Press the start/stop button for 5
+seconds.
+This mode should be used only on exceptional occasions and under the user’s supervision and responsibility.
+Fig. 17 - On button and dashboard.
+WARNING
+In transport mode, you are expressly obligated to use wedges to immobilise the vehicle to keep it from moving uncontrollably.
+In this transport mode, the car should not travel at more than 10 km/h.
+INFORMATION
+Towing a vehicle requires practise, especially if using a towing cable.
+Both drivers must have good knowledge of the particularities of towing. Non-expert drivers must not tow.
+While towing, ensure that no inadmissible traction force or jolts occur. On roads without a solid surface, there is always the risk of overloading the securing components.
+Consider legal provisions on towing.
+You must keep your foot on the brake throughout the entire process.
+Do not open the door at any time.
+CAUTION
+CAUTION
+32 Emergencies
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Jump-start by towing
+This vehicle is not suitable for jump- starting other vehicles by towing.
+For technical reasons, it is not possible to jump-start the vehicle by towing.
+The vehicle’s exterior lighting consists of LED bulbs, so to replace them, please see a technical service shop.
+The vehicle’s interior lighting consists of LED bulbs, so to replace them, please see a technical service shop.
+Exterior vehicle lighting
+Interior vehicle lighting
+Fuses
+The fuse box is behind the service cover.
+Remove the cover by unscrewing the 13 screws with a 4 mm Allen wrench.
+The fuses are protected by a cover that you must remove by pressing on the right-hand side.
+The cover includes a sticker on the front that states the amperage of each fuse.
+If replacing:
+• ALWAYS use fuses with the same amperage.
+• Using a fuse with higher amperage can cause problems in the electrical installation.
+• Do not use other metallic elements as a replacement for a fuse.
+• NEVER repair fuses since this could cause fire.
+WARNING
+CAUTION
+Before replacing any fuse, turn the vehicle, lights, and electrical devices off.
+Fig. 18 - Location of fuse box.
+Fig. 19 - Fuse protection cover.
+INFORMATION
+If you have replaced the fuse and the problem persists, you may use an electrical contact cleaner.
+Emergencies 33
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+If the fuse’s metal part is broken as shown in the image, you must replace it.
+Lavender
+Light brown
+Brown
+Red Blue Yellow
+White or transparent
+Green Orange
+Colour
+3 5 7,5 10 15 20 25 30 40
+Amperes
+Fig. 21 - Appearance of melted fuse.
+Fig. 20 - Fuse box.
+If you detect any of these errors in your S04, check each one of the fuses.
+• S04 veers to the side / S04 has low power • USB lack voltage • Auxiliary battery does not charge • Rear door lock does not work • EPB “Electronic Parking Brake” does not work • Windscreen wiper pump does not work • Windscreen wiper motor does not work • Window operator does not work • Door lock does not work • TCU “Telecommunications control unit” does
+not communicate
+• S04 veers to the side / S04 has low power
+Replacing the windscreen wiper
+CAUTION
+Before replacing:
+• Turn the vehicle off to prevent movement from accidentally activating.
+While replacing:
+• If the windscreen arm snaps back and hits the glass, it could break it.
+CAUTION
+Fig. 22 - Windscreen wiper arm.
+34 Emergencies
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Proceed as follows to replace the wiper:
+Lift the wiper arm. Turn the wiper 90 degrees.
+Remove the protective cover.
+With one hand, hold the windscreen wiper arm and push hard on the wiper toward the same side to release it from the arm.
+Remove the wiper by pushing the tip of the arm through the protective cover.
+Fig. 23 - Protective cover
+CAUTION
+• The windscreen wiper can scratch during use if the wipers are dirty or deteriorated.
+Fig. 24 - U-shaped arm tip.
+• If the wiper is frozen, do NOT activate the lever until the ice has been removed from the windscreen and the arm can rotate properly.
+• The front part of the wipers is covered with graphite so they can move more easily over the windscreen.
+INFORMATION Fig. 25 - Reservoir cap.
+Windscreen washer reservoir
+The windscreen washer reservoir is under the front bonnet.
+Regularly check the level in the windscreen washer reservoir and fill it when necessary.
+The windscreen washer reservoir contains liquid detergent for windscreens.
+Recommended windscreen washer
+• For warmer seasons, we
+recommend G 052 184 A1 for summer for light glass. Proportion of the mixture in the wash water
+Emergencies 35
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+If the windscreen washer does not contain enough antifreeze, it can freeze on the windscreen and rear window, limiting rear and frontal visibility.
+• In winter, only use windscreen wiper with enough antifreeze protection.
+• Do not use the windscreen wiper system with winter temperatures without having previously heated the windscreen with the ventilation system. Antifreeze protection could freeze on the windscreen and obstruct visibility.
+Never mix antifreeze or other similar unsuitable additives into the windscreen reservoir water. A greasy layer can be created on the glass that would obstruct visibility.
+• Use clean water with a windscreen washer product recommended by SILENCE.
+• If necessary, add a suitable antifreeze to the water in the windscreen reservoir.
+• Never mix detergents recommended by SILENCE with other detergents. This may cause components to flocculate, which may obstruct the windscreen washer nozzles.
+CAUTION
+CAUTION
+CAUTION
+reservoir: 1:100 (1 part concentrate per every 100 parts water).
+• Year-round, G 052 164 A2 for light
+glass. Approximate proportion of the mixture in winter, up to -18ºC (0°F): 1:2 (1 part concentrate per every 2 parts water); otherwise, a proportion of 1:4 in the wash water reservoir.
+36 Emergencies
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+1 9
+13 12 11 10 18 17 16 15 14
+2 6 8 3 5 4 7
+38 Emergencies
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Use
+Driver’s seat
+Left door handle
+Lever for:
+– Turn signals
+– High beams
+– Flash
+– Automatic lighting mode
+Multi-function wheel
+– Access to the instrument dashboard menu
+– Horn
+– Multimedia functions
+TFT screen
+Lever for:
+– Selecting gear and driving mode.
+– Windscreen wiper
+On/off button
+Mobile telephone connections
+USB connections
+Air vents
+Right door window operator
+Right door handle
+Mesh storage compartment
+Dashboard:
+– Parking brake
+– Windscreen defogging
+– Hazard lights
+– Door lock
+– Air conditioning/Heating
+– Ventilation
+Accelerator pedal
+Brake pedal
+Bonnet opener
+Mirror selection and adjustment
+Left and right door window operator buttons
+1
+5
+14
+15
+16
+17
+18
+6
+7
+8
+9
+10
+11
+12
+13
+2
+3
+4
+Use 39
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Instrument dashboard
+Air conditioning
+Ventilation
+Windscreen defogging
+Left turn signal
+Clock
+Right turn signal
+Gear indicator
+Control lights
+Current indicator
+Driving mode and estimated autonomy
+Battery charge
+Speedometer
+Navigation menu
+1 6 11
+2 7
+3 8
+12
+4
+5
+9
+10
+13
+1 3 4 5 6 7 2
+8
+9 10 11 12
+13
+40 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Turn signals
+The lever has three positions:
+• Left turn signals.
+Pull the lever down to activate the left turn signals.
+• Turn signals deactivated.
+Lever in central position.
+• Right turn signals.
+Push the lever up to activate the right turn signals.
+Fig. 26 - Light control - Located to the left behind the wheel.
+Using turn signals inappropriately, not using them, or forgetting to turn them off can confuse other road users.
+This could lead to an accident with serious consequences.
+• Always warn when you are going to switch lanes, pass, or turn, using the turn signal soon enough beforehand.
+• As soon as you finish changing lanes, passing, or turning, turn the turn signal off.
+WARNING
+Clock
+The current time is shown on the top central part of the instrument dashboard.
+You may adjust the time by accessing the instrument dashboard menu with the button to the left of the multi- function wheel >>> Page. 53
+Fig. 27 - Clock.
+Use 41
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Gear indicator
+Fig. 28 - Gear selection indicator.
+The gear lights up on the instrument dashboard to indicate that it is activated.
+The different possible gears are:
+P - Park.
+D - Drive.
+R - Reverse.
+N - Neutral.
+With the selector, you can choose the D / R position you need.
+To do so, you must press the brake pedal and select the desired position without letting up.
+P – Park
+The driving wheels are mechanically blocked. Only select this position when the vehicle is stopped.
+Fig. 29 - Gear selector - Located at the tip of the right-hand lever, behind the wheel.
+D – Drive.
+When you activate the selector, you will go into CITY mode by default.
+If you activate it more times, you can select the driving mode:
+( CITY / SPORT / ECO )
+R – Reverse
+Reverse is selected. Only select this position when the vehicle is stopped.
+The white light on the rear of the vehicle will turn on.
+N – Neutral
+If the doors open at a low speed without wearing seat belts, the vehicle will move to N gear, and then to P, until braking.
+When the vehicle is completely stopped, the parking brake will automatically engage.
+42 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+If you put the selector into an incorrect position, you could lose control of the vehicle and cause an accident and serious injury.
+• Never select reverse or park while the vehicle is in movement.
+Any accidental movement in the vehicle can cause serious injury.
+• As the driver, never leave your seat when the vehicle is on, and a gear is selected. If you must exit the vehicle and it is on, always engage the parking brake with the P button on the dashboard.
+• Never exit the vehicle when D, R, or N gears are selected. The vehicle may begin moving, depending on the inclination of the road.
+• When the vehicle is on and D, R, or N gears are selected, you must stop the vehicle by pressing the brake pedal.
+• Never switch to reverse when the vehicle is in movement.
+WARNING
+WARNING
+Current indicator Battery charge
+Fig. 30 - Current indicator. Fig. 31 - Charge indicators.
+The status bar shows:
+• Incoming current (IN)
+Incoming current (regenerated through the regenerating brake, or charging).
+The segments show the amount of incoming power.
+• Outgoing current (OUT)
+Outgoing current because it is consumed. The segments show the amount of power used.
+The instrument dashboard tells you the charge level of each one of the two traction batteries.
+R - right battery
+L - left battery
+The segments show the amount of power used.
+• Blue segments
+Shows available power.
+• Grey segments
+Shows consumed power.
+Use 43
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+If you drive with too low of a charge in either of the traction batteries, the vehicle could stop in the middle of traffic, and could also cause accidents and serious injury.
+• Make sure that both traction batteries are always sufficiently charged!
+If either of the traction batteries is not sufficiently charged, gear properties may change, e.g., the vehicle’s speed or acceleration behaviour. If the charge is too low, power supply may even abruptly be reduced, and the vehicle’s speed may be limited to 15 km/h.
+• Always adapt your speed and driving style to visibility conditions, the weather, the road, and traffic, as well as the state of charge of the traction batteries.
+WARNING
+WARNING
+If you leave the vehicle parked for a long period of time with the traction batteries uncharged, this could cause irreversible damage to them. See good battery charging practises >>> Page. 85.
+INFORMATION
+Driving modes
+Fig. 32 - Driving mode indicator.
+With the driving modes, you can adapt different characteristics of the vehicle’s systems to the current driving situation and to an economical driving style. These modes only apply to drive (D).
+To change the vehicle’s driving mode:
+• Turn it on.
+• To change driving mode, turn the
+tip of the driving mode selection lever forward several times.
+When you change the driving mode, the selected driving mode appears on the instrument dashboard screen
+(CITY/SPORT/ECO).
+You are also informed of the estimated distance you can travel in the selected mode.
+You may change driving mode while driving and provided that traffic allows. To this end, rotate the tip of the lever to select the desired mode.
+Remember that deceleration may occur when you change to more restrictive modes, and it is possible that you must adapt the vehicle’s speed to activate these modes.
+Fig. 33 - Selector tip.
+44 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Frequent use of the SPORT mode decreases autonomy (total km range with one charge) due to greater energy consumption and it can overhear motors/batteries, which would lead to poor performance or the vehicle turning off.
+CAUTION
+Adjusting the driving mode while driving may distract from traffic and cause accidents.
+• When driving, always pay attention to traffic and do so responsibly.
+WARNING
+CITY mode
+Pre-determined mode that the vehicle turns on in that provides the vehicle with good performance.
+It has a regenerative brake.
+ECO mode
+This mode is programmed for more relaxed driving, with limited speed and acceleration. This provides greater autonomy for the vehicle.
+It has a regenerative brake.
+SPORT mode
+You have greater mayor power and speed in specific situations with this mode.
+It has a regenerative brake.
+Use 45
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Speedometer
+Fig. 34 - Speed indicator.
+You can see the speed in km/h that the vehicle is driving at in the middle of the instrument dashboard
+With the OK button on the left of the multi-function wheel, you can access the instrument dashboard >>> Page. 54
+On the menu, you may access:
+• Devices
+• Contacts
+• Music
+• Navigation
+• Settings
+• Information
+Menu
+Fig. 35 - Informative panel.
+46 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Lights
+Lights Colour Function Solution
+Blue
+Green
+Green
+Red
+Red
+Red
+Orange
+High beams or flash activated.
+Low beams.
+Day lights.
+Seat belt unbuckled.
+Incident in the propulsion system.
+Incident in the auxiliary battery (12 V).
+Rear fog light.
+-
+-
+-
+Insert buckle in fastener.
+Please see an official SILENCE service shop to evaluate the incident.
+Please see an official SILENCE service shop to evaluate the incident.
+-
+Use 47
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Light Colour Function Solution
+If you do not pay attention to warning lights and messages, the vehicle may break down and stop in the middle of traffic, or accidents and serious injury may occur.
+• Never ignore warning lights or text
+messages.
+• As soon as possible and safe to do so, stop the vehicle.
+• A broken-down vehicle poses a high risk of accident to itself and to other road users. If necessary, turn the hazard lights
+on and place the warning triangles to warn other drivers.
+CAUTION
+Red Hazard lights
+Red
+Orange
+Orange
+Red
+Incident with the propulsion battery.
+Motor OBD.
+Revision light.
+Low brake fluid light.
+Please see an official SILENCE service shop to evaluate the incident.
+Please see an official SILENCE service shop to evaluate the incident.
+Please see an official SILENCE service shop to evaluate the incident.
+Please see an official SILENCE service shop to evaluate the incident.
+Red Door open. Check that all doors are correctly closed.
+-
+48 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Dashboard
+Fig. 36 - Dashboard
+Push the pertinent button to activate a specific function. To change or turn the function off, press the button again.
+Different lights on the instrument dashboard are used to indicate which functions have been activated.
+Symbol
+Parking brake
+Windscreen defogging
+Door lock/unlock
+Ventilation
+Hazard lights
+Air conditioning/Heating
+Activated
+A/C
+Parking brake
+Fig. 37 - Parking brake button.
+Press the button to activate the electric parking brake. To turn the function off, press the button again.
+The light lights up on the instrument dashboard to indicate that the function has been activated.
+The parking brake keeps the vehicle from moving accidentally.
+WARNING
+By default, the parking brake automatically engages when you stop and exit the
+Use 49
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+vehicle.
+In any event, it is your responsibility to ensure that the brake is activated before you exit the vehicle.
+Windscreen defogging Hazard lights
+Fig. 39 - Hazard light button. Fig. 38 - Button to defog the windscreen.
+Press the button to defog the windscreen. To turn the function off, press the button again.
+The outside air suctioned in is directed at the windscreen to defog it the quickest way possible.
+The light lights up on the instrument dashboard to indicate that the function has been activated.
+Press the button to turn the hazard lights on. To turn the function off, press the button again.
+In the event of danger, hazard lights warn other drivers about your vehicle.
+The light lights up on the instrument dashboard to indicate that the function has been activated.
+50 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Air conditioning
+Fig. 41 - Air conditioning button.
+Press the button to turn air conditioning or heating on. To change or turn the function off, press the button again as many times as necessary.
+You can switch A/C to heat by pressing the dashboard button.
+The light lights up on the instrument dashboard to indicate which function has been activated.
+• Air conditioning
+• Heating
+Foul air increases fatigue and decreases concentration for the driver, which can cause an accident with serious consequences.
+• To keep from harming heating or cooling performance, and to avoid glass fogging, the air input in the front of the vehicle must not be obstructed by ice, snow, or leaves.
+• We advise turning the air conditioning on at least once per month so that the system’s joints lubricate and to prevent leaks. If you observe a decrease in cooling power, please see technical service
+to check the system.
+INFORMATION
+Press the button to lock the doors. To turn the function off, press the button again.
+You can lock and unlock doors from inside.
+The button lights up in red to show that the doors are locked.
+Door lock
+Fig. 40 - Button to lock/unlock doors.
+Use 51
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Ventilation
+Fig. 42 - Ventilation button. Fig. 44 - Windscreen vent. Fig. 43 - Air vent.
+Press the button to activate the fan. To adjust power or to turn the function off, press the button again.
+The light lights up on the instrument dashboard to indicate which power level has been activated.
+The vehicle has two side vents and one central air output in the windscreen area.
+The side vents can be adjusted to point the air toward the desired area.
+To guarantee heating, cooling, and ventilation within the cab, the air vents must remain open.
+The windscreen’s central vent is used to defog it with the button intended for this purpose >>> Page. 50.
+Never place food, medicine, or other objects sensitive to heat or cold in front of the air vents, because they may deteriorate or become unusable due to the air.
+CAUTION
+52 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Multi-function wheel
+Fig. 45 - Wheel. Fig. 47 - Telephone and sound system control buttons.
+Fig. 46 - Buttons to access the instrument dashboard menu.
+The S04’s multi-function wheel allows you to safely access multiple vehicle functions without letting go of the wheel.
+The multi-function wheel includes:
+• Access to the instrument dashboard
+menu
+• Horn.
+• Multimedia control.
+With the buttons on the right, you can access:
+Phone call control:
+• Make a phone call with a telephone
+number.
+• Answer an incoming call.
+• Reject an incoming call.
+• Hang up a call.
+Volume control:
+• Remote control of speaker volume.
+With the keys on the left side, you can access the instrument dashboard menu that provides you with different information >>> Page. 40
+It has the following functions:
+• Select previous sub-menu
+• Select next sub-menu
+• Return to previous screen (BACK)
+• Confirm action (OK)
+Use 53
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Instrument dashboard menu
+Fig. 52 - Access to connected devices.
+Fig. 54 - List of devices.
+Fig. 49 - Alert that temperature is higher than recommended.
+Fig. 50 - Total kms travelled.
+Fig. 51 - Average consumption in 100 km.
+Fig. 53 - Connected device screen.
+With the instrument dashboard menu, you may access:
+• Instrument dashboard
+• Devices*
+• Contacts*
+• Music*
+• Navigation*
+• Settings
+• Information
+Use the buttons on the multi- function wheel to access the desired option.
+Instrument dashboard
+The main screen provides the following information:
+• Alerts and relevant warning.
+• total km / partial km.
+• Average consumption in 100 km.
+Devices*
+On the screen, you have the option of selecting a previously connected device or to sync a new one.
+Use the buttons to select a device to sync.
+Fig. 48 - Buttons to access the instrument dashboard menu.
+* Only for available models.
+54 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 56 - Device connected.
+Fig. 55 - Awaiting device confirmation. Fig. 57 - Failure to sync the selected device.
+If connection fails, the following screen will appear to return to the list of devices.
+Press the (OK) button to sync the selected device and confirm this on the device.
+When the device syncs, the following screen will appear:
+Fig. 58 - Device contacts.
+Fig. 59 - Recent calls and phone book.
+Contact*
+The screen shows the most recent calls and phone book for the connected device.
+Use 55
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 60 - Access to connected devices.
+Fig. 64 - Music screen.
+Fig. 65 - Music screen.
+Fig. 61 - Contact information.
+Music*
+When you select the contact, the information on the device will appear.
+With the buttons to the right of the multi-function wheel, you can:
+• Raise or lower the call volume.
+• Mute the call.
+• End the call.
+Select the telephone number to call and press the OK button to place the call.
+Fig. 62 - Calling the selected contact.
+Use the buttons to choose a contact and press the OK button to select it.
+Use the buttons to choose a song and press the OK button to select it.
+Fig. 63 - Telephone and sound system control buttons.
+56 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+With the buttons to the right of the multi-function wheel, you can:
+• Remote control of audio volume.
+• Mute the music.
+• Skip from one song to another.
+Fig. 66 - Telephone and sound system control buttons.
+Fig. 67 - Navigation screen.
+Navigation*
+The screen shows the following parameters on the instrument dashboard that you can select:
+• Resume route.
+• Recent destinations.
+• Favourites.
+Fig. 68 - List of parameters.
+Use the buttons to choose a parameter and press the OK button to select it.
+Fig. 69 - Resume route.
+Fig. 70 - Destination record.
+Fig. 71 - Favourite destinations.
+Use 57
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 71 - Settings screen.
+Fig. 72 - List of parameters.
+Fig. 75 - List of parameters.
+Fig. 77 - List of parameters.
+Settings
+Press the OK button to select it. Languages
+Theme mode
+Brightness
+Choose the desired theme and press the OK button to select it.
+The screen shows the following parameters on the instrument dashboard that you can modify:
+• Languages
+• Theme mode.
+• Brightness
+• Date and time.
+• Temperature unit.
+• Distance unit.
+• Automatic night lights.
+Use the buttons to choose a language and press the OK button to select it..
+Fig. 73 - Language screen.
+Fig. 76 - Lighting modes.
+Fig. 78 - Brightness levels available. Fig. 74 - List of languages.
+Use the buttons to choose a parameter and press the OK button to select it.
+58 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 79 - List of parameters. Fig. 82 - List of parameters.
+Fig. 84 - List of parameters.
+Fig. 86 - List of parameters.
+Date and time Temperature unit
+Distance unit
+Automatic night lights
+Choose the parameter you wish to modify and press the OK button to select it.
+Choose the desired temperature unit and press the OK button to select it.
+Choose the desired temperature unit and press the OK button to select it.
+Choose the desired option and press the OK button to select it.
+A parameter is shown as an example.
+Fig. 80 - List of parameters.
+Fig. 83 - Temperature units.
+Fig. 85 - Distance units.
+Fig. 87 - Distance units.
+Use the buttons to choose a setting and press the OK button to select it.
+Fig. 81 - List of years.
+Use 59
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 88 - Settings screen. Fig. 90 - Vehicle information. Fig. 92 - Temperatures.
+Fig. 91 - Next inspection.
+Information
+The screen shows the following parameters on the instrument dashboard that you can choose:
+• Vehicle information.
+• TFT instructions.
+Fig. 89 - List of parameters.
+Use the to choose a parameter and press the OK button to select it
+Fig. 93 - Wheel button information.
+60 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Locking and unlocking the vehicle
+Information
+Locking and unlocking the driver’s door
+You may lock or unlock the driver’s door the following ways:
+• With the key >>> Fig. 94.
+• Through the app >>> Page. 77
+• With the door handle from the
+inside >>> Fig. 96.
+• With the dashboard button >>>
+Page. 51.
+OUTSIDE - Unlock:
+• Insert the key into the lock and
+turn it to the right to unlock. Two mechanical keys are included with the vehicle.
+The door lock and unlock is specific for each door.
+• With the key (driver’s door).
+• Through the app.
+• With the door handle from the
+inside.
+• With the dashboard button.
+Fig. 94 - Key for locking and unlocking.
+• Do not leave valuables inside the vehicle. Even when locked, the vehicle is not a safe!
+When the doors are open, this light on the instrument dashboard lights up.
+INFORMATION
+INFORMATION
+• Never leave children or disabled individuals inside the vehicle since they cannot exit the vehicle or fend for themselves in the event of an emergency.
+• Uncontrolled third-party use of the key may lead to blocking the vehicle door, making aid difficult in the event of an emergency.
+• Never leave the keys inside the vehicle. Unauthorised third-party use of the vehicle can damage it or lead to theft. For this reason, always take the key with you when you leave the vehicle.
+• The door lock/unlock button on the dashboard activates regardless of whether or not the doors are opened or closed. If you press the button and close the vehicle’s doors from outside, it will be entirely locked, and you will not be able to access the interior without the key or the app.
+WARNING WARNING
+Use 61
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 95 - Button to lock/unlock doors.
+• OUTSIDE - Lock:
+• Turn the key to the left.
+INSIDE - Unlock:
+• With the dashboard button. The
+light will turn white >>> Page. 51.
+• With the door handle. If the door
+is locked, you must pull the door handle twice. Once to unlock it, and a second time to open the door.
+INSIDE - Lock:
+• With the dashboard button. The
+light will turn red >>> Page. 51.
+Fig. 96 - Driver’s door handle.
+Fig. 97 - Passenger door handle.
+Locking and unlocking the passenger’s door
+You may lock or unlock the passenger door the following ways:
+• Through the app >>> Page. 77
+• With the door handle from the
+inside >>> Page. 39.
+• With the dashboard button >>>
+Page. 51.
+OUTSIDE - Unlock:
+• Pull the handle to open the door.
+OUTSIDE - Lock:
+• Not applicable.
+INSIDE - Unlock:
+• With the dashboard button. The
+light will turn white >>> Page. 51.
+INSIDE - Lock:
+• With the dashboard button. The
+light will turn red >>> Page. 51.
+62 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Back door
+Locking, opening, or closing the back door in an unsuitable or uncontrolled manner can lead to accidents and serious injury.
+• Do not close the back door by pushing the window with your hand. The window may break, with the consequent risk of injury.
+• After closing the back door, make sure it is locked; otherwise, it may open unexpectedly while driving.
+• Never close the back door in a careless or uncontrolled way; this may cause serious injury to yourself or to third parties. Always make sure that no one is in the way of the back door, both when opening and when closing. Take care with low roofs.
+• Never leave the vehicle without supervision or allow children to play inside or next to it, especially when the back door is open. Children may enter the boot, close the door, and be locked inside.
+A closed vehicle can overheat or grow extremely cold, depending on the time of year, which could cause serious injury, illness, or even death.
+WARNING
+You may lock or unlock the driver’s door the following ways:
+• Through the app >>> Page. 77
+• With the dashboard button >>>
+Page. 51.
+OUTSIDE - Unlock/Lock:
+• Not applicable.
+INSIDE - Unlock:
+• With the dashboard button. The
+light will turn white >>> Page. 51.
+INSIDE - Lock:
+• With the dashboard button. The
+light will turn red >>> Page. 51.
+• Before closing the back door, make sure you have not left the key inside the boot.
+Before opening or closing the back door, ensure that there is enough space to open or close it, e.g., in a garage.
+195 cm minimum height.
+CAUTION
+Fig. 98 - Back door handle.
+CAUTION
+Use 63
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Front bonnet
+If the bonnet is not closed correctly, it may unexpectedly open while driving. It may break due to wind action.
+• After closing the bonnet, ensure that the lock has properly fit into the closure. The bonnet should be flush with the adjoining frame parts.
+• If you see that the bonnet is not correctly closed while driving, immediately stop the vehicle and close it.
+WARNING
+Opening the front bonnet
+You unlock the front bonnet from inside the vehicle.
+• Pull handle to unlock the lock.
+Closing the front bonnet
+• Lightly press the bonnet down until
+it locks.
+The bonnet will open, providing access to:
+• Manufacturer label.
+• Connection for direct charging.
+• Windscreen fluid cap.
+Fig. 99 - Lever to open front bonnet.
+Fig. 100 - Front bonnet open.
+1
+1
+64 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Controls for windows
+Electric opening and closing windows
+• Open the window: press the button.
+• Close the window: pull the button.
+Driver door buttons
+Left door window.
+Right door window.
+Completely close the windows whenever the vehicle is parked or out of sight.
+Passenger door buttons
+Right door window.
+Fig. 101 - Close-up of driver’s door: controls for windows.
+Fig. 102 - Close-up of passenger door: window control.
+Inappropriate use of electric window operators can cause injury.
+• Never close the windows in a careless or uncontrolled way; this may cause serious injury to yourself or to third parties.
+To this end, ensure that no person or object is in the way of the window.
+• If you turn the vehicle on, the electric equipment may activate, with the risk of bruising, for example, with the electric window operators.
+WARNING
+1
+2
+The window automatically opens or closes when you press or pull on the controls twice.
+If you press or pull the control during the process, the action stops.
+INFORMATION
+1
+3
+3
+2
+Use 65
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Use the selector to pick the desired option.
+Low beams
+This position activates low beams.
+When the light control is in this position, the instrument dashboard lights will be in dark mode.
+Automatic low beam control
+The automatic low beam control is merely an aid and cannot recognise all driving situations.
+When the light control is in this position, the vehicle lights automatically turn on and the instrument dashboard light goes from dark to light, depending on outside
+Vehicle lights
+Control lights
+Light control
+Rear fog light on.
+Left or right turn signal.
+The control light blinks twice as fast when a turn signal breaks down.
+High beams or flash activated.
+Hazard lights on.
+Lights up in orange
+Lights up in green
+Lights up in blue
+Fig. 103 - Light control - Located to the left of the wheel.
+Symbol
+Low beams
+Automatic lights
+Fog lights
+Daytime lights
+AUTO
+Activated
+Low beams should be activated at night or when there is little light outside, fog, or rain.
+They are mandatory when driving in tunnels and reversible or additional lanes set out to drive in the opposite direction.
+INFORMATION
+The party responsible for properly adjusting headlamps and having correct lights while driving is always the driver.
+66 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 104 - Light control - Located to the left of the wheel.
+lighting.
+Day lights
+This position activates daytime lights.
+When the light control is in this position, the instrument dashboard lights will be in
+light mode to provide a better viewing experience.
+Rear fog light
+The rear fog light turns on when the selector is in low beam position.
+The rear fog light can blind other vehicles coming from behind. Only use the rear fog light when visibility is very poor.
+INFORMATION
+• If the road is not well-lit and other users cannot see the vehicle or it is difficult to see, accidents may occur.
+• The automatic low beam control only turns low beams on when light conditions vary, but not when there is fog, for example.
+Parking or daytime lights do not illuminate enough to properly see the road or for other drivers in other vehicles to see you.
+• Always turn your low beams on at night, if it is raining, or when visibility is poor.
+• You must never drive with day lights when the road is not well-lit due to weather or lighting conditions.
+If the headlamp is adjusted too high and used inappropriately, it can distract and blind other road users. This could lead to an accident with serious consequences.
+The S04’s headlamps must be adjusted by technical service.
+WARNING
+WARNING
+WARNING
+Use 67
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Turn signal lever and high beams
+The desired option will be shown on the instrument dashboard.
+Move the lever toward each position.
+Right turn signal or right parking light.
+Left turn signal or left parking light
+High beams on.
+Flash: lever pressed down.
+Fig. 105 - Turn signal lever and high beams.
+To turn the selected function off, return the lever to its initial position.
+Using turn signals inappropriately, not using them, or forgetting to turn them off can confuse other road users.
+This could lead to an accident with serious consequences.
+• Always warn when you are going to switch lanes, pass, or turn, using the turn signal soon enough beforehand.
+• As soon as you finish changing lanes, passing, or turning, turn the turn signal off.
+Inappropriate use of high beams can cause accidents and serious injury since high beams can distract and blind other drivers.
+WARNING
+WARNING
+• The turn signal only works when the car is on.
+• The high beams only work when low beams are on.
+• Under cold or wet weather conditions, headlamps, rear lights, and turn signals may be temporarily foggy on the inside.
+This phenomenon is normal and has absolutely no bearing on the life cycle of the vehicle’s lighting system.
+INFORMATION
+1
+2
+3
+4
+68 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Hazard lights Lighting for instrument panel, screens, and switches
+In the event of danger, hazard lights warn other drivers about your vehicle.
+If your vehicle stops:
+• Park the vehicle at a prudent
+distance from passing traffic.
+• Press the button to turn hazard
+lights on.
+• Put the gear selector in P to turn the
+parking brake on.
+• Put the reflective vest on BEFORE
+exiting the vehicle.
+• Use the triangle to indicate your
+vehicle’s position so it does not pose
+When parking lights or low beams are on, the instruments and controls are lit up constantly.
+Fig. 106 - Dashboard.
+A vehicle that is immobilised on the road poses a high risk of accident.
+Always use the hazard lights and triangle to indicate your vehicle’s position such that it does not pose a danger to third parties.
+WARNING
+a hazard to other road users.
+• Always take the key with you when
+you leave the vehicle.
+When the hazard lights are on, all the vehicle’s turn signal lights blink simultaneously.
+In other words, both the turn signal and the dashboard button indicators blink simultaneously. Interior and reading lights
+Located between the two sunscreens to illuminate the cab. There are three positions (OFF/DOOR/ON).
+When you turn the vehicle on, they automatically turn on for a few seconds until you enter the activation code.
+Fig. 107 - Courtesy light on roof.
+Use 69
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Button Position
+Light off Forced windscreen wipe.
+Fast wipe
+Wipe off.
+Slow wipe
+Light on
+Door contact connection.
+The light automatically turns on when you open one of the doors.
+It turns off a few seconds after
+closing them all.
+Interval wipe for windscreen. With the A control, you adjust
+intervals.
+Function Function
+OFF MIST
+HI
+OFF
+LOW
+ON
+DOOR INT
+Visibility
+Windscreen lever
+Fig. 108 - Windscreen control - Located to the right of the wheel.
+Move the lever up or down to select each position.
+Do not use the windscreen wiper system with winter temperatures without having previously heated the windscreen with the heating and ventilation system.
+The windscreen fluid may freeze on the windscreen, making it difficult to see ahead.
+CAUTION
+If you turn the vehicle off while the wipers are on, they will finish their wipe and return to their resting position.
+When you turn the vehicle on again, the wipers will keep operating with the same wipe speed. Ice, snow, and other obstacles on the windscreen can damage the wipers and their motor.
+• Before you begin driving, if necessary, remove ice and snow from the wipers.
+• Carefully unstick windscreen wipers that are frozen from the glass.
+SILENCE recommends using an antifreeze
+INFORMATION
+70 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Adjusting outside mirrors Manually retracting outside mirrors
+Fig. 109 - Adjustment button and selector - Driver’s door. Fig. 110 - Retracted mirror.
+Folding and unfolding the outside mirror without paying attention can cause injury.
+• Only fold or unfold the outside mirror if there is no one in the way.
+CAUTION
+Convex or spherical mirrors increase your field of vision. However, objects seem smaller and farther away.
+If you use these mirrors to determine your distance from vehicles coming behind you when switching lanes, you may make a mistake, which means there is risk of accident.
+aerosol to do this.
+• Do not turn the wipers on if the windscreen is dry. If the wipers clean while the windscreen is dry, it may be damaged.
+• If it freezes, check whether the wipers have frozen before putting them in motion. If it is cold, it may be helpful to leave your wipers in service position when you park the vehicle.
+INFORMATION
+You adjust the outside mirrors by moving the <MIRROR> adjustment control.
+outside mirror casing toward the side window or pull it away from the side window until it pops into place.
+It is possible to retract and put the outside mirrors back into their original position. To do so, carefully fold the
+Button
+You adjust the mirrors on the left side (L) and the right side (R) by moving the control in the desired
+direction.
+When you press on the button’s
+corners, you can point the mirror in
+the desired position.
+Function
+L / R
+MIRROR
+• When you move the mirror, be careful that your fingers do not get caught between the mirror and its casing.
+WARNING
+Use 71
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Sunscreens Adjusting the driver’s seat
+Transporting luggage
+Fig. 111 - Driver’s side sunscreen. Fig. 112 - Adjustable driver’s seat.
+Fig. 113 - Boot.
+The S04 has a sunscreen for the driver and another for the passenger. It has a courtesy mirror.
+You can adjust the sunscreens based on your needs.
+• Lower the sunscreen toward the
+windscreen.
+• The sunscreen can be removed from
+its casing and rotated toward the door.
+• Rotate the sunscreen toward the
+door, longitudinally backward.
+You can adjust the seat forward/ backward with the lever located on the bottom.
+• Always place luggage and heavy
+objects in the boot.
+• Put heavy objects in the boot as far
+forward as possible.
+• Remember the maximum mass
+Improperly adjusting the seats can cause accidents and serious injury.
+• Only adjust the seat when the vehicle is stopped, because otherwise it may move unexpectedly while driving and you could lose control over the vehicle. You may also adjust to an incorrect position.
+• Only adjust the front seat when the adjustment area is free of other individuals.
+• Do not allow any object to obstruct the seat adjustment area.
+• Do not allow the seat adjustment and block areas to become dirty.
+WARNING
+72 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Loose or incorrectly secured objects can cause serious injury in the event of abrupt braking, swerving, or an accident. To reduce the risk of injury, remember the following:
+• Place all objects in the vehicle securely.
+• Also, secure small and lightweight objects.
+• Place objects such that they never force any of the vehicle’s occupants to adopt an incorrect position.
+• When transporting objects that occupy a seat, never allow anyone to ride in that seat.
+• Do not leave hard, sharp, or heavy objects loose in the vehicle’s open mesh storage compartments, on the open area on the back of the back seat, or on the
+When you carry heavy objects, the vehicle’s driving properties change and braking distance increases.
+Heavy loads not appropriately placed or secured could lead to loss of control over the vehicle and serious injury.
+• Never overload the vehicle.
+Both the load and how it is distributed in the vehicle affect driving behaviour and braking capacity.
+• When you transport heavy objects, the vehicle’s driving properties vary because the centre of gravity has moved.
+• Always distribute the load in the vehicle in uniform fashion and as horizontally as possible.
+• Unsecured objects in the boot can suddenly move and change the vehicle’s driving behaviour.
+• Always adapt your speed and driving style to visibility conditions, the weather, the road, and traffic.
+instrument dashboard.
+• Remove hard, sharp, or heavy objects from garments and bags in the cab and store them securely.
+• Take special care and exercise caution when accelerating.
+• Avoid abrupt braking and swerving.
+• Brake earlier than normal.
+WARNING
+WARNING
+authorised in the vehicle.
+• Secure objects with the appropriate
+tie belts, tie straps, or securing straps.
+• Also place small objects securely.
+• Adapt tyre pressure as suitable to
+the load. Remember to look at the tyre pressure sticker. • Do not lose sight of the vehicle, especially when the back door is open. Children can enter the boot and close the door from the inside; they will be locked inside and will not be able to exit without help and run the risk of death.
+• Lock the door and lock the rear door when you leave the vehicle. Before locking the vehicle, make sure that no one is inside it.
+INFORMATION
+Use 73
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Mesh storage bag
+Fig. 114 - Mesh storage bag
+There is a mesh storage bag for transporting small objects in front of the passenger seat.
+If objects are present in the driver’s footrest area, it may be difficult to use the pedals. This can lead to loss of control over the vehicle and increases the risk of serious injury.
+• Make sure that nothing impedes use of the pedals at all times.
+• Prevent objects from falling into the driver’s footrest area while driving.
+• While the vehicle is parked, remove
+Never leave flammable objects like lighters in the storage bag or on any other surface in the vehicle. They may catch fire due to the high temperatures that said surfaces can reach, especially during the summer.
+This could lead to serious burns and damage to the vehicle.
+WARNING
+objects in the footrest area.
+CAUTION
+• Do not store objects, food, or medications sensitive to heat or cold in the cab. The heat and cold could ruin them or render them unusable.
+• Objects consisting of transparent materials left in the vehicle, such as glasses, magnifying glasses, or transparent suction cups on the windows can concentrate sunlight and cause damage to the vehicle.
+INFORMATION
+Start driving
+Fig. 115 - General view of the S04.
+Both for your own safety and your passenger’s, we recommend that you consider the following aspects before you start driving:
+• Make sure that the lights and turn signals are in perfect condition.
+• Check tyre pressure.
+• Check that all windows provide good visibility.
+• Make sure that luggage is properly secured.
+• Make sure that no objects prevent pedal operation.
+• Adjust mirrors and the front seat based
+WARNING
+74 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+on your stature.
+• Protect children by using an appropriate child seat and correctly adjusting the seat belt.
+• Sit correctly. Also advise your passenger to sit correctly.
+• Adjust your seat belt correctly.
+• Tell your passenger to properly buckle their seat belt.
+Press the Start/stop button once.
+Wait until the TFT screen lights up.
+Check that all doors are closed (see light
+on screen) and that your seat belt is
+buckled. Press the brake pedal and keep it pressed down during the following step.
+With the selector >>> Page. 44,
+choose your driving mode.
+You will hear several beeps in a row.
+The electronic parking brake is releasing.
+The vehicle is ready to start driving!
+Enter the applicable activation code (you will hear 1 beep for each time you press). By default (when the vehicle leaves the
+factory), this is:
+Press the Start/Stop button for 2 seconds. You will hear 2 beeps.
+The process of starting up the vehicle consists of the following steps:
+Starting up the vehicle
+The process of stopping the vehicle consists of the following steps:
+Stopping the vehicle
+If not already engaged, the parking brake
+will engage.
+Hold the Start/Stop button down
+for 1 second.
+After 1 minute wait time (without
+conducting any action such as opening a
+door or braking).
+The vehicle will be completely turned off!
+Use 75
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+To change the vehicle’s start-up sequence, you must complete the following steps:
+Changing the start-up sequence
+If you make a mistake with the sequence 3 times, the vehicle will be blocked, and you must enter the PUK code provided by SILENCE when the vehicle was delivered.
+If you make a mistake with the new sequence 3 times, the vehicle will be blocked, and you must enter the PUK code provided by SILENCE when the vehicle was delivered.
+Press the Start/stop button.
+The start-up sequence has been
+successfully changed!
+Press the following buttons simultaneously
+for 3 seconds. You will hear 3 beeps.
+Enter the new sequence.
+Press the Start/Stop button for 2 seconds. You will hear 2 beeps.
+Enter the applicable activation code.
+* Default code
+Enter the new sequence again.
+The PUK code is provided when the vehicle is delivered.
+If the vehicle is blocked, follow the instructions provided by SILENCE.
+You have 5 attempts to enter the PUK code. If you make a mistake in all attempts, the vehicle will be completely blocked, and you must contact SILENCE.
+You may use any of the buttons on the dashboard to generate a new start-up code.
+INFORMATION
+INFORMATION
+76 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+“My Silence” APP
+Fig. 116 - APP home screen.
+Fig. 117 - Front bonnet.
+Everything you need to know about your electric vehicle on the My Silence App: friend-sharing, location tracking, check autonomy and battery state of charge, create routes, and activate the security alarm... With the S04 Nanocar, you can also pre-cool your vehicle’s interior, have keyless entry, and open and close the windows remotely!
+1. Download the My Silence App
+Download the App from Play Store or Apple Store:
+2. Register
+Provide your personal information and verify your account with your email address.
+3. Adding a new vehicle
+Before you begin syncing, make sure you have reception both on your phone and in the vehicle.
+• Turn the vehicle on.
+• Enter the vehicle VIN (with the
+keypad or bar code and case sensitive).
+• A numerical code will appear on the
+vehicle’s display; enter it in the app.
+The vehicle and your smartphone require internet reception to sync.
+If the vehicle is in a place without internet reception, you will not be able to access it.
+INFORMATION
+Use 77
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Batteries
+Introduction
+The SILENCE S04 make has 2 units with an innovative removable battery pack with strap and wheels to be transported like a trolley, called “be.”
+This means that you can charge both in the vehicle itself and wherever else you want by bringing it to an electrical outlet.
+This battery pack can also be exchanged between vehicles and even be used to give life to many other appliances.
+Safety instructions
+• The battery can be a VERY DANGEROUS product (risk of death) when outside the vehicle:
+• It must always be transported on its wheels, at a slow speed (max. 3 km/h), slower than the average walking speed of a human.
+• You must avoid all mistreatment of the battery, such as blows, jumps, cobblestones, stairs, holes, and falls (for example, down stairs), as this can lead it to catch fire. You must also avoid contact with the water.
+• If you see any signs or suspect that the battery pack was used improperly or fell, you must not plug it in. Call SILENCE’S official technical services because there is RISK OF DEATH.
+If the battery catches fire, you can put it out with water, a CO2 extinguisher, or Class D extinguisher, unless the battery is plugged into the electrical grid or near other batteries. If this happens, you must use a CO2 extinguisher or Class D extinguisher to mitigate the fire and take the battery to a secure, isolated area (at
+Before inserting or removing the battery pack, make sure that the vehicle is not charging or turned on.
+The charger (600 W) is built into the battery pack itself, so all you need to charge is an electrical outlet connected to the grid and the power
+cable. It is cooled by convection.
+• To connect, you must first plug in the IEC connector (vehicle or the battery itself) and then into the grid. You must charge completely at least after partially charging 3 or 4 times. In the same way, you must also do a complete slow charge after 3 or 4 quick charges.
+• To disconnect, you must first unplug from the electrical grid, and then the IEC connector. You may interrupt the charging process at any time. Additionally,
+least 15 m of any exposure: other vehicles, other batteries, etc.). Once in a secure zone, call emergency services to take charge of the situation.
+WARNING
+Fig. 118 - Removable battery.
+CAUTION
+78 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+the control system automatically stops charging when it reaches 100%.
+If you connect at a low temperature, the internal heater will turn on until it reaches a suitable temperature for charging (with battery units that have this element activated). This heater operates while connected to the electrical grid and makes it so that current comes in under suitable temperatures. In this case, the charging time will be affected and will take longer than under normal temperature conditions.
+We recommend keeping the battery connected to the electrical grid in cold places and during cold seasons of the year, so that the heater heats the cells, and they are at a suitable temperature for the vehicle to be used normally.
+WARNING
+To keep your battery’s warranty, you must completely charge it (up to 100%) at least once per month. If you foresee that you will not be using it for a long period of time, it is very important that you charge it enough that it does not go down to a critical level. A battery that exceeds a certain low voltage limit loses autonomy to operate, which means it cannot be charged and needs to be brought to official technical service.
+INFORMATION
+Temperature
+This vehicle has a system to control and stabilise voltage and cell temperature. To avoid critical situations, safety systems limit battery use if the cell temperature exceeds safety limits in the event of overheating or supercooling.
+• The battery’s operational range is
+between -10 and 60ºC. Depending on the temperature, the lithium cells’ performance may vary.
+• The charger does not charge the
+battery if the cell temperature is lower than 0ºC or higher than
+50ºC.
+• The battery’s current temperature
+can be seen on the vehicle display. If the limits are exceeded (upper or lower, alert or error), the following LED will warn you:
+If necessary, the actions you must take are:
+• Low temperature: The battery
+does not operate under optimum conditions; store it in a warmer location and charge it (if the internal heater is activated).
+• High temperature: Due to intensive
+use, the battery cannot provide any more power; avoid SPORT mode
+Temperature Indicator. It blinks when a component is nearing its admissible limit (upper or lower). The light remains steady when this limit is exceeded. Motor: 100 °C (int.), 110°C (solid light). Controller: 70 °C (int.), 75 °C (solid light). Battery: 50 °C (int.), 60 °C (solid light) / 5°C (int.), -10 °C (solid light).
+Lights up red
+Use 79
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Autonomy
+The definition of an electric vehicle’s autonomy is the distance it can travel with one single complete battery charge.
+This is influenced by many factors, such as driving style, vehicle load (kg) and proper distribution, tyre pressure, and unfavourable weather conditions, such as wind, which can reduce it.
+The display provides an estimate of remaining kilometres (or miles) of autonomy. This information is approximate and depends on the driving mode (CITY/ECO/SPORT) and the current amount of power used.
+Battery charge indicator in % (SoC)
+• In order to read the battery’s state
+of charge (SoC, in %) with utmost precision, you must finish the charging process up to 100% (at least after 3 or 4 partial charges).
+Good battery charging practices
+You must follow these recommendations when charging the battery:
+• When charging at home, place the
+battery in isolated, ventilated areas like garages, laundry rooms, storage rooms, or patios.
+• Do not charge the battery in the
+rain when it is outside the vehicle.
+• Do not charge in areas with traffic
+or entrances to the home.
+• Keep the battery far from hot
+elements or that can cause heat, such as radiators or stoves.
+• Keep the battery far from mobile
+elements like vehicles or doors, avoiding all possible blows to the battery.
+• Keep the battery at a prudent
+distance from all other elements like tables, cabinets, chairs, and shelves.
+• Periodically check on the battery
+while charging.
+Good practices for proper battery maintenance
+The battery’s life cycle can last 1,000 cycles with 80% of its capacity if you conduct maintenance as prescribed by the warranty and follow a series of good practises:
+• Avoid excessive use of SPORT mode,
+and attempt to use CITY mode as much as possible (reason: avoiding aggressive driving with constant abrupt accelerations).
+• Avoid completely draining the
+battery. Charge the battery when it nears 25% of SoC, thereby avoiding complete cycles and limiting discharge depth.
+• Keep the battery temperature
+between 20-30ºC and limit time outside this range to the least amount possible. When you exceed these temperatures, the battery deteriorates more easily and loses its properties, both with high and low temperatures.
+• Whenever possible, use the internal
+charger to charge, avoiding constant
+and stop the vehicle if necessary so it can cool down.
+80 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Battery safety alerts
+NEVER OPEN THE BATTERY CASE
+AUTHORISED PERSONNEL
+THIS CAN BE VERY DANGEROUS AND COMPLETELY INVALIDATES THE WARRANTY.
+ONLY AUTHORISED PERSONNEL CAN WORK ON THE BATTERY CASE.
+IF SMOKE BEGINS COMING FROM THE BATTERY, IT IS MANDATORY TO PLACE AN EMERGENCY CALL FIREFIGHTERS (RISK OF DEATH) AND, IF IT IS IN AN ENCLOSED LOCATION, REMOVE IT.
+THE VEHICLE CANNOT EXPLODE, SO THERE IS NO ISSUE TRANSPORTING IT TO A SAFE LOCATION.
+TO AVOID INJURY, BURNS, AND ELECTRICAL SHOCK:
+• NEVER DISASSEMBLE THE BATTERY UNIT OR REMOVE ITS COVER. ONLY AUTHORISED
+PERSONNEL CAN DO THIS.
+• KEEP CHILDREN AWAY FROM THIS PART OF THE VEHICLE.
+• DO NOT PERFORATE OR HIT THIS AREA WHEN USING HOISTS, OR EXPOSE IT TO LIQUIDS, OR
+INCINERATE IT, OR EXPOSE IT TO FLAME, SINCE EXCESS HEAT CAN LEAD TO FIRE AND THIS CAN BE VERY DANGEROUS.
+MAKE SURE YOU READ THE SHOP MANUAL BEFORE REPAIRING OR REPLACING THE BATTERY.
+use of quick charges. Do a complete slow charge after 3 or 4 quick charges.
+Use 81
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+First aid measures
+If the battery breaks, smokes, or catches fire, evacuate personnel from the contaminated area and provide maximum ventilation to clean out the gases. In any event, seek medical attention.
+• Contact with eyes: Rinse with
+plenty of water (eyelids open) for at least 10 minutes.
+• Contact with skin: Remove all
+contaminated clothing and rinse the affected area with plenty of soap and water for at least 15 minutes. Do not apply greases or pomades.
+• Inhalation: Bring to open air and
+ventilate the contaminated area. Provide oxygen or CPR if necessary.
+Fire protection measures
+Extinguishing methods:
+• You may use: Class D, CO2, dry
+chemical extinguishers. Water, in the event that the vehicle/battery is not connected to the electrical grid or near other batteries.
+• Specific dangers: cells can reheat
+due to an external source or inappropriate use.
+Recycling the battery pack
+Once your S04’s battery pack life cycle has reached an end, you must dispose of
+it according to applicable regulations and in an environmentally friendly way. The Law prohibits disposing of the battery pack in regular household waste containers. You must bring it to an authorised SILENCE service shop for proper recycling, thereby reducing the environmental impact.
+82 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Identification of rings of light
+To know the battery’s state of charge, there is a LED ring of light on the side that provides this information, regardless of whether or not the battery is inside or outside the vehicle (if the vehicle is turned on, the light does not light up under any circumstances):
+A moving RED trail and another BLUE one, going all the way around, each in a different direction. It then does the same thing with TURQUOISE.
+A fixed portion in GREEN (or the entire ring, if at 100%).
+A moving GREEN trail in the entire ring with a fixed portion of it, showing the total charged percentage.
+The entire ring is RED.
+A complete GREEN ring with a BLUE trail going around while still plugged in.
+A moving REDDISH trail and another WHITE one.
+A fixed portion in RED (or the entire ring, if at 100%).
+A moving RED trail in the entire ring with a fixed portion of it, showing the total charged percentage.
+The entire ring is YELLOW.
+A complete RED ring with a WHITE trail going around while still plugged in.
+BPs WITH GREEN COLOUR CODE
+BP
+NOT CHARGING
+BP
+CHARGING
+When you tap the middle of the ring, it shows:
+Next, the remaining charge percentage is momentarily shown with:
+While the battery is charging, the following alternate:
+If the battery charge is low:
+Once you reach 100%, the ring shows:
+BPs WITH REDDISH COLOUR CODE
+Use 83
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fig. 119 - Bonnet opening lever.
+Fig. 120 - Vehicle connection point.
+The lever for the front bonnet is inside the vehicle under the multi- function wheel.
+• Pull the lever.
+• The specific IEC connection is under
+the bonnet.
+Direct vehicle charging
+• Use the cable provided for the
+connection >>> Fig. 121.
+When you plug the vehicle in, the instrument dashboard lights up,
+showing the following information on the screen:
+• Temperature.
+• Remaining time for complete
+charge.
+• Km available depending on the
+charge.
+• Charging % per hour.
+If you are charging in an unsupervised area, the bonnet has a slot for the cable so you can close it and prevent damage and cable theft.
+INFORMATION
+Turn the vehicle off before charging.
+Do not remove the batteries while charging.
+Failure to follow these two instructions can damage the vehicle’s electronics.
+CAUTION
+1
+1
+84 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Battery charging
+You can charge your S04’s battery both inside the vehicle and outside it.
+In any event, the vehicle and battery have a male IEC jack to connect the power cable. The cable as a female IEC terminal and another male Schuko terminal (normally used in Europe to connect to the residential grid).
+The charging cable is in the bag with the emergency kit (in the boot space) >>> Page. 72.
+The charger (600 W) is built into the battery pack itself, so all you need to charge is an electrical outlet connected to the grid and the power cable. It is cooled by convection.
+- To connect, you must first plug in the IEC connector (vehicle or the battery itself) and then into the grid. You must charge completely at least after partially charging 3 or 4
+times. In the same fashion, you must
+Fig. 121 - Charger cable terminals.
+Fig. 122 - Battery plugged into the residential grid.
+also do a complete slow charge after 3 or 4 quick charges.
+- To disconnect, you must first unplug from the electrical grid, and then the IEC connector. You may interrupt the charging process at any time. Additio- nally, the control system automatically stops charging when it reaches 100%.
+If the battery is at less than 0ºC or more than 50ºC (due to inappropriate use), it will not charge.
+If you connect at a low temperature, the internal heater will turn on until it reaches a suitable temperature for charging (with battery units that have this element activated). This heater operates while connected to the elec- trical grid and makes it so that current comes in under suitable temperatures. In this case, the charging time will be affected and will take longer than un- der normal temperature conditions.
+We recommend keeping the battery connected to the electrical grid in
+Before inserting or removing the battery pack, make sure that the vehicle is not charging or turned on.
+CAUTION
+Use 85
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+This system consists of an extendable handle, two wheels, and a stand (to be used on horizontal, flat surfaces).
+WARNING
+WARNING
+Ensure that you do NOT remove the battery pack when the vehicle is charging nor when it is turned on.
+Failure to follow this instruction can damage the vehicle’s electronics.
+Make sure you do NOT pull the handle out before pulling the pack out (pull the handle out once the battery is outside the vehicle), or put it back in with the handle pulled out (push in before inserting).
+The pack’s wheels and stand pull in and out automatically when you put it in and pull it out of the vehicle,
+respectively. Even so, it is the user’s responsibility to do this slowly and make
+DO NOT attempt to pull the landing gear out with your hands or put your hands under the battery under any circumstances.
+sure that the wheels and stand pull out correctly when the pack is removed, and that it properly fits into place when inserting it back in the vehicle. Otherwise, you run the risk of it falling on your feet, with the consequent personal harm.
+CAUTION
+CAUTION
+Fig. 123 - Removable battery.
+Trolley-type removal system
+You must charge completely every 30 days to maintain the warranty.
+To keep your battery’s warranty, you must completely charge it (up to 100%) at least once per month. If you foresee that you will not be using it for a long period of time, it is very important that you charge it enough that it does not go down to a critical level. A battery that exceeds a certain low voltage limit loses autonomy to operate, which means it cannot be charged and needs to be brought to official technical service.
+INFORMATION
+cold places and during cold seasons of the year, so that the heater heats the cells, and they are at a suitable temperature for the vehicle to be used normally.
+Before removing the battery, you must consider the risks associated with this operation.
+86 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+To remove the battery you must follow these steps:
+Turn the vehicle off and/or unplug from the grid if not already disconnected.
+• Open the door of the side with the
+battery you wish to remove.
+The vehicle has unblocking levers located in the central area underneath the seats >>> Fig. 124.
+• Pull the lever matching the battery
+you wish to >>> Fig. 126.
+• Gently pull on the battery to
+remove it from the vehicle >>> Fig. 125.
+Fig. 124 - Battery unblocking levers. Fig. 125 - Battery removal.
+Fig. 126 - Pulling out the handle.
+If you remove the battery while the vehicle is turned on, the following informational warnings will appear on the instrument dashboard:
+Once the battery has been correctly connected, the message on the instrument dashboard will disappear. You may need to restart the vehicle.
+CAUTION
+Battery failure
+Battery unblocked
+• Once you have the battery outside
+the vehicle, pull out the >>> Fig. 126.
+Use 87
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+To insert the battery you must follow these steps:
+• Open the door of the side with the
+battery you wish to insert.
+• Push the handle down >>> Fig. 128.
+• Push the battery into the housing
+intended to this end >>> Fig. 127.
+The unblocking lever will return to its position, immobilising the battery.
+Fig. 127 - Inserting the battery.
+Fig. 128 - Pushing the handle in.
+If you remove the battery while the vehicle is turned on, the following informational warnings will appear on the instrument dashboard:
+Make sure that the battery is entirely secured in place.
+Once the battery has been correctly connected, the message on the instrument dashboard will disappear. You may need to restart the vehicle.
+CAUTION
+CAUTION
+Battery failure
+Battery unblocked
+Ensure that you do NOT insert the battery pack when the vehicle is charging nor when it is turned on.
+Failure to follow this instruction can damage the vehicle’s electronics.
+CAUTION
+88 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Power
+Along with our removable battery system, we have created a set of parts that make it possible to use our batteries for other things. It’s not just about travelling around the city with your S04 and being able to charge it when and wherever you want. Now you can also power many other devices.
+Energy IN
+On one hand, you can find the energy you need to power the battery back. At SILENCE, we call this “Energy IN.” You can charge your battery directly from the grid with a regular plugin or take a charged unit from one of our Battery Swapping Stations (BSS).
+Energy OUT
+On the other hand, we have “Energy OUT.” This is everything that works with the energy that the battery provides. In other words, all the battery pack’s applications: for example, energy for your S04 or other model, or for your computer, television, camping stove, coffee pot, or microwave.
+Never use quick chargers other than those offered by SILENCE. The warranty may be invalidated.
+Never use quick inverters other than those offered by SILENCE. The warranty may be invalidated.
+CAUTION CAUTION
+Use 89
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Battery exchange
+If you have purchased your S04 with battery rental, you can use Battery Swapping Stations (BSS) to exchange batteries. You may reserve one or two charged available batteries through the “Battery Station”, app and exchange them for your batteries low in charge without wasting time charging them.
+Everything that needs electrical current can be powered with the in- verter that SILENCE has developed for you. Thanks to the backpack design, the NOMAD is portable (just like your removable battery is) so you can use them both wherever you may be.
+You just have to connect the BP to the NOMAD, and then the device you wish to use to the NOMAD. You can connect different household applian- ces or electrical devices, including mobile phones, laptops, coffee pots, lamps, televisions, fans, mini fridges, toasters... to a power level of 3000 W, with the 220 V alternative current outputs (2 Schuko connectors), plus the 5 V direct current USB output.
+Fig. 129 - SILENCE NOMAD.
+Fig. 130 - SILENCE BSS.
+Battery management system (BMS)
+This battery has a monitoring system, called BMS (Battery Management System) that controls parameters like temperature and voltage. It was developed by SILENCE’S R+D team and plays a very important role: it balances the charge in the different cells, providing top battery performance.
+This system is also responsible for communicating the state of charge and setting charge and discharge current levels. It also has an action plan in the event of anomalous battery status, tripping protections in preventive fashion in the event of excess or defective current, voltage, temperature, etc.
+In short, the BMS is the battery’s “brain”, which works to optimise battery performance and safety.
+90 Use
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+• When you purchase maintenance products, choose ones that are environmentally compatible.
+• Waste from maintenance products must never be thrown into household trash.
+INFORMATION Vehicle maintenance
+Maintenance and cleaning
+Basic observations
+Regular, professional maintenance work ensures that you preserve your vehicle’s value. This can also become an essential condition to demand warranty rights in the event of rust damage and deficiencies in the paint on the frame.
+Specialised shops have necessary maintenance products. We kindly request that you follow application instructions on containers.
+Washing the vehicle
+The longer you take to clean residues, e.g., insect remains, bird excrement, tree sap, or de-icing salts stuck to your vehicle, the greater the damage they can do to the surface. High temperatures, for example due to sunlight, reinforce this harmful effect.
+Before washing, soften thick dirtiness with plenty of water.
+To eliminated encrusted dirtiness, like excrement, insects, or tree sap, it is best to use plenty of water and a microfiber cloth.
+Also, wash underneath the vehicle after the de-icing salt period in winter.
+• Incorrectly applying maintenance products can be harmful to your health.
+• Always keep maintenance products in a safe place and out of reach of children. Risk of intoxication!
+WARNING
+High-pressure cleaning devices
+If you wash the vehicle with a high-pressure cleaning device, you must closely follow the device’s instructions. The aforementioned is especially valid for pressure and distance from the vehicle when spraying with water. Do not point the spray straight at joints inside windows, doors, or covers; the same holds true for tyres, flexible rubber tubes, soundproofing material, sensors*, etc.
+Keep a minimum distance of 40 cm. Do not remove snow and ice with
+a high-pressure cleaning device.
+Never use circular sprayers or mills to remove dirtiness.
+Water should be no hotter than 60ºC.
+Automatic carwashes
+Rinse the vehicle before you begin washing.
+Ensure that the windows are closed, and the windscreen wipers are deactivated. Follow the carwash operator’s instructions, especially if there are removable parts on your
+Vehicle maintenance 91
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+vehicle.
+Give preference to brush-free carwashes.
+Washing by hand
+Clean the vehicle from the top down with a gentle sponge or brush for washing.
+Use cleaning products that are solvent-free.
+Wash vehicles with matte paint by hand
+To keep from damaging the vehicle while washing it, first remove the bulkiest dust and dirtiness. To remove insect remains, grease stains, and fingerprints, it is best to use a special cleaner for matte paint.
+Apply the product with a microfiber cloth.
+Avoid using excessive pressure to keep from damaging the paint surface.
+Rinse with plenty of water. Next, clean with a neutral cleaner and a gentle microfiber cloth.
+Rinse the vehicle with plenty of water again, then allow to air-dry.
+Remove any remaining water with a leather cloth.
+• Only wash the vehicle when turned off, or according to carwash operator instructions.
+Risk of accident!
+• If you clean underneath the car or inside the wheel wells, protect yourself from sharp or cutting metal parts. Risk of cutting yourself!
+• After cleaning, the brakes may take longer to brake due to moisture or, in winter, to ice on the discs or brake pads. Risk of accident! In this case, you must brake several times until the brakes dry.
+WARNING
+• If you wash the vehicle in an automatic carwash, you must retract the outside mirrors to keep them from being harmed.
+• Do not wash the vehicle if exposed to intense solar radiation. Risk of damaging the paint!
+• Do not use sponges to clean insect remains or kitchen sponges with a rough surface or anything similar. Risk of damaging the surface!
+• Vehicle parts with matte paint:
+– Do not use polishes or hard waxes.
+Risk of damaging the surface!
+– Never select wash programmes that include waxing. This could ruin the matte paint’s appearance.
+– Do not put stickers or magnets on matte-painted parts since they can damage the paint when removed.
+INFORMATION
+92 Vehicle maintenance
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Only wash the vehicle in locations intended for this purpose. These locations are designed to prevent wash water, which may be contaminated, from going to the drain system
+Dirtiness
+Dirtiness
+Dirtiness
+Dirtiness
+De-icing salt
+Flaws in the paint
+Brake dust
+Rust
+Gentle cloth with window cleaner.
+Soft sponge with neutral soapy solution*
+Soft sponge with neutral soapy solution*
+Neutral soapy solution*, if necessary, a suitable cleaning product for fine-grained steel.
+Water.
+See the paint colour code at a dealer and restore with a car paint touch-up pen.
+Special acid-free cleaning product.
+Bring your vehicle to your specialised shop for removal.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+INFORMATION
+Incident
+Incident
+Incident
+Incident
+Incident
+Incident
+Solution
+Solution
+Solution
+Solution
+Solution
+Solution
+Instructions for cleaning and maintenance
+You can see cleaning and maintenance for individual vehicle components on the tables below. These are merely recommendations.
+Outside cleaning
+Windscreen wipers
+Decorate slats
+Headlamps/Rear optical sets
+Hubcaps / Hubcap fittings
+Wheels
+Paint
+Grease-based dirtiness, e.g., cosmetic products or sunscreen.
+Immediately remove with a neutral soapy solution* and a gentle cloth.
+Dirtiness
+Dirtiness
+Use window washer and then dry with a cloth.
+Neutral soapy solution*.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+Incident
+Incident
+Solution
+Solution
+Windows
+Hubcaps / Hubcap fittings
+Interior cleaning
+Dirtiness
+Suciedad incrustada
+Wet cloth
+Neutral soapy solution*, if necessary, solvent-free cleaning product for plastics.
+Incident Solution
+Plastic parts
+Vehicle maintenance 93
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Windows
+• Remove any snow and ice that may
+be on windows and outside mirrors with a plastic scraper. To keep from scratching while cleaning, do not move the scratcher backward and forward, but only in one direction.
+• Never remove ice and snow from
+windows or mirrors with warm or hot water. Risk of cracking glass!
+Hubcaps / Hubcap fittings
+• Do not use chrome-based
+maintenance or cleaning products.
+Paint
+• The vehicle must be free from
+dirtiness and dust before applying polish or maintenance products. Risk of scratching!
+• Do not use polish or maintenance
+products if the vehicle is exposed to intense solar radiation. Risk of damaging the paint!
+• Environmental rust deposits must
+not be removed by polishing.
+• Risk of damaging the paint!
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+* Neutral soapy solution: no more than two tablespoons in 1 L of water.
+Dirtiness
+Dirtiness
+Dirtiness
+Water-based dirtiness, e.g., coffee, tea, blood, etc.
+Dirt particles adhered to the surface
+Special dirtiness, e.g., pen, nail polish, spray paint, shoe polish, etc.
+Gentle cloth with liquid glass screen cleaner.
+Soft brush, then gentle cloth with neutral soapy solution*.
+Neutral soapy solution*, let dry before rolling up.
+Use a neutral soapy solution*. Absorb dissolved grease and paint particles by dabbing with an absorbent cloth if treatment is necessary after water.
+Vacuum.
+Special stain remover; dab with absorbent material and, if necessary, then treat with neutral soapy solution*.
+Incident
+Incident
+Incident
+Incident
+Solution
+Solution
+Solution
+Solution
+Textiles
+Instrument dashboard
+Paneles de mando
+Seat belts
+Take special care with...
+Headlamps/Rear optical sets
+• Do not clean headlamps rear optical
+sets with a cloth or dry sponge under any circumstances.
+• Do not use cleaning products that
+contain alcohol. Risk of cracking!
+Wheels
+• Do not use paint polish or other
+abrasive products.
+• If the paint protection film on the
+wheel has been damaged, e.g., from rock blows, scratching, etc., the damage must be immediately repaired.
+94 Vehicle maintenance
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+• Immediately remove cosmetic
+products and sunscreen.
+• Risk of damaging the paint!
+Instrument dashboard
+• Make sure that the instrument
+dashboard is turned off and has cooled down before cleaning it.
+Control panels
+• Make sure that no liquid enters the
+control panels. Risk of damage!
+Seat belts
+• Do not disassemble seat belts to
+clean them.
+• Seat belts and their components
+should never be cleaned with chemical products or be in contact with liquids that have caustic properties, with solvents, or with sharp or pointy objects. Risk of damaging the fabric!
+• Go to your specialised shop to
+replace seat belts with damage to the fabric, in the joints, the automatic roll-up device, or the
+fastener part.
+Textiles
+• If it is very difficult to remove a
+stain, go to your specialised shop to have it removed there. This way, you will avoid damage.
+• Never use steam cleaners, brushes,
+hard sponges, etc., to clean.
+• Sharp objects on garments, such as
+zippers, rivets on clothing, or belts, can damage the surface.
+• Open Velcro closures, e.g., on
+clothing, can damage the seat upholstery. Make sure that Velcro is properly closed.
+The windscreen must not be treated with waterproof coating agents for glass. Under poor visibility conditions, such as moisture, darkness, or when the sun is at its lowest point, a brighter glare can occur. Risk of accident! The windscreen wipers may also make noise.
+CAUTION
+• Insect remains can be removed much more easily from point that has recently received maintenance treatment.
+• Regularly applying maintenance treatments can prevent environmental rust deposits from forming.
+INFORMATION
+Take the vehicle off the road
+If you wish to take your vehicle off the road for a long period of time, see a specialised shop. They will be delighted to tell you about the measures you need to take, such as rust protection, service, and storage. Also remember instructions on vehicle batteries.
+Vehicle maintenance 95
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Collection of vehicles at the end of their life cycle and scrapping
+Collection of vehicles at the end of their life cycle
+When the time comes for you to dispose of your SILENCE vehicle, you must do so
+according to applicable regulations and always in an environmentally friendly way. To obtain directions on how to recycle or dispose of your vehicle, please contact an authorised SILENCE service. They will give you guidelines for proper vehicle management and for all its components at the end of their life cycle.
+Go to technical service to request more information on collection and scrapping of vehicles at the end of their life cycle.
+Recycling electric or electronic equipment
+All electrical or electronic equipment (EEE) not permanently mounted in the car should bear an indelible stamp with the symbol:
+This symbol means that you should not dispose of the EEE in household trash, but rather with selective collection.
+Scrapping
+When you scrap the vehicle or certain parts like seat belt tensioners, you must always remember applicable road regulations. Specialised shops are aware of these regulations.
+96 Vehicle maintenance
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Technical data
+Relevant information
+Introduction
+The information provided in technical data may differ, depending on the optional equipment or the model make, as well as in the case of special vehicles and fittings for certain countries.
+The vehicle’s official documentation data always takes priority.
+Vehicle identification details
+You can find the vehicle identification number (frame number) on the label located on the front bonnet >>> Page. 64.
+Open the bonnet to see the vehicle identification number.
+Weights
+Empty weight, total weight, load over axles
+Optional fittings may increase the empty weight, which means that the possible useful weight decreases in proportion.
+Tyre pressure
+Do not exceed the maximum authorised mass. There is risk of accident and harm!
+CAUTION
+Fig. 131 - Vehicle identification label.
+Driver
+Driver + Passenger
+2 bar
+2.2 bar
+2.2 bar
+2.5 bar
+Occupants
+MMTA*
+MMTA* (front axle)
+MMTA* (front axle)
+Front wheel
+785 kg
+334 kg
+451 kg
+Rear wheel
+*MMTA: Technically Permissible Maximum Laden Mass
+Information of interest 97
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+Fittings
+L6e L7e Fittings
+L6e L7e Battery characteristics
+98 Technical data
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+fabric electric electric electric
+With key or “My Silence” app
+electric
+6.5”
+On-board unit (TCU)
+with APP or B2B sharing
+e.g., close doors and windows
+std. std.
+with Bluetooth
+std.
+electric lock/unlock
+Full LED
+std. std.
+fabric electric electric electric
+With key or “My Silence” app
+electric
+6.5”
+On-board unit (TCU)
+with APP or B2B sharing
+e.g., close doors and windows
+std. std.
+with Bluetooth
+std.
+electric lock/unlock
+Full LED
+std. std.
+Seat upholstery Window operator Centralised lock Mirrors Vehicle access Parking brake TFT screen Connectivity (APP+SIM) Remote features
+Smartphone stand Smartphone charger Audio system Multi-function wheel Boot door Headlamp Rear fog light Ventilation and heating
+2
+2x5.6 kWh = 11.2 kWh
+175 km
+In BSS: 60 sec. changing batteries By cable: 7-9 h (0-100 %)
+2
+2x5.6 kWh = 11.2 kWh
+149 km
+In BSS: 60 sec. changing batteries By cable: 7-9 h (0-100 %)
+Necessary batteries Battery capacity Autonomy Charge time
+L6e L7e General characteristics
+L6e L7e Optional fittings
+Technical data 99
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+45 km/h
+6 kW (10,6 kW max.)
+3.5 m 420 kg 41 kg x 2
+Disc
+155/65-14”
+247 L
+85 km/h
+14 kW (22 kW max.)
+3.5 m 435 kg 41 kg x 2
+Disc
+155/65-14”
+247 L
+Maximum speed Power Turn radius Vehicle weight Battery weight Brakes (front/rear) Wheel dimensions Load capacity
+Outside colour: Matte grey Premium Pack Air conditioning Dashboard moulding Premium with vegan leather covering Door moulding Premium with vegan leather covering Multi-function wheel with vegan leather Mesh storage compartment SILENCE rugs with SILENCE logo Comfort Seat Pack Comfort seat with new design
+std. = standard / = optional
+L6e (45 km/h) L7e (85 km/h)
+Dimensions
+E
+F
+D I K H
+G G J J A C B
+100 Technical data
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+A B C D E F G H I J K
+382 mm 318 mm 1582 mm 2282 mm 1590 mm 491 mm 1268 mm 2971 mm 1536 mm 852 mm 1953 mm
+382 mm 318 mm 1582 mm 2282 mm 1590 mm 491 mm 1268 mm 2971 mm 1536 mm 852 mm 1953 mm
+Front overhang Rear overhang Wheelbase Length Height-to-empty-weight ratio Hight-to-empty-weight ratio with open boot Width Width with open doors Width with mirrors extended Door Additional length with open boot
+for each battery
+289
+381
+896
+414
+468
+529
+440 330
+Technical data 101
+MU_S04 MY23_EN - USER MANUAL S04 MY23 (V001)
+5.6 kWh
+Ion lithium cells
+41 kg 51 VDC
+-20 to 45 °C (max.) / 0 to 25 °C (recommended)
+0 to 50 °C (charging) / -10 to 60 °C (use, discharging)
+Aluminium and PC
+35 A 280 A
+Onboard 90-240 VAC; 600 W
+~11 A 7-9 h
+Nominal capacity Cell chemistry Weight Nominal battery voltage Storage temperature (without charging) Working temperature Frame material Max. charging current Max. discharge current Charger type Maximum internal charger current Standard charging time
+most updated manual version
+MU_S04 MY23_ENG - User Manual S04 MY23 (V001)

@@ -1,0 +1,943 @@
+KAC-29
+KitchenAid
+TECHNICAL EDUCATION
+PROFESSIONAL DUAL FUEL RANGE WITH SELF-CLEAN THERMAL CONVECTION OVEN
+JOB AID 4317282
+FORWARD
+This Job Aid, “Professional Dual Fuel Range With Self-Clean Thermal Convection Oven,” (Part No. 4317282), provides the technician with information on the operation and service of the Pro- fessional Dual Fuel Range. It is to be used as a training Job Aid and Service Manual.
+The wiring diagrams and strip circuits used in this Job Aid are typical and should be used for training purposes only. Always use the wiring diagrams supplied with the product when servicing the unit.
+GOALS AND OBJECTIVES
+The goal of this Job Aid is to provide detailed information that will enable the service technician to properly diagnose malfunctions and repair the Professional Dual Fuel Range. The objectives of this Job Aid are to:
+¢ Understand and follow proper safety precautions.
+* Successfully troubleshoot and diagnose malfunctions.
+¢ Successfully perform necessary repairs.
+¢ Successfully return the Professional Dual Fuel Range to the proper operational status.
+WHIRLPOOL CORPORATION assumes no responsibility for any repair made on our products by anyone other than Authorized Factory Service Technicians.
+Copyright 2001, Whirlpool Corporation, Benton Harbor, MI 49022
+Table of Contents
+Page
+SP EGUPIGATIONS oesi cise et Sac iat ta a ahh ai ate da ect cal Rael Ae dy eae eR Ad ae 1-1
+COMPONENT ACCESS axis rccstoiaatticeieiah tan ieteh Gi Me okesei pce st eeoea pag cta tec tage ienaaks 2-1
+GOMPONENLE LOCAUONS sens cciscscemiencracdaal au uireaiaddiddebuave nnddcadetebinenivachatdud sauentiap bien ciedmabaanels 2-1
+Removing A Sealed Burner & IQnitOr .................e cee eeeeeeeeeeeeeeeee eee eee teeter eter tere eteetteeeeneeeeaaaaaes 2-2 Removing The Control Power And Lamp Transformers, The Electronic
+Range Control, The Oven Door Latch Assembly, & Spark Module ...............:::::ccssseeeeee 2-4 Removing The Front Panel, Display, Selector & Set Controls,
+Gas Valve. & IQMitlon SwilCes x cascwsch svessydvasvancsavanss corte ep spaaseaanvel douneaewivaxce edb en eae sa naeaane 2-8 Removing A Halogen Lamp Assembly ...............:::::cccccceeeecceceeeeceeeneseeeeeeeeeeeeeeeeeeeeeeasenaaes 2-13 Removing: The Broil ElSment :5.3ig2 accor Soaks ccd Cavan delben cahcuddadieds dled ae hee See ies 2-14 Removing The Oven Temperature S@NSO? ............ ccc ceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeteeeeeeeeeennaaaas 2-15 Removing: The Gas Regulator o..:2i2c4d pein icets oh eee eee Lee 2-16 Removing -Lhe-Rear Panel ccc vies coves chicas idle. ycavegu ds seas esd caveat deedeul vedeaeeebleasawsdoeseo2e.en aeeees 2-17 Removing The Convection Bake Element & Fan Motor Assembly ................::::0:::eeeeeeeees 2-18 Removing The Blower Motor ASSEMDIy ............ ccc eeeeeeeceeceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeteeaaaaaeeeenees 2-20 Removing The Suppressor Board ..............:c::ceesssseeeeeeeeeeeeeceeeeeeeeeaaaeaaseeceeeeeeeeeeeeeeeenneeaaes 2-21 Removing The Oven Shutdown Thermal FUSC...........ccccccccceeceeeeeeeeeeeeeeeeeeeeeeeeeesntteeaaeeeees 2-22 Removing The Hidden Bake Element...........2...:2::::::ccccceeceeeneeeeereeeeeeeenesendendeeeecnecneeenenetenes 2-23 Removing The Oven ‘Doors c:icceianed cide hte iareey eee ee eee 2-25 Removing The Oven Door Glass, Hinges, & Handle .................::::ceeeeeeeeeeeeeeeeeeeeeeeeeeeeeaees 2-26 Removing The Oven Door Gasket ..............ccc:cccecccecncneceeeeeeeeeeeeeeeeeeennennnnsnedenseceeceneensesesees 2-28
+COMPONENT TEs TING xi s:sceerets tae hansesk cote e ecole cree hadang anne Gia Machi ieee eta sii aurea 3-1 Electronic: Range Gon Ol estes. ioioucs fcl siesed eens cee se yes cece eat ese ei eyo ea 3-1 Control Power & Lamp Transformers .............ccccccccccccceeeeeeeeseeeeeeeeeeeeeceeeeeeeaeaeaassseseeeeeeeeeees 3-2 BIG WOR IVIOION cep caheti aves Li nce tal oscar Sais vob eens twiases aan ng alas Livbareivesluedcdad ep adaeait ddpetahccersatenginds 3-3 Oven Door Latch-ASsSemply xftetueeeeete ececc tices uh ardiceeniektdn tated eco eterual ater t 3-4 OVEN TEMpPErature: SENSOM sad. seleces aise ala date ecu ts cds ea oshod in date wise vb deed cash Bacenaee bas and bane eens 3-5 Oven Shutdown: Thermal: Pus Ci ecccoucuiesi tee tceeun Gierassveise revs verdteresna outerwear acaeaee 3-6 Convection Bake: Element ics.sceceen i ccidid chee natened dst ee 3-7 CORVECUOMAR GIN. MOLI 3 evs seceeud ae sice sd saves cerecencth cout ves Sa eaccuagavcGeus sites encoguteteyecusi ge eacaueceamere 3-8 Broil EIGN rit sec discs icNec aa uiaas daaticen tsa h caer couainanaaneuaeea best ueneoanenuie tokeue chase saataaand uecany onsen cnsuaas 3-9 PHOS: Balke: EIS 1 sisicoctncrasces Pastaaiasaececsoths Nea Gennveneateediacabioh Mencia deh idegaavaiaarebatic odes 3-10 NGITON SWITCH OS 3 oS a ae nae ten nectar ates og eat ine cea aed nad dae ceatecanpaaneal delebhoe ine Gated 3-11
+DIAGNOSIS & TROUBLESHOOTING vwiigssiicaiie svete oc ths cota Sees be sag bedaceiatang hand eedaaticetn cele 4-1 Pallure/Ertor Display COd@S <2 2.20tatect er teen ele: cede es eer aa aaa EL 4-1 Electronic, Range Control: PInQuUts icc cascecececrec cise vente cvajioaccteind conddearasiusnaeuneueecourth teas caduebn baiielons 4-2 Electronic Range Control Component Test POINtS 200... eeeeeeeeeeeeeeee eee e eter ee teeteeeeeeeeaaaaaas 4-3 PRET ER LIOC Ge oo g cs vies ee Sedge ce eetie truer satnenauan cde ce ws a vuredgast tec ccegece ceva econ uare uc eeeaeeaaaereetonccessent 4-3
+WIRING DIAGRAMS & STRIP CIRCUITS 20. eee ee etree eee tetteeeaeeaeaaaaaaaaaeeeeeeeeeeeeeeeeegs 5-1 OVenVVINMG: DIGGI AMY asi 2inast olen camer crite vue lusde teh nt dad se Aaa le 9 ance edad 5-1 Cooktop Wiring DiaG tan sccse ie sei a canada ees Aa tee See ae ee as a a ae So 5-1 SUID CIPCUILS *.atnaie cretanaataaséeidi han exbanei wiaetansundambae canteen Gie nlnatan i eaed us wie sadaagdelcad ane emeacnaa dd aaelataais 5-2
+ST TS senha esige ed et eaedette Seah ces aaa leas ae id Sadie ala one ieee ir een ee Aad cate celts 6-1 Requesting Assistance Or S€rviCe .............2:::::sccceeeeeeeeeeeeeeeeeaaeeeseeeeeeeeeeeeeeeeeecseeenaaaeenseesess 6-1 Dual Fuel Range Warranty 2i.2.0c isch venlenttvchocnn pines es eal bide cacaebdebteanl ahi iad ag enas: 6-2
+MODEL & SERIAL NUMBER DESIGNATIONS MODEL NUMBER SERIAL NUMBER
+MODEL NUMBER K|} DR} P | 40} 7/)H|SS|0O SERIAL NUMBER X K |}05/10052
+INTERNATIONAL SALES IND. MANUFACTURING SITE or MARKETING CHANNEL X = OXFORD IF PRESENT
+YEAR OF MANUFACTURE K = 2000
+K = KITCHENAID BRAND
+WEEK OF MANUFACTURE
+PRODUCT IDENTIFICATION DD = DUAL FUEL DROP-IN / SLIDE-IN PRODUCT SEQUENCE NUMBER
+DR = DUAL FUEL RANGE
+ED = ELECTRIC DROP-IN RANGE EE = ELECTRIC EYE-LEVEL RANGE ER = ELECTRIC STANDARD RANGE ES = ELECTRIC SLIDE-IN RANGE GD = GAS DROP-IN RANGE
+GE = GAS EYE-LEVEL RANGE
+GR = GAS STANDARD RANGE
+GS = GAS SLIDE-IN RANGE
+MERCHANDISING SCHEME C = CERAMIC GLASS TOP H = CERAMIC WITH HALOGEN | = IMPERIAL P = PROFESSIONAL / COMMERCIAL S = STANDARD TOP T = TEMP. GLASS TOP
+CAPACITY / SIZE / SERIES / CONFIGURATION 1ST POSITION 2ND POSITION 1 = DROP-IN 0 = 30" WIDE 2 = DROP-IN/SLIDE-IN 6 = 36" WIDE COMBINATION
+3 = SLIDE-IN 4 = COMMERCIAL 5 = STANDARD 7 = EYE-LEVEL
+FEATURES 0 = STANDARD FEATURES 2 = PLUS FEATURES 5 = DELUXE FEATURES 7 = DELUXE FEATURES / CONVECTION
+YEAR OF INTRODUCTION H = 1999 J = 2000
+COLOR CODE SI - SILVER SS = BRUSHED STAINLESS STEEL
+ENGINEERING CHANGE 0 = Basic Release 1 = First Revision 2 = Second Revision
+MODEL & SERIAL NUMBER LABEL AND TECH SHEET LOCATIONS
+The Model/Serial Number label and Tech Sheet locations are shown below. NOTE: The tech sheet is accessible by removing the cooktop. To remove the cooktop, refer to page 2-2 for the procedure.
+Tech Sheet Location
+sespaeenes? peewee be. pendeepttsotes FU PER NOUR = NATURAL LP
+LACH BUBNER: 15,008 15,000
+bl
+s - SEB KITCI ‘AUBNER MEUT RATINGS.
+3 ry 3
+“a “ > * a” »
+iF
+WOLD KORPAEFHSSE RTS SIHZAC
+SER xee5BL8R5
+ABA, PATHE,
+Py
+Model & Serial Number Label Location (On Right Side Of Chassis)
+IMPORTANT SAFETY INFORMATION
+Your safety and the safety of others is very important. Important safety messages have been provided in this Job Aid. Always read and obey all safety messages.
+This is the safety alert symbol. This symbol alerts you to hazards that can kill or hurt you and others.
+All safety messages will be preceded by the safety alert symbol and the word “WARNING.”
+All safety messages will identify the hazard, tell you how to reduce the chance of injury, and tell you what can happen if the instructions are not followed.
+IMPORTANT
+Electrostatic Discharge (ESD) Sensitive Electronics ESD problems are present everywhere. ESD may damage or weaken the electronic con- trol assembly. The new control assembly may appear to work well after repair is finished, but failure may occur at a later date due to ESD stress. ¢ Use an anti-static wrist strap. Connect the wrist strap to the green ground connection point, or to an unpainted metal surface in the appliance.
+-OR-
+Touch your finger repeatedly to a green ground connection point, or to an unpainted metal surface in the appliance.
+* Before removing the part from its package, touch the anti-static bag to a green ground connection point, or to an unpainted metal surface in the appliance.
+¢ Avoid touching electronic parts, or terminal contacts. Handle the electronic control assembly by the edges only.
+¢ When repackaging the failed electronic control assembly in an anti-static bag, observe the previous instructions.
+-Vi-
+SPECIFICATIONS
+SIZE NEW MODEL NUMBER KDRP407HSS N
+Controls t
+Hot Surface Indicators NA [Sealed Ves
+Sealed Yes
+| righteront = ono ct Right Front
+j tet rot ono tt
+Left Front
+15,000 btu natural Right Rear 12,000 btu LP
+15,000 btu natural Left Rear 12,000 btu LP
+trol Pan 2 Cast Iron-Full Surface Matte Black Burner/Grate Support Black Porcelain r Grate
+| ven Cl Filler Gri Cast Iron KA Design rip Bow
+-4
+A
+-4 Porcelain/Metal 9" Backsplash Standard-required
+Cooktop Island Trim (o)
+Oven Control Features Type Electronic with knob interface
+1-1
+Specifications (continued)
+SIZE NEW MODEL NUMBER KDRP407HSS
+Other Upper Oven Features Oven Cleaning System Self Clean
+ASS aaa Convection Element 1600w @ 240V 1200w @ 208V
+Size - Cavity 25"W X 16"H X 18 1/2"D pes Se Sees po eo
+Cavity Volume-Cu. Ft. 4.24 Cu. Ft.
+[Oven Racks [Floating Glass NO eet See
+Oven Door/Liner Finish Oven Features (Cont.
+3
+No
+Manual_Light
+Auto_Light
+a] Width (Side to Side PO
+29 7/8"
+[Cutout
+Mounting Hardware Other Specifications —aaieae
+Electrical 240/208 Volts, Single Phase, 60 Hz
+Circuit Total Conected Load
+Power Cord/Conduit Pigtail Required 3 Wire
+Domestic Use Onl AGA/CGA Approximate Shipping Weight 375 lbs.
+1-2
+COMPONENT ACCESS
+This section instructs you on how to service each component inside the range. The components and their locations are shown below.
+COMPONENT LOCATIONS
+Oven Temperature Sensor
+Suppressor (Mounted On
+Lamp Transformer Terminal Block L1 & Neutral)
+— Electronic a
+Range Control WN Control Power Transformer Ca ees, ne :e NN Spark Module ena cne Se ets oN Door Latch Assembly
+Set/Selection Controls
+Thermal Fuse (On Rear Panel)
+Convection Fan Motor ie) wher —/
+Convection
+Tech Sheet Oven Shutdown [Ss ce
+Broil Element Za" Stainless Steel Bake Element | S
+aL Oven Door t Door Gasket a ha pee Hidden Bake Element Halogen Lamp
+2-1
+REMOVING A SEALED BURNER & IGNITOR
+A.WARNING
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove the grates and burner caps from the cooktop.
+Grate Burner Cap
+3. Use a T20 torx screwdriver and remove the two screws from each burner head, then lift the heads off the cooktop.
+Sealed ; Burner Head Burner _ 'gnitor
+4. Liftthe rear of the cooktop, slide it forward, and remove it. Lift Lift
+5. To remove an ignitor from a sealed burner:
+a) Disconnect the ignitor wire from the terminal.
+b) Remove the screw from the ignitor bracket.
+Sealed Burner
+6. Toremove a sealed burner: c) Remove the two hex-head screws from
+a) Disconnect the ignitor wire from the the burner bracket and remove the ignitor terminal (see step 5). sealed burner.
+b) Use a 1/2” open-end or an adjustable d) Remove the screw from the ignitor wrench and remove the gas line fitting bracket and remove the ignitor from the from the sealed burner you are replac- sealed burner. ing.
+Ignitor
+1/2” Gas Line Fitting
+2-3
+REMOVING THE CONTROL POWER AND LAMP TRANSFORMERS, THE ELECTRONIC RANGE CONTROL, THE OVEN DOOR LATCH ASSEMBLY, & SPARK MODULE
+4. Starting from the front, peel off the rubber AWAR N | NG tape from around the top access panel. NOTE: Carefully peel the tape off as one
+ELECTRICAL SHOCK HAZARD continuous piece, and do not allow the adhesive sections to stick together.
+Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range. Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel 5 range, be careful when handling the sheet metal parts. Sharp edges may be present, and
+you can cut yourself if you are not careful.
+To remove the access panel, remove the four screws, raise the back, and unhook the e pane! from ie el
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove the grates, burner caps, and burner heads from the cooktop (see page 2-2).
+3. Remove the cooktop from the range (see aN page 2-2). \
+% \ E \e¢ <— Top Access \ Panel Screws OS
+oe
+\; Unhook Panel <—— & Slide Off At Back
+2-4
+The top access panel components described on this page are shown below.
+oreo re Lamp Control Power
+Transformer Transformer Se
+Electronic
+6. To remove the control power trans- former:
+a) Remove the screw from the mounting bracket tab and slide the other bracket tab out of the chassis slot.
+b) Disconnect the top (2 blue) and bottom (red & white) wires from the terminals.
+— Top i fe Terminals
+Control Power } Transformer >On rb
+7. Toremove the lamp transformer:
+a) Remove the screw from the mounting bracket tab and slide the other bracket tab out of the chassis slot.
+b) Disconnect the 2 white and 2 black wires from the terminals.
+2 White Wires
+2 Black Wires
+To remove the electronic range con-
+trol:
+a) Disconnectthe connectors (9) and wires (2) from the board and relay terminals.
+b) Unclip the board from the plastic mount- ing frame (4 clips).
+=
+ae 1a
+\ lectronic
+E Range Control .
+Frame
+Continued on the next page.
+The oven door latch assembly location is shown below.
+Oven Door Latch Assembly
+9. Toremove the oven door latch assem- bly: a) Disconnect the wires from the two
+switches and from the solenoid termi- nals.
+Latch Switch
+|
+b) Remove the four screws from the front and top of the assembly (2 at each location).
+Oven Door Latch Assembly Front Screws
+Oven Door Latch Assembly Top Screws
+The spark module is mounted to the right side 10. To remove the spark module: of the range just below the front corner of the chassis, as shown in the dashed line area below. Access the module through the access cutout.
+a) Disconnect the wires from the termi- nals.
+b) Use a 1/4” socket with an 8” extension and remove the hex-head screw (hid- den in the photo) and remove the mod- ule.
+Spark Module Hex-Head
+Screw
+ae
+Spark Module
+Access Cutout
+REMOVING THE FRONT PANEL, DISPLAY, SELECTOR & SET CONTROLS, GAS VALVE, & IGNITION SWITCHES
+A.WARNING
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range. Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove all of the knobs from the front panel by pulling them off the control shafts.
+3. Toremove the front panel:
+a) Remove the two center screws from the selector and set bezel rings.
+= jhe
+_ Screws __ PANTER
+b) Open the oven door and remove the two bottom end front panel screws.
+c) Slide the panel down so that the tabs are out of their slots, and rotate it so that you canaccess the pushbutton switches on the back side.
+Front Panel Tabs
+d) Carefully unclip the small boards and springs from the pushbutton switch holders. Be careful not to overbend the small clips or you will break them.
+Pushbutton Switch Pushbutton Switches Holder
+q Pushbutton
+) Spring
+4. Toremove the display: e) Disconnect the 16-wire cable at the
+a) Remove the front panel (see step 3 on selector and set control assembly board the previous page). connector JP01.
+b) Remove the two display screws from f) Unclip the display board from the plas- under the chassis. tic holder. Be careful not to overbend
+the clips or you will break them.
+Clip Display Board
+Clip
+f $9990 GOOR ORGS \} I | oooreees | _ GCEUgeeS
+Display ee
+VA Z4( yr) —
+c) Carefully remove the display and mount- ing bracket from under the chassis.
+d) Disconnect the 2-wire cable at display board connector JP04.
+Display 2-Wire Cable JP04
+Continued on the next page.
+wy Semi ly ar
+16-Wire Cable JP01
+2-9
+Selector Control
+. ' i LA \ - , ! 7 S | 7 f i J i La \ is ee
+- \ 16-Wire Cable JP01 — .
+To remove the selector and set control
+assembly:
+a) Remove the cooktop (see page 2-2).
+b) Remove the top access panel (see page 2-4).
+c) Remove the center screws from the selector and set bezel rings (see step 3a on page 2-8).
+d) Remove the front panel and pushbutton boards (see pages 2-8 & 2-9).
+e) Disconnect the 16-wire cable at the selector and set control assembly board connector JP01.
+Set Control
+_
+2-10
+f) Disconnect the 2-wire cable from the electronic range control board connec- tor JP40.
+g) Disconnect the 16-wire cable from the electronic range control board connec- tor JP04.
+Elec- tronic
+6. Toremove a gas valve: d) Remove the gas line from the gas valve. a) If not already done, remove the front panel (see step 3 on page 2-8). b) Remove the rubber shield from the gas valve stem.
+Gas Line
+Rubber Manifold
+Gas Valve Shield
+Stem Screw
+e) Remove the mounting screw from the gas manifold and remove the valve and its rubber grommet from the manifold.
+Cc) Pull the ignition switch off the gas valve REASSEMBLY NOTES: you are removing. 1. When installing a new gas valve, make = sure that the rubber grommetis in place on
+the valve and the mounting screw washer. Ignition Switch
+2. Donotovertighten the gas valve mounting screw.
+) Rubber a— Grommets
+Continued on the next page.
+2-11
+7. Toremove the ignition switches: d) Disconnect the ignition switch wires
+NOTE: The ignition switches must be replaced from the harness connector and the as an assembly. They cannot be changed spark module terminal. individually. e) Remove the plastic grommet and pull a) Ifnotalready done, remove the cooktop the ignition switch wire connectors (see page 2-2), the top access panel through the chassis hole. (see page 2-4), and the front panel (see Spark Module Wire
+step 3 on page 2-8). b) Remove the rubber shields from the gas valve stems.
+c) Pull the four ignition switches off the gas valves.
+Plastic Grommet
+ff
+Ignition Switches
+2-12
+REMOVING A HALOGEN LAMP ASSEMBLY
+A.WARNING
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range. 2. Remove the racks from inside the oven.
+3. Remove the lens from the halogen lamp socket by lifting the end by the mounting screw and unsnapping it.
+4. Remove the screw from the halogen lamp assembly.
+Lift Lens Here iam
+seein se ee
+Halogen Lamp 8.
+My Assembly
+Mounting Screw
+2-13
+5.
+Pull the halogen bulb out of the socket.
+ss Halogen Bulb
+Pull the halogen socket assembly out of the oven liner and cut the wires near the socket terminals.
+Cut the new halogen lamp socket wires to the proper length.
+Remove 3/8” of insulation from the cut wires on the wire harness and the halogen lamp socket. Splice the halogen lamp socket wires to the harness wires, and twist two wire nuts over the bare wire ends.
+REMOVING THE BROIL ELEMENT 3. Remove the two front bracket screws and AW A R N | N G two rear bracket screws from the broil element. ELECTRICAL SHOCK HAZARD
+Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace * > = ; Rear Bracket all panels before operating the range. Screws
+Failure to do so could result in explosion, fire,
+ae 4. Carefully pull the element forward so that or other injury.
+the terminal connectors are through the oven liner holes, and disconnect the wires from the terminals.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and Element Wires you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove the racks from inside the oven.
+2-14
+REMOVING THE OVEN TEMPERATURE SENSOR
+1. Turnoffthe gas and electrical power going AWARNING [eee
+2. Remove the racks from inside the oven.
+ELECTRICAL SHOCK HAZARD 3. Remove the two mounting screws from Disconnect power before servicing the range. the oven temperature sensor and pull the Replace all panels before operating range. eee out of the mounting hole in the Failure to do so can result in death or electri- ; cal shock. 4. Disconnect the sensor connector from the
+main wire harness connector.
+FIRE HAZARD Sensor Connectors
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+Oven Temperature Sensor
+2-15
+REMOVING THE GAS REGULATOR
+A.WARNING
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD Shut off gas supply line valve before servic- ing the range. Check all gas line connections and replace all panels before operating the range. Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove the oven door from the range (see page 2-25).
+3. Remove the two outer screws from the top trim strip and remove the strip.
+Outer Screw Top Trim Strip Outer Screw
+4. Remove the two screws from the center trim strip and remove the strip.
+Screw Center Trim Strip Screw
+5. Remove the two screws from the bottom
+trim strip. Lower the trim strip so it is free of the slots in the sides of the oven, and remove the strip.
+Screw
+Bottom Trim Strip
+6. Remove the inlet and outlet gas lines from
+the gas regulator.
+7. Remove the two screws from the gas
+regulator mounting bracket and remove the gas regulator assembly from the range.
+Mounting as @™ Bracket | Bracket Me Bracket | Screw ~ y —~
+hee @
+Gas Outlet Line
+Gas Regulator
+8. Remove the two screws holding the gas
+regulator to the mounting bracket and remove the regulator.
+2-16
+REMOVING THE REAR PANEL 3. Remove the two screws from the top and AW A R N [ N G bottom braces and remove the braces from the range. ELECTRICAL SHOCK HAZARD | aaa Disconnect power before servicing the range.
+Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet 4. Remove the eight screws from the rear
+metal parts. Sharp edges may be present, and panel and remove the panel from the you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Pull the range away from the wall so that you can access the rear panel.
+2-17
+REMOVING THE CONVECTION BAKE ELEMENT & FAN MOTOR ASSEMBLY
+5. To remove the convection bake ele- AWARNING ment
+a) Remove the two screws from the con-
+ELECTRICAL SHOCK HAZARD vection bake element.
+Disconnect power before servicing the range. b) Pull it forward so you can access the Replace all panels before operating range. terminals.
+: : : c) Disconnect the wires from the element Failure to do so can result in death or electri- :
+terminals. cal shock. é : onvection Bake Screw
+Element FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Remove the oven door from the range (see page 2-25).
+3. Remove the racks from inside the oven.
+4. Remove the three screws from the con- vection cover and remove the cover from the rear of the oven liner. Note the location of the notch in the cover. Be sure to position the cover with the notch as shown when you reinstall it.
+Screw 1 of 3
+A * Convection Cover
++ Notch
+2-18
+To remove the convection fan motor:
+a) If not already done, remove the con- vection cover and the convection bake element from the rear of the oven liner (see page 2-18).
+b) Use a 10 mm (7/16") socket and re- move the hex nut from the convection fan. NOTE: The nut has a left-rotation
+thread for removal.
+Convection Fan
+10 mm (7/16") Hex Nut
+c) Remove the three front convection fan motor screws from the rear of the oven liner.
+Convection Fan Motor Front Screw (1 of 3)
+d) Pull the range away from the wall so that you can access the rear panel.
+e) Remove the braces and rear panel from the range (see page 2-17).
+2-19
+f) Remove the two convection fan motor mounting screws and remove the mo- tor from the rear of the range.
+Convection Fan Motor
+BACK OF RANGE
+Convection Fan Motor Rear Screw (1 of 2)
+Convection Fan Motor Terminals
+REMOVING THE BLOWER MOTOR ASSEMBLY
+4 Remove the four screws from the blower AWA R N [ N G motor assembly cover and remove the cover from the range. ELECTRICAL SHOCK HAZARD 5 Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+Screw 1 of 4
+|=
+\
+1 RURDAADD MOAN:
+FIRE HAZARD
+; ; Blower Motor Shut off gas supply line valve before servic- Assembly Cover
+ing the range. ; . . 5. Remove the four mounting screws and the Check all gas line connections and replace air vent screw from the blower motor as- all panels before operating the range. sembly and remove the assembly from Failure to do so could result in explosion, fire, the range.
+or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+Blower Motor Air Vent Screw 2. Pull the range away from the wall so that Assembly
+you can access the rear panel.
+3. Remove the braces and rear panel from the range (see page 2-17).
+2-20
+REMOVING THE SUPPRESSOR BOARD
+AWARNING
+ELECTRICAL SHOCK HAZARD
+Disconnect power before servicing the range. 6.
+Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Pull the range away from the wall so that you can access the rear panel.
+3. Remove the braces and rear panel from the range (see page 2-17).
+2-21
+Remove the blower motor assembly cover (see page 2-20).
+Remove the two screws from the suppres- sor board.
+Disconnect the wires from the terminals and remove the board from the range.
+Screws
+REMOVING THE OVEN SHUTDOWN THERMAL FUSE
+4. Remove the two screws from the oven AWA R N | N G shutdown thermal fuse and remove the fuse from the rear of the range. ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+Oven Shutdown Thermal Fuse
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and Oven Shutdown
+you can cut yourself if you are not careful. Thermal Fuse Mountin Terminal (1 of 2) Screw (1 i 2)
+1. Turnoffthe gas and electrical power going opeeomcaga
+to the range.
+2. Pull the range away from the wall so that you can access the rear panel.
+3. Remove the braces and rear panel from the range (see page 2-17).
+5. Disconnect the wires from the thermal fuse terminals.
+2-22
+REMOVING THE HIDDEN BAKE ELEMENT
+A.WARNING
+ELECTRICAL SHOCK HAZARD
+Disconnect power before servicing the range.
+Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Turnoffthe gas and electrical power going to the range.
+2. Pull the range away from the wall so that you can access the rear panel.
+3. Remove the braces and rear panel from the range (see page 2-17).
+4. Remove the four screws from the hidden bake element cover flanges.
+Cover Flange Cover Flange & 2 Screws & 2 Screws
+5. Bend the cover flanges down as far as they will go.
+Bend Cover Bend Cover Flange Down Flange Down
+6. Use a pen knife or a single-edged razor blade and cut the insulation blanket, as shown. Be sure to separate the insulation blanket as cleanly as possible.
+Cut Insulation Blanket |
+Continued on the next page.
+2-23
+7. Carefully move the upper and lower sec- 9. Carefully pull the hidden bake element tions of the insulation blanket out of the and its mounting bracket out of the range. way so that you can access the hidden = = — bake element and its mounting bracket.
+8. Remove the four mounting bracket screws and the two hidden bake element bracket screws.
+a
+Remove two Screws
+Pull Out Hidden Bake Element
+Remove four Screws
+2-24
+REMOVING THE OVEN DOOR
+3. Close the oven door as far as the two pins AWARNING [ee
+4. Grasp the sides of the door and lift the door ELECTRICAL SHOCK HAZARD until it stops, then pull the hinge hangers
+Disconnect power before servicing the range. out of the slots.
+Replace all panels before operating range. _ Failure to do so can result in death or electri- |
+cal shock.
+FIRE HAZARD Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel = T° reinstall the oven door: range, be careful when handling the sheet 1. Grasp the sides of the door and tilt it back
+metal parts. Sharp edges may be present, and at a slight angle, then insert the hinge you can cut yourself if you are not careful. hangers into the hinge slots as far as they CAUTION: Do not lift the oven door by its will: go.
+handle. 2. Rotate the top of the door towards the To remove the oven door: range so the hinge hangers fit onto the
+support pins.
+1: th to its full i- Ee nieve ece nie ee Cpempee 3. Close the oven door as far as the pins will
+ven —_ allow, and make sure that the hinge hang- Zz Install a pin in the hole of each oven door ers are fully seated on the support pins. If hinge hanger. they are not seated properly, the door will not close tightly and may be off-center. To seat the hinge hangers, open the door slightly, and pushin on the bottom until the hangers are fully seated. =e 4. Open the oven door to its fully open posi-
+tion and remove the two hinge hanger pins.
+5. Close the oven door completely and check it for proper operation and alignment.
+2-25
+REMOVING THE OVEN DOOR GLASS, HINGES, & HANDLE
+AWARNING &
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range. Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and
+you can cut yourself if you are not careful. 9.
+1. Remove the oven door from the range (see page 2-25).
+2. Place the oven door on a padded work surface with the front decorative glass facing down.
+3. Remove the two top door liner screws and the two door glass bracket screws, and lift the liner assembly off the decorative door glass and handle.
+Top Liner Screws
+_—  —_—_— io —
+A Door Glass A Bracket Screws
+2-26
+To remove the outer door glass:
+a) Remove the three outer glass holder screws and two outer glass bracket screws from the door liner.
+b) Lift the outer glass with the glass holder off the door liner.
+c) Remove the bracket.
+Outer Glass Holder Screws
+Outer Glass Bracket Screws
+To remove the center door glass, re- move the bottom bracket, (it is loose), and slide the two top corners of the glass out of the door liner slots.
+Center Door Glass Corners —
+Remove Loose Bracket
+6. To remove the hinges and the inner d) Remove the insulation and the inner door glass: door glass.
+NOTE: You will have to remove both hinges to remove the inner door glass from the oven door liner.
+a) Lift either side of the door liner, remove
+the two door hinge screws, and remove the hinge.
+Hinge Screws (4 total)
+———————————————— Insulation 7. Toremove the door handle, remove the
+two door handle screws from the bracket. Inner Door Glass Door Handle
+Bracket & Screws y (2 each) y
+Inner Door Glass Cover
+b) Lift the other side of the door liner, remove the two screws for the other hinge, and remove the hinge.
+c) Lift the inner door glass liner cover off the liner.
+2-27
+REMOVING THE OVEN DOOR GASKET
+A.WARNING
+ELECTRICAL SHOCK HAZARD Disconnect power before servicing the range.
+Replace all panels before operating range.
+Failure to do so can result in death or electri- cal shock.
+FIRE HAZARD
+Shut off gas supply line valve before servic- ing the range.
+Check all gas line connections and replace all panels before operating the range.
+Failure to do so could result in explosion, fire, or other injury.
+CAUTION: When you work on the dual fuel range, be careful when handling the sheet metal parts. Sharp edges may be present, and you can cut yourself if you are not careful.
+1. Open the oven door to its fully open posi- tion.
+2. Remove the screw from the door gasket bracket and remove the bracket from the
+range.
+Screw Gasket Bracket
+3. Pull the ends of the gasket out of the liner holes.
+REASSEMBLY NOTE: When you install the new gasket, make sure that all of the clips are seated in their liner holes, and that the ends of the gasket are pushed fully into their holes. Use the pointed end of a pencil to push the gasket ends into the holes.
+2-28
+COMPONENT TESTING
+Before testing any of the components, perform the following checks:
+TEST PROCEDURE
+The most common cause for control failure is corrosion on connectors. Therefore, discon- nect and reconnect the wire connectors to their terminals throughout any of the test procedures.
+All tests and checks should be made with a VOM (volt-ohmmeter), or a DVM (digital voltmeter), having a sensitivity of 20,000 ohms-per-volt DC, or greater.
+A.WARNING
+Electrical Shock Hazard Voltage is present during these tests.
+Refer to page 2-4 for the procedure for servic- ing the electronic range control.
+Voltage Test
+le 2. 2:
+Connect power to the range.
+Set the voltmeter to read 120 VAC. Touch the test leads to the oven control P2 connector at terminals 7 (white) and 5
+(black). The AC voltmeter should indicate 120 VAC.
+Check all of the connections before you replace the components. Look for broken, or loose wires, failed terminals, or wires that are not pushed firmly onto their connectors.
+Voltage checks must be made with all con- nectors attached to the boards.
+Resistance checks must be made with power removed from the appliance, and with the wiring harness or connectors disconnected.
+CONTROL POWER & LAMP TRANSFORMERS
+A.WARNING
+Electrical Shock Hazard oe PECONDARY)
+ye
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-4 for the procedure for servic- ing the control power and lamp transformers.
+1. Disconnect power from the range. O re)
+2. Set the ohmmeter to the R X 1 scale. Primary Secondary
+3. Disconnectthe wires from the transformer’s 120 VAC 20.3 VAC terminals. 40-450 Less than 1 Q
+4. Touch the test leads to the transformer O O
+LINE (primary) terminals. The ohmmeter should indicate 40 to 45 Q.
+5. Touch the test leads to the transformer LOAD (secondary) terminals. The ohm- meter should indicate less than 1 ©.
+BLOWER MOTOR
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-20 for the procedure for ser- vicing the blower motor.
+Motor —> # 1. Disconnect power from the range. Terminals
+2. Set the ohmmeter to the R X 1 scale.
+3. Disconnect the wires from the blower motor’s terminals.
+Resistance Test (At The Electronic Range Control)
+Spe reel ciphes Peach ade fan Bre aha ras Re NOTE: To test the blower motor at the elec- ; en tronic range control, perform the following steps nals. The ohmmeter should indicate 14 to : 18.0 (see page 2-4 for removing the top access ; panel).
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 100 scale.
+3. Disconnectthe P1-1 wire (gray) connector and the neutral (white) wire from the elec- tronic range control.
+4. Touch the ohmmeter test leads to the gray
+and white wires. The ohmmeter should indicate 14 to 18 Q.
+OVEN DOOR LATCH ASSEMBLY
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE Refer to page 2-6 for the procedure for servic- ing the oven door latch assembly.
+1. Disconnect power from the range.
+2. Set the ohmmeter to the R x 10 scale.
+3. Disconnect the wires from the solenoid terminals.
+4. Touch the ohmmeter test leads to the solenoid terminals. The ohmmeter should indicate 165 to 180 Q.
+5. For the switch you are testing, touch the
+ohmmeter test leads to the following ter- minals:
+a) N.O. and COM. The ohmmeter should indicate an open circuit (infinity -).
+b) N.C. and COM. The ohmmeter should indicate a closed circuit (0 Q). Resistance Tests (At The Electronic
+Range Control)
+NOTE: To test the door latch solenoid and switch assembly at the electronic range con- trol, perform the following steps (see page 2-4 for removing the top access panel).
+As 2.
+3.
+Disconnect power from the range. If not already done, close the oven door. Set the ohmmeter to the R x 1 scale.
+Solenoid ——> =
+Latch Switch
+Door Switch > }
+To test the solenoid:
+a) Disconnect the P6-1 (white) and the P6-2 (yellow) wire connectors from the electronic range control.
+b) Touch the test leads to the P6-1 (white) and the P6-2 (yellow) wire connectors. The ohmmeter should indicate 50 Q.
+To test the door switch:
+a) Disconnect the P7-1 (green) and the P7-3 (tan) wire connectors from the electronic range control.
+b) Touch the test leads to the ends of the green and tan leads. The ohmmeter should indicate a closed circuit (0 Q) with the door open, and an open circuit (infinity cc) with the door closed.
+To test the latch switch:
+a) Disconnect the P7-2 (blue) and the P7- 3 (tan) wire connectors from the elec- tronic range control.
+b) Touch the test leads to the ends of the green and tan leads. The ohmmeter should indicate a closed circuit (0 Q) with the door locked, and an open cir- cuit (infinity 2) with the door unlocked.
+OVEN TEMPERATURE SENSOR
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or
+electrical shock.
+TEST PROCEDURE
+Refer to page 2-15 for the procedure for ser- vicing the oven temperature sensor.
+1 2. 3.
+Disconnect power from the range. Set the ohmmeter to the R x 10 scale.
+Disconnect the oven temperature sensor connector from the wiring harness.
+Touch the ohmmeter test leads to the oven temperature sensor connector pins. Depending on the oven temperature, you should obtain the corresponding resis- tance reading, as shown in the following chart:
+Temperature ("F) | Resistance (ohms)
+Oven Temperature —» Sensor
+Connector
+———
+—
+Resistance Test (At The Electronic Range Control)
+NOTE: To test the oven temperature sensor at the electronic range control, perform the fol- lowing steps (see page 2-4 for removing the top access panel).
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 100 scale.
+3. Disconnect the P7-4 (violet) and the P7-5 (violet) wire connectors from the elec- tronic range control.
+4. Touch the test leads to the P7-4 (violet) and the P7-5 (violet) wire connectors. The ohmmeter should indicate approximately 1080 Q at 70°F (21°C).
+OVEN SHUTDOWN THERMAL FUSE
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-22 for the procedure for ser- vicing the oven shutdown thermal fuse.
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the wires from the oven shut- down thermal fuse terminals.
+4. Touch the ohmmeter test leads to the oven shutdown thermal fuse terminals. The ohmmeter should indicate a closed circuit (0 Q).
+ELECTRONIC RANGE CONTROL
+Y CONV-1600W
+BROIL-3000W
+DOUBLE LINE ¥ BREAK RELAY
+Disconnect This Red Wire
+Resistance Test (At The Electronic Range Control)
+NOTE: To test the oven shutdown thermal fuse at the electronic range control, perform the fol- lowing steps (see page 2-4 for removing the top access panel).
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the red wire that is on the output of the double line break relay, (refer to the schematic), and the red wire (L2) on the suppressor board terminal block.
+4. Touch the ohmmeter test leads to the red
+wires. The ohmmeter should indicate a closed circuit (0 Q).
+OVEN SHUTDOWN THERMAL FUSE NON-RESETTABLE
+To L2 (red) Wire
+CONVECTION BAKE ELEMENT
+A.WARNING tf
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-18 for the procedure for ser-
+vicing the convection bake element. Resistance Test (At The Electronic
+Range Control)
+NOTE: To test the convection bake element at
+the electronic range control, perform the fol-
+3. Disconnect the wires from the convection lowing steps (see page 2-4 for removing the bake element terminals. top access panel).
+4. Touch the ohmmeter test leads to the 1. Disconnect power from the range. convection bake element terminals. The ohmmeter should indicate 28 to 35 Q.
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+2. Set the ohmmeter to the R x 1 scale.
+Disconnect the P5-1 (yellow) wire and the red wire that is on the common side of the double line break relay (refer to the sche- matic) on the electronic range control.
+4. Touch the ohmmeter test leads to the yellow and red wires. The ohmmeter should indicate 28 to 35 Q.
+ELECTRONIC RANGE CONTROL
+Y CONV-1600W
+‘ 0 AARP Sen © See z R BAKE-2000W 0 SAVANAVANS = OO : BU BROIL-3000W O oAVAR0
+v O DOUBLE LINE BREAK RELAY
+OVEN SHUTDOWN THERMAL FUSE NON-RESETTABLE
+Disconnect This Red Wire
+CONVECTION FAN MOTOR
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-18 for the procedure for ser- vicing the convection fan motor.
+1. Disconnect power from the range.
+2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the wires from the convection fan motor terminals.
+4. Touch the ohmmeter test leads to the
+convection fan motor terminals. The ohm- meter should indicate 8 to 12 Q.
+Resistance Test (At The Electronic Range Control)
+NOTE: To test the convection fan motor at the electronic range control, perform the following steps (see page 2-4 for removing the top ac- cess panel).
+1. Disconnect power from the range.
+2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the P1-3 (orange) and the neutral (white) wires from the electronic range control terminals.
+4. Touch the ohmmeter test leads to the
+orange and white wires. The ohmmeter should indicate 8 to 12 Q.
+BROIL ELEMENT
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-14 for the procedure for ser- vicing the broil element.
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the wires from the broil ele- ment terminals.
+4. Touch the ohmmeter test leads to the broil element terminals. The ohmmeter should indicate 45 to 55 Q.
+ELECTRONIC RANGE CONTROL
+Y CONV-1600W
+Resistance Test (At The Electronic Range Control)
+NOTE: To test the broil element at the elec- tronic range control, perform the following steps (see page 2-4 for removing the top access panel).
+1. Disconnect power from the range.
+2. Set the ohmmeter to the R x 1 scale.
+3. Disconnect the P5-5 (blue) wire and the red wire that is on the common side of the double line break relay (refer to the sche- matic) on the electronic range control.
+4. Touchthe ohmmeter test leads to the blue and red wires. The ohmmeter should indi- cate 45 to 55 Q.
+OVEN SHUTDOWN
+0 AAR 2 R BAKE-2000W O SAVANAVANS = BU BROIL-3000W O SAVAVAVANS 2 THERMAL FUSE NON-RESETTABLE
+Disconnect This Red Wire
+V O DOUBLE LINE BREAK RELAY
+HIDDEN BAKE ELEMENT
+A.WARNING
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-23 for the procedure for ser- vicing the hidden bake element.
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+3. Disconnectthe wires from the hidden bake element terminals.
+4. Touch the ohmmeter test leads to the bake element terminals. The ohmmeter should indicate 25 to 30 Q.
+ELECTRONIC RANGE CONTROL
+Y CONV-1600W
+b OTAKRO 7 R BAKE-2000W . BU BROIL-3000W
+D cAVAAR0
+v O DOUBLE LINE BREAK RELAY
+Resistance Test (At The Electronic
+Range Control)
+NOTE: To test the hidden bake element at the
+electronic range control, perform the following
+steps (see page 2-4 for removing the top ac- cess panel).
+1. Disconnect power from the range.
+2. Set the ohmmeter to the R x 1 scale.
+3. Disconnectthe P5-2 (red) wire and the red wire that is on the common side of the double line break relay (refer to the sche- matic) on the electronic range control.
+4. Touch the ohmmeter test leads to the two
+red wires. The ohmmeter should indicate 25 to 30 Q.
+OVEN SHUTDOWN THERMAL FUSE NON-RESETTABLE
+Disconnect This Red Wire
+at
+IGNITION SWITCHES
+Ignition Switch Wire AWA R N ; N G Connector At Spark Module
+Electrical Shock Hazard
+Disconnect the electrical supply from the unit before servicing.
+Failure to do so could result in death or electrical shock.
+TEST PROCEDURE
+Refer to page 2-12 for the procedure for ser- vicing the ignition switches.
+NOTE: The ignition switches will be serviced as a complete assembly (see below). If a switch is defective, the complete assembly must be replaced.
+Ignition Switch Wire Connector At Main Wire Harness
+5. Touch the test leads to the ignition switch connectors. With all of the switches in the Off position, the ohmmeter should indi- cate and open circuit (infinite -). When a switch is turned to the LITE position, the ohmmeter should indicate a closed circuit (0 ohms).
+1. Disconnect power from the range. 2. Set the ohmmeter to the R x 1 scale.
+3. Remove the top access panel (see page 2-4 for the steps).
+4. Locate the two ignition switch connectors. (one is connected to the spark module, and the other is connected to the main wire harness under the right front corner of the range), and disconnect them.
+— NOTES —
+3-12
+DIAGNOSIS & TROUBLESHOOTING
+NOTES: 2. Allranges that fail within the first few days 1. When diagnosing this dual fuel range, should be checked for loose connections always begin by checking for the correct OE MISWInIng: line voltage, blown fuses, and failed com- 3. All voltage and resistance checks should ponents. be made with a meter having a sensitivity
+of greater than 20,000 ohms-per-volt.
+FAILURE / ERROR DISPLAY CODES
+Temperature sensor opened. |1. Check sensor connection. 2. Measure sensor resistance (1080 Q @ 21°C (70°F). Add 2 Q per 1.8°C (1°F)). 3. If resistance is not valid, replace sensor. 4. If sensor resistance and connections are okay, check for pinched sensor wires from the control to the sensor. 5. If wires are okay, then the oven cavity temperature must have exceeded a safe level. Check for welded-closed relays on the electronic range control.
+Welded element relays. With the control power off, check continuity across P4-1 or P4-3 (both are L1) and the following connections: P5-1 for the convection bake element. P5-2 for the bake element. P5-5 for the broil element.
+eo EEPROM error. Replace the electronic range control.
+Door or latch problems. 1. Check the latch assembly: a) Latch arm pivot joint, arm/solenoid connection, solenoid spring, and spring washer. . Check the latch solenoid: a) Electrical connections. b) Resistance (with wires disconnected). The resistance should be approximately 175 Q. An open coil will indicate infinity and a shorted coil will measure 0 Q. An open or shorted solenoid should be replaced. . Check the latch switch: a) Disconnect the wires. With the switch closed (door latched) the meter should indicate 0 Q. With the switch open (door unlatched) the meter should indicate infinity. . Check the door open/closed switch: a) Disconnect the wires. With the door open (switch closed) the meter should indicate 0 Q. With the door closed (switch open) the meter should indicate infinity. . Check the power and element connections.
+Electronic range control Replace the control. malfunction.
+ELECTRONIC RANGE CONTROL PINOUTS
+| PIN {| FUNCTION _|_COLOR | (a a (ee ee po UNC
+P1-4 N/C P3-2 Control Power Transformer Secondary
+P3-3 Control Power Transformer Secondary
+Blue
+Blue
+= > ch
+rid
+oOo = zZ|z|z/z — | | —™ | ™ = =FOLOQLO;O
+P3-7 P4-1 P4-2 P4-3 P4-4 Blank P5-1 Convection Bake Element Yellow
+| P52 | Bake Element |_—sRed_ [a Peed: 2: ——— _* IBlank = ib Se Pp P54 0 | Blank | Door Switch Latch Switch Switch Common (strobe) Temperature Sensor Temperature Sensor eo
+eS ios ai
+Mess teal
+Wisp Connector ae ee od Wisp Connector
+-
+Black Blank Black
+<Jo/<i</< AS ]Asa|S
+ELECTRONIC RANGE CONTROL COMPONENT TEST POINTS
+P7-1 (green) to P7-3 (tan) Door Open = Closed Circuit Door Closed = Open Circuit Seana ere with door closed
+Oven Temperature Sensor P7-4 (violet) to P7-5 (violet) 1080 2 @ 21 °C (70°F) Blower Motor P1i-1 (gray) to Neutral (white) 14 to 18 QO
+Lamp Transformer Top Primary Winding 40 to 45 QO Secondary Winding Less than 1 Q
+ae a a ee ae rT red wire) to red wire at terminal block Closed Circuit
+Break Relay (red 25 to 30 Q
+Break Relay (red) 45 to 55 O
+Break Relay (red 28 to 35 Q
+P1-3 (orange) to Neutral (white) P7-2 (blue) to P7-3 (tan) Door Unlocked = Open Circuit Door Locked = Closed Circuit RELAY LOGIC Reset | | XK WBakespreheat. ahs Kae Oe PBakee = 2 fe Ns, fe BrollzPreheat..— —— 20) — 2) = Xs Ea aaa (ET 6  (  e e [Convection Bake Prenmeat_ | + | 0 | XX XX [Convection Bake | tT XT XX [Convection Broil Preheat_ | 0 | XT XT XX [Convection ‘Broil: — = 1h _ 0) — ee =e [Convection Roast Preneat | Xo | + TX XX [Convection Roast. ———— = ||L2 0s — fe KS Bread Preheat i ae + ae a a [oa 00. |  - _f ee a ee LEGEND: 0 = OFF X = ON
++ = CYCLING (MAXIMUM PERIOD = 60 SECONDS) ) = ON OR OFF
+4-3
+— NOTES —
+4-4
+WIRING DIAGRAMS & STRIP CIRCUITS OVEN WIRING DIAGRAM
+L1 fe) | CONTROL POWER N GND L2 q T was id TRANSFORMER fe) Al fe)
+=
+SUPPRESSOR WP#4451985
+LATCH DRIVE
+CIRCUIT WISP + al ls
+CONNECTORS 18 VDC > SOLENOID ELECTRONIC RANGE DOOR LOCK CONTROL SOLENOID CONV-1600W TEMP SENSOR 1080 2 @ 70°F 1654 Q @ 350°F SARERUOW
+DOOR ON LATCH ASSY SWITCH
+OVEN SHUTDOWN THERMAL FUSE NON-RESETABLE
+v ‘O- DOUBLE LINE BREAK RELAY
+TAN LATCH BLOWER SWITCH (M) (OPERATED BY Vy SOLENOID) CONV. FAN LAMP TRANSFORMER Ww HALOGEN 5W/BULB Ww
+GROUND (CHASSIS) —t AC DRIVE o-(M-o 1
+MOTOR SOLENOID COOKTOP WIRING DIAGRAM PLUG WITH FEMALE RELAY COIL 7] ENCLOSED “4 N L2 CONNECTOR 4 THERMISTOR (wy 0 oO RECEPTACLE WITH RELAY ™ a MALE CONNECTOR CONTACTS! Si BY DOOR | Ww ‘lema
+LIGHT HEATING THERMAL wos ELEMENT AAA FUSE (TOD)
+NOTE: Circuit shown in STANDBY/OFF
+IGNITION SWITCHES
+mode with oven door closed. i spark MODULE YEL OR BRN PN 4453057 4 PLACES IGNITORS
+5-1
+STRIP CIRCUITS PREHEAT BAKE / BAKE
+BAKE-2000W
+BROIL-3000W
+DOUBLE LINE BREAK RELAY
+BROIL N 2
+BROIL - 3000W
+DOUBLE LINE
+BK BREAK RELAY
+BK
+HALOGEN 5W/BULB
+KEEP WARM
+B BAKE - 2000W R N L2 0 SC AVAVAVANS © BROIL -3000W oY __cenrnAQo—®
+DOUBLE LINE BREAK RELAY
+W.
+HALOGEN 5W/BULB
+5-2
+NOT ENERGIZED DURING PREHEAT
+DOUBLE LINE BREAK RELAY BLOWER
+‘O-
+LAMP TRANSFORMER
+CONV. FAN
+HALOGEN 5W /BULB
+BROIL-3000W BK BK DOUBLE LINE BREAK RELAY LATCH n DRIVE CIRCUIT ns N Le 18VDC ie) SOLENOID DOOR LOCK SOLENOID L1 BAKE - 2000W BK BK TOD R O————— BLOWER
+5-3
+CONVECTION BAKE
+CONV.-1600W
+‘s Y R 0 SAVANNA © R BAKE-2000W
+0 oVVVVG0—8
+R TOD
+O; DOUBLE une BREAK RELAY
+OZ
+R BLOWER
+Ww O- @ CONV. FAN MOTOR Ww = “w= LAMP TRANSFORMER Ww
+HALOGEN 5W/BULB
+CONVECTION BROIL
+BAKE-2000W
+Sto Ao 8
+Y DOUBLE LINE BREAK RELAY
+BLOWER
+O-
+CONV. FAN MOTOR
+5W/BULB
+HALOGEN
+CONVECTION ROAST
+BAKE-2000W
+R Lt b oo 8 BROIL-3000W BU R D ° AVAVAVAVS: © 8 DOUBLE LINE R
+BREAK RELAY
+BLOWER
+M LAMP TRANSFORMER Noe
+WwW O————**
+CONV. FAN MOTOR
+HALOGEN
+5W/BULB
+TECHTIPS
+REQUESTING ASSISTANCE OR SERVICE
+If you need assistance or service in the U.S. A.:
+Call the KitchenAid Consumer Assistance Cen- ter toll free, at
+1-800-422-1230
+If you need assistance or service in Canada: Call the Inglis Limited Consumer Assistance Center telephone number toll-free, 8:30 a.m. to 6:00 p.m. (EST) at:
+1-800-461-5681.
+Our consultants are available to assist you. When calling, please have the purchase date, and the complete model and serial number of your appliance handy. This information will help with your request.
+Our consultants provide assistance with:
+¢ Features and specifications on our full line of appliances.
+¢ Installation information.
+¢ Use and maintenance procedures.
+¢ Accessory and repair parts sales.
+* Specialized customer assistance (Spanish & French (Canada) speaking, hearing impaired, limited vision, etc.).
+¢ Referrals to local dealers, service com- panies, and repair parts distributors.
+KitchenAid service technicians are trained to fulfill the product warranty and provide after- warranty service, anywhere in the United States. To locate the authorized KitchenAid service company in your area, you can also look in your telephone directory Yellow Pages.
+If you need to order replacement parts, we recommend that you only use factory autho-
+rized parts. These parts will fit right and work right, because they are made with the same precision used to build every new KitchenAid appliance.
+To locate factory authorized replacement parts in your area, call our Consumer Assistance Center telephone number or your nearest au- thorized service center.
+If you need further assistance, you can write to KitchenAid with any questions or concerns
+at:
+KitchenAid Brand Home Appliances Consumer Assistance Center
+c/o Correspondence Dept.
+2000 North M-63
+Benton Harbor, MI 49022-2692
+In Canada, contact: Consumer Relations Department Inglis Limited 1901 Minnesota Court Mississauga, Ontario LSN 3A7
+Please include a daytime phone number in your correspondence.
+DUAL FUEL RANGE WARRANTY
+LENGTH OF KITCHENAID KITCHENAID WARRANTY: WILL PAY FOR: WILL NOT PAY FOR: ONE-YEAR FULL | Replacement parts | A. Service calls to:
+WARRANTY and repair labor 1. Correct the installation of the range. FROM DATE OF costs to correct 2. Instruct you how to use the range. PURCHASE. defects in materi- | 3. Replace house fuses or correct house wiring. als or workman- 4. Replace owner-accessible light bulbs. ship. Service must | 5. Correct house plumbing. ee byan |B. Repairs when the range is used in other than ichennaenice normal einolelanty household Use | ing outlet. C. Pickup and delivery. The range is designed to
+be repaired in the home.
+D. Damage to the range caused by accident, alter- ation, misuse, abuse, fire, flood, acts of God, or use of products not approved by KitchenAid.
+E. Repairs to parts or systems resulting from unau- thorized modifications made to the appliance.
+F. In Canada, travel or transportation expenses for customers who reside in remote areas.
+G. Replacement parts or repair labor costs for units operated outside the United States and Canada.
+KITCHENAID AND INGLIS LIMITED SHALL NOT BE LIABLE FOR INCIDENTAL OR CONSE- QUENTIAL DAMAGES. Some states or provinces do not allow the exclusion or limitation of incidental or consequential damages, so this exclusion or limitation may not apply to you. This warranty gives specific legal rights and you may also have other rights which vary from state to state or province to province.
+Outside the United States and Canada, a different warranty may apply. For details, please contact your authorized KitchenAid dealer.
+If you need service, refer to the “Requesting Assistance or Service” section on the previous page. After checking “Requesting Assistance or Service,” additional help can be found by calling the KitchenAid Consumer Assistance Center telephone number, 1-800-422-1230, from anywhere in the U.S.A. In Canada, contact your authorized Inglis Limited Appliance Service company, 1-800- 461-5681.
+<=> Whirl
+CORPORATION

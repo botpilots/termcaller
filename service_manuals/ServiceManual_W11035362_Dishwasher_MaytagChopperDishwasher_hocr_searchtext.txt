@@ -1,0 +1,1497 @@
+SERVICE MANUAL
+Maytag Dishwashers 4-Blade Stainless Steel Chopper
+FORWARD
+This Maytag Service Manual, "Maytag Dishwashers, 4-Blade Stainless Steel Chopper" (Part No. W11035362), provides the In-Home Service Professional with service information for the “Maytag Chopper Dishwasher."
+The Wiring Diagram used in this Service Manual is typical and should be used for training purposes only. Always use the Wiring Diagram supplied with the product tech sheet when servicing the dishwasher.
+For specific operating and installation information on the model being serviced, refer to the “Use and Care Guide” or “Installation Instructions” provided with the dishwasher.
+GOALS AND OBJECTIVES
+The goal of this Service Manual is to provide information that will enable the In-Home Service Professional to properly diagnose malfunctions and repair the “Maytag Chopper Dishwasher.”
+The objectives of this Service Manual are to: e Understand and follow proper safety precautions. e Successfully troubleshoot and diagnose malfunctions. e Successfully perform necessary repairs. e Successfully return the dishwasher to its proper operational status.
+WHIRLPOOL CORPORATION assumes no responsibility for any repairs made on our products by anyone other than authorized In-Home Service Professionals.
+Copyright © 2017, Whirlpool Corporation, Benton Harbor, MI 49022
+ii Mi Maytag Chopper Dishwashers
+TABLE OF CONTENTS
+Maytag Chopper Dishwashers SECTION 1 — GENERAL INFORMATION
+DISHWASHER SAFETY...........ssssccseeceeeseccecccccsssssssssesseeeeeeseeeeecenccccsessseseseeeeessseeeceaeacaccsssssseeeeeesseeseoosoons 1-2 GENERAL THEORY OF OPERATION. ..........sssssssssseeceeeecececccceccssssssssssseeeeeseeesseeeeceecsucscssesssseseeeeseseseasosones 1-3 NEW COMPONENTS ..........sssssesssseeceeeseececccccsssssssssssseeeeeeeeeeeeeenccccsessseseseeeceeseseeeeacucaccssssseseeeeeeeseeseoeonoes 1-4 MODEL-& SERIAL: NUMBER: LABEL ivccccisccsicccssssevsessaeceessictceevelevssneszedcuecstedsecetecestavysivecwanbaseacedenesssesdyies 1-6 TECH SHEET LOCATION. ............ssssssssesseeeeecsscececccssssssssessseeeeeeeseeeeeescccacssssessseseesesceseeccceesecccssssssseeeeeseees 1-6 MODEL & SERIAL NUMBER NOMENCLATURE 1.0.00... cceccccceeesssssseesessssnsecceceeeceseeeseesessssssecccsseeeeeeeeeeees 1-7 DISHWASHER SPECIFICATIONS wicccscccscpecccccsssssncascoseseccacausosocstinncccadsusvovscdcccossbanccccstcnecacdavesbocndusssaousznes 1-8 PARTS 8 FEATURES ciscsssssecsnccsicedocescevedersevensesnstaconccncstsessiussdveasdanenctaaccesdceeadeeeddessesvarsteseocstecceasesbeceaties 1-9 NOTES aoe ist sasessncccaciacteedonuscinesSogerusnonscausepeubencdbsseinadessessendanvucsoussbuncssusaurssesdacscxesbueuedsacbanauausassvsacseruspoases 1-10
+SECTION 2 — DIAGNOSTICS & TROUBLESHOOTING
+DIAGNOSTIC & TROUBLESHOOTING WARNINGS. ..........cccccssssssssssssscnsececececeseesensssssesecsescceneeseeeeeeeeeenss 2-2 SERVICE DIAGNOSTIC CYCLE ..............sscsessseeeeeeesseceecccessssssssssseeeeeeeseesecesescacecsssseseseseeseeesseeeasoosccacssseees 2-3 SERVICE DIAGNOSTIC CYCLE NOTES ........ccccscccssccceceesssssssscssssneeeeeseeseeeseecacsssssscssseseeeeeseseeceseosccacssssnees 2-4 CUSTOMER CYCLE OPERATION .......cccsssssssssssssssseeceeeesesseccceccsssssssssseeeeeessessseeeeseecsccssssssseeeeeesesseseooonones 2-4 SERVICE DIAGNOSTICS WITH ERROR CODES..........cccsssscessssssssscsssseeeseeeeessseeeeccececscssssssseseeeseeseeseoeonones 2-5 SERVICE ERROR CODES sicccsstissscccsensseiacectunsccsavisseoacecedseesdeacccecnsacadasuissesdsussdesedducoosnbanacsesesssacediunssccnaaue 2-6 TROUBLESHOOTING GUIDE .....ccccccss cs cesecseseccarntsonnsnccconscnncuacsssnnseesausisocsiusstbenudcesssasdacssseopenacusnsoseessns 2-11
+TESTING WARNINGS ........cccccccscccssssssssssssesseeeceeeseeeeecceeccssscssssseeseeeeseseseeensccccccssseseseseeeeeeessseaeeesoaceaseseens 3-2 WIRING DIAGRADM.........ccccccccccsccceccsssssscssensseeceeesseescccceccsssssseseeseeseseseeeeeescccuccssssseseseceeeesssseceasooaasaseeess 3-3 CONTROL BOARD INFORMATION ..........sssssssssssseeceeeseeescccceccsssssssssseseeeesesssseeeeceecccsssssssssseeeeseseseeeaeosones 3-4 FUSE SERVICE: & RESISTANCE. CHECKS 5.5 0cccccsssosnsedscescaseeceseexssesssssansesdousswencuscdeveeacyseveenaspscenuetucensesseeevs 3-4 COMPONENT, TESTING i sccseccesccccascenssccccetsiuesecseiiveessecadsesvadacensobecesausdusnseedavisseccdacdenetbanededsssesacesavnspocuunds 3-4 ELECTRONIC CONTROL BOARD ........cccssssssssssssssssssseceeeesseececenscccccssssssseseeeeesssseceeeecscacsssssseeeseesseessooonones 3-5 METER, CHECK OF LOADS & SUPPLIES i. ccicsesccccssssescsccsestecrescussvencessscauseceescseversivestesveseausascsteneusecsesecrerss 3-5 GENERAL THEORY OF OPERATION. ...........ssssssssssseeeeeeeeeecccecssssscsssssseeeeessessseeeeseecccsssssssssseeeeeesseeseooonones 3-6 POWER CHECK se cccadiscscccssctasesvasusncucexcveneancaccbsstinnecssevecieeasivesassunuevousesunvessccdceesnuadedastbnsauadesdunceeievnspecusnss 3-6 DOOR SWITCH CIRCUIT ..ii.ccecccstssseccississcncccccsssnsaccsssnvasecssinsscceacdosecaduasvosdeadddesnbcaccecooosancadsssooecdiniesccaaste 3-7 FILL: CUR CUT cccsesscesaccccsccussndieaasisvssecceassesdsnccacsbsaasanedsssoeccarsisasacdsduseassevvsssoetedsesstcceccecsusssaaavsveeseesiinccestates 3-8 DISPENSER CIRCUIT.............ssssssssceceeeseececccccssssssssssssesceeeseeeeeeessaccccsssesseeeeeeeesssceceacacaccccesssseseeeeesesseoonsoss 3-9 WATER HEATING/HEAT DRY vcsiccciesessssssncicscescssscseasevecesvscetcvaveisssedeeseiceveusue odsecacesseasedversdsyeseveveasessensecs 3-10 WATER SENSING WITH OWL SENSOR... cccsseccsceeeccccsssssssssnsseeeeeeesecceceseecacecssssessseseeeessssseeeseoeacacnsnens 3-11 WASH/RINSE: MOTOR siacsisssssivcssccccessucesascocvscecavdesnesevstcceassvessnacosseasevecicessatetéesesecsetassucsesesvestesesssecsedsses 3-12 DRAIN MOTOR ........cccccssssssssssssessseeceeesescccccccccssssseseseseeeeeseseeeeenscccccessseseseseesesssceeaacacaccccssssseeeeeeeseeeeooons 3-13 VENT WAX MOTOR iiissssicincdccsiotecccsscstecedsuusesescndssesdcacecccnsauaadesvacosedeasiseacacunsdocnaduesssenanacsessssscaddctiosoeaas 3-14 VENT FAN ........ccccsssscscccsssssecscccesscesseccssessenecsseessccecssessscucsseeseucusseeseeaucssessenacesssssccuuseessscucsessseuccseceseoaes 3-15 AC FAN MOTOR iiteccceatitsssccatesstinccdccadctcscccatiensecauassssacececoosssnasacesssesaaiaus dododduusbocadaatessssavadscseespccadctdoseaass 3-16 POWER BLAST vc tseccccncccscenccubecssscisvecedccscnnanededosocannacesevscuedastrssastueucosusevsnevsddedenssetuccdastbnsauadssssnecesavuspedets 3-17 WSER INTERFACE (Ul) cisscccisececeivacoussecvoveeasecadsceesiccsoecvane iesvssebecasecestecs sad susecnasddsesevoveisuecasseedseecseeusineieies 3-19
+Maytag Chopper Dishwashers @ iii
+TABLE OF CONTENTS (CONTINUED)
+Maytag Chopper Dishwashers SECTION 4 — COMPONENT ACCESS
+ADJUSTABLE DOOR SPRINGS ............ccccscceeseeeeceeeccessssssssssssseeeeeeeseeseeeseccacsssssseseseeeesessseaeeesuasacessssseeeeees 4-2 INSULATION BLANKET............ssssssessseeeeeeescececcccsssssssssssseeeeeeesescecescccacsssssseseseesesesseeceeeeucnscssssseeseeeeseeeeees 4-3 DOOR LATCH STRIKE.........ssssssssssssessseeeeesesseeeccecsssssssssssseeeeeeesesceeessccacessseseseeeesessssaccceeasccscsssesseeeeeeseeeeees 4-3 ACCESSING DOOR COMPONENTS.........cccccceccscececcsssssssssssseseeeeeesseeceeescccacscsssseseseeeesceseeeceeeeesaessssseeseees 4-4 USER INTERFACE. 3. cccscescisacccvacicnccasaiseiscectossnectcecsesscauncsospsaedeiacnoacduciunoaexeiassosasaccesoandecacepsnaaeacsesosacaasisacns 4-4 REMOVING DOOR LATCH ASSEMBLY ..........sssssssssssssssseeceeeeeeecceescccsssssssesseeeeeeesssceccecacacsssssseseeeeeeeseeseoes 4-5 REMOVING ELECTRONIC CONTROL BOARD ............cccccceeeeseecececcecsssssseseseeeeeesessseeceeeccscsscssnseeeeeeeneseaoes 4-6 REMOVING DISPENSER ASSEMBLY .........sscscssssssssssssssseceeeeesesccceeccccsssssssseseeeeessssseeeesecscccsessnseeeeeeeseeeeoos 4-7 REMOVING WATER FILL & DISPENSER COMPONENTS. ..........sssssssssscsccceeeeesesessssessesssscceeeeeeeeeeeeesenenens 4-8 ADVANCED POWER DRY (SIDE DRY) sceissessssciscecssccisscesieceseccsiscessecesccsssccesscceisscssuecasctssectscucessstssuestvertad 4-9 OVERFILL ASSEMBLY isciccscessscccacdisececcetanncseesciusenscccasvesvnuaceussbocasausésinsessevisseuncedcensinanadedesssneadsevaspecuanson 4-10 IN TUB. COMPONENTS sisiscccsstticceesiveotsaeasecsivacdecoossnnascesssoosdcaei tose cctuacsvoacudadsavsdecscesvecdddcstuooodadsursseerainty 4-11 SPRAY ARMS, FEED TUBE, AND MANIFOLD.........ccccsssssssssssssssssseeseeeeceeeseeeesececsssssssessseeseesessseseesosanens 4-12 REMOVING THE RACKS. .............scsssssseeeeeessecececcessssssssssseeeeeeeseesecesnccacccsssseseseseesessseceeeceascccssssseeeeeeeeees 4-13 REMOVING LOWER SPRAY ARM. ........cscccccccssssssssssssssnseeceeeeeseceeeecccccsssssseeeeeeeesseseceaeasaccssssseseeeeeeeseeees 4-14 UNDER TUB COMPONENT. ..........ccccceceeccceccccssssssssssessecceeeseseceeesccccsssssesseeeeesesseseeeacecaccsscssesseeeeeeseeees 4-15 REMOVING HEATER ASSEDMBLY..........cccccccssssssssssssssscsscceeeeeescceceecccccssssseseseeeeeesseeeeeacnsacssssssseeeeeeeseeees 4-16 REMOVING DRAIN PUMP ............ccccccccccescececcccsssssssssssseeeeeeesesseeeseccacscsssseseseseeseessseeeeonscacecsssseeeeeeseeees 4-17 REMOVING OPTICAL WATER INDICATOR (OW) ............sccsscecsscessccesseeesccessecescceseeeeseeesseseseeseneeeseeeenes 4-18 REMOVING THE SUMP ASSEMBLY .........ssssscssssssssssssssseeeeeeesecseceecccccssssssesseeeeessssseeeeeescsccssssnseceeeeeneeees 4-19 CHOPPER MOTOR ASSEMBLY PARTS ...........cccseseeeeesecececcsssssssssssnseeeeessesseceenececccsssssssseseeeessssssseosoneoees 4-22 REMOVING THE CHOPPER MOTOR ASSEMBLY...........ccccccececcccecsssssssseseseeeeeeesseeeeeeeecsssssssnseeeeeeeneeees 4-23 NOTES co seccas cocede see cietvauadeesis cacsiueaccevsiveseedccases senddccncnounascdevsoosdcasutesedsduntsusacuasassoadsescssseuanccetussoucdeuvessciaifes 4-26
+PRODUCT SPECIFICATIONS & WARRANTY INFORMATION SOURCES (inside back cover)
+iv Mi Maytag Chopper Dishwashers
+GENERAL INFORMATION
+Section 1: General Information
+This section provides general safety, parts, and information for the “Maytag Chopper Dishwasher.”
+HM Dishwasher Safety
+H General Theory of Operation
+@ New Components
+H Model & Serial Number Label
+@ Tech Sheet Location
+H Model & Serial Number Nomenclature H@ Dishwasher Specifications
+M@ Parts & Features
+H@ Notes
+Maytag Chopper Dishwashers Hi 1-1
+GENERAL INFORMATION
+Dishwasher Safety
+Your safety and the safety of others are very important. We have provided many important safety messages in this manual and on your appliance. Always read and obey all safety messages.
+This is the safety alert symbol.
+This symbol alerts you to potential hazards that can kill or hurt you and others.
+All safety messages will follow the safety alert symbol and either the word “DANGER” or “WARNING.” These words mean:
+You can be killed or seriously injured if you don't immediately
+A DAN G E R follow instructions.
+You can be killed or seriously injured if you don't follow instructions.
+All safety messages will tell you what the potential hazard is, tell you how to reduce the chance of injury, and tell you what can happen if the instructions are not followed.
+1-2 Mi Maytag Chopper Dishwashers
+General Theory of Operation
+Maytag Chopper Wash System Maintenance Free Chopper System
+A 4-Blade stainless steel chopper pulverizes food, preventing particles from plugging the wash system and spray jets, providing optimal cleaning without the need to prerinse
+No more scraping plates. The 4-blade stainless steel chopper disintegrates the food particles that come off your dishes so they don’t end up recirculating and sticking to your dishes and glassware.
+M@ Maytag® dishwashers feature the most powerful motor on the market, so you can be sure what you put in comes out clean.
+How Chopper Works (See Figure 1)
+1.
+2.
+Water and food particles flow through the coarse filter then are disintegrated by the Chopper blades (A).
+An impeller pulls soiled water into the wash pump through the screen (B), filtering soil particles too large to pass through and sending them back to the Chopper blades.
+. The wash water is then cycled back through the spray
+arms (C).
+During the drain phase, a secondary pump flushes out used wash water.
+Figure 1 - Chopper Wash System
+Maytag Chopper Dishwashers Mf 1-3
+GENERAL INFORMATION
+New Components Chopper Sump Assembly Top & Bottom Views
+Chopper Motor Assembly
+Accumulator Cover
+Diverter Cover
+Accumulator Screen Ass’y
+Figure 2 - Chopper Sump Assembly - Top
+Drain Pump Port
+Motor Capacitor
+Chopper Moior Assembly Figure 3 - Chopper Sump Assembly - Bottom
+1-4 Mi Maytag Chopper Dishwashers
+GENERAL INFORMATION New Components
+New Stainless Steel Elements 7 - Segment Display ané Co Gy MER ee
+Full Stainless Steel Tub, Spray Arms, and Sump Cover (Figure 6)
+ee —| IL
+Air ‘i, Wh —
+Full Stainless Steel Tub
+Stainless Steel Spray Arms
+Stainless Steel Sump Cover
+Maytag Chopper Dishwashers Mf 1-5
+GENERAL INFORMATION Model & Serial Number Label
+Model & Serial Number Label Location
+3
+>» ~. J Figure 7 - Model/Serial Number Label located inside, on left side wall, toward front.
+Tech Sheet Location
+Tech Sheet Location
+Figure 8 - Tech Sheet located behind toe panel inside insulation folds.
+1-6 Mi Maytag Chopper Dishwashers
+GENERAL INFORMATION
+Model & Serial Number Nomenclature
+MODEL NUMBER | M |} D B 89 | 69 S D E 0
+INTERNATIONAL SALES OR MARKETING CHANNEL
+BRAND CLASSIFICATION M = Maytag
+PRODUCT IDENTIFIER D = Dishwasher
+PRODUCT TYPE B = Built-in
+FEATURE SET Ranges from 49-89. The higher the number, the more features
+CONSOLE 49 = Traditional control, 69 = Fully integrated control
+TUB MATERIAL S = Stainless Steal
+YEAR OF INTRODUCTION D = 2014
+COLOR W or H = White, B or E = Black, M = Monochromatic SS, Z = Stainless Steel, K = Cast Iron
+ENGINEERING CHANGE 0 = Basic Release; 1= First Revision; 2 = Second Revision
+SERIAL NUMBER | F 4 25 10000
+MANUFACTURING SITE F = FINDLAY, OH
+YEAR OF MANUFACTURE 4=2014
+WEEK OF MANUFACTURE
+PRODUCT SEQUENCE NUMBER
+Maytag Chopper Dishwashers Mf 1-7
+GENERAL INFORMATION
+Dishwasher Specifications
+Line Voltage/Frequency : 120 VAC/60 Hz a Low Volts Power Supply : -5 VDC (REF), 13 VDC (+8V, -5V), Neutral (VCC) Supply Water Flow Rate : To fill 2 qt (1.9 L) in 27 seconds, 120 psi maximum, 20 psi minimum Supply Water Temperature : Minimum - 120° F (49° C) Water Charge : 1.58 gal. (6.0 L) Approximate [WashMotor: i 120 VAC, Run Winding (3-7 Q), Aux Winding (6-12 Q) 120 VAC (45-60 2)
+Fill Valve : 120 VAC, (890-1,090 ©) Mester; ———SSSSSCSC~* 120 VAG, (8-30)
+Dispenser : Solenoid: 120 VAC, (260-300 Q) Wax Motor: 120 VAC, (1.4K-3.0K Q)
+NTC Thermistor Water Sensor (OWI)
+= ee Float Switch (120 VAC)
+ruses SSOSC~‘idSSSSSCSCSCS Sa Tac Load Fue
+Ce
+34 1/2” (87.63 cm) max., 33 1/2 (85.09 cm) min.
+23 7/8” (60.64 cm)
+Depth: = ssid 24 3/4” (62.86 cm) without handles, 27 1/2” (69.85 cm) with handles
+1-8 MH Maytag Chopper Dishwashers
+GENERAL INFORMATION
+Upper level wash
+Water feed tube
+Model and serial number label
+Water inlet opening
+Heating element
+Rinse aid dispenser reduces spotting and improves drying.
+Detergent dispenser
+Rack height adjusters (on some models)
+Upper spray arm
+Fold down tines (on some models)
+High side shelf (on some models)
+Parts & Features
+L
+Il f=
+Nis
+<a ZT
+\ Za 5
+a i es alo — ——-
+il Fy
+TOP RACK PAG no CH ae ZIYZ CURE 3824 a ZVZSy BSS Til | Hi i r : =H
+BOTTOM RACK
+Figure 9
+Lower spray arm has pressurized sprays that provide effective cleaning.
+Overfill protection float
+Cup shelf (varies by model)
+Silverware basket (varies by model)
+Maytag Chopper Dishwashers Hi 1-9
+GENERAL INFORMATION Notes
+1-10 Ml Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+Section 2:
+Diagnostics & Troubleshooting
+This section provides diagnostic, fault codes, and troubleshooting information for the “Maytag Chopper Dishwashers.”
+Diagnostics & Troubleshooting Safety Service Diagnostic Cycle
+Service Diagnostic Cycle Notes Customer Cycle Operation
+Service Diagnostics with Error Codes Service Error Codes
+Troubleshooting Guide
+Maytag Chopper Dishwashers Hi 2-1
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+A DANGER °
+Electrical Shock Hazard Electrical Shock Hazard Only authorized technicians should perform Disconnect power before servicing.
+diagnostic voltage measurements. Replace all parts and panels before o ting.
+After performing voltage measurements, . in death disconnect power before servicing. vps aga resulting on
+Failure to follow these instructions can result in death or electrical shock.
+Voltage Measurement Safety Information When performing live voltage measurements, you must do the following: @ Verify the controls are in the off position so that the appliance does not start when energized. Allow enough space to perform the voltage measurements without obstructions. Keep other people a safe distance away from the appliance to prevent potential injury. Always use the proper testing equipment. After voltage measurements, always disconnect power before servicing.
+IMPORTANT: Electrostatic Discharge (ESD) Sensitive Electronics
+ESD problems are present everywhere. Most people begin to feel an ESD discharge at approximately
+3000V. It takes as little as 10V to destroy, damage, or weaken the main control assembly. The new
+main control assembly may appear to work well after repair is finished, but a malfunction may occur
+at a later date due to ESD stress.
+m Use an anti-static wrist strap. Connect wrist strap to green ground connection point or unpainted metal in the appliance
+-OR- Touch your finger repeatedly to a green ground connection point or unpainted metal in the
+appliance.
+Before removing the part from its package, touch the anti-static bag to a green ground connection point or unpainted metal in the appliance.
+Avoid touching electronic parts or terminal contacts; handle electronic control assembly by edges only.
+When repackaging main control assembly in anti-static bag, observe above instructions.
+IMPORTANT SAFETY NOTICE — “For Technicians only” This service data sheet is intended for use by persons having electrical, electronic, and mechanical experience and knowledge at a level generally considered acceptable in the appliance repair trade. Any attempt to repair a major appliance may result in personal injury and property damage. The manufacturer or seller cannot be responsible, nor assume any liability for injury or damage of any kind arising from the use of this data sheet.
+2-2 Hi Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+*aded SUIMO]|O} UO SAJON a]DAD DI}SOUZeIG AIIAJaS BBS
+SALON
+cl
+: A
+cl
+“T1ld 99S G UEY> NIVYC pue 7714 Das ¢ ‘sasind uleyp Z :abund 4dV ‘sjenuaqul pa|qeua {dv ul pamoyje aie safund 4dVx
+MOrFetZzo0Om>
+Z WOddd JDIANAS
+BEI:
+YLH
+Nudd
+Nuyda
+€ YOUUF YAWOLSND Z ¥OUNT YAWOLSND T ¥OUNF YAWOLSND
+LNA|LNA} LNA | LNA Id}tid| Ld
+(LN3S3¥d sl) N39D3Y
+uYaLV3H
+(IN3S3ud Jl) YOLOW NVI 5V
+*«dOLOW NIVYC GIV SSNIWINIDYS.L3G) YASNAdSIG
+YOLOW HSVM «Td
+(STSGOW TV LON) LN3A
+AY14¥ LO ld sqvoT
+[9 JSLON SAL LAdNI d3LAWMO14
+/HOLIMS G34 13A357 LVS
+(4dV) YHL
+[S JALON TWAYALNI OSHD (YOSNAS SYNIWYIdWAL) YOLSINYSHL
+(mojaq 88S) UITING ISM Sey IMO !SLON
+IMO
+IMO
+Lv JALON sjenuaqul 49yd (JOSUAS 10S) [MO
+[v7 JSLON (‘JeAuaqU! SNOIAaud UI, ING, < SEM Aypicung |MO SI 4d) Sleuaqul pa|qeus 4d SXNIAHD YOSNAS GNV STVAYSLNI ONISN3AS OS
+ty = So
+ST‘0
+9ETZ (XV) SWIL TWLOL (98S:URU) FILL TWAYALNI
+SCAT SALVLS ONY ‘NOILdO “STDAD YSHLO TIV
+oO
+past (N19) |(N19) as[9as|oas [Sp ]SALON SAS-L/NVITD (NWS) (NYS) LS] LON GZILINVS
+NAY|NAG Nd | NY NAY|NAY] NAY NAY[NAY Nine | Nd NAYINAY INA INAS ONINNAY WS] WLS| Ws |W Ws] Ws | Ws | WS| Ws WS |W ANNSIWLYWLS YHT YHT YHT HSWM YH T
+XY XY Au xd xd xu AWC CSLV3H IH TA IH TH TH TH IH TH IH dA TH WEN, [WN WENT |WHN NUN, |WHN WEN | WYN] [WYN [WEN [WYNN WENT [Wen TWWYON $031 SNLWLS GNV ‘NOLLdO‘31DAD
+T/ Z| €}] v |S} 9/L£] 8 | 6 |OTITL} 2T| ET | VL] St) 9T} ZT} BT] GL} 02 | Tz | ez jE? | v2 TWAYSLINI
+ajoA> WSOUseIG VIIAIIS
+Maytag Chopper Dishwashers Hl 2-3
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+Service Diagnostic Cycle Notes
+1 To invoke the Diagnostics Cycle, perform the following while in standby:
+HM Press START/RESUME to wake up the control panel.
+@ Press any 3 keys in the sequence 1-2-3-1-2-3-1-2-3 with no more than 1 second between key presses.
+M@ The Service Diagnostics Cycle will start when the door is closed.
+M Torapid advance 1 interval at a time, press START/ RESUME. Rapid advancing may skip sensor checks, as some checks require 2 complete intervals.
+NOTE: While in the Diagnostic Cycle, the Start/Resume feature is turned off (for example, Auto Resume after door interrupts) and the Start/Resume key becomes an interval advance key.
+H Invoking Service Diagnostics clears all status and last run information from memory and restores defaults Drain and wash motors will pulsate on and off Last run cycles and options are returned to default. Reset OWI calibration values to the default values. Forces OWI (Optical Water Indicator) calibration cycle on next customer cycle.
+NOTE: Calibration cycle may add additional rinses prior to the final rinse to assure clear water and then calibrates the OWI during the fill at the beginning of the final rinse. MH Operating state returns to standby upon completing or terminating the service diagnostics cycle. M Reference “Service Diagnostics with Error Codes” section for details.
+2. Turn on all LEDs immediately upon receiving the entry sequence (even if the door is open) for 5 seconds as a display test. Turn off all LEDs for 1 second prior to reporting customer error history.
+3. Press HI TEMP in this interval to clear customer error history. If the Hi Temp key does not respond, the control panel is in sleep mode. Open and close the door to wake up the control panel, and then press HI TEMP to clear error history.
+4. OWI (Optical Soil Sensor) checks -
+HM Check OWI sensor for the presence of water during the interval 14, and turn on the Clean LED in interval 13 if water detected.
+HM Check OWI for the presence of air during drain interval 5, and turn on the clean LED in interval 4 if air detected.
+M Check OWI sense for the presence of bulk soil during pause interval 9; execute APF, and turn on clean LED in interval 8 if bulk soil detected.
+2-4 Hi Maytag Chopper Dishwashers
+5. Thermistor (temperature sensor) checks - turn clean LED on if thermistor is in its normal temperature range (32°F to 167°F [0°C to 75°C]). Turn sanitized LED on if fill temperature is above 65°F (18.3°C).
+6. Turn on Sanitized LED in this interval to indicate that the Salt Level Reed Switch is closed.
+7. Turn on Clean LED in this interval to indicate that vent current is detected.
+Customer Cycle Operation
+To quickly advance through customer cycles, invoke the Rapid Advance mode by pressing HIGH TEMP - HEATED DRY - HIGH TEMP - HEATED DRY, after starting the cycle. Then, press START/RESUME to advance through cycle intervals.
+NOTE: Rapid Advance mode is automatically enabled in the
+Service Diagnostic cycle but must be manually invoked in customer cycles.
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+Service Diagnostics With Error Codes
+Entry Sequence:
+Press START/RESUME to wake up the control panel. Press any 3 keys in the sequence 1-2-3-1-2-3-1-2-3 with no more than 1 second between key presses.
+NOTE: Some models have replaced the “Clean” LED with “Completed.” If no error, “Clean” LED stays on for 5 seconds or display shows “F-” or “E-”.
+INTERVAL 24 DISPLAY TEST - ALL LEDS ON INTERVAL 24 uv INTERVAL 23 ERROR 1 - MOST RECENT INTERVAL 23 SHOW FUNCTION CODE => PAUSE => SHOW PROBLEM CODE => PAUSE Count the Clean LED flashes <a 2 seconds ==p Count Clean LED flashes a 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display =p 0.5 seconds =p Read “E#” on Display => 1 second % INTERVAL 22 ERROR 2 INTERVAL 22 SHOW FUNCTION CODE => PAUSE => SHOW PROBLEM CODE — PAUSE Count the Clean LED flashes <> 2 seconds =p Count Clean LED flashes —p 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display =p 0.5 seconds =p Read “E#” on Display => 1 second % INTERVAL 21 ERROR 3 INTERVAL 21 SHOW FUNCTION CODE => PAUSE => SHOW PROBLEM CODE = PAUSE Count the Clean LED flashes =a 2 seconds =p Count Clean LED flashes oma 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display ==> 0.5 seconds ==p Read “E#” on Display =p 1 second a4 INTERVAL 20 ERROR 4 - OLDEST INTERVAL 20 SHOW FUNCTION CODE => PAUSE => SHOW PROBLEM CODE —> PAUSE Count the Clean LED flashes =p 2 seconds =p Count Clean LED flashes = 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display ==> 0.5 seconds ==p Read “E#” on Display => 1 second Uv 10 seconds pause Hi Temp LED will be on INTERVAL 19 : r POT : a INTERVAL 19 Press Hi Temp key to clear errors. Hi Temp LED will blink twice to indicate errors have been cleared. s INTERVAL 18-3 Service Diagnostics Cycle INTERVAL 18-3 Turns on loads and checks sensors. v ERVICE CYCLE ERROR 1 INTERVAL 2 F $ cee ic S sh INTERVAL 2 A tone will play when service error code 1 is displayed SHOW FUNCTION CODE = PAUSE => SHOW PROBLEM CODE ale PAUSE Count the Clean LED flashes od 2 seconds =p Count Clean LED flashes —p 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display == 0.5 seconds ==p Read “E#” on Display i 1 second s INTERVAL 1 SERVICE CYCLE ERROR 2 INTERVAL 1 SHOW FUNCTION CODE => PAUSE => SHOW PROBLEM CODE => PAUSE Count the Clean LED flashes => 2 seconds ==» Count Clean LED flashes => 5 seconds Repeat 3 times unless advanced OR ON DISPLAY MODELS by Start key. Read “F#” on Display =p 0.5 seconds =p Read “E#” on Display => 1 second
+NOTE: Once error codes are extracted, refer to the “Service Error Codes” table to diagnose and correctly resolve the root cause condition.
+Maytag Chopper Dishwashers Mi 2-5
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Service Error Codes
+4 DANGER
+ef
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+FUNCTION PROBLEM | CAUSES WHAT TO CHECK CODE CODE
+1-CONTROL 1-PILOT CONTROL DETECTED K2 PILOT RELAY STUCK 1. UNPLUG DISHWASHER OR DISCONNECT POWER. STUCK ON CLOSED. 2. CHECK ALL LOADS ON K2 PILOT RELAY FOR SHORTS. 3. REPLACE CONTROL AND ALL SHORTED COMPONENTS.
+2-CONTROL ALL LEDS ARE ON. 1. UNPLUG DISHWASHER OR DISCONNECT POWER. SOFTWARE 2. REPLACE UI. (FOR MODELS WITH NUMERIC DISPLAY ONLY).
+ISSUE DAMAGED OR CORRUPTED MEMORY ON 1. UNPLUG DISHWASHER OR DISCONNECT POWER. CONTROL BOARD; INCOMPATIBLE SOFTWARE COMPONENTS INSIDE MICRO. eSRER Ree NInOn Re hes
+2-USER INTERFACE CONTROL DETECTED STUCK KEY(S) IN KEYPAD | CHECK RESPONSIVENESS OF EACH KEY. OR KEYPAD CONNECTION. 1. IF SOME KEYS DO NOT RESPOND, THEN: - UNPLUG DISHWASHER OR DISCONNECT POWER. PEE) Wit IUPiCROLER Ail AN ERO - DISASSEMBLE DOOR AND DISCONNECT KEYPAD CONNECTION
+RECORDED TO SERVICE HISTORY, BUT NO ALERT BRON CONTROL O EER else Mou TO CUSTOMER. - VERIFY ALL OTHER CONNECTIONS TO CONTROL ARE MADE.
+- REASSEMBLE DOOR BUT DO NOT CLOSE DOOR (LEAVE KEYPAD DISCONNECTED).
+- PLUG IN DISHWASHER OR RECONNECT POWER.
+- WAIT AT LEAST 7 SECONDS FOR CONTROL TO POWER UP COMPLETELY.
+- CLOSE DISHWASHER DOOR AND MONITOR CONTROL RESPONSE:
+A. IF CONTROL IS OK (NO LONGER SEES STUCK KEYS WITH KEYPAD UNPLUGGED), IT WILL RESPOND BY TURNING ON THE DRAIN MOTOR FOR 2 MINUTES. REPLACE KEYPAD AND CONSOLE.
+B. IF CONTROL IS NOT OK (STILL SEES STUCK KEYS WITH KEYPAD UNPLUGGED), IT WILL NOT TURN ON DRAIN MOTOR. WAIT FOR AT LEAST 10 SECONDS. IF STILL NO DRAIN RESPONSE, THEN REPLACE CONTROL OR LCD DISPLAY MODULE (WHICHEVER ONE THE KEYPAD WAS CONNECTED TO).
+C. IF ALL KEYS APPEAR OK OR INTERMITTENT, AND KEYPAD IS CAPACITIVE TOUCH TYPE, THEN:
+- VERIFY TUB BRACKETS ARE SCREWED TO UNDERSIDE OF COUNTERTOP AND NOT HANGING OVER KEYS (IF SCREW HEAD TOO CLOSE, RELOCATE SCREW TO ALTERNATE HOLE).
+- CHECK FOR EVIDENCE OF MOISTURE OR DEBRIS ON THE SURFACE OF THE KEYS. IF EVIDENT, CLEAN AND INSTRUCT CUSTOMER ABOUT KEEPING SURFACE CLEAN.
+- CHECK ERROR CODE HISTORY FOR FAN ERROR 10-3 AS POTENTIAL CAUSE OF CONDENSATION ON USER INTERFACE.
+- VERIFY PRESENCE OF VENT CURRENT IF MODEL HAS A VENT WAX MOTOR. REFER TO “LEAKS OR DRIPS ON CABINET OR FLOOR” IN THE “TROUBLESHOOTING GUIDE” SECTION.
+NOTE: IF ANY KEYS ARE STUCK, THE STUCK
+2-6 Hi Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Service Error Codes (continued)
+FUNCTION PROBLEM | CAUSES WHAT TO CHECK CODE CODE
+3-THERMISTOR/ - OPEN CONNECTION OR COMPONENT IN 1. CHECK OPERATION OF TEMPERATURE SENSOR IN SERVICE Owl TEMPERATURE SENSING CIRCUIT. DIAGNOSTICS CYCLE.
+- OPEN OR FAULTY TEMPERATURE SENSOR . UNPLUG DISHWASHER OR DISCONNECT POWER. - TEMPERATURE SENSOR INPUT ON CONTROL. . CHECK ALL COMPONENTS AND CONNECTIONS IN THE TEMPERATURE SENSING CIRCUIT WITH METER, FIX/REPLACE OPEN CONNECTION/PART. 2-SHORTED - INCOMING WATER TEMPERATURE ABOVE . CHECK INCOMING WATER TEMPERATURE.
+167F(75 C) . CHECK OPERATION OF TEMPERATURE SENSOR IN SERVICE - SHORTED CONNECTION OR COMPONENT IN DIAGNOSTICS CYCLE.
+TEMPERATURE SENSING CIRCUIT. . UNPLUG DISHWASHER OR DISCONNECT POWER.
+~ SHORTED OR FAULTY TEMPERATURE SENSOR. . CHECK ALL COMPONENTS AND CONNECTIONS IN THE - TEMPERATURE SENSOR INPUT ON CONTROL. TEMPERATURE SENSING CIRCUIT WITH METER, FIX/REPLACE SHORTED WIRES/PART. (SEE OWI SENSOR STRIP CIRCUIT)
+3-FAILED OWI FAILURE . RUN SERVICE DIAGNOSTICS TO CHECK OWI OPERATION. OWI CALIBRATION SHOULD SEE LOW SOIL WITH CLEAR WATER.
+. CHECK OWI LENS SURFACE. CLEAN IF NEEDED.
+. UNPLUG DISHWASHER OR DISCONNECT POWER.
+4. CHECK ALL CONNECTIONS IN SOIL SENSING CIRCUIT WITH METER. FIX/REPLACE BAD CONNECTION/PART.
+NOTE: RUN DIAGNOSTICS CYCLE AFTER INSTALLING NEW OWI TO FORCE CALIBRATION ON NEXT REGULAR WASH CYCLE. DRAIN HOSE CHECK VALVE NOT SEALING. DIRTY WATER BACKS INTO DISHWASHER AFTER DRAINING. 1. DISCONNECT DRAIN HOSE AT PLUMBING CONNECTION. 2. ELEVATE HOSE ABOVE DISHWASHER AND FILL WITH WATER. IF WATER FLOWS INTO DISHWASHER, REPLACE ENTIRE DRAIN LOOP (INSTALL AS HIGH AS POSSIBLE AND ATTACH TO UNDERSIDE OF COUNTERTOP IF POSSIBLE). 4-WASH MOTOR 3-MOTOR LOOSE CONNECTION IN MOTOR CIRCUIT AND/ 1. CHECK OPERATION OF WASH MOTOR DURING DIAGNOSTICS. 2. UNPLUG DISHWASHER OR DISCONNECT POWER. RUNNING 3. CHECK RESISTANCES OF CONNECTIONS IN THE WASH CIRCUIT.
+- IF HIGH RESISTANCE, CHECK/FIX LOOSE CONNECTIONS OR REPLACE WASH MOTOR.
+NOT OR FAULTY WASH MOTOR.
+CONTROL MOTOR DRIVE CIRCUIT OR SENSE 1. UNPLUG DISHWASHER OR DISCONNECT POWER.
+CIRCUIT. 2. IF METER CHECK OF WASH MOTOR CIRCUIT SHOWS NORMAL RESISTANCE AND STILL NOT GETTING POWER TO THE WASH MOTOR, REPLACE CONTROL.
+5-DOOR DOOR WAS NOT LATCHED WITHIN 4 SECONDS INSTRUCT CUSTOMER. REFER TO USE & CARE GUIDE. SWITCH OF PRESSING THE START / RESUME KEY.
+LOOSE CONNECTION IN DOOR SWITCH CIRCUIT | 1. CHECK STRIKE PLATE AND DOOR CLOSURE FORCE. VERIFY DOOR AND/OR DOOR SWITCH CONTACTS STUCK OPEN SEAL IS SEATED PROPERLY. CHECK FOR INTERFERENCE BETWEEN AND/OR DOOR SWITCH NOT MAKING CONTACT: DISH RACKS AND DOOR. TRY BENDING STRIKE PLATE DOWN FOR - SLOPPY DOOR LATCH ASSEMBLY (WHICH CAN BETTER ENGAGEMENT. BE AGGRAVATED BY HIGH DOOR CLOSURE . UNPLUG DISHWASHER OR DISCONNECT POWER. FORCE KEEPING STRIKE PLATE FROM FULLY . CHECK RESISTANCES OF DOOR SWITCH CONTACTS AND ALL SEATING). CONNECTIONS IN THE DOOR SWITCH CIRCUIT WITH METER, - DOOR SWITCH (HIGH RESISTANCE). WHILE OPENING AND CLOSING THE DOOR LATCH.
+- IF HIGH RESISTANCE WITH DOOR CLOSED, CHECK/FIX LOOSE CONNECTIONS.
+. MEASURE RESISTANCE OF DOOR SWITCH CONTACTS WHILE CHECKING MECHANICAL OPERATION OF LATCH ASSEMBLY. CHECK FOR BROKEN PLASTIC PIECES ON LATCH ASSEMBLY. REPLACE LATCH IF FAULTY.
+IF NONE OF THE ABOVE . UNPLUG DISHWASHER OR DISCONNECT POWER.
+. CHECK FOR 13 VDC FROM P9-5 TO P9-6 BY COMPLETING THE FOLLOWING STEPS:
+. CONNECT VOLTAGE MEASUREMENT EQUIPMENT.
+. PLUG IN DISHWASHER OR RECONNECT POWER AND VERIFY 13 VDC.
+. IF NO VOLTAGE IS PRESENT, UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+Maytag Chopper Dishwashers Hi 2-7
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Service Error Codes (continued)
+FUNCTION PROBLEM | CAUSES WHAT TO CHECK CODE CODE
+5-DOOR 2-DOOR CONTROL PROGRAMMED TO NOT START IF IT 1. OPEN AND CLOSE DOOR AND THEN PRESS START/RESUME KEV. IF SWITCH STUCK SUSPECTS THE DOOR SWITCH IS STUCK CLOSED. WORKS NOW, INSTRUCT CUSTOMER TO OPEN DOOR BETWEEN CONTROL LOOKS FOR THE DOOR SWITCH TO CYCLES.
+(CONTINEED) pee OPEN BETWEEN CYCLES. 2. UNPLUG DISHWASHER OR DISCONNECT POWER.
+- CUSTOMER DIDN'T OPEN THE DOOR BETWEEN | 3 EASURE RESISTANCE OF DOOR SWITCH CONTACTS WHILE
+See DOOR SWITCH CONTACTS STUCK CHECKING MECHANICAL OPERATION OF LATCH ASSEMBLY.
+1-LOW/NO NO WATER TO DISHWASHER. VERIFY WATER SUPPLY IS TURNED ON AND SUPPLY LINE ADEQUATE.
+WATER BOWLS OR POTS LOADED OR FLIPPED UPSIDE INSTRUCT CUSTOMER ON LOADING. REFER TO USE AND CARE (MECHANICAL | DOWN AND CAPTURED WASH WATER. GUIDE.
+PROBLEM) DRAIN LOOP DETACHED FROM TUB AND/OR CHECK FOR WATER SIPHONING OUT OF UNIT: IMPROPER DRAIN CONNECTION. 1. ALLOW DISHWASHER TO COMPLETE NORMAL FILL. 2. DRAIN FOR 5-10 SECONDS BY PRESSING CANCEL/DRAIN.
+3. OPEN DOOR AND CONFIRM WATER DOES NOT SIPHON OUT OF UNIT. IF IT DOES, CONFIRM DRAIN LOOP IS ATTACHED TO SIDE OF DISHWASHER AND DRAIN HOSE IS CONNECTED TO A DRAIN AT LEAST 20 INCHES (50.8 CM) OFF THE FLOOR.
+WATER LEAKING FROM DISHWASHER CHECK FOR LEAKS UNDER DISHWASHER.
+FILL VALVE OR WATER LINE PLUGGED WITH TURN OFF WATER SUPPLY TO DISHWASHER, DISCONNECT WATER DEBRIS. LINE TO INLET VALVE AND INSPECT/CLEAN THE INLET SCREEN OF FILL VALVE AND RECONNECT WATER.
+OVERFILL SWITCH STUCK IN “OVERFILL” CHECK OTHER ERROR CODES TO SEE IF 6-4 ALSO OCCURRED. SEE
+POSITION AND/OR DISHWASHER NOT LEVEL. 6-4 ERROR CODE BELOW.
+FILL VALVE ELECTRICAL PROBLEM. CHECK OTHER ERROR CODES TO SEE IF 6-2 ALSO OCCURRED. SEE 6-2 ERROR CODE BELOW.
+2-FILL LOOSE CONNECTION IN FILL VALVE CIRCUIT UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK VALVE AND/OR OPEN FILL VALVE SOLENOID. RESISTANCES OF FILL VALVE SOLENOID AND ALL CONNECTIONS IN
+THE FILL CIRCUIT WITH METER. FIX/REPLACE OPEN CONNECTION ELECTRICAL / PART.
+ee OPEN FUSE ON CONTROL TO FILL VALVE. REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” SECTION. FILL VALVE DRIVE CIRCUIT ON THE CONTROL. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+3-SUDS/AIR | TOO MANY SUDS. 1. ALLOW UNIT TO FILL AND WASH FOR 1 MINUTE. OPEN DOOR IN PUMP AND CHECK FOR EXCESSIVE SUDSING. 2. CONFIRM USING PROPER DISHWASHER DETERGENT, NOT HAND DETERGENT. 3. CHECK FOR EXCESSIVE RINSE AID LEAKAGE. BOWLS OR POTS LOADED OR FLIPPED UPSIDE _| INSTRUCT CUSTOMER ON LOADING. REFER TO USE AND CARE DOWN AND CAPTURED WASH WATER. MANUAL.
+WATER LEAKING FROM DISHWASHER. CHECK FOR LEAKS UNDER DISHWASHER.
+4-FLOAT OVERFILL SWITCH STUCK IN “OVERFILL” REMOVE ANY ITEMS STUCK UNDER FLOAT. VERIFY THAT THE SWITCH POSITION AND/OR DISHWASHER NOT LEVEL. FLOAT MOVES FREELY AND YOU HEAR THE “CLICK” OF THE SWITCH Gat CONTACTS. CHECK/ADJUST LEVEL OF THE DISHWASHER.
+DRAIN HOSE CHECK VALVE NOT SEALING. WATER BACKS INTO DISHWASHER AFTER DRAINING AND ELEVATES WATER LEVEL.
+1. DISCONNECT DRAIN HOSE AT PLUMBING CONNECTION. 2. ELEVATE HOSE ABOVE DISHWASHER AND FILL WITH WATER. IF WATER FLOWS INTO DISHWASHER, REPLACE ENTIRE DRAIN LOOP
+(INSTALL AS HIGH AS POSSIBLE AND ATTACH TO UNDERSIDE OF COUNTERTOP IF POSSIBLE).
+2-8 Hi Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Service Error Codes (continued)
+FUNCTION PROBLEM | CAUSES WHAT TO CHECK CODE CODE
+6-INLET 4-FLOAT FILL VALVE TRIAC ON CONTROL SHORTED. IF STILL FILLING WHILE DOOR IS OPEN, FILL VALVE IS MECHANICALLY WATER SWITCH STUCK OPEN (SEE BELOW). IF NOT FILLING WITH THE DOOR OPEN, CHECK OPERATION IN SERVICE DIAGNOSTICS TEST CYCLE. ADVANCE (CONTINUED) OPEN SERVICE CYCLE UNTIL DETERGENT DISPENSER OPENS. FILL VALVE (CONTINUED) SHOULD BE OFF. LISTEN TO SEE IF DISHWASHER STILL FILLING. IF STILL FILLING, UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+FILL VALVE MECHANICALLY STUCK OPEN. CONFIRM DISHWASHER FILLS WHILE DOOR IS OPEN. IF YES, UNPLUG DISHWASHER OR DISCONNECT POWER, TURN OFF WATER TO DISHWASHER, REPLACE FILL VALVE. AND TURN WATER BACK ON.
+TOO MANY SUDS. 1. ALLOW UNIT TO FILL AND WASH FOR 1 MINUTE. OPEN DOOR AND CHECK FOR EXCESSIVE SUDSING.
+2. INSTRUCT CUSTOMER IF USING IMPROPER DISHWASHER DETERGENT (HAND DETERGENT).
+3. DISCONNECT POWER & REPLACE DISPENSER IF SEE EXCESSIVE RINSE AID LEAKAGE.
+OPEN FUSE F9 TO FILL VALVE AND OTHER TRIAC | REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” LOADS. SECTION.
+7- DISCONNECTED OR DAMAGED FLOWMETER 1. DISCONNECT POWER OR UNPLUG UNIT.
+FLOWMETER 2. CHECK CONNECTIONS AT SALT LEVEL SENSOR AND AT FLOWMETER.
+3. USE METER TO CHECK FOR FLOWMETER SWITCH CLOSED. USE METER TO CHECK SALT LEVEL SENSOR. SWITCH IS OPEN WHEN SALT RESERVOIR IS FILLED AND CLOSED WHEN SALT RESERVOIR IS LOW/EMPTY.
+4. DISCONNECT FLOWMETER AND LEAVE SALT SENSOR CONNECTED. APPLY A MAGNET TO SIDE OF THE SALT TANK NEAR THE SENSOR CONNECTION TO FORCE THE SWITCH CLOSED.
+5. WITH THE MAGNET IN PLACE, RUN THE COMPLETE SERVICE DIAGNOSTICS CYCLE. IF THE SANITIZED LED TURNS ON IN INTERVAL 3, THE CONTROL IS GOOD; REPLACE THE FLOWMETER ASSEMBLY. IF THE SANITIZED LED DOES NOT TURN ON, THE CONTROL INPUT HAS FAILED; REPLACE THE CONTROL.
+8-WATER LOOSE CONNECTION IN REGEN VALVE CIRCUIT, UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK SOFTENER AND/OR OPEN REGEN VALVE SOLENOID. RESISTANCES OF REGEN VALVE SOLENOID AND ALL CONNECTIONS
+IN THE REGEN VALVE CIRCUIT. FIX/REPLACE OPEN CONNECTION/ REGEN PART.
+VALVE - OPEN FUSE ON CONTROL TO REGEN VALVE. REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” ELECTRICAL SECTION.
+eee REGEN VALVE DRIVE CIRCUIT ON THE CONTROL. | UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE (WATER CONTROL. SOFTENER
+MODELS ONLY)
+7-HEATING 1- CONTROL PROGRAMMED TO DISABLE HEATER, RUNNING DIAGNOSTICS CLEARS THE CONTROL AND ALLOWS THE NO HEAT BUT CONTINUE RUNNING CYCLES, IF IT DETECTS | HEATER TO TURN ON AGAIN, WATER HEATING PROBLEM MUST BE A WATER HEATING PROBLEM. CORRECTED, OR THE CONTROL WILL DISABLE THE HEATER AGAIN.
+SEE “HEATER CIRCUIT” PROBLEM BELOW.
+HEATER CIRCUIT PROBLEM: 1. UNPLUG DISHWASHER OR DISCONNECT POWER.
+- OPEN IN HEATER. 2. MEASURE RESISTANCE OF HEATER AND ALL COMPONENTS AND CONNECTIONS IN WATER HEATING CIRCUIT/ HEAT DRY CIRCUIT. - OPEN CONNECTION OR COMPONENT IN HEATER CIRCUIT. FIX/REPLACE OPEN CONNECTION/PART.
+HEATER DRIVE CIRCUIT ON THE CONTROL. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+2-HEATER HEATER DRIVE CIRCUIT ON THE CONTROL. 1. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE
+STUCK ON CONTROL.
+2. INSPECT HEATER AND CONNECTIONS FOR OVERHEATING/ SHORTING. IF EVIDENCE OF OVERHEATING OR SHORTS EXISTS, REPLACE.
+Maytag Chopper Dishwashers Hi 2-9
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Service Error Codes (continued)
+FUNCTION PROBLEM | CAUSES WHAT TO CHECK CODE CODE
+8-DRAINING 1-SLOW OBSTRUCTED DRAIN HOSE OR PATH 1. UNPLUG DISHWASHER OR DISCONNECT POWER. DRAIN 2. CHECK FOR BLOCKAGES FROM SUMP CHECK VALVE TO CUSTOMER’S PLUMBING. POTENTIAL ITEMS, PLUGGED GARBAGE DISPOSER OR PLUG NOT KNOCKED OUT, DRAIN LOOP CHECK VALVE STUCK, AND/OR PLUGGED HOSES.
+DRAIN PUMP IMPELLER FRACTURED 1. UNPLUG DISHWASHER OR DISCONNECT POWER.
+2. REMOVE DRAIN PUMP AND CHECK IMPELLER (NORMALLY THERE IS SOME UNEVEN RESISTANCE). IF IT IS STRIPPED, REPLACE DRAIN PUMP.
+2-DRAIN LOOSE CONNECTION IN DRAIN MOTOR CIRCUIT | UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK MOTOR AND/OR OPEN DRAIN MOTOR WINDING. RESISTANCES OF DRAIN MOTOR WINDING AND ALL CONNECTIONS EREETRICAL IN THE DRAIN CIRCUIT. FIX/REPLACE OPEN CONNECTION/PART.
+PROBLEM DEBRIS STUCK IN DRAIN MOTOR IMPELLER. 1. UNPLUG DISHWASHER OR DISCONNECT POWER. 2. REMOVE DRAIN MOTOR AND DISLODGE DEBRIS FROM IMPELLER. OPEN FUSE ON CONTROL TO DRAIN MOTOR. REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” SECTION. DRAIN MOTOR DRIVE CIRCUIT ON THE UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL. CONTROL.
+3-DRAIN DRAIN MOTOR DRIVE CIRCUIT ON THE 1. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE STUCK ON CONTROL. CONTROL.
+2. INSPECT DRAIN MOTOR AND CONNECTIONS FOR OVERHEATING/
+SHORTING. IF EVIDENCE OF OVERHEATING/SHORTING EXISTS, REPLACE.
+10-OTHER 1-DISPENSER LOOSE CONNECTION IN DISPENSER CIRCUIT UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK ELECTRICAL AND/OR OPEN DISPENSER SOLENOID. RESISTANCES OF DISPENSER SOLENOID AND ALL CONNECTIONS IN SRODIEN THE DISPENSER CIRCUIT. FIX/REPLACE OPEN CONNECTION/PART. OPEN FUSE ON CONTROL TO DISPENSER. REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” SECTION. DISPENSER DRIVE CIRCUIT ON THE CONTROL. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+3-DRYING LOOSE CONNECTION IN FAN CIRCUIT AND/OR UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK FAN OPEN FAN MOTOR. RESISTANCES OF FAN MOTOR AND ALL CONNECTIONS IN THE FAN CIRCUIT. FIX/REPLACE OPEN CONNECTIONS OR FAN.
+FAN DRIVE CIRCUIT ON THE CONTROL. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE CONTROL.
+ERROR
+2-10 Mi Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Troubleshooting Guide
+A DANGER
+°e
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+NOTES: H For resistance checks, refer to the “Dishwasher Strip Circuits” in Section 3. H@ For checking operation with diagnostics, refer to “Service Diagnostics Cycle” section.
+CUSTOMER POTENTIAL CAUSES ERROR DESCRIPTION CODES
+CLEAN LED FLASHES CONTROL PROGRAMMED WITH SELF READ FUNCTION CODE FROM THE DISHWASHER AND REFER TO DIAGNOSTICS. FUNCTION CODES PORTION OF ERROR CODE TABLE. RUN SERVICE DIAGNOSTICS TEST CYCLE TO READ FULL HISTORY OF ERROR CODES.
+WON’T RUN or POWER UP | NO POWER TO UNIT OR BAD CONNECTION. | CHECK FUSES, CIRCUIT BREAKERS AND JUNCTION BOX (“DEAD” KEYPAD/CONSOLE) CONNECTIONS.
+- NO OPERATION LOOSE CONNECTIONS IN DISHWASHER 1, UNPLUG DISHWASHER OR DISCONNECT POWER. - NO KEYPAD RESPONSE POWER UP CIRCUIT OR BETWEEN KEYPAD(S) | 9. CHECK CONTINUITY POWER CONNECTIONS TO CONTROL AND JNO EBROR DISPLAY ANE COMTRD: CONNECTIONS BETWEEN KEYPAD(S) AND CONTROL.
+MODEL HAS AN LCD DISPLAY AND THE VERIFY CORRECT CONTROL IS INSTALLED. CONTROL SHOULD CONTROL HAS BEEN EXCHANGED FOR ONE HAVE NO 4-PIN USER INTERFACE CONNECTOR PRESENT AT P1B IF THAT IS NOT COMPATIBLE WITH THE LCD IT IS CONFIGURED FOR AN LCD MODEL . UNPLUG DISHWASHER DISPLAY MODULE. OR DISCONNECT POWER AND REPLACE CONTROL.
+CONTROL DETECTED DOOR SWITCH 1, UNPLUG DISHWASHER OR DISCONNECT POWER. PROBLEM. 2. REFER TO “SERVICE ERROR CODES TABLE.” USER INTERFACE OR CONTROL 1, UNPLUG DISHWASHER OR DISCONNECT POWER. DISASSEMBLE DOOR AND INSPECT CONTROL POWER CONNECTOR (P4) AND ADJACENT PC BOARD FOR DAMAGE. REPLACE AS NEEDED.
+2. REFER TO “SERVICE ERROR CODES TABLE” FOR STUCK KEY (2-1). RUN THE DIAGNOSTIC CHECK, ITEM (1).
+- IF DRAIN MOTOR TURNS ON, CONTROL IS OK. REPLACE THE UI. - IF DRAIN MOTOR DOES NOT RUN ON, REPLACE CONTROL.
+3. INSPECT UI CABLE FOR LOOSE OR DAMAGED WIRING. REPLACE AS NEEDED.
+4. INSPECT UI ASSEMBLY FOR DAMAGE OR CONTAMINATION. REPLACE UI AS NEEDED.
+WON'T RUN AND LED FOR BY DESIGN, IF THE DOOR IS OPENED FOR INSTRUCT CUSTOMER. REFER TO USE & CARE MANUAL. START/RESUME KEY IS MORE THAN 5 SECONDS OR POWER IS BLINKING SLOWLY INTERRUPTED DURING A CYCLE, THE USER
+MUST PRESS THE START/RESUME KEY TO
+RESUME OPERATION.
+START/RESUME KEY NOT RESPONDING. SEE “ONE OR MORE KEYS WON’T RESPOND”.
+CONTROL DETECTED DOOR SWITCH REFER TO SERVICE ERROR CODES TABLE. PROBLEM.
+Maytag Chopper Dishwashers Mi 2-11
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+Troubleshooting Guide (continued)
+CUSTOMER DESCRIPTION
+WON’T RUN AND ALL LEDS ON
+WON'T START AND START/ RESUME KEY LED FLASHES 3 TIMES WHEN START/ RESUME KEY IS PRESSED
+WON’T ACCEPT KEY PRESSES AND CONTROL LOCK LED ON
+ONE OR MORE KEYS WON’T | STUCK KEY OR SHORT CIRCUIT(S) IN KEYPAD REFER TO SERVICE ERROR CODES TABLE.
+RESPOND OR UNUSUAL LED/ DISPLAY / KEY BEHAVIOR
+DISHWASHER BEEPS CONSTANTLY (FOR MODELS WITH BEEPERS)
+LONG CYCLES AND/OR STUCK IN CERTAIN PART OF CYCLE
+POTENTIAL CAUSES CHECK ERROR CODES
+SOFTWARE/HARDWARE INCOMPATIBILITY REFER TO SERVICE ERROR CODES TABLE. 12 PROBLEM WITH CONTROL.
+CONTROL LOOKING FOR DOOR TO OPEN REFER TO SERVICE ERROR CODES TABLE. BETWEEN CYCLES:
+- CUSTOMER HAS NOT OPENED DOOR SINCE LAST CYCLE.
+- DOOR SWITCH CONTACTS STUCK CLOSED.
+CONTROL LOCKOUT FEATURE ACCIDENTALLY | INSTRUCT CUSTOMER. REFER TO USE & CARE GUIDE (PRESS & TURNED ON BY CUSTOMER. HOLD CONTROL LOCK KEY 5 SEC TO TURN ON/OFF).
+OR IN CONTROL'S INPUT LINES THAT READ THE KEYS.
+CAPACITIVE TOUCH KEYPAD ADHESIVE 1. UNPLUG DISHWASHER OR DISCONNECT POWER.
+COMING LOOSE FROM CONSOLE. 2. INSPECT KEYPAD BOARD FOR SEPARATION FROM CONSOLE. REPLACE KEYPAD AND CONSOLE IF SEPARATION IS SEEN.
+LOOSE CONNECTIONS BETWEEN KEYPAD 1. UNPLUG DISHWASHER OR DISCONNECT POWER.
+AND CONTROL AND / OR BENT OR 2. INSPECT CONNECTIONS IN USER INTERFACE CIRCUITS. RE- CONTAMINATED CONNECTOR PINS. CONNECT LOOSE CONNECTIONS. REPLACE PART(S) IF PINS DAMAGED OR CONTAMINATED.
+EXCESSIVE CONDENSATION ON USER CHECK ERROR HISTORY FOR 10-3 FAN ERROR. REFER TO SERVICE
+INTERFACE PARTS DUE TO VENT AND/OR FAN | ERROR CODES TABLE. VERIFY PRESENCE OF VENT IF MODEL HAS A
+PROBLEM. VENT WAX MOTOR. REFER TO “LEAKS OR DRIPS ON CABINET OR FLOOR” IN THE “TROUBLESHOOTING GUIDE” SECTION.
+FOR MODELS WITH A CAPACITIVE TOUCH TO WAKE UP THE CONTROL PANEL, PRESS START/RESUME OR KEYPAD ON THE FRONT OF UNIT, CONTROL CANCEL/DRAIN, OR OPEN AND CLOSE THE DOOR.
+PANEL IS IN “SLEEP MODE” WHERE ALL
+KEYS (EXCEPT START/RESUME AND CANCEL/ a Chet ae PTR ELLUSTOMES
+DRAIN) ARE DISABLED AFTER 30 SECONDS OF INACTIVITY, 2. IF KEYS STILL DO NOT RESPOND, REPLACE KEYPAD AND
+CONSOLE.
+DEFECTIVE USER INTERFACE 1. UNPLUG DISHWASHER OR DISCONNECT POWER. 2. REPLACE USER INTERFACE CONSOLE ASSEMBLY.
+USER OPENED DOOR DURING CYCLE AND INSTRUCT CUSTOMER. DISHWASHER CONTROL IS DESIGNED TO
+CLOSED DOOR WITHOUT PRESSING START/ BEEP IF DISHWASHER IS IN “CYCLE INTERRUPT” MODE WITH
+RESUME TO RESUME CYCLE. DOOR LATCHED. CONTROL WILL STOP BEEPING WHEN DOOR IS OPENED AND/OR START/RESUME KEY IS PRESSED TO RESUME CYCLE.
+NORMAL BEEPER OPERATION IS EXCESSIVE INSTRUCT CUSTOMER HOW TO TURN BEEPER OFF AND ON. TO CUSTOMER. PRESS AND HOLD HI TEMP KEY FOR 3 SECONDS (TONE SOUNDS).
+AS PART OF NORMAL OPERATION, THE INSTRUCT CUSTOMER. EXPLAIN THERMAL HOLDS AND HOW THE DISHWASHER PAUSES 2 OR 3 TIMES DURING | CYCLE PAUSES WHEN THEY OCCUR.
+THE CYCLE FOR THERMAL HOLDS AND
+ADVANCES ONCE TEMPERATURE IS MET.
+OWI SOIL SENSOR PICKING HIGH SOIL CYCLE | 1. RUN SERVICE DIAGNOSTICS CYCLE TO CHECK IF OWI SHOWING TOO OFTEN. HIGH SOIL WITH CLEAR WATER. 2. CHECK LENS SURFACE. CLEAN IF NEEDED. 3. UNPLUG DISHWASHER OR DISCONNECT POWER. 4. REPLACE OWI & RUN DIAGNOSTICS AFTER INSTALLING NEW OWI TO FORCE CALIBRATION ON NEXT WASH CYCLE.
+A WATER HEATING PROBLEM COULD CAUSE REFER TO SERVICE ERROR CODES TABLE. LONG CYCLES BUT WILL TYPICALLY CAUSE A “WATER HEATING FAULT”.
+HEATER TAKES A LONG TIME TO HEAT WATER | CHECK FOR AT LEAST 100 VAC AT POWER SOURCE. WITH LOW VOLTAGE.
+7 Y BR BR
+2-12 Hi Maytag Chopper Dishwashers
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Troubleshooting Guide (continued)
+CUSTOMER POTENTIAL CAUSES ERROR DESCRIPTION CODES
+LONG CYCLES AND/OR INCOMING WATER UNDER 84° F (29° C) 1. BE SURE DISHWASHER IS CONNECTED TO THE HOT WATER STUCK IN CERTAIN PART OF SUPPLY.
+CYCLE 2. CONFIRM TEMPERATURE AT SINK. RECOMMEND 120° F (49° (CONTINUED) C). INSTRUCT CUSTOMER TO RUN WATER AT SINK BEFORE RUNNING DISHWASHER.
+3. UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK ALL CONNECTIONS AND MEASURE RESISTANCE IN TEMPERATURE SENSING CIRCUIT. REPLACE OWI IF RESISTANCE IS HIGH.
+SUDS OR AIR IN PUMP REQUIRES REPEATED REFER TO SERVICE ERROR CODES TABLE. WASH PERIODS. OWI OR NTC SENSOR PROBLEM. REFER TO SERVICE ERROR CODES TABLE. Es
+LEDS OR DISPLAYS RUN UNIT IS IN SALES DEMO MODE. CHECK OPERATION OF CANCEL KEY; IF NO CANCEL LED RESPONSE FOR SHORT TIME (BUT NO TO MULTIPLE CANCEL KEY PRESSES, THE CONTROL IS LIKELY IN LOADS RUNNING) AND SALES DEMO MODE. RUN SERVICE DIAGNOSTICS CYCLE TO CLEAR THEN SHUTS OFF DEMO MODE.
+OPEN F9 (TRIAC LOAD FUSE) ON CONTROL REFER TO “FUSE SERVICE AND RESISTANCE CHECKS” ON PAGE 3-4 DISABLED LOADS. IN “TESTING” SECTION.
+CAN START A CYCLE BUT CONTROL CANCELLED CYCLE DUE TO ERROR’ | REFER TO SERVICE ERROR CODES TABLE. ONLY RUNS FOR A SHORT DETECTED WITH WASH MOTOR OR LOW
+TIME - CYCLE DOES NOT WATER.
+COMPLETE (CLEAN LED OR
+COMPLETED MAY BLINK) UNIT IN SALES DEMO MODE RUN SERVICE DIAGNOSTICS CYCLE TO CLEAR DEMO MODE. fF WILL NOT DRAIN OR DRAIN LOOP CHECK VALVE NOT SEALING. 1. DISCONNECT DRAIN HOSE AT PLUMBING CONNECTION.
+EXCESS WATER LEFT IN 2. ELEVATE HOSE ABOVE DISHWASHER AND FILL WITH WATER.
+DISHWASHER. IF WATER FLOWS INTO DISHWASHER, REPLACE ENTIRE DRAIN
+NOTE: CHECK ERROR LOOP. INSTALL AS HIGH AS POSSIBLE.
+HISTORY. IF NO ERROR CODES FOR ELECTRICAL CUSTOMER MISUNDERSTANDS WATER LEVEL | INSTRUCT CUSTOMER. SUMP WILL NORMALLY HAVE ABOUT 1
+PROBLEMS, PROBLEM IS AFTER DRAIN. INCH (2.4 CM) OF WATER REMAINING IN FILTER CUP HOLE AFTER MECHANICAL. DO NOT CYCLE.
+REPLACE CONTROL. DRAINING PROBLEM REFER TO SERVICE ERROR CODES TABLE. 8-1, 8-2
+DETERGENT NOT ITEM IN LOWER RACK BLOCKED LID OR INSTRUCT CUSTOMER ON PROPER DISH LOADING. DISPENSING OR DETERGENT | BLOCKED SPRAY OF WATER TO DISPENSER.
+saleosuaunen MECHANICAL BINDING OF DISPENSER LID 1. UNPLUG DISHWASHER OR DISCONNECT POWER NOTE: CHECK ERROR : , : HISTORY IF NO ERROR 2. CHECK/REPLACE DISPENSER.
+cle gee i ago es LID LATCH BINDING DUE TO EXCESS INSTRUCT CUSTOMER ON PROPER DISPENSER FILLING. SrOREE Nis, ROBLES DETERGENT IN MECHANISM
+MECHANICAL. DO NOT :
+REPLACE CONTROL DISPENSER ELECTRICAL PROBLEM REFER TO SERVICE ERROR CODES TABLE.
+CONTROL CANCELLED CYCLE BEFORE REFER TO SERVICE ERROR CODES TABLE. DISPENSING DUE TO ERROR DETECTED WITH WASH MOTOR OR LOW WATER.
+Maytag Chopper Dishwashers Ml 2-13
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+Troubleshooting Guide (continued)
+CUSTOMER POTENTIAL CAUSES DESCRIPTION
+POOR WASH CYCLE SELECTION OF CUSTOMER NOT
+APPROPRIATE FOR DISH LOAD. SPRAY ARMS NOT ROTATING OR PLUGGED.
+POOR WASH DUE TO DRAINING AND/OR DISPENSING.
+CONTROL CANCELLED CYCLE DUE TO ERROR DETECTED WITH WASH MOTOR, FLOAT SWITCH, LOW WATER OR SUDS.
+SOIL SENSOR PROBLEM
+HEATING PROBLEM REFER TO “SERVICE ERROR CODES TABLE.”
+SOFTENER PROBLEM REFER TO “SERVICE ERROR CODES TABLE.”
+(ON SOME MODELS)
+CUSTOMER NOT USING RINSE AID OR CHECK RINSE AID GAGE LEVEL ON DISPENSER. INSTRUCT DISPENSER EMPTY CUSTOMER HOW TO FILL AND MONITOR ADD OR USE RINSE AID.
+RINSE AID DISPENSER PROBLEM. REFER TO “SERVICE ERROR CODES TABLE.”
+FILM OR SPOTS ON GLASSES AND/OR DISHES
+HARD WATER LEAVING FILM ON DISHES.
+DETERGENT CARRYOVER OR OVER-SUDSING.
+ETCHING OF GLASS FROM TOO MUCH
+DETERGENT AT TOO HIGH OF TEMPERATURE.
+DRAIN LOOP CHECK VALVE NOT SEALING.
+2-14 Hi Maytag Chopper Dishwashers
+CHECK ERROR CODES
+INSTRUCT CUSTOMER ON CYCLE SELECTION. RECOMMEND “HIGH TEMP” OPTION FOR WASH PERFORMANCE BOOST.
+1. CHECK ARM ROTATION. IF ARMS BLOCKED BY DISH ITEM, INSTRUCT CUSTOMER. ALSO CHECK FOR CORRECT UPPER SPRAY ARM ALIGNMENT WITH DOCKING STATION LOCATED ON FEED TUBE AT BACK TUB WALL.
+2. CHECK NOZZLES; IF THEY ARE PLUGGED, CLEAN NOZZLES AND CONFIRM FILTERS INSTALLED PROPERLY.
+SEE “WILL NOT DRAIN OR EXCESS WATER LEFT IN UNIT”, OR “DETERGENT NOT DISPENSING OR DETERGENT LEFT IN DISPENSER.”
+REFER TO “SERVICE ERROR CODES TABLE.” NOTE: EVEN IF NO ERROR CODE RECORDED, CONFIRM OWI PASSES ALL OWI CHECKS IN SERVICE DIAGNOSTICS CYCLE, AND SEE CHECKS FOR ERROR 3-3.
+REFER TO SERVICE ERROR CODES TABLE NOTE: EVEN IF NO ERROR CODE RECORDED, CONFIRM OWI PASSES ALL OWI CHECKS IN SERVICE DIAGNOSTICS CYCLE AND SEE CHECKS FOR ERROR 3-3.
+CHECK WATER HARDNESS. IF HARD, INSTRUCT CUSTOMER TO USE MAXIMUM DETERGENT OR TRY POURING 1/4 CUP (60 mL) OF GLASS MAGIC INTO BOTTOM OF DISHWASHER. ALSO RECOMMEND THE 1HR WASH CYCLE.
+FOR MODELS WITH WATER SOFTENER: CHECK FOR “ADD SALT” LED AT END OF CYCLE. IF ON, ADD SALT AND INSTRUCT CUSTOMER.
+FOR MODELS WITH WATER SOFTENER: REGEN VALVE ELECTRICAL PROBLEM; REFER TO SERVICE ERROR CODES TABLE.
+CHECK WATER HARDNESS. IF BELOW 10 GRAINS, THEN INSTRUCT CUSTOMER TO USE LESS DETERGENT AND RECOMMEND THE “1 HR WASH” CYCLE.
+CHECK WATER HARDNESS. IF BELOW 10 GRAINS, THEN INSTRUCT CUSTOMER TO USE LESS DETERGENT AND RECOMMEND THE “1 HR WASH” CYCLE.
+1. DISCONNECT DRAIN HOSE AT PLUMBING CONNECTION.
+2. ELEVATE HOSE ABOVE DISHWASHER AND FILL WITH WATER. IF WATER FLOWS INTO DISHWASHER, REPLACE ENTIRE DRAIN LOOP. INSTALL AS HIGH AS POSSIBLE AND ATTACH TO UNDERSIDE OF COUNTERTOP IF POSSIBLE.
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only Troubleshooting Guide (continued)
+CUSTOMER POTENTIAL CAUSES CHECK ERROR DESCRIPTION CODES POOR DRY CUSTOMER NOT USING RINSE AID AND/OR —_| CHECK RINSE AID GAUGE LEVEL ON DISPENSER; INSTRUCT DISPENSER EMPTY. CUSTOMER HOW TO FILL AND MONITOR, ADD OR USE RINSE AID. CUSTOMER NOT USING HEATED DRY RECOMMEND USE OF HEATED DRY OR SMART DRY TO OPTION. CUSTOMER.
+RINSE AID DISPENSER PROBLEM REFER TO “SERVICE ERROR CODES TABLE.” | 10-1 | VENT STUCK CLOSED DUE TO PILOT RELAY REFER TO “SERVICE ERROR CODES TABLE.” 11 STUCK ON (NOT ALL MODELS).
+FAN PROBLEM REFER TO “SERVICE ERROR CODES TABLE.”
+(ON MODELS WITH FAN)
+CONTROL CANCELLED CYCLE DUE TO ERROR’ | REFER TO “SERVICE ERROR CODES TABLE.” DETECTED WITH WASH MOTOR, FLOAT SWITCH, LOW WATER OR SUDS.
+7 HEATING PROBLEM REFER TO “SERVICE ERROR CODES TABLE.” SANITIZED LED BLINKS OR DOOR OPENED DURING FINAL RINSE OR DRY. | INSTRUCT CUSTOMER. fF
+INCOMPLETE SANITIZATION MESSAGE AT END OF CYCLE. | INCOMING WATER UNDER 84° F (29° C) 1. BE SURE DISHWASHER IS CONNECTED TO THE HOT WATER
+SUPPLY. (CONTROL COULD NOT
+CONFIRM SANITIZATION 2. CONFIRM TEMPERATURE AT SINK. RECOMMEND 120° F (49° ACHIEVED) C). INSTRUCT CUSTOMER TO RUN WATER AT SINK BEFORE
+RUNNING DISHWASHER. 3. UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK ALL CONNECTIONS AND MEASURE RESISTANCE IN
+TEMPERATURE SENSING CIRCUIT. REPLACE OWI IF RESISTANCE IS HIGH.
+HEATING PROBLEM REFER TO “SERVICE ERROR CODES TABLE.” THERMISTOR / OWI SENSOR PROBLEM REFER TO “SERVICE ERROR CODES TABLE.” 3-1, 3-2
+INTERMITTENT DOOR SWITCH / LATCH SEE SAME CHECKS AS FOR 5-1 ERROR. REFER TO “SERVICE ERROR CONNECTION. CODES TABLE.”
+LINE VOLTAGE TOO LOW TO HEAT FAST CHECK POWER SOURCE. CONFIRM AT LEAST 100 VAC. —_— ENOUGH.
+AIR PRESSURE SURGES IN DISHWASHER REFER TO “SERVICE ERROR CODES TABLE.” DUE TO WASHING WITH HIGH SUDS CAUSES
+BRIEF OPENING OF DOOR SWITCH CONTACTS
+DURING FINAL RINSE.
+MELTED DISHWARE AND/ CUSTOMER USES NON-DISHWASHER SAFE INSTRUCT CUSTOMER. OR SPRAY ARM AND/OR DISHES OR LOADS PLASTIC DISHES DIRECTLY DISHWASHER ALWAYS HOT | OVER HEATER.
+TEMPERATURE SENSING PROBLEM. REFER TO “SERVICE ERROR CODES TABLE.”
+WATER HEATING PROBLEM, HEATER STUCK REFER TO “SERVICE ERROR CODES TABLE.” ON.
+WATER HEATER DISPLACED FROM INSPECT HEATER. ADJUST BACK INTO POSITION IF NEEDED. MOUNTING CLIP AND / OR PULLED OFF CENTER.
+Maytag Chopper Dishwashers Mi 2-15
+DIAGNOSTICS & TROUBLESHOOTING
+For Service Technician Use Only
+Troubleshooting Guide (continued)
+CUSTOMER POTENTIAL CAUSES DESCRIPTION
+NOISY OPERATION SPRAY ARM STALLED OR BLOCKED AND - INSTRUCT CUSTOMER IF BLOCKED.
+SPRAYING ON THE DOOR. - CHECK SPRAY ARM ROTATION AND INSPECT FOR PLUGGED NOZZLES. IF PLUGGED, CLEAN NOZZLES AND CONFIRM FILTERS INSTALLED PROPERLY.
+NO OR LOW WATER REFER TO “SERVICE ERROR CODES TABLE.” 6-1, 6-2 6-3, 6-4
+DRAINS TOO LONG 1. LONG DRAIN DUE TO OWI SENSOR PROBLEM. “REFER TO SERVICE ERROR CODES TABLE” FOR 3-3.
+2. SLOW DRAIN PROBLEM. “REFER TO SERVICE ERROR CODES TABLE” FOR 8-1.
+LOOSE CONNECTION IN VENT CIRCUIT AND/ | UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK OR OPEN VENT WAX MOTOR. RESISTANCES OF VENT WAX MOTOR AND ALL CONNECTIONS IN THE VENT CIRCUIT. FIX/REPLACE OPEN CONNECTION/PART.
+OPEN FUSE ON CONTROL TO VENT REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” SECTION.
+VENT DRIVE CIRCUIT ON CONTROL UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE LS CONTROL.
+FAN RUNS (MAKES NOISE) AFTER CYCLE DISHWASHER IS DESIGNED TO KEEP FAN RUNNING AFTER CYCLE
+COMPLETED (ON MODELS WITH FAN). TO PREVENT MOISTURE BUILDUP IN DISHWASHER. FAN WILL TURN OFF IF DOOR IS OPENED LONGER THAN 5 SEC. INSTRUCT CUSTOMER.
+EXCESSIVE FAN NOISE DUE TO FAULTY FAN 1. CHECK FAN OPERATION DURING SERVICE DIAGNOSTICS TEST (ON MODELS WITH FAN). CYCLE. 2. UNPLUG DISHWASHER OR DISCONNECT POWER. 3. REPLACE FAN IF DOES NOT SPIN FREELY. LEAKS OR DRIPS ON LOOSE CONNECTION IN VENT CIRCUIT AND/ | UNPLUG DISHWASHER OR DISCONNECT POWER AND CHECK
+CABINET OR FLOOR OR OPEN VENT WAX MOTOR. RESISTANCES OF VENT WAX MOTOR AND ALL CONNECTIONS IN THE VENT CIRCUIT. FIX/REPLACE OPEN CONNECTION/PART.
+OPEN FUSE ON CONTROL TO VENT. REFER TO “FUSE SERVICE CHECK” ON PAGE 3-4 IN “TESTING” SECTION.
+VENT DRIVE CIRCUIT ON CONTROL. UNPLUG DISHWASHER OR DISCONNECT POWER AND REPLACE a CONTROL.
+FAN PROBLEM (ON MODELS WITH FAN) REFER TO “SERVICE ERROR CODES TABLE.” | 10-3 | TOO MANY SUDS REFER TO “SERVICE ERROR CODES TABLE.” | 6-3,6-4 |
+LEAKING DISHWASHER CHECK DOOR/TUB GASKET AND ALL WATER CONNECTIONS 6-1, 6-3 UNDER DISHWASHER. REFER TO “SERVICE ERROR TABLE.”
+UNIT NOT LEVEL (LEANING FORWARD) AND CHECK ERROR HISTORY FOR FLOAT ERROR 6-4. ERROR 6-4 IS WATER SURGES OVER FRONT LIP DURING LIKELY TO OCCUR IF UNIT IS SIGNIFICANTLY OUT OF LEVEL AND CYCLE. LEANING FORWARD. REFER TO “SERVICE ERROR TABLE.”
+AIR PRESSURE SURGE WHEN DOOR IS INSTRUCT CUSTOMER TO LEAVE DOOR OPEN A FEW MINUTES OPENED AND IMMEDIATELY CLOSED WHILE BEFORE RE-CLOSING IF OPENED WHILE DISHWASHER IS HOT.
+DISHWASHER IS HOT CAN FORCE DROPLETS
+OUT THE VENT DUCT.
+2-16 Mi Maytag Chopper Dishwashers
+TESTING
+Section 3: Testing
+This section provides a wiring diagram, control board specifications, testing procedures and strip circuits the “Maytag Chopper Dishwashers.”
+Testing Safety
+Wiring Diagram
+Control Board Information
+General Theory of Operation
+Power Check
+Door Switch Circuit
+Fill Circuit
+Dispenser Circuit
+Water Heating/Heat Dry
+Water Sensing with the OWI Sensor Wash/Rinse Motor
+Drain Motor
+Vent Wax Motor (not on all models) Vent Fan (not on all models)
+AC Fan Motor (not on all models) Power Blast (not on all models)
+User Interface (UI)
+Maytag Chopper Dishwashers Hi 3-1
+TESTING For Service Technician Use Only
+A DANGER ef
+Electrical Shock Hazard Electrical Shock Hazard Only authorized technicians should perform Disconnect power before servicing.
+diagnostic voltage measurements. Replace all parts and panels before o ting.
+After performing voltage measurements, Failure to do so can result in death or disconnect power before servicing. electrical shock.
+Failure to follow these instructions can result in death or electrical shock.
+Voltage Measurement Safety Information When performing live voltage measurements, you must do the following: Hm Verify the controls are in the off position so that the appliance does not start when energized. Allow enough space to perform the voltage measurements without obstructions. Keep other people a safe distance away from the appliance to prevent potential injury. Always use the proper testing equipment. After voltage measurements, always disconnect power before servicing.
+IMPORTANT: Electrostatic Discharge (ESD) Sensitive Electronics
+ESD problems are present everywhere. Most people begin to feel an ESD discharge at approximately
+3000V. It takes as little as 10V to destroy, damage, or weaken the main control assembly. The new
+main control assembly may appear to work well after repair is finished, but a malfunction may occur
+at a later date due to ESD stress.
+m Use an anti-static wrist strap. Connect wrist strap to green ground connection point or unpainted metal in the appliance
+-OR- Touch your finger repeatedly to a green ground connection point or unpainted metal in the
+appliance.
+Before removing the part from its package, touch the anti-static bag to a green ground connection point or unpainted metal in the appliance.
+Avoid touching electronic parts or terminal contacts; handle electronic control assembly by edges only.
+When repackaging main control assembly in anti-static bag, observe above instructions.
+IMPORTANT SAFETY NOTICE — “For Technicians only” This service data sheet is intended for use by persons having electrical, electronic, and mechanical experience and knowledge at a level generally considered acceptable in the appliance repair trade. Any attempt to repair a major appliance may result in personal injury and property damage. The manufacturer or seller cannot be responsible, nor assume any liability for injury or damage of any kind arising from the use of this data sheet.
+3-2 Hi Maytag Chopper Dishwashers
+TESTING
+| | | rd a
+a 2
+(sjapau je you) (Ada uaym paso|>) (sjapow Auew ou) JQ; Xe JOsuas yes jeuondo sesuadsiq BUBYOS JB MO} = (sjapow |J230u) Se Bh a eet Jaddoy5 wim =y o 7 AQOW Xe duun g J0}0;) | aes a Ss auozoquny, | sem 2uUkS-¥ ‘ : plouajos ' € T Jasuadsiq aren ie | quawa|y ib F u (a1eds) z € : | wna 42123 usims Seis yep on¥,_[une (sjapow je you) 400g x (sppow jjeyou) +2NeA Id tiple : (iwr-1H) Ago ues T € ane, uabay 4 - ' | JeISOUBY | (sjpow je you) aimng SBUBYOS i 7 qn pan \aow xem quer [| T € (aseds) pm | te | aumn4 aumng - + a 7 - ty —— — ae BY ed Il TPL a (ic 7 iE (osuas Aypiquny pue weod ‘D1N) Ba yze 68 a <two = T € = I € 1 fe [zo af e€ oT (33 = s ‘Ajuo saduun{ HM Tz |€ |p |S |9 5 3 ‘asny ou oT] : . s 3 uogdo siy, = o |o Sjoo aDyuas aunny pu 3 2 \ 2 |2 soa, quatudojanap 40,0 RF|IRERE 66 SB BEB BS Sis js |< ele eles fe Fle f= Is | | |= = |e ia = Uonseuue> Alelod.e), ele bk leee jz = & & PF elete |e ble fb |e [fm |~ Lo ~ |o |x > foo Jo ls be ls Ne: SER ERE a moe Ie is \ofo |S rej fe fe ee se ia io oa a ig iP IS i> a lw = JS fs gro epi eo fe io RE |e fe fe ie fee IES YE fol fe [> Ye a & | |e jo |e fe |e nS Le ze re Se eae oe A SS Ob) eee bef - pe} te 5 Sy - - Ee = ce ee Sr ey eee ee mks =e ee ae faa a och a a a) = idee ed d Ld 9d Sd . 43u 64 fey o —< asnd 84 -—20lld DOAN he | Me pens) | zy Beit ‘suogdo Joj29WU0 Bec api oan = 2: 19Sf) GT d Pue WId ‘ PEAY] JASN AT Pure VI. Seu: Uld ODIW put - ae }099—1- (doo7 T) uid-0z 93 '@ anug | 61S jndu} —ynduy qnduy anduy e euond 34 ee ee 5 Fei eam, | an SIN 6oeuy | peybig Bojeuy vel (uograiaq Aejay I0}1d Pue) siqow samad mo} snsian | penne : eal a uagng-ysnd jeaueyaW | =| oe T1eld UOC ALS VISA YBIy 40) quavayIp Si suas N-WLH ; on oo] Ud-bt td coat 7 ynduy Iv ynaii9 asuas sc)" ae | <|- 2 2 |sferisiq ‘wood ’ aeq leo aang Uld QW | —shy, - | -* Be oo| G31 : TZE Fb | apm ai e °°| [e 3] | ald Vid quan) \ SUE iad asinwe | ya} JH oo] 8 3}: peoq uey | —vowePC Led 100g 3o11d Yo SpeO| DeUL JAIRO Ie Pue WAR ‘eI JO} asUAS QUALND) peor Id QIN =< 23] |e 3]: _ OO EE EUs 1007 YBOA SBOH 509 SAEPUZON-ET OUT] WITIDY 23] [8 3! DOA pa es YIMS J00p YBNaiLp S206 sj}o> sAeyON-ET aul] WTY ea GSW eee SunN Aad + ee + 2 TS) SIT] MY LE BAT id + ae + o ° S5n | MP2 BAT spay sean (sped asn ‘uonanpaid ut ayendodap) Coss) za MET N37 Aatiuraasfueddiod angyede3, (gd 40 a2euNs do} uo) ie a (net) NET | Arddns Jamod ud papis-z quid ysay pasn sow ®
+: ) AE
+og BumuuesBaig Aiqjoe4-uj
+AUC ASF URIDIUYIIL IdIIAIaS 104
+(WAU TOTS X WLU 8Z'06T) HEE X Pueog Jd TNID «10-0 NM
+‘aynqysqns jou og ‘sjuUaUOdWOD JUAaldYa ASJauUa S|a}OURq , ‘uado spejuos uado Ajjewsou Jayjo |/e pue Yd}IMsS JOOP YUM UMoOUs IHeWAaYIS
+weiseig SULIM
+Maytag Chopper Dishwashers Hl 3-3
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Control Board Information SPECIFICATIONS
+ELECTRICAL SUPPLY: (Under Load): 60Hz 120V AC
+SUPPLY WATER FLOW RATE:
+To fill 2 qt (1.9 L) in 27 seconds, 120 psi maximum, 20 psi minimum.
+SUPPLY WATER TEMPERATURE:
+120°F (49°C) (Before starting a cycle, run water from sink faucet until hot.)
+WATER CHARGE: 1.58 gal. (6.0 L) Approximate
+LOWER SPRAY ARM ROTATION: 12 TO 40 rpm
+UPPER SPRAY ARM ROTATION: 12 TO 30 rpm
+3-4 Hi Maytag Chopper Dishwashers
+Fuse Service & Resistance Check F9 = SMALL-TRIAC LOAD FUSE
+Check operation of loads during the Service Diagnostics cycle. > If any of the TRIAC loads work, F9 Fuse is OK.
+> If all TRIAC loads fail to work, F9 Fuse could be open. See Fuse Resistance Check.”
+FUSE RESISTANCE CHECK: 1. Unplug the dishwasher or disconnect power. 2. Measure resistance of F9 Fuse. NOTE: Fuses are on the bottom of the Control Board but can be checked from the top side. See “Control Pinout” diagram. > If resistance is < 3 Q, then fuse is OK. > If resistance is > 3 Q, then fuse is open.
+IF THE FUSE IS OPEN:
+Inspect and check resistance of all loads on fuse. If any loads are open, shorted, or have evidence of overheating or pinched wires, replace loads and/or repair wires.
+Component Testing
+TESTING DISHWASHER COMPONENTS FROM THE CONTROL
+Before testing any of the components, perform the following checks:
+e The most common cause for misdiagnosed control failure is poor connections. Therefore, disconnecting, inspecting and reconnecting wires will be necessary throughout test procedures.
+e All tests/checks should be made with a VOM or DVM having a sensitivity of 20,000 ohms-per-volt DC, or greater.
+e = Check all connections before replacing components, looking for broken or loose wires, failed terminals, or wires not pressed into connectors far enough.
+e Voltage checks must be made with all connectors attached to the boards.
+e Resistance checks must be made with power cord unplugged or power disconnected, and with wiring harness or connectors disconnected from the control.
+e The testing procedures in this section may require the
+use of needle probes to measure voltage. Failure to use needle probes will damage the connectors.
+TESTING
+For Service Technician Use Only
+ELECTRONIC CONTROL BOARD
+CONTROL ASSEMBLY
+PINCH TO RELEASE
+ROTATE
+CONTROL PANEL SNAP LOCKS CONTROL IN PLACE
+CONNECTOR BRACE (TO REMOVE, PINCH ARMS AND ROTATE)
+Ds Gix
+BUTTONS ON BOTTOM OF CONTROL HOUSING SLIDE INTO KEYHOLE SLOTS ON CONTROL PANEL TO SUPPORT THE CONTROL.
+METER CHECK OF LOADS & SUPPLIES IMPORTANT: Load must be connected for triac to operate correctly. Meter checks best made at the control
+Q of F9 Triac Fuse ore “ aos ooo = a | (_tTtogy > | | oooooogoNyo 0 |HioRe 7 INC | oo Oem | 5) PG omeveNe: O Pe Be | au 0 he Q' 19 Boe ‘S| a | Ro aBoo RAR oon rip, bio obAnAr nln M nA nian ORARE alist |] | H J Titi Wl tL—t J aT FP PTO) WF UTP A Po U CC (Owl) ras P12 (Wide Out) P13 4-3-2 -1! -2 -1 1 6 -9 -1 6 ,-1 6-1 -+5 6, -1 3-5 |-1-2 -4 6 |-1 3 P , PS P6 P7 P8 P9 P10 P11 P12 BR BU RD Vv BR RD YL L1 NEUTRAL 13V 5V DC GND
+Maytag Chopper Dishwashers Hf 3-5
+TESTING
+For Service Technician Use Only
+A DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+General Theory of Operation Refer to Wiring Diagram on page 6-3.
+Neutral and L1 (AC voltage) enters the Control Board at P4, pins 1 & 2 respectively. AC is converted to DC voltage at the Low Volts Power Supply (LVPS). Supplies include 13 and 5 VDC, and DC GND (REF). These low voltage supplies are used to provide power to the microprocessors and board components, control the TRIACs, power the sensors, buzzer, fan motor, and energize the AC relays.
+The 13 VDC is vital to the operation of the dishwasher.
+This supply is necessary to operate all 120 VAC loads in
+the dishwasher, whether they are connected to a relay or controlled by TRIACs. 13 VDC is generated by the power supply and flows through the door switch—when closed—to be available to the heater relays (L1 & N), wash motor relay, and the pilot relay. A relay coil becomes energized when the control closes the LV drive circuit for a specific relay completing 13V pathway, which in turn closes the relay switch providing AC to the load. The Pilot relay provides “L1” to
+the remainder of the components that are controlled by the Neutral-sensed TRIACs.
+In the chopper dishwasher, there is one fuse on the Control Board: F9 Small-TRIAC Load Fuse. If the TRIAC Fuse is open, all loads controlled by TRIACs will not operate.
+NOTE: Refer to “Fuse Service and Diagnostic Checks” on page 3-4,
+3-6 Hi Maytag Chopper Dishwashers
+Power Check
+This test checks for incoming and outgoing power to and from the control board. This test assumes that proper voltages is present at the outlet or direct connect cable.
+Test Procedure 1. Unplug dishwasher or disconnect power. 2. Remove access panel. 3. Remove terminal box cover. 4
+. With a voltmeter set to AC, insert black probe inside white wire screw nut (N) and insert red probe inside black wire screw nut (L1).
+5. Plug in dishwasher or reconnect power.
+> If 120 VAC is present, unplug dishwasher or disconnect power and proceed to step 6.
+> If 120 VAC is not present, have customer correct power problem at outlet or breaker.
+6. Remove outer door panel. 7. Remove cover from control board and locate connector P4.
+8. With a voltmeter set to AC, connect black probe to P4, pin 1 (N) and red probe to P4, pin 2 (L1).
+9. Plug in dishwasher or reconnect power. > If 120 VAC is present, go to step 10.
+> If 120 VAC is not present, check for open connection between terminal block and control. Repair as needed.
+10. Verify DC Supplies
+e 5 VDC is used to power IC’s and micro-processors on the circuit board as well as provide power to the sensors and fan motor.
+> If5 VDC were missing, the Fan Motor and OWI (Optical Water Indicator) would not function. To verify 5V + 5%, with a voltmeter set to DC, connect the black lead to P13-4 (DC GND) and the red lead to P11-2 (5V).
+e 13 VDC is used to actuate the 120 VAC relays and TRIACs on the control.
+> If 13 VDC was missing, the heater, motors, and all other loads would not turn on. To verify 13V + 5%, witha voltmeter set to DC, connect the black lead to P13-4 (DC GND) and the red lead to P9-6 (13V).
+Troubleshooting Missing DC Supplies: Refer to the
+wiring diagram on page 3-3 when troubleshooting the
+DC supplies. If 5 VDC or 13 VDC is missing on the control, unplug dishwasher or disconnect power, and then disconnect all components/loads from the control relying on the missing or loaded supply. Plug in dishwasher or reconnect power and check if the DC supply has returned.
+> If not, replace the control.
+> Ifit has, turn off dishwasher and reconnect one connector at a time until the component loading down that supply has been identified.
+11. Unplug dishwasher or disconnect power. 12. Reassemble all parts and panels.
+TESTING
+For Service Technician Use Only
+A DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Door Switch Circuit
+Perform the following checks if the dishwasher does not detect the door open or closed. This test will check the wiring to the door switch and the door switch itself. The following items are part of the door switch circuit.
+HM Harness/Connection H Door Switch/Latch Assembly HB Control Board
+Test Procedure
+1. Check for improper installation of the dishwasher or leveling. Check door latch mechanism for obstructions or binding. Verify door seal is seated properly. Check for interference between dish racks and door. Repair as necessary.
+2. Unplug dishwasher or disconnect power.
+3. Remove outer door panel to access door latch and control board.
+Strip Circuit — Door Switch
+(To Heater)
+(To Wash Motor, Vent, and Triac Loads)
+4. Check door switch contacts and all connections in the door switch circuit. Visually check that the P9 connector on the control and the door latch connector are securely installed.
+> If visual check passes, go to step 5.
+> If any of the connectors are not inserted properly, reconnect and retest door latch/switch.
+5. Disconnect connector P9 from the control board.
+6. Using an ohmmeter, measure across P9, pins 5 and 6 with the door closed, strike completely in latch mechanism (switch closed).
+> If 3 ohms or less is measured, proceed to step 7.
+> If high resistance is measured when door is closed, check for loose connections and repair as needed.
+7. Using an ohmmeter, measure across P9, pins 5 and 6 with the door open, strike removed from latch mechanism (switch open).
+> If reading is infinite, go to step 8.
+> If reading shows continuity, or door switch is damaged, replace door switch and retest.
+8. Set voltmeter to DC and connect red lead to test-pad P9-6 (13V) and black lead to P13-4 (DC GND) on the control board.
+9. Plug in dishwasher or reconnect power and with door open, verify that 13 VDC is present across P9-6 and P13-4.
+> If 13 VDCis not present, replace the control and retest. > If 13 VDCis present, proceed to step 10.
+10. Reconnect P9 to control board and perform Diagnostic Cycle to verify operation.
+11. Unplug dishwasher or disconnect power. 12. Reassemble all parts and panels. 13. Plug in dishwasher or reconnect power.
+(To Heater) (To Wash Motor) ]
+a Switch Electronic Control
+N.O.
+N.O. N.O.
+Door Switch K2 K3 K4 Sensing| Heater Pilot (L1) Relay Heater (L1) Relay Motor (N) Relay Input
+o—P 10-41 Ref
+Electronic Control
+Maytag Chopper Dishwashers Hl 3-7
+TESTING
+For Service Technician Use Only
+A DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can resultin death or electrical shock.
+Fill Circuit
+This test will check the wiring and components in the fill circuit. The following items are part of the fill circuit.
+HM Harness/Connection HB Overfill Switch
+@ Fill Valve
+H Control Board
+Test Procedure
+1. Verify water supply is turned on and supply line is adequate. Check for water siphoning out of the dishwasher (drain loop or improper drain connection). Check for debris in water line or fill valve inlet screen. Check for proper float switch operation. Repair as necessary.
+2. Are all the loads controlled by TRIACs not working?
+> YES—check for open door switch, TRIAC fuse, or pilot relay.
+> NO-just the Fill Valve. Go to step 3. 3. Unplug dishwasher or disconnect power.
+Strip Circuit — Fill
+L1 | Float
+W2 as test point for F9.
+*K2
+Electronic Control
+3-8 Hl Maytag Chopper Dishwashers
+Use top hole of jumper | (In normal position, holds switch closed.)
+No test pad on P6-4. Recommend using test pad on P 10-1.
+4. Remove outer door panel to access control board. 5. Unplug connector P6 from control board. 6. Check the fill valve and harness—using an ohmmeter, measure the resistance between P6-7 and P6-9. > lf the resistance is between 890-1090 ohms, the fill valve and harness are good. Go to step 7. > If outside the range, replace the fill valve. > If an open circuit is detected, check connections and harness continuity between control and fill valve. If good, replace the fill valve.
+7. Check the float (overfill) switch—using an ohmmeter, measure the resistance between P6-4 and P6-6 with the float switch closed/float down (normal position).
+> If 3 ohms or less is measured, go to step 8.
+> If an open circuit or high resistance is measured, check connections and harness continuity between the control and float switch. If harness is good, replace switch and retest.
+8. Using an ohmmeter; measure the resistance between P6-4 and P6-6 with the float switch open/float up.
+> If reading is infinite, go to step 9.
+> If 3 ohms or less is measured, or float/overfill switch is damaged, replace switch and retest.
+9. Reconnect P6 to control board.
+10. Set voltmeter to AC and connect leads to test-pads P10- 1 & P6-9 on the control board. Plug in dishwasher or reconnect power.
+11. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between test-pads P10- 1 & P6-9. (Refer to the Fill Valve Strip Circuit below.)
+IMPORTANT: The Fill Valve must be connected to the control board to measure voltage accurately!!!
+> If no AC voltage is measured, replace the control board and retest.
+> If 120V AC is measured and fill valve is energized, go to step 12.
+12. Unplug dishwasher or disconnect power. 13. Reassemble all parts and panels.
+14. Plug in dishwasher or reconnect power and run Diagnostic Cycle to verify repair.
+[Float Switch Input | :
+~Pin 1
+Pilot L1 Relay os a. ane Triac Switch Cicut) : bees L — —1 \ 10 60Hz, ew Electronic Contro! Float Switch Electronic Control ' '
+No test pad on P6-7. Recommend using test pad on P6-6.
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Dispenser Circuit
+This test will check the wiring to the dispenser and the dispenser solenoid or wax motor itself. The following items are part of the dispenser circuit.
+@ Harness/Connection HM Dispenser Solenoid/Wax Motor HB Control Board
+Test Procedure
+1. Check for obstructions or mechanical binding preventing the dispenser lid from opening. Repair or replace as necessary.
+2. Are all the loads controlled by TRIACs not working?
+> YES—check for open door switch, TRIAC fuse, or pilot relay.
+> NO-just the Dispenser. Go to step 3. 3. Unplug dishwasher or disconnect power.
+Strip Circuit — Dispenser Electronic Control
+[ ~ Use top hole of jumper — W2 as test point for F9.
+L1
+K2 Pilot L1 Relay (also see Door L Switch Circuit)
+| 1.4KQ - 3.0KQ
+4. Remove outer door panel to access dispenser and remove toe and access panels to access control board.
+5. Unplug connector P9 from control board.
+6. Check the dispenser solenoid or wax motor (depending on model) and harness—using an ohmmeter, measure the resistance between P9-1 and P9-3.
+Solenoid:
+> If the resistance is between 260-300 ohms, the solenoid valve and harness are good. Go to step 7.
+> If outside the range, replace the dispenser solenoid.
+> If an open circuit is detected, check connections and harness continuity between control and dispenser. If good, replace the dispenser solenoid.
+Wax Motor:
+> Ifthe resistance is between 1.4-3.0K ohms, the wax motor and harness are good. Go to step 7.
+> If outside the range, replace the dispenser wax motor.
+> If an open circuit is detected, check connections and harness continuity between control and dispenser. If good, replace the dispenser wax motor.
+7. Reconnect P9 to control board.
+8. Set voltmeter to AC and connect leads to test-pads P10-
+1 & P9-1 on the control board. Plug in dishwasher or reconnect power.
+9. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between P10-1 to P9-1. (Refer to the Dispenser Strip Circuit below.)
+IMPORTANT: The Dispenser Solenoid or Wax Motor must be connected to the control board to measure voltage accurately!!! > If no AC voltage is measured, replace the control board and retest. > If 120 VAC is measured and dispenser motor/solenoid is energized, go to step 10. 10. Unplug dishwasher or disconnect power. 11. Reassemble all parts and panels.
+12. Plug in dishwasher or reconnect power and run Diagnostic Cycle to verify repair.
+Dispenser Wax Motor
+120V, 60Hz, 10W — — | Pin1 Pin5
+Dispenser Solenoid 260Q - 300Q 120V, 60 Hz, 17W
+Electronic C ontrol
+Test pad on P9-3 might crowd P9-1. 7 Recommend using test pad on P 10-1.
+Maytag Chopper Dishwashers Hf 3-9
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Water Heating/Heat Dry
+This test will check the wiring to the heater element, hi-limit thermostat and the heating circuit itself. The following items are part of the heater circuit.
+@ Harness/Connection H@ Heater Coil
+HB Hi Limit Thermostat H Control Board
+Test Procedure
+Control may be programmed to disable the heater if it detects a problem with the heating system. Run Diagnostics to clear the control and allow the heater to turn on again. If heating problem is not corrected, the control will disable the heater again.
+1. Unplug dishwasher or disconnect power. 2. Remove outer door panel to access control board. 3. Disconnect P4 from the control board.
+Strip Circuit — Heater Circuit
+(1 Electronic Control
+HiLimit Thermostat
+Heater Element
+4. Using an ohmmeter, measure resistance between P4, pins 3 and 4.
+> Ifthe resistance is between 8-30 ohms, go to step 6. > If an open circuit is detected, go to step 5.
+5. Visually check the wire connections between the control board, the heater element and the hi-limit thermostat. If the connections look good, check for continuity across the heater element and the hi-limit.
+> Replace heater element or hi-limit thermostat if it is electrically open.
+> Repair or replace wire harness if test fails continuity. 6. Reconnect P4 to control board.
+7. Set voltmeter to AC and connect leads to test-pads P4-3 & P4-4 on the control board. Plug in dishwasher or reconnect power.
+8. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between P4-3 and P4-4 using a voltmeter set to AC.
+> If 120 VAC is measured and heater element is on, go to step 9.
+> If no AC voltage is measured, replace control board. 9. Perform Diagnostic Cycle to verify repair.
+> If heater related error still exists, perform Water Sensing test procedure on following page.
+10. Unplug dishwasher or disconnect power. 11. Reassemble all parts and panels. 12. Plug in dishwasher or reconnect power.
+Electronic C ontrol N
+BU/WH
+(abo see Doot Opens, 82-202 | Algo see Doo | Switch Circuit) | -207°F = 217% aka Oh Switch Circuit) _| == OPC.) Saya —— = (97°C - 103°C) Sogw Dry
+3-10 Hi Maytag Chopper Dishwashers
+TESTING
+For Service Technician Use Only
+TEMP °F (°C) RES RANGE k ohms
+[RESHANGE ohms 4 DANGER [= a3khs
+°
+140° F (60° C) 11-13k ohms
+NOTE: All thermistor resistance measurements must be made while dishwasher is unplugged or disconnected from power and connector P12 removed from control.
+Electrical Shock Hazard > Ifthe thermistor resistance is OK , the thermistor is Only authorized technicians should perform good. Go to step 6. diagnostic voltage measurements. > Ifthe thermistor resistance does not agree with the After performing voltage measurements, fable te Pies De OWI SenaOk disconnect power before servicing. > If an open circuit is detected, check connections and : : A : harness continuity between control and OWI If good, Failure to follow these instructions can result in replace the OWI Sensor.
+death or electrical shock.
+6. Using an ohmmeter, check P12 -1 to cabinet ground and P12-3 to cabinet ground.
+Water Sensing with the OWI Sensor > If no short is indicated, go to step 7. > If either pin indicates continuity to ground (short), repair or replace wiring harness and retest.
+This test will check the wiring to the OWI (Optical Water 2 hecennmekpaa de. contrell beard:
+Indicator), which incorporates the temperature thermistor and
+the foam & turbidity sensor. The following items are part of 8. Test for 5 VDC—With a voltmeter set to DC, connect the the water sensing circuit. black lead to P12-2 and the red lead to P12-3. HM Harness/Connection 9. Plug in dishwasher or reconnect power. H@ OWI Sensor 10. Start the Diagnostic Cycle and at the proper interval =-Control Board measure for 5 VDC out of the control between P12-2 and P12-3. > If5 VDCis measured the control is functioning, go to
+Test Procedure step 11.
+1. Check the operation of the OWI Sensor in the Service > If no DC voltage is measured, replace the control board
+Diagnostic Cycle. and retest.
+2. Unplug dishwasher or disconnect power. 11. Unplug dishwasher or disconnect power.
+3. Remove outer door panel to access control board. 12. Reassemble all parts and panels.
+4. Disconnect P12 from the Control Board. 13. Plug in dishwasher or reconnect power and run Diagnostic
+5. Using an ohmmeter, measure resistance between P12, Cycle to verify repair.
+pins 1 and 3. The following table provides approximate room and hot water temperatures and their associated resistance values.
+Strip Circuit — Water Sensing
+[ Electronic
+Control
+YL Pin 14 ‘ity Dri pT pinzt Turbidity Drive Wik Sensor 5 ¢ Foam Drive OPT Sig VCC
+Temperature: NTC Thermistor 46KQ - 52KQ at 77°F (25°C) 11KQ - 13KQ at 140°F (60°C)
+NTC
+Measure NTC resistance at P12-1 and P12-3 connector disconnected from control.
+Maytag Chopper Dishwashers Mi 3-11
+TESTING
+For Service Technician Use Only
+6. Check the wash/rinse motor—using an ohmmeter,
+A DANG ER measure the resistance between P5-1 and P5-2.
+> Ifthe resistance is between 10-15 ohms, the wash/ rinse motor and harness are good. Go to step 7.
+wy > If outside the range, replace the wash/rinse motor. > If an open circuit is detected, check connections and wy harness continuity between control and wash/rinse motor. If good, replace the motor. Electrical Shock Hazard 7. Reconnect P5 to control board. Only authorized technicians should perform 8. Set voltmeter to AC and connect leads to test-pads
+diagnostic voltage measurements. P5-1 & P5-2 on the control board. Plug in dishwasher or reconnect power.
+9. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between P5-1 & P5-2.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in (Refer to Wash Motor Strip Circuit below.) death or electrical shock. > If no AC voltage is measured, replace the control board and retest. Wash/Rinse Motor > If 120 VAC is measured and wash/rinse motor is
+running, go to step 12. > If 120 VAC is measured and wash/rinse motor is not running, go to step 10.
+10. Test the wash/rinse motor capacitor. NOTE: A faulty capacitor may cause the motor to “hum,” not start, or
+This test will check the wiring to the wash/rinse motor and the motor itself. The following items are part of the wash/rinse motor circuit.
+HM Harness/Connection
+start slowly. @ Wash/Rinse Motor & Capacitor a. Discharge the capacitor by touching the leads of a H Control Board 20,000 QO resistor to the two terminals.
+b. Disconnect the wires from the capacitor terminals.
+c. With an ohmmeter, measure across the terminals and
+Test Procedure ; note reading.
+1. Check the tub and sump for anything that may be > dvi . . . d eee impeding water flow. Inspect and if necessary clean the a steady increase In resistance Is noted, Capacitor Is coarse-filter system. Also, inspect spray arm water nozzles good. Replace wash motor assembly and retest. and clean if needed. > Ifthe capacitor is either shorted or open, replace
+2. Check the wash/rinse motor and electrical connections aparal: ‘ie ieee ; by performing the Service Diagnostic Cycle. The following 11. If the preceding steps did not correct the wash/rinse
+steps assume that this step was unsuccessful. motor problem, replace the control board. 3. Unplug dishwasher or disconnect power. 12. Unplug dishwasher or disconnect power. 4. Remove outer door panel to access control board. 13. Reassemble all parts and panels. 5. Unplug connector P5 from control board. 14. Plug in dishwasher or reconnect power and run Diagnostic
+Cycle to verify repair.
+Strip Circuit - Wash/Rinse
+| "s [ | ie | Sense Resistor | N
+7 | 30-90 TURQ ! or J umper |
+P4-2 — P5-2 -}—o —{P5-1 Lo —s N\\\ P4-1
+| kK | Pin Laux Pin 3 | K4 |
+; Pilot L1 Relay Winding YL] Yu CAP Motor N Relay
+| (Also see Door | 69-190 19 - 23.5 uF (Also see Door |
+Switch Circuit) Motor and Capacitor Switch om Electronic Control (Wash Pump) Electronic Control
+120V, 60 Hz, 250 W
+3-12 Hi Maytag Chopper Dishwashers
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Drain Motor
+This test will check the wiring to the drain motor and the drain motor itself. The following items are part of the drain motor circuit.
+HM Harness/Connection H@ Drain Motor H Control Board
+Test Procedure
+1. Verify that drain hose or drain path is not obstructed. Check for blockage from sump check valve to customer’s plumbing. Check for plugged garbage disposal or disposal plug not knocked out. Check drain loop, stuck check valve, or for plugged hoses. Repair as needed.
+2. Check the drain motor and electrical connections by performing the Service Diagnostic Cycle. The following steps assume that this step was unsuccessful.
+Strip Circuit — Drain Motor
+L1
+3. Are all the loads controlled by TRIACs not working?
+> YES—check for open door switch, TRIAC fuse, or pilot relay.
+> NO-just the drain motor. Go to step 4. Unplug dishwasher or disconnect power. Remove outer door panel to access control board. Unplug connector P6 from control board.
+Check the drain motor—using an ohmmeter, measure the resistance between P6-1 and P6-3.
+> If the resistance is between 15-60 ohms, the drain motor and harness are good. Go to step 8.
+> If outside the range, replace the drain motor.
+> If an open circuit is detected, check connections and harness continuity between control and drain motor. If good, replace the drain motor.
+8. Reconnect P6 to control board.
+9. Set voltmeter to AC and connect leads to test-pads P10- 1 & P6-1 on the control board. Plug in dishwasher or reconnect power.
+10. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between P10-1 & P6-1. (Refer to Drain Motor Strip Circuit below.)
+IMPORTANT: The Drain Motor must be connected to the control board to measure voltage accurately!!! > If no AC voltage is measured, replace the control board and retest.
+> If 120 VAC is measured and drain motor is running, go to step 11.
+11. Unplug dishwasher or disconnect power. 12. Reassemble all parts and panels.
+13. Plug in dishwasher or reconnect power and run Diagnostic Cycle to verify repair.
+Soy Or
+Use top hole aan W2 as test point for F9.
+BK P42
+— K2 Pilot L1 Relay (Also see Door Switch Circuit)
+Fuse
+| are N
+BP pet R p4-1 WH
+Triac Drain Motor
+Electronic C ontrol
+Electronic Control
+No test pad on P6-3.
+15Q - 60Q 120V, 60 Hz, 60W
+Recommend using test pad on P 10-1.
+Maytag Chopper Dishwashers Mi 3-13
+TESTING
+For Service Technician Use Only
+A DANGER
+Test Procedure 1. Unplug dishwasher or disconnect power.
+2. Remove outer door panel to access control board. 3. Unplug connector P10 from control board. 4. Check the vent wax motor and harness—using an aw ohmmeter, measure the resistance between P10-1 and P10-3. A > Ifthe resistance is between 600-1800 ohms, the wax Electrical Shock Hazard motor and harness are good. Go to step 5. Only authorized technicians should perform > If outside the range, replace the vent wax motor. diagnostic voltage measurements. > If an open circuit is detected, check connections and After performing voltage measurements, harness continuity between control and vent wax disconnect power before servicing. motor. If good, replace the wax motor. Failure to follow these instructions can resultin 5. Reconnect P10 to control board. death or electrical shock. 6. Plug in dishwasher or reconnect power.
+7. Check for AC voltage from the Control. Start the Diagnostic Cycle and measure for AC out of the control Vent Wax Motor (not On all models) between P10-1 to P10-3 using a voltmeter set to AC.
+NOTE: During the Diagnostic Cycle, the vent wax motor is
+F F a always energized. This test will check the wiring to the vent and the vent wax Y 8
+motor itself. The following items are part of the vent wax » If no AC voltage is measured, replace the control board motor circuit. and retest. ™ Harness/Connection >» If 120V AC is measured and vent wax motor is
+energized, go to step 8. 8. Unplug dishwasher or disconnect power. 9. Reassemble all parts and panels. 10. Plug in dishwasher or reconnect power.
+M@ Vent Wax Motor H Control Board
+NOTES:
+Only dishwashers with the Heated Dry option have a vent and fan. If moisture is detected between outer and inner door panels or on cabinets around air inlet located on side of door panel, check that the vent damper is closing properly using the Service Diagnostic Cycle.
+Also verify that wax motor seal and vent bezel seal are not pinched or missing. Verify there are no leaks around the vent bezel seal allowing moisture past the bezel and into the door panel area.
+Strip Circuit — Vent Wax Motor
+Vent (not on all models)
+Use top of hole of jumper | L W2 as test point for F9
+' (Red stripe (Red ian on plug) _ i BR P10-3 Pin 5 | Vent Wax Nise
+K2 Pilot L1 Relay
+(Also see Door “Fg 600 .Q - 1,800 Q Switch Circuit) 120V, 60 Hz, 6W Electronic Control
+Electronic Control
+3-14 Hi Maytag Chopper Dishwashers
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+Vent Fan (not on all models)
+This test will check the wiring to the vent and the vent fan itself. The following items are part of the vent fan circuit.
+HM Harness/Connection @ Vent Fan H Control Board
+NOTES:
+Only dishwashers with the Heated Dry option have a vent and
+fan. If moisture is detected between outer and inner door
+panels or on cabinets around air inlet located on side of door panel, check that the vent damper is closing properly using the
+Service Diagnostic Cycle. Also verify that wax motor seal and vent bezel seal are not
+pinched or missing. Verify there are no leaks around the vent bezel seal allowing moisture past the bezel and into the door
+panel area.
+Strip Circuit — Vent Fan
+DC Fan (not on all models)
+| (Red stripe on plug)
+| P10-5
+Test Procedure
+1.
+mn BW NY
+10. 11. 12.
+Check the vent fan and electrical connections by performing the Service Diagnostic Cycle. The following steps assume that this step was unsuccessful.
+. Unplug dishwasher or disconnect power.
+. Remove outer door panel to access control board. . Unplug connector P10 from control board.
+. Check the resistance of the fan motor coil. With a
+ohmmeter, connect the black lead to P10-5 and the red
+lead to P10-4. IMPORTANT: Note measurement polarity.
+> lf the resistance is between 31-41 k-ohms, the fan motor and harness are good. Go to step 6.
+> If outside the range, replace the fan motor.
+> If an open circuit is detected, check connections and harness continuity between control and fan motor. If good, replace the fan motor assembly.
+. Reconnect P10 to control board. . With a voltmeter set to DC, connect the black lead to
+P10-6 and the red lead to P10-5. IMPORTANT: Note measurement polarity.
+. Plug in dishwasher or reconnect power. . Check for DC voltage from the Control. Start the
+Diagnostic Cycle and at the proper interval measure for +5V DC out of the control between P10 pins 4&5.
+> If +5V DC is measured and fan is running, go to step 10.
+> If no voltage is measured, replace the control board and retest.
+Unplug dishwasher or disconnect power. Reassemble all parts and panels. Plug in dishwasher or reconnect power.
+(Red stripe |
+Fan Motor 31KQ -41KQ 5VDC, 1W Must measure resistance with correct polarity and disconnected from controls.
+| | DC Ref — —_ Electronic Control
+Electronic Control
+No test pad on P10-4. Recommend using test pad on P11-5.
+Maytag Chopper Dishwashers Mi 3-15
+TESTING
+For Service Technician Use Only
+A DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can result in death or electrical shock.
+AC Fan Motor (not on all models)
+This test will check the wiring to the AC fan motor and the fan motor itself. The following items are part of the AC Fan Motor circuit.
+HM Harness/Connection @ AC Fan Motor H Control Board
+Test Procedure
+1. Check for fan operation in the Diagnostic Cycle. The AC fan should be running during cycles 19, 16, 15, and 3.
+2. Are all the loads controlled by TRIACs not working?
+> YES—check for open door switch, TRIAC fuse, or pilot relay.
+> NO-just the diverter valve. Go to step 3. 3. Unplug dishwasher or disconnect power. 4. Remove outer door panel to access control board. 5. Unplug connector P7 from control board.
+Strip Circuit —- AC Fan Motor
+AC Fan (not on all models) Electronic Control
+6. Check the fan motor—using an ohmmeter, measure the resistance between P7-1 and P7-3.
+> If the resistance is between 60-80 ohms, the fan motor and harness are good. Go to step 7.
+> If outside the range, replace the fan motor assembly.
+> If an open circuit is detected, check connections and harness continuity between control and fan motor. If good, replace the fan motor assembly.
+7. Reconnect P7 to control board.
+8. Set voltmeter to AC and connect leads to test-pads P10- 1 & P7-1 on the control board. Plug in dishwasher or reconnect power.
+9. Start the Diagnostic Cycle and at the proper interval measure for AC out of the control between P10-1 & P7-1. (Refer to AC Fan Motor Strip Circuit below.)
+IMPORTANT: The Fan Motor must be connected to the control board to measure voltage accurately!!!
+> If no AC voltage is measured, replace the control board and retest.
+> If 120 VAC is measured and the fan is spinning, go to step 10.
+10. Unplug dishwasher or disconnect power. 11. Reassemble all parts and panels.
+12. Plug in dishwasher or reconnect power and run Diagnostic Cycle to verify repair.
+Electronic Control
+Ll : | Use top of jumper W2 as test point for F9.
+| BK N.O.
+,
+o—&
+K2 Pilot L1 Relay
+LA,
+BU BU = S P7-1 Pin1 Pin3 1] RI
+P4-1 Triac
+(Also see Door
+FQ
+P10-1
+___ Switch Circuit) No test pad on P7-3.
+_ Fan Motor \ 60Q2 -8002 Recommend using test pad on P10-1. 120 V, 60 Hz, 12 Watts
+3-16 Mi Maytag Chopper Dishwashers
+TESTING
+For Service Technician Use Only
+Test Procedure A DANG ER 1. Unplug dishwasher or disconnect power.
+. Remove outer door panel to access control board.
+2
+3. Unplug connector P7 from control board.
+4. Check the Power Blast wax motor and harness—using
+ow an ohmmeter, measure the resistance between P7-4 and
+P7-6.
+> Ifthe resistance is between 600-1800 ohms, the wax motor and harness are good. Go to step 5.
+Only authorized technicians should perform > If outside the range, replace the Power Blast wax diagnostic voltage measurements. motor.
+After performing voltage measurements, > If an open circuit is detected, check connections and disconnect power before servicing. harness continuity between control and Power Blast
+: pi ; ‘ wax motor. If good, replace the wax motor. Failure to follow these instructions can resultin peeeetse death or electrical shock. 5. Reconnect P7 to control board. 6. Plug in dishwasher or reconnect power.
+7. Check for AC voltage from the Control. Start the
+Electrical Shock Hazard
+Power Blast (not On all models) Diagnostic Cycle and at the proper interval measure for AC out of the control between P7-4 to P7-6 using a voltmeter ; ; . set to AC. This test will check the airing te the POWEr Blast and the > If no AC voltage is measured, replace the control board Power Blast wax motor itself. The following items are part of ane rarct
+the Power Blast wax motor circuit. @ Harness/Connection
+@ Power Blast Wax Motor
+H Control Board
+> If 120V AC is measured and Power Blast wax motor is energized, go to step 8.
+8. Unplug dishwasher or disconnect power. 9. Reassemble all parts and panels. 10. Plug in dishwasher or reconnect power.
+Strip Circuit — Power Blast
+ia | Use top hole of jumper | a N W2 as test point for F9 |
+K2
+PilotL1 Relay Fuse Power Blast Wax Motor
+(Also see door | 6002 to 18002 =
+____ Switch circuit) 120V, 60 Hz, 6W Electronic Control Electronic Control
+Maytag Chopper Dishwashers Hi 3-17
+TESTING
+For Service Technician Use Only
+4 DANGER
+°
+Electrical Shock Hazard
+Only authorized technicians should perform diagnostic voltage measurements.
+After performing voltage measurements, disconnect power before servicing.
+Failure to follow these instructions can resultin death or electrical shock.
+3-18 Hi Maytag Chopper Dishwashers
+User Interface (UI)
+This test will check the wiring to the user interface and the user interface itself. The following items are part of the user interface circuit.
+HM Harness/Connection
+HM User Interface (Ul)
+M@ Status LED (On some models) H Control Board
+Test Procedure
+1,
+Verify that the control lock-out feature has not been turned on by the customer. If unit will not run or power up, perform Power Check procedure on page 3-6. Also, check for excessive condensation on UI parts due to vent and/or fan problem.
+. Unplug dishwasher or disconnect power. . Remove outer door panel to access control board.
+4. Disconnect user interface connection from control board.
+9. 10. 11.
+Verify all other connections to the control are good.
+. Open dishwasher door. . Plug in dishwasher or reconnect power. . Wait at least 7 seconds for control to power-up
+completely.
+. Close dishwasher door and monitor control response: > If control is OK, it will respond by turning on the drain
+motor for 2 minutes. Replace user interface assembly.
+> If control is not OK, it will not turn on the drain motor.
+Wait for at least 10 seconds. If still no drain response, then replace control or LCD display module (whichever one the UI was connected to).
+Unplug dishwasher or disconnect power. Reassemble all parts and panels. Plug in dishwasher or reconnect power.
+COMPONENT ACCESS
+Section 4: Component Access
+This section provides service parts access, removal, and installation instructions for the “Maytag Chopper Dishwashers.” H Door Spring Adjustment Installing Insulation Blanket Removing Door Latch Strike Accessing Door Components & User Interface Removing Door Latch Assembly Removing Electronic Control Board Removing the Dispenser Removing the Water Fill & Drain Components Advanced Power Dry™ (Side Dry) Overfill Assembly In Tub Components Spray Arms, Feed Tube, and Manifold Removing the Racks Removing the Lower Spray Arm Under Tub Components Removing Heater Assembly Removing the Drain Pump Removing the Optical Water Indicator Removing the Sump Assembly
+Chopper Motor Assembly Parts
+Removing the Chopper Motor Assembly
+Maytag Chopper Dishwashers Hi 4-1
+COMPONENT ACCESS
+Adjustable Door Springs
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Door Spring Adjustment
+1. Unplug dishwasher or disconnect power.
+2. Remove the dishwasher from the installation.
+3. With another person holding the dishwasher to keep it from tipping, open and close the door a few times. IF the
+door closes or falls open under its own weight, the door tension will need to be adjusted. See Figure 1.
+Figure 1
+4-2 Mi Maytag Chopper Dishwashers
+Door Closes Too Quickly
+1. To adjust the door spring tension, unhook the spring from the rear leg of dishwasher. See figure 2.
+2. Using a 5/16” nut driver or hex socket, remove the screw from the tensioner.
+3. The screw can be put into one of 3 holes (1, 2, 3) in the front leg of dishwasher, see figure 2. If the door closes by itself, move the tensioner to a lower-numbered hole and replace screw.
+4. Reattach door spring to rear leg.
+NOTE: Tensioners on both sides of dishwasher should be secured at same holes.
+Figure 2
+Door Falls Open 1. When door is unlatched, if door opens by itself, move the tensioner to a higher-numbered hole and replace the screw. See Figure 3. 2. Reattach door spring to rear leg. NOTE: Tensioners on both sides of dishwasher should be secured at same holes.
+e/ Tensioner
+A
+Figure 3
+COMPONENT ACCESS
+Insulation Blanket and Door Latch Strike
+AWARNING Removing Door Latch Strike
+1. Open the dishwasher door. YQ 2. Depress the 2 outside bars and pull out the latch, (see Figures 1, 2 and 3).
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Installing Insulation Blanket (Stainless Steel Tub Models Only)
+1. Fasten the blanket on the hooks located on each side of the tub, (see Figures 1 and 2).
+Figure 1
+ /
+Figure 1
+Figure 2
+Figure 3
+Figure 2
+Maytag Chopper Dishwashers Hi 4-3
+COMPONENT ACCESS
+Accessing Door Components & User Interface
+AWARNING
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Remove Outer Door Panel
+1. Unplug dishwasher or disconnect power.
+2. Remove ten (10) T-15 screws on the sides and top of door panel assembly (see Figure 1).
+Figure 1
+3. Move the outer door panel away from door assembly with enough room to disconnect the User Interface and/or ACU harness (depending on model and door panel design).
+See Figures 2 & 3.
+Figure 2 - ACU & UI on Outer Door Panel
+4-4 lM Maytag Chopper Dishwashers
+Figure 3 - ACU & UI! on Inner Door Panel
+4. \f necessary, remove the latch assembly from the outer door panel or disconnect the latch assembly harness.
+5. Remove the outer door panel assembly.
+User Interface Parts
+Screw ———»> &,
+Console Assembly
+Screw
+Jumper, 4-Wire
+Figure 4 - Towel Bar Doors
+Pocket Handle Cover, UI
+Jumper, 4-Wire
+User Interface
+Button, Consoté
+Console Assembly
+Figure 5 - Pocket Handle Doors
+COMPONENT ACCESS
+Removing Door Latch Assembly
+AWARNING
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Remove Door Latch Assembly
+1. Unplug dishwasher or disconnect power.
+2. Perform the procedures on page 4-4, “Remove Outer Door Panel” prior to performing the following steps.
+3. On some “early” models, it will be necessary to first
+remove the UI assembly to access the door latch assembly (see Figure 1).
+Remove UI T-20 Screw
+Figure 1 4. To remove door latch assembly, insert a small flat-blade
+screwdriver into the clip slots on each side of the latch. Gently push in to release latch clips, (see Figures 2 and 3).
+Figure 3
+5. Remove latch assembly from door, (see Figure 4). 6. Disconnect harness assembly.
+Figure 4
+Figure 2
+Door Latch /? Strike Entry Figure 4 Maytag Chopper Dishwashers Hl 4-5
+COMPONENT ACCESS
+Removing Electronic Control Board
+AWARNING Removing the Control
+(Earlier Models)
+1. Unplug dishwasher or disconnect power.
+2. Perform the procedures on page 4-4, “Remove Outer Door Panel” prior to performing the following steps.
+3. Disconnect harnesses from control board.
+Electrical Shock Hazard 4. Depress the locking tab, see Figure 3 Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Lift up Locking Tab
+Removing the Control (Later Models)
+1. Unplug dishwasher or disconnect power.
+2. Perform the procedures on page 4-4, “Remove Outer Door Panel” prior to performing the following steps.
+3. Disconnect harnesses from control board.
+4. Depress the locking tab, see Figure 1 4. Slide the electronic control to the left to unhook the tabs P ‘ on the back of the control from the slots in the door
+bracket, see Figure 4. Depress Locking T i"
+Figure 3 - Lift up Locking Tab
+Figure 1 - Depress Locking Tab
+4. Slide the electronic control to the left to unhook the tabs on the back of the control from the slots in the door
+bracket, see Figure 2. 5. There are two tabs on the back of the control that hook — into the slots in the door bracket. See Figure 5.
+Figure 4 - Slide Control to Left
+aera |=
+Tab Slots
+Figure 5 - Control Tab Slots
+Figure 2 - Slide Control to Left
+4-6 HM Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Removing Dispenser Assembly
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Removing the Dispenser
+1. Unplug dishwasher or disconnect power. 2. Remove the outer panel from the door. 3. Disconnect dispenser harness.
+4a. LONG DISPENSER: Remove - 6 - %” hex head screws securing the dispenser to the door. Remove dispenser assembly and bracket, (see Figures 1 & 3).
+4b. MINI DISPENSER: Use a flat-blade screwdriver on locking clips to remove dispenser assembly (see Figures 2 & 4).
+Figure 2 - Mini Dispenser
+Dispenser Assembly
+Y
+Inner Door Panel
+Figure 3 - Long Dispenser
+Dispenser Assembly
+t NO EZ w/ Sy
+i”
+ISX
+Inner Door Panel
+Figure 4 - Mini Dispenser
+Maytag Chopper Dishwashers Hi 4-7
+COMPONENT ACCESS
+Removing Water Fill and Drain Components
+Water Fill & Drain Components (Some Models)
+Figure 1
+_ Ti E Electrical Shock Hazard
+Disconnect power before servicing.
+Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Inlet Hose
+Water Fill & Drain Components (Some Models) pe
+Drain loop must be higher than drain to prevent siphoning. The f ' 7 fill valve and fill hose shown below is the same for Figure 3.
+Figure 2 Lo Figure 3 2) ‘@ : \ SN 6 S Air Ass’y Gasket g Outlet 7 ' it 7, J clk = 4 Clip SD Retainer Inlet Valve
+4-8 HM Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Advanced Power Dry™ (Side Dry)
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Advanced Power Dry™ Components
+Air Outlet Ass’y
+Exhaust Tube ———_—»>_ } 5
+Rubber Seal
+Air Assembly Nut
+mm — Vent Hose
+Blower Ass’y
+Figure 1
+Advanced Power Dry™ Components 1. Unplug dishwasher or disconnect power.
+2. Access Power Dry™ components on left side of tub (see Figure 2). To disassemble Power Dry™ components; unscrew air assembly nut from inside tub, disconnect vent hose, then slide exhaust tube and air outlet assembly up and out of blower assembly to remove.
+] Air Outlet Ass’y —_——> Retainer Clip —_— — | T EF G
+Figure 2 3. From underneath the tub, disconnect the harness and remove the blower vent from the Blower Assembly (see Figure 3).
+4. Remove the two (2) 1/4” screws securing Blower Assembly to dishwasher and remove assembly (see Figure 3).
+Blower Connector |
+Blower Assembly
+Figure 3
+Maytag Chopper Dishwashers Hi 4-9
+COMPONENT ACCESS
+Overfill Assembly
+Electrical Shock Hazard Disconnect power before servicing.
+Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Accessing Overfill Assembly
+1. Unplug or disconnect power. 2. Open right and left side covers, (see Figure 1).
+Figure 1 Location of float switch components. See Figure 2.
+Float Switch
+Figure 2
+4-10 Mi Maytag Chopper Dishwashers
+Overfill Assembly Components
+Float
+Standpipe nut
+Housing and standpipe
+Housing Panels
+Figure 3
+COMPONENT ACCESS In Tub Components
+Upper Rack Rails Spray Arm (3 Level) Upper Rack Rails
+7a
+Feed Tube to Middle and Upper Spray Arms
+Water Inlet
+Heater Lower Spray Arm Coarse Filter Water Level Float
+Tub Component Identification Maytag Chopper Dishwashers Mi 4-11
+COMPONENT ACCESS
+Spray Arms, Feed Tube, and Manifold
+Manifold Spray arm (upper)
+—~—<——— Retainer i) —t———_ Feed tube Component Identification
+i)
+S| f —t— Spray arm (3rd level)
+4-12 Mi Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Removing the Racks
+Removing The Upper Rack To Remove the Rack (“C” Rails) 1. Roll the rack 1/3 to 1/2 of the way out of the tub. : 2. Rotate the rack stops outward (see Figure 3) To Remove the Rack (Lava Rails) 3. Roll the rack all the way out of the track and remove from 1. To gain access to the removable tabs on the tracks/rails, the dishwasher. pull the upper rack forward about halfway out of the tub.
+2. On one side, press the tab on the track in and pull up the
+Figure 3
+To Replace the Rack (“C” Rails)
+1. Reverse the above steps 1-3 to replace the rack into the dishwasher.
+>
+Figure 1
+Removing the Culinary Tool Rack (3rd level rack - available on some models)
+1. Roll the rack 1/3 to 1/2 of the way out of the tub. 2. Rotate the rack stops outward (see Figure 4)
+3. Roll the rack all the way out of the track and remove from the dishwasher.
+=
+Figure 2
+3. Then repeat this step on the other side to completely remove the front end of the rack.
+4. Then remove the back end of the rack, by pulling the back end out with a slightly forward, and then upward motion.
+Figure 4 To Replace the Rack (Lava Rails) 1. Pull the tracks forward about halfway out of the tub. To Replace the Culinary Tool Rack 2. Along the sides of the racks are round attachment tabs. 1. Reverse the above steps 1-3 to replace the rack into the Align the rack’s back end attachment tabs with the cutout dishwasher. in the track. Push down into place.
+3. Pull the tracks completely out and align the rack’s front end attachment tabs with the cutout in the track. Push down into place. You will hear a snap when the front end of the rack is secured into place on each side.
+Maytag Chopper Dishwashers Hi 4-13
+COMPONENT ACCESS Removing Lower Spray Arm
+To remove the lower spray arm:
+1. Lower spray arm nut location, (see Figure 1). 3. Lift off lower spray arm, (see Figure 3).
+Figure 3
+Figure 1
+2. Rotate the lower spray arm nut % turn counter clockwise Lower Spray Arm Reinstallation
+to remove the spray arm, (see Figure 2).
+1. Place spray arm on the diverter housing and slowly turn spray arm until it seats on diverter.
+2. Grasp lower spray arm nut and turn 1/4” clockwise to secure in place on diverter housing.
+3. Run the Diagnostic Cycle to verify spray arm operation.
+Figure 2
+4-14 Mi Maytag Chopper Dishwashers
+COMPONENT ACCESS Under Tub Components
+Blower Fan Fill Valve Thermostat Float Switch Terminal Box
+| Drain Pump Fae
+[drain Hose ° wa Ve \\ ae VW 7 — Chopper /7 a
+Bs Wes ec
+Motor Capacitor
+Under Tub Component Identification
+Maytag Chopper Dishwashers Mi 4-15
+COMPONENT ACCESS
+Removing Heater Assembly
+al ae (\\ w Electrical Shock Hazard Disconnect power before servicing. DQ, | Replace all parts and panels before operating. = | Failure to do so can result in death or if | electrical shock. eS ee ea le ee en ae / f 7 mS | r s\ \ G | 2 | 7-4 \/ —~@® Vi Removing the Heater Assembly Ls. 6 ise 2 ee ee le
+. Unplug dishwasher or disconnect power. | . Disconnect wires from both heater terminals (see Figure 1). | . Remove both heater element nuts (see Figure 2). as 3 ~fi . Remove heater element assembly from tub.
+BWN PR
+Heater Components 1. Heater Element Assembly 2. Heater Washer 3. Heater Element Nut
+Figure 2
+Heater | Connector
+Heater Connector
+Figure 1
+4-16 Mi Maytag Chopper Dishwashers
+COMPONENT ACCESS Removing Drain Pump
+4. Rotate the drain pump 1/4 turn counterclockwise, (see AWARNING Figure 3).
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Figure 3 Remove Drain Pump 5. Remove the drain pump from sump assembly, (see Figure 1. Unplug dishwasher or disconnect power. 2. Release hose clamp and pull off the hose, (see Figure 1). NOTE: Be prepared to catch the water from the sump area.
+Figure 4
+Figure 1
+3. Unplug the wire harness connected to the drain pump, (see Figure 2).
+Figure 2
+Maytag Chopper Dishwashers HI 4-17
+COMPONENT ACCESS Removing Optical Water Indicator (OWI)
+AWARNING Removing Optical Water Indicator
+NOTE: The Optical Water Indicator (OWI) can be accessed Y from the front by removing the toe panel. 1. Unplug dishwasher or disconnect power.
+‘ey 2. Remove the toe panel and attached insulation at the
+bottom of the dishwasher. Electrical Shock Hazard 2 ute Nia on bottom, right-side of sump assembly (see Disconnect power before servicing. . 3. Reach in and rotate the OWI counter-clockwise 1/4 turn. Replace all parts and panels before operating. 4. Remove the OWI from sump assembly.
+Failure to do so can result in death or 5. Disconnect harness from Optical Water Indicator. electrical shock.
+FRONT OF DISHWASHER
+Figure 1
+4-18 Ml Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Removing the Sump Assembly
+Electrical Shock Hazard Disconnect power before servicing.
+Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Lower Spray Arm
+nu BF WN
+Removing the Sump Assembly
+Preparation: Remove the following items from inside the dishwasher (see Figure 1 below):
+1.
+. Lower Spray Arm
+Lower Rack
+. Accumulator Cover . Disconnect Feed Tube from Sump . Accumulator/Screen Assembly
+. Remove Chopper Protector
+Accumulator Cover Accumulator/Screen
+Figure 1
+Assembly
+Continued on next page...
+Maytag Chopper Dishwashers Hi 4-19
+COMPONENT ACCESS
+Removing the Sump Assembly (continued)
+Sump Removal: 1. Unplug dishwasher or disconnect power. 2. Perform the procedures on page 4-17, “Remove Drain Pump” prior to performing the following steps. 3. Remove the wire harness from the bracket on the side of the sump and move off to the side, (see Figure 1).
+Figure 3 - Unlocked
+Figure 1 5. Depress sump release tab located in front of sump. Push 4. Unlock the three tabs securing the motor and sump upward on sump, from the bottom, to detach from tub. assembly to the tub, (see Figures 2 and 3). See Figure 4.
+Figure 4
+4-20 Mi Maytag Chopper Dishwashers
+COMPONENT ACCESS Removing the Sump Assembly (continued)
+6. From inside the tub, tilt the sump assembly and lift out far 8. Remove sump assembly from dishwasher (see Figure 7). enough to flip sump over. See Figures 5 and 6.
+iy Figure 7 - Sump Assembly - \\a
+| owl NOTE: When reinstalling the sump assembly, align the tab on Harness the assembly with the slot in the tub. See Figures 8 and 9.
+Figure 8 Figure 6
+7. With the sump assembly flipped over inside the tub, disconnect the following harness:
+Refer to Figure 6 above for harness locations: @ Wash Motor Harness HH OW/l Harness (or remove OWI from sump)
+Figure 9
+Maytag Chopper Dishwashers Ml 4-21
+COMPONENT ACCESS Chopper Motor Assembly Parts
+Chopper Motor Assembly - Exploded View
+Figure 1 - Exploded View
+Chopper Motor Assembly Parts
+[umber [oessrption _—————~d:—ar |
+6 [chopper assembly-amade ‘|__| [8 [screw 2zt6xiso pn ecmarsews | 3 [3 [rose outlet, Washeump da
+Figure 2 - Wash Pump Assembly
+4-22 Mi Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Removing the Chopper Motor Assembly
+4. Use a screwdriver to gently loosen the seal between the grommet and the sump assembly (see Figure 2).
+Electrical Shock Hazard Disconnect power before servicing. Replace all parts and panels before operating.
+Failure to do so can result in death or electrical shock.
+Removing the Chopper Motor Ass’y
+. Unplug dishwasher or disconnect power. . Perform the procedures on page 4-19, “Removing the Figure 2 Sump Assembly” prior to performing the following steps.
+. Remove or loosen clamp from sump side of hose (see 5. Remove Chopper Motor Assembly from sump (see Figure 3). Figure 1).
+Figure 1 Figure 3
+Maytag Chopper Dishwashers Hl 4-23
+COMPONENT ACCESS Removing the Chopper Motor Assembly
+Disassemble Chopper Motor Assembly 8. Remove pump housing from motor assembly (see Figure
+6. Remove Pump Housing - Remove the three (3) screws securing the pump housing to the motor assembly (see Figure 4).
+6).
+Figure 6
+NOTE: The pump housing is keyed to the motor assembly for
+Figure 4 ease of reassembly.
+7. Use a screwdriver to separate the pump housing from the
+motor assembly (see Figure 5). 9. Remove the Chopper Blade from the motor assembly (see
+Figure 7).
+Figure 5 Figure 7
+NOTE: The Chopper Blade is keyed to fit on the center shaft of the impeller assembly.
+4-24 Ml Maytag Chopper Dishwashers
+COMPONENT ACCESS
+Removing the Chopper Motor Assembly
+10. Remove Chopper Enclosure from the motor assembly (see Figure 8).
+Impeller
+Chopper Enclosure
+Figure 10
+Figure 8 NOTE: The impeller service kit includes the impeller, stationary seat face seal, and rotating seat face seal. See Figure 1 on page 4-22. NOTE: The Chopper Enclosure is keyed to fit onto the motor assembly.
+11. To remove the impeller; insert a screwdriver into the motor housing vent to prevent the rotor from turning. Firmly grasp the impeller with the other hand and spin it off the motor shaft. See Figures 9 & 10.
+Figure 9
+Maytag Chopper Dishwashers Ml 4-25
+COMPONENT ACCESS Notes
+4-26 Mi Maytag Chopper Dishwashers
+PRODUCT SPECIFICATIONS & WARRANTY INFORMATION SOURCES
+IN THE UNITED STATES:
+FOR PRODUCT SPECIFICATIONS AND WARRANTY INFORMATION CALL: FOR MAYTAG PRODUCTS: 1-800-688-9900
+FOR TECHNICAL ASSISTANCE WHILE AT THE CUSTOMER’S HOME CALL: THE TECHNICAL ASSISTANCE LINE: 1-800-832-7174
+HAVE YOUR STORE NUMBER READY TO IDENTIFY YOU AS AN AUTHORIZED IN-HOME SERVICE PROFESSIONAL
+FOR LITERATURE ORDERS (CUSTOMER EXPERIENCE CENTER): PHONE: 1-800-851-4605
+FOR TECHNICAL INFORMATION AND SERVICE POINTERS: www.servicematters.com
+IN CANADA:
+FOR PRODUCT SPECIFICATIONS AND WARRANTY INFORMATION CALL 1-800-807-6777
+FOR TECHNICAL ASSISTANCE WHILE AT THE CUSTOMER’S HOME CALL: THE TECHNICAL ASSISTANCE LINE: 1-800-488-4791
+HAVE YOUR STORE NUMBER READY TO IDENTIFY YOU AS AN AUTHORIZED IN-HOME SERVICE PROFESSIONAL
+Maytag Dishwashers 4-Blade Stainless Steel Chopper
+W11035362

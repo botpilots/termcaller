@@ -1,4 +1,8 @@
 /node_modules
 /backend/tests/output
 /backend/uploads
-/service_manuals
+/backend/.ocr-run.log
+/backend/data/service-manual-corpus/cache/
+/backend/data/service-manual-corpus/build-manifest.json
+/service_manuals/*
+!/service_manuals/*_hocr_searchtext.txt

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "build:corpus": "tsx scripts/buildManualCorpus.ts"
+    "build:corpus": "tsx scripts/buildManualCorpus.ts",
+    "ocr:pdf": "tsx scripts/ocrPdfToText.ts"
   },
   "keywords": [],
   "author": "",

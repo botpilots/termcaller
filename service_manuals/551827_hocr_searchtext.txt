@@ -1,0 +1,6282 @@
+22C-0-1
+
+~ MANUAL
+TRANSMISSION
+MODEL R5M3, V5M3 —
+
+CONTENTS
+GENERAL INFORMATION......00..0...ceece peseesesseateaeeneeneentenseateneeaeenss 22C-0-3
+1, SPECIFICATIONS 00:0... 6...cesscsss cess eesseesseesecssesenesssecsneesnecsneesinesneeny 22C-1-1
+TRANSMISSION MODEL TABLE Sseecaceeeneeeneaeeseeneaes 22C-1-1
+
+GENERAL SPECIFICATIONS 2200.00.00... occccccceseecseesecsearereaeeees 22C-1-2
+
+SERVICE SPECIFICATIONS ...0......0000.cccccccccccsceseeceeceeeees .. 22C-1-2
+
+TORQUE SPECIFICATIONS .00o0.o.. ooo ccc cece ceeeeeeneeeee .. 220-1-3
+
+SEALANTS ................ sesdascevecsvsevevsesevsssevasessessecaeeasaeataees .. 22C-1-4
+
+LUBRICANTS ooo... cccccccccccccccssteecescesseesacssecaceaevsesseeansass 22C-1-5
+
+ADJUSTMENT SNAP RINGS AND SPACERS ........0.........cccceeee 22C-1-5
+2. SPECIAL TOOLS ........... is cesecccsseessecusccssevsssavssscssasvussessnetactaavareasvane 22C-2-1
+3. TRANSMISSION ........... dace ceeseseeseuselecseersetensecustersasenenees “ecseeuseseees 22C-3-1
+4. MAIN DRIVE PINION ..0..0..0.00.0000000c ccc cecesessececcesseceeeseersentetseeees 22C-4-1
+5. COUNTERSHAFT CLUSTER GEAR ...0......c.cccccecceccccsccgecececseesseseease 22C-5-1
+6. MAIN SHAFT................ “ eueeeeseveees 22C-6-1
+7. TRANSFER <V5M31> 22C-7-1
+7a. TRANSFER <V5M311 - SUPER SELECT 4WD Il> .. 22C-7a-1
+8. TRANSFER CASE PLATE <VSM31> 0000.0... cccecccccecceeecceseeeeees 220-8-1
+9. TRANSFER INPUT GEAR
+
+<V5M31 — PART TIME 4WD AND SUPER SELECT 4WD> ................. 22C-9-1
+9a. TRANSFER INPUT GEAR <V5M31 - SUPER SELECT 4WD Il> 22C-9a-1
+
+10. COUNTERSHAFT GEAR -
+<V5M31 - PART TIME 4WD AND SUPER SELECT 4WD> ................. 22C-10-1
+
+10a. COUNTERSHAFT GEAR <V5M31 — SUPER SELECT 4WD Il> 22C-10a-1
+
+11. H-L SHIFT FORK :
+<V5M31 — PART TIME 4WD AND SUPER SELECT 4WD> ............ eevee 220-11-1
+
+11a. SHIFT FORK AND SHIFT RAIL <V5M31 - SUPER SELECT 4WD I> ... 22C-11a-1
+12. 2-4WD SYNCHRONIZER <V5M31 - SUPER SELECT 4WD> .............. 22C-12-1
+13. CENTER DIFFERENTIAL CASE <V5M31 - SUPER SELECT 4WD> ..... 22C-13-1
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1. . Revised
+
+22C-0-2
+
+14. REAR OUTPUT SHAFT <V5IM31 — SUPER SELECT 4WD> ................ 22C-14-1
+14a. REAR OUTPUT SHAFT <V5M31 - SUPER SELECT 4WD I> ............. 22C-14a-1
+15. REAR OUTPUT SHAFT <V5M31 - PART TIME 4WD> ........:............ 22C-15-1
+16. TRANSFER DRIVE SHAFT <V5M31 — SUPER SELECT 4WD> ........... 22C-16-1
+16a. TRANSFER DRIVE SHAFT <V5M31 - SUPER SELECT 4WD il ......... 22C-16a-1
+17. FRONT OUTPUT SHAFT .
+
+<V5M31 - PART TIME 4WD AND SUPER SELECT 4WD> ....... easeaeees 22C-17-1
+17a. FRONT OUTPUT SHAFT <V5M31 - SUPER SELECT 4WD II> ........... 22C-17a-1
+
+18. SPEEDOMETER GEAR
+<R5M31, V5M31 - PART TIME 4WD AND SUPER SELECT 4WDb> ..... 22C-18-1
+
+19. CONTROL HOUSING <RSMB1b ............. cc eceettreteeeseetesreeeeeees 22C-19-1
+20.. SHIFT RAIL DRIVE GEAR <V5M31 ~- SUPER SELECT 4WD Il> .......... 22C-20-1
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEESS14-1 Added
+
+R5M3, V5M3 - General information 22C-0-3
+
+GENERAL INFORMATION
+V5M31-5 <SUPER SELECT 4WD>
+
+TRMO784
+
+© Mitsubishi Motors Corporation Nov. 1995 PWEES914-E Revised
+
+22C-0-4 R5M3, V5M3 - General Information
+
+V5M31-5 <PART TIME 4WD>
+
+TRMO0785
+© Mitsubishi Moters Corporation Nov. 1995 PWEE8914-E , Revised
+
+R5M3, V5M3 - General Information 22C-0-4a
+V5M31-6 <SUPER SELECT 4WD Il>
+
+——
+
+TRM1361
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+22C-0-4b R5M3, V5M3 —- General Information
+
+V5M31-6 <PART TIME 4WD>
+
+Eine =,
+
+=
+aS
+he
+.
+
+Le ere
+
+a
+
+cov
+
+rm
+1
+
+Sor
+
+i by oy oe &
+
+m
+
+TRM1362
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-I Added
+
+R5M3, V5M3 - General Information 22C-0-5
+
+R5M31
+
+a |
+I
+()
+
+TRMO786
+© Mitsubishi Motors Corporation Nov. 1995 PWEE8914-E Revised
+
+Pxeie
+
+NOTES
+
+R5M3, V5M3 - Specifications
+
+22C-1-1
+
+1. SPECIFICATIONS
+TRANSMISSION MODEL TABLE - MODEL 1994
+
+Transmission model Speedometer Vehicle mode! Engine model
+gear ratio
+
+EC V5M31-5-SJ 30/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-SJL 30/9 PAJERO/MONTERO  4M4O0 Turbocharger with charge air cooler
+V5M31-5-SJTL 30/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+V5M31-5-YH 28/9 PAJERO/MONTERO = 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO 6674
+
+EXP V5M31-5-SI 29/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+V5M31-5-SIL 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-YH 28/9 PAJERO/MONTERO 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO =6G74
+
+AUS V5M31-5-SJ 30/9 PAJERO 4M40 Turbocharger with charge air cooler
+V5M31-5-YH 28/9 PAJERO 6G74
+
+TRANSMISSION MODEL TABLE - MODEL 1995
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+EC —-R5M31-7-NI 29/9 L400-2WD 4D56 Turbocharger with charge air cooler
+V5M31-5-SH 28/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-SHL 28/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+V5M31-5-SJ 30/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-SJL 30/9 PAJERO/MONTERO  =4M40 Turbocharger with charge air cooler
+V5M31-5-SJTL 30/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-YH 28/9 PAJERO/MONTERO = 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO =6G74
+V5M31-7-NKL 31/9 L400-4WD 4D56 Turbocharger with charge air cooler
+EXP V5M31-5-SHI 28/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+V5M31-5-SIL 29/9 PAJERO/MONTERO =4M40 Turbocharger with charge air cooler
+V5M31-5-SJL 30/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+V5M31-5-SKL 31/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-SKT 31/9 PAJERO/MONTERO  4M40 Turbocharger with charge air cooler
+V5M31-5-YG 27/9 PAJERO/MONTERO 6674
+V8M31-5-YGL 27/9 PAJERO/MONTERO 6674
+V6M31-5-YH 28/9 PAJERO/MONTERO 6674
+V8M31-5-YHL 28/9 PAJERO/MONTERO 6674
+AUS V5M31-5-SJ 30/9 PAJERO/MONTERO = 4M40 Turbocharger with charge air cooler
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEE8914-D
+
+Revised
+
+22C-1-2
+
+R5M3, V5M3 - Specifications
+
+TRANSMISSION MODEL TABLE - MODEL 1996
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+
+EC  R5M31-7-NI 29/9 L400-2WD 4D56
+R5M31-7-NIL 29/9 L400-2WD 4D56
+V5M31-5-SH 28/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SHL 28/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SI 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SIL 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SJ 30/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SJL 30/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SJTL 30/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-7-NKL 31/9 L400-4WD 4D56
+
+EXP V5M31-5-DIL 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-REA 25/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-REAL 25/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-RGA 27/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-RGAL 27/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SHT 28/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SI 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SIL 29/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SKT 31/9 PAJERO/MONTERO 4M40 Turbocharger with charge air cooler
+V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YGL 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YH 28/9 PAJERO/MONTERO 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO 6G74
+
+AUS V5M31-5-SI 29/9 PAJERO 4M40 Turbocharger with charge air cooler
+V5M31-5-SJ 30/9 PAJERO 4M40 Turbocharger with charge air cooler
+
+© Mitsubishi Motors Corporation
+
+Aug. 2000
+
+PWEES8914-J
+
+Revised
+
+R5M3, V5M3 - Specifications
+
+22C-1-2a
+
+TRANSMISSION MODEL TABLE - MODEL 1997
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+
+EUR R5M31-7-NG 27/9 L400-2WD 4D56
+R5M31-7-NGDL 27/9 L400-2WD 4D56
+V5M31-7-NIL 29/9 L400-4WD 4D56
+V5M31-5-YEL 25/9 PAJERO/MONTERO 6G74
+V5M31-5-YF 26/9 PAJERO/MONTERO 6G74
+V5M31-5-YFL 26/9 PAJERO/MONTERO 6G74
+
+EXP V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YGL 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YH 28/9 PAJERO/MONTERO 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO 6G74
+
+AUS V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-Y1 29/9 PAJERO/MONTERO 6G74
+
+© Mitsubishi Motors Corporation Aug. 2000 PWEES8914-J
+
+Revised
+
+22C-1-2b R5M3, V5M3 - Specifications
+
+TRANSMISSION MODEL TABLE - MODEL 1998, 1999
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+
+EUR R5M31-7-NGDL 27/9 L400-2WD 4D56
+V5M31-7-NIL 29/9 L400-4WD 4D56
+V5M31-5-YEL 25/9 PAJERO/MONTERO 6G74
+V5M31-5-YFL 26/9 PAJERO/MONTERO 6G74
+V5M31-5-YF 26/9 PAJERO/MONTERO 6G74
+
+EXP V5M31-5-YEL 25/9 PAJERO/MONTERO 6G74
+V5M31-5-YGL 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-YHL 28/9 PAJERO/MONTERO 6G74
+
+AUS V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-Y1 29/9 PAJERO/MONTERO 6G74
+
+© Mitsubishi Motors Corporation Aug. 2000 PWEES8914-J Revised
+
+R5M3, V5M3 - Specifications
+
+22C-1-2c
+
+TRANSMISSION MODEL TABLE - MODEL 2000
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+
+EUR R5M31-7-NGDL 27/9 L400-2WD 4D56
+V5M31-7-NIL 29/9 L400-4WD 4D56
+V5M31-5-YEL 25/9 PAJERO/MONTERO 6G74
+V5M31-5-YFL 26/9 PAJERO/MONTERO 6G74
+V5M31-5-YF 26/9 PAJERO/MONTERO 6G74
+V5M31-5-SH 28/9 PAJERO/MONTERO 4M40
+V5M31-5-SHL 28/9 PAJERO/MONTERO 4M40
+V5M31-5-SHTL 28/9 PAJERO/MONTERO 4M40
+V5M31-5-SI 29/9 PAJERO/MONTERO 4M40
+V5M31-5-SIL 29/9 PAJERO/MONTERO 4M40
+V5M31-5-SJ 30/9 PAJERO/MONTERO 4M40
+V5M31-5-SJL 30/9 PAJERO/MONTERO 4M40
+V5M31-5-SJTL 30/9 PAJERO/MONTERO 4M40
+
+EXP R5M31-B-MFDL 26/9 L200-2WD 6G72
+R5M31-B-MHDL 28/9 L200-2WD 6G72
+V5M31-5-YEL 25/9 PAJERO/MONTERO 6G74
+V5M31-5-YGL 27/9 PAJERO/MONTERO 6G74
+V5M31-5-SI 29/9 PAJERO/MONTERO 4M40
+V5M31-5-SIL 29/9 PAJERO/MONTERO 4M40
+V5M31-5-SKT 31/9 PAJERO/MONTERO 4M40
+V5M31-5-SHT 28/9 PAJERO/MONTERO 4M40
+V5M31-B-SIGL 29/9 L200-4WD 4M40
+V5M31-B-SIGL 29/9 L200-4WD 4M40
+
+AUS R5M31-4-MKD 31/9 L200-2WD 6G72
+R5M31-4-MJD 30/9 L200-2WD 6G72
+V5M31-5-YG 27/9 PAJERO/MONTERO 6G74
+V5M31-5-Y1 29/9 PAJERO/MONTERO 6G74
+V5M31-5-SJ 30/9 PAJERO/MONTERO 4M40
+
+© Mitsubishi Motors Corporation
+
+Aug. 2000
+
+PWEES8914-J
+
+Revised
+
+22C-1-2d
+
+R5M3, V5M3 - Specifications
+
+TRANSMISSION MODEL TABLE - MODEL 2001
+
+Transmission model Speedometer Vehicle model Engine model
+gear ratio
+
+EUR V5M31-6-XCL - PAJERO/MONTERO 4M41
+V5M31-6-XC - PAJERO/MONTERO 4M41
+V5M31-6-NFL - PAJERO/MONTERO 4D56 Turbocharger with
+
+charge air cooler
+
+V5M31-6-WDL . PAJERO/MONTERO 6G74 GDI
+V5M31-6-WD - PAJERO/MONTERO 6G74 GDI
+
+EXP R5M31-B-MFDL 26/9 L200-2WD 6G72
+R5M31-B-MHDL 28/9 L200-2WD 6G72
+V5M31-B-SIG2 29/9 L200-4WD 4M40
+V5M31-B-SIG3 29/9 L200-4WD 4M40
+V5M31-6-SFCL - PAJERO/MONTERO 4M40
+V5M31-6-SFC - PAJERO/MONTERO 4M40
+V5M31-6-SFBL - PAJERO/MONTERO 4M40
+V5M31-6-SFB - PAJERO/MONTERO 4M40
+V5M31-6-XCB - PAJERO/MONTERO 4M41
+V5M31-6-MEL - PAJERO/MONTERO 6G72
+V5M31-6-ME - PAJERO/MONTERO 6G72
+V5M31-6-YDCL - PAJERO/MONTERO 6G74
+V5M31-6-YDBL - PAJERO/MONTERO 6G74
+V5M31-6-YDB - PAJERO/MONTERO 6G74
+
+AUS R5M31-4-MKD 31/9 L200-2WD 6G72
+R5M31-4-MJD 30/9 L200-2WD 6G72
+V5M31-6-SFT - PAJERO/MONTERO 4M40
+V5M31-6-SF - PAJERO/MONTERO 4M40
+V5M31-6-YDT - PAJERO/MONTERO 6G74
+V5M31-6-YD - PAJERO/MONTERO 6G74
+
+© Mitsubishi Motors Corporation Aug. 2000
+
+PWEES8914-J
+
+Revised
+
+R5M3, V5M3 - Specifications 22C-1-2e
+GENERAL SPECIFICATIONS
+
+Items V5M31-5-Y,  V5M31-6-N —-V5M31-5-S,  V5M31-6-W, Y  R5M31
+V5M31-6-M V5M31-7,
+V8M31-6-S, X
+Transmission
+Gear ratio
+Ist... 3.952 3.952 - 3.952 4.234 3.952
+2nd .. 2.238 2.238 2.238 2.238 2.238
+3rd... 1.398 1.398 1.398 1.398 4.398
+4th 1.000 1.000 1.000 1.000 1.000
+Sth... 0.819 0.760 0.761 0.819 0.761
+Reverse 3.553 3.553 3.553 ; 3.553 3.553
+Transfer
+Gear ratio
+1.000 1.000 1.000 -
+1.900 ~ 1.900 1.900 -
+SERVICE SPECIFICATIONS
+mm {in.)
+Standard Limit
+Transmission
+Main drive pinion bearing end play... 0 - 0.06 (0 - 0.0024)
+Main drive pinion end play .............. 0-0.1 (0 - 0.004)
+3rd-4th speed synchronizer hub end play ... 0 - 0.08 (0 - 0.0031)
+Countershaft cluster gear bearing end play ......... 0-0.15 (0 - 0.0059)
+Clearance between outer synchronizer ring 0.3 (0.012)
+back surface and gear
+Transfer <V5M31>
+Input gear bearing end play . 0- 0.06 (0 - 0.0024)
+H-L. clutch hub end play cece eeeteaeeeecaetttettssteesensrese 0 - 0.08 (0 - 0.0031}
+Differential lock hub or clutch hub end play oo... cccececceeeeees 0 - 0.08 (0 - 0.0031)
+2-4WD synchronizer hub or clutch hub end play .. O-0.08 (0 - 0.0031)
+Countershaft gear bearing end play .....0.... .. O~0.08 (0 - 0.0031)
+Countershaft gear end play 0-0.15 (0 - 0.0059)
+Rear output shaft bearing end play 0 - 0.08 (0 - 0.0031)
+Center differential end play <Super select 4WD> 00... 0-0.1 (0- 0.004)
+Clearance between outer synchronizer ring ....0.....c.cccccscccceseeecceeccecevevevescccseseevevececececececeeeneees 0.3 (0.012)
+and drive sprocket
+Rear output shaft bearing preload <Super select 4WD II>.......... 0.12 - 0.24 (0.005 — 0.009}
+Clearance between rear output shaft bearing
+and rear cover <Super select AWD H> ooo. cccceccccceccecseerseee 0-0.12 (0- 0.005)
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-! Added
+
+22C-1-2f R53, V5M3 - Specifications
+
+Intentionally blank
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+R5M3, V5M3 - Specifications
+
+22C-1-3
+
+TORQUE SPECIFICATIONS
+Torque
+Nm kgm ft.lbs.
+
+Transmission
+
+Clutch housing — Transmission case mounting bolt ..... 36 3.6 26
+Transmission case — Intermediate plate mounting bolt 36 3.6 26
+<V5M31>
+
+Intermediate plate — Transfer case adapter mounting bolt.............. 36 3.6 26
+<V8M31>
+
+Transfer case adapter — Transfer case plate mounting bolt ............. 36 3.6 26
+<V5M31>
+
+Transfer case plate — Transfer case mounting bolt 2.00.0... 36 3.6 26
+<V5M31>
+
+Main shaft lock nut... cc cccccceeecsescecseetsecstseesevsesevevecievseevenee 26 188
+Countershaft cluster gear lock nut ... 26 188
+Rear bearing retainer mounting bolt... 1.9 14
+5th speed gear shift lever mounting bolt . 1.9 14
+Neutral return plunger plug <V5M31> oooococccccocccccccccceseeccescesceseeece. 36 3.6 26
+Upper cover mounting bolt <V5M31> o.oo. cccccccccccccccscssescesceeveceseeee 19 19 14
+Stopper bracket mounting nut <V5M31-6> 19 1.9 14
+1ik0) ©) ¢-) 0) cr 36 3.6 26
+Backlight switch 00.0.0 ccc ccccesceneeeeeeeeeteeecseee 30 3.0 22
+Extension housing — Transmission case mounting bolt ............ . 35 3.5 25
+<R5M31>
+
+Control housing mounting bolt <REM31> oo. eccccccscccecceccesseseceeeee 19 1.9 14
+Extension housing cover mounting bolt <R5M31> 19 1.9 14
+Speedometer gear mounting bolt <R5M31> . 14 1.4 10
+Shift lever screw <R5M31> ooo. cccccccccceereeee 9 0.9 6.5
+Select lever nut <R5M31> 19 1.9 14
+Cover mounting bolt <R5M31> 4 0.4 2.9
+Plunger <REM31> oo... ccccecceeeeveceveesevececsesevavetstscivenreveceeees 48 4.8 35
+Stopper bracket mounting bolt <R5M31>
+
+Reamer bolt . 18 1.8 13
+Flange bolt 3.9 0.39 2.8
+
+Transfer <V5M31>
+
+Transfer case plate — Transfer case mounting bolt 3.6 26
+Transfer case — Chain cover mounting bolt 3.6 26
+Chain cover — Rear cover mounting bolt 3.6 26
+Front bearing retainer mounting bolt 1.9 14
+Rear bearing retainer mounting bolt <Super select type> oe 19 19 14
+Oil pool cover mounting bolt <Super select AWD> oo... ccc. 3.0 0.9 6.5
+Side cover mounting bolt 9.0 0.9 6.5
+<Part time 4WD and Super selec
+
+Speedometer driven gear sleeve clamp mounting bolt... 19 1.9 14
+<Part time 4WD and Super select 4WD>
+
+Detection switch <Part time 4WD and Super select 4AWD> ............. 36 3.6 26
+Plug <Part time 4WD and Super select 4WD> oo. ccc 36 3.6 26
+Poppet plug <Part time 4WD and Super select 4WD>...............0... 36 3.6 26
+Center differential case mounting bolt <Super select 4WD> .... 65 6.5 47
+Plunger boss mounting bolt 20.0.0... occ 19 1.9 14
+
+<Part time 4WD and Super select 4WD>
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1
+
+Revised
+
+22C-1-3a R5M3, V5M3 - Specifications
+
+Torque
+Nm kgm ft.lbs.
+
+Rear output shaft lock NUt occ cet eee eete rec reit etnies 115 11.5 83
+<Part time 4WD and Super select 4WD>
+H-L shift rail plug <Part time 4WD and Super select 4WD>.............- 33 3.3 24
+Dynamic damper mounting bolt <V5M31-6> wee . 86 3.6 26
+Under guard mounting bolt <EXP> 0.0... . 36 3.6 26
+Shift actuator mounting bolt <Super select 4WD Il>...... .. 22 2.2 16
+Front output sensor mounting bolt <Super select 4WD I>. we 11 4.1 8
+Rear output sensor mounting bolt <Super select 4WD II> ............... 11 1.1 8
+Vehicle speed sensor mounting bolt <Super select 4WD I> 11 1,1
+Transfer case cover bolt <Super select 4WD I>... ee 19 1.9 14
+2WD switch <Super select 4WD I>... 36 3.6 26
+2WD-4WD switch <Super select AWD II> . 36 3.6 26
+4H switch <Super select 4WD I!> 3.6 26
+4LLC switch <Super select 4WD II> .. 3.6 26
+Center differential lock switch <Super select 4WD II> 0.0.0... cee 36 3.6 26
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+R5M3, V5M3 - Specifications 22C-1-3b
+
+Intentionally blank
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-1 Added
+
+22C-1-4 R5M3, V5M3 - Specifications
+
+SEALANTS
+
+Specified sealant
+
+Transmission
+Clutch housing — Transmission case mating surface ...............00.
+
+Transmission case — Intermediate plate mating surface ...
+
+Intermediate plate — Transfer case adapter mating surface ........
+<V5M31>
+
+Transfer case adapter — Transfer case plate mating surface .......
+<V5M31>
+
+Upper cover — Transfer case adapter mating surface ...........0......
+<V5M31>
+
+Ai breather oo... coc ccc eect ceeeeeecestseeeeeeeesettiteestieeeetieeeeneaa
+
+Clutch housing — Transmission case mating surface ..............0..0...
+<R5M31>
+
+Transmission case - Intermediate plate mating surface ................
+<R5M31>
+
+Intermediate plate - Extension housing mating surface ...............
+<R5M31>
+
+Extension housing — Extension housing cover mating surface ......
+<R5M31>
+
+Extension, housing — Control housing mating surface ...............
+<R5M31>
+
+Control shaft cap <R5M31> 00.2... c cece eee teeeeeeetteeeeeneees
+
+Rear bearing retainer mounting bolt... ccc cceccceeeeeeeeseees
+Resistance spring plug <V65M31>...
+Poppet plug «00.0000...
+Neutral return plunger plug <V5M31> ..... .
+Plunger <R5M31> 00.0 teen etter etn e neti
+
+Transfer <V5M31>
+Transfer case plate — Transfer case mating surface ...........0.0......
+
+Transfer case — Chain cover mating surface ..........0.....:ceee
+Chain cover — Rear cover mating surface ......0...0.0:ccccccsccee
+
+Front bearing retainer mounting bolt... ees
+Rear bearing retainer mounting bolt <Super select type> ............
+Poppet plug <Part time 4WD and super select 4WD> 00.2...
+Plug <Part time 4WD and super select AWD> ........ eee
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+3M STUD Locking No. 4170 or equivalent
+3M ATD Part No. 8660 or equivalent
+3M ATD Part No. 8660 or equivalent
+3M ATD Part No. 8660 or equivalent
+3M ATD Part No.8660 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+Mitsubishi genuine sealant
+Part No. MD997740 or equivalent
+
+3M STUD Locking No. 4170 or equivalent
+3M STUD Locking No. 4170 or equivalent
+3M ATD Part No. 8660 or equivalent
+3M ATD Part No. 8660 or equivalent
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-4
+
+Revised
+
+R5M3, V5M3 - Specifications
+
+22C-1-5
+
+LUBRICANTS
+
+Specified grease
+
+Each oil seal, lip area ooo... cece eee cc cecee see ceececstiteenetereees
+Return spring plunger, friction area <V5M31> 00.0. eee
+Shift lever — Control finger, friction <RBM31> oo... cee
+
+Synchronizer cone, whole SUrfaCE oo. cc cece cece ceeteeeertes
+
+Mitsubishi genuine grease
+Part No. 0101011 or equivalent
+
+Mitsubishi genuine grease
+Part No. 0101011 or equivalent
+
+Mitsubishi genuine grease
+Part No. 0101011 or eqivalent
+
+Hypoid gear oil API GL-4 SAE 75W-85W or 8OW
+
+ADJUSTMENT SNAP RINGS AND SPACERS
+
+Part name Thickness Identification Part No.
+mm fin.) symbol
+Transmission
+SWAP TING oo. ecece ccc ecce cee eee eeeneeveeteetesetseteteeesenets 2.32 (0.0913) Blue MB919165
+(For adjustment of main drive gear bearing end play) 2.37 (0.0933) _ MB919166
+2.42 (0.0952) Brown MB919167
+2.47 (0.0972) White MB919168
+SPACE ec ccc cece rence teecececsetsessaseetvasetsensseteatenees 0.68 (0.0268) _ MB919169
+(For adjustment of main drive gear end play) 0.77 (0.0303) Red MB919170
+, 0.86 (0.0339) Yellow MB919171
+0.95 (0.0374) Orange MB919172
+1.04 (0.0409) White MB919173
+SSS) Oe cr 2.18 (0.0858) Blue MB919184
+(For adjustment of 3rd-4th speed synchronizer hub end 2.25 (0.0886) _ MB919185
+la , ‘
+play) 2.32 (0.0913) Brown MB919186
+2.39 (0.0941) White MB919187
+SMAD FING occ ce ccc eee c cnc ccerenseensatennieesterrtenets 1.48 (0.0583) Blue MB919176
+(For adjustment of countershaft cluster gear end play) 1.62 (0.0638) _ MB919177
+Transfer <V5M31>
+SMAD FIN oo cece eeeccccececetesecstceecesecsettensersenrens 2.30 (0.0906) _ MD704199
+(For adjustment of input gear bearing end play) 2.35 (0.0925) Red MD704200
+2.40 (0.0945) White MD704201
+2.45 (0.0965) Blue MD704202
+2.50 (0.6984) Green MD704203
+SMAD FING eee cece tee cess eescesesseseeteetsevseseeatersrereees 2.18 (0.0858) Blue MR110983
+eset ring groove bottom diameter: 42.9 mm 2.25 (0.0886) _ MR110984
+. in)>
+(For adjustment of H-L clutch hub end play) 2.32 (0.0913) Brown MR110985
+2.39 (0.0941) White MR110986
+SNAP INQ occ ccc ceece cece cceseeeverertseeccarsesestiserenaes 2.18 (0.0858) _ MR410928
+areesnee ring groove bottom diameter: 39.7 mm 2.25 (0.0886) _ MR410929
+. In.}>
+(For adjustment of H-L clutch hub end play) 2.32 (0.0913) _ MR410930
+2.39 (0.0941) _— MR410931
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-] Revised
+
+22C-1-6 R5M3, V5M3 - Specifications
+
+Part name Thickness Identification Part No.
+mm {in.} - symbol
+AST aT] O08 © TEESE 2.56 (0.1008) _ MD738386
+(For adjustment of differential lock hub end play) 2.63 (0.1035) Red MD738387
+2.70 (0.1063) White MD738388
+2.77 (0.1091) Blue MD738389
+2.84 (0.1118) Yellow MD738390
+2.91 (0.1146) Green MD738391
+2.98 (0.1173) Brown MD738392
+AST aT] O08) 6 nT ETSEESESS 2.56 (0.1008) _ MD738393
+(For adjustment of 2-4WD synchronizer hub end play) 2.63 (0.1035) Red MD738394
+2.70 (0.1063) White MD738395
+2.77 (0.1091) Blue MD738396
+2.84 (0.1118) Yellow MD738397
+SMA FING ooo ccc cce ee eeeeeeteeretneerteneetetiegransescessees 1.48 (0.0583) Blue MB919176
+For adiustment of transfer counter gear bearing end 1.62 (0.0638) _ MB919177
+play,
+5S) 01: =) EOS OTEOS 1.77 (0.0697) _ MB896728
+(For adjustment of transfer counter gear end play) 1.91 (0.0752) Blue MB896729
+2.05 (0.0807) Brown MB896730
+2.19 (0.0862) White MB896731
+2.33 (0.0917) Red MB896732
+Snap ring 2.26 (0.0890) _— MD734311
+(For adjustment of rear output shaft bearing end play) 2.33 (0.0917) Red MD734312
+2.40 (0.0945) White MD734313
+2.47 (0.0972) Blue MD734314
+Spacer <Super select AWD> 0... cetera 0.84 (0.0331) 84 MD734326
+(For adjustment of rear center differential end play) 0.93 (0.0366) 93 MD734327
+1.02 (0.0402) 02 MD734328
+1.11 (0.0437) 11 MD734329
+_ 1.20 (0.0472) 20 MD734330
+1.29 (0.0508) 29 MD734331
+1.38 (0.0543) 38 MD734332
+1.47 (0.0579) 47 MD734333
+1.56 (0.0614) 56 MD734334
+1.65 (0.0650) 65 MD734335
+1.74 (0.0685) 74 MD734336
+1.83 (0.0720) 83 MD734337
+1.92 (0.0756) 92 MD734338
+2.01 (0.0791) 01 MD734339
+Snap ring <Super select AWD I> oo. ee 1,90 (0.0748) — MR305024
+(For adjustment of annulus gear snap ring end play) 1.94 (0.0764) _ MR305025
+1.98 (0.0780) _ MR305026
+2.02 (0.0795) _ MR305027
+2.06 (0.0787) _ MR305028
+2.10 (0.0827) _ MR305029
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Revised
+
+R5M3, V5M3 - Specifications
+
+22C-1-7
+
+Part name Thickness Identification Part No.
+mm (in.) symbol
+
+Snap ring <Super select AWD Il> oo... cece 1.87 (0.0618) - MR486340
+
+(For adjustment of rear output shaft bearing preload) 1.63 (0.0642) _ MR486341
+1,69 (0.0665) —_ MR486342
+1.75 (0.0689) _ MR486343
+1.81 (0.0713) _ MR486344
+1.87 (0.0736) _ MR486345
+1.93 (0.0760) _ MR486346
+1.99 (0.0783} _ MR486347
+2.05 (0.0807) — MR477935
+2.11 (0.0831) — MR477936
+2.17 (0.0854) _— MR477937
+2.23 (0.0878) _ MR477938
+2.29 (0.0902) _— MR477939
+2.35 (0.0925) _ MR477940
+2.41 (0.0949) _— MR477941
+2.47 (0.0972) _ MR477942
+2.53 (0.0996) _ MR477943
+2.59 (0.1020) _ MR477944
+2.65 (0.1043) —_ MR477945
+2.71 (0.1067) _ MR477946
+
+Spacer <Super select AWD Il> ooo ececeeeeeeeee 2.57 (0.1012) _ MR477950
+
+(For adjustment of clearance between rear output shaft 2.63 (0.1035) _ MR477951
+
+bearing and rear cover)
+2.69 (0.1059) _ MR477952
+2.75 (0.1083) _— MR477953
+2.81 (0.1106) —_ MR477954
+2.87 (0.1130) _ MR477955
+2.93 (0.1154) _ MR477956
+2.99 (0.1177) _ MR477957
+3.05 (0.1201) —_ MR477958
+3.11 (0.1224) _— MR477959
+3.17 (0.1248) _ MR477960
+3.23 (0.1272) _ MR477961
+3.29 (0.1295) _ MR477962
+3.35 (0.1319) _ MR477963
+3.41 (0.1343) _ MR477964
+3.47 (0.1366) _ MR477965
+3.53 (0.1390) _ MR477966
+3.59 (0.1413) _ MR477967
+3.65 (0.1437} _ MR477968
+3.71 (0.1461) _ MR486348
+3.77 (0.1484) _ MR486349
+3.83 (0.1508) _ MR486350
+3.89 (0.1531) _ MR486351
+3.95 (0.1555) _— MR486352
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Added
+
+R5M3, V5M3 - Special Tools 22C-2-1
+
+2. SPECIAL TOOLS
+
+TRANSMISSION
+Tool Number Name Use
+MD998020 Bearing puller Removal of reverse gear bearing sleeve
+MD998304 Oil seal installer Installation of clutch housing oil seal
+MD998348 Bearing puller Removal of countershaft cluster gear bearing,
+main shaft rear bearing
+MD998801 Bearing remover Removal of main drive pinion bearing, coun-
+tershaft cluster bearing and sleeve, 3-4 speed
+< synchronizer hub
+MD998809 Lock nut wrench Removal and installation of countershaft clus-
+«D> ter gear lock nut
+Cub,
+~ Mb998812 Installer cap Use together with the installer and installer
+€) adapter
+MD998813 installer (100) Use together with the installer adapter and
+6 > installer cap
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+22C-2-2
+
+R5M3, V5M3 - Special Tools
+
+Tool Number Name Use
+MD998814 Installer (200) Use together with the installer adapter and
+installer cap
+MD998817 Installer adapter (34) | Installation of countershaft cluster gear ball
+
+bearing
+
+MD998820
+
+Installer adapter (42)
+
+Installation of main shaft rear bearing, count-
+er shaft cluster gear bearing, reverse gear
+bearing sleeve
+
+MD998823
+
+Installer adapter (48)
+
+Installation of main drive pinion bearing, 3-4
+speed synchronizer hub
+
+MD998824
+
+Installer adapter (50)
+
+Installation of main shaft front bearing, 1-2
+speed synchronizer hub
+
+MD998835
+
+Lock nut wrench
+
+Removal and installation of main shaft lock
+nut
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEE8914-D_
+
+Revised
+
+R5M3,.V5M3 - Special Tools
+
+22C-2-3
+
+TRANSFER <V5M31>
+Tool Number Name Use
+MB990929 Installer adapter Ir nstallation of rear cover oil seal, front output
+MB990932 Installer adapter Installation of front output oil seal
+MB980936 Installer adapter Installation of input gear oi seal, rear cover oil
+MB990938 Installer bar Use with installer adapter
+MD998192 Bearing puller Installation of transfer drive shaft bearing
+SRT
+MD998368 Bearing installer Removal of counter gear bearing
+MD998801 Bearing remover Removal of countershaft bearing, rear output
+
+bearing, front output bearing, H-L clutch hub,
+2-4WD clutch hub
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Revised
+
+22C-2-4 R5M3, V5M3 - Special Tools
+
+Tool Number Name Use
+MD898803 Differential oil seal Installation of input gear oil seal
+a installer
+MD998812 Installer cap Use together with the installer and installer
+©) adapter
+MD998813 Installer (100) Used for installer cap and installer adapter
+MD998814 Installer (200) Use together with the installer cap and install-
+MD998818 Installer adapter (38) | Installation of counter gear bearing, front out-
+put shaft bearing
+MD998819 Installer adapter (40) | Installation of rear output shaft rear bearing
+'
+MD998821 Installer adapter (44) | Installation of 2-4WD clutch hub, H-L clutch
+
+hub
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Revised
+
+R5M3, V5M3 - Special Tools 22C-2-5
+
+Tool Number
+
+Name
+
+Use
+
+MD998823
+
+Installer adapter (48)
+
+Installation of rear output shaft bearing
+
+MD998824 Installer adapter (50) | Installation of input gear bearing, rear output
+
+\ bearing
+MD998826 Installer adapter (62) | Installation of input gear bearing
+MD998829 Installer adapter (60) | installation of rear output shaft bearing
+MD898830 Installer adapter (66) | Installation of transfer drive shaft bearing
+MD998835 Lock nut wrench Removal and installation of rear output shaft
+
+lock nut
+ay
+
+MD998917 Bearing remover Removal of rear output shaft bearing, transfer
+
+<a
+
+drive shaft bearing
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-4
+
+Revised
+
+NOTES
+
+R5M3, V5M8 - Transmission 22C-3-1
+
+3. TRANSMISSION
+
+DISASSEMBLY AND REASSEMBLY
+<V5M31-5>
+
+Disassembly steps
+
+9Cq 1. Spring Pin. f
+pangs Trance * moving parte beter
+
+moving parts before
+installation.
+
+TRM0402
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-I Revised
+
+22C-3-2 R5M3, V5M3 - Transmission
+
+%@ Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+Disassemly steps
+4. Backlight switch 13. Neutral return plunger A
+5. Gasket 14, Neutral return plunger B
+6. Steel ball §Z@ 15. Upper cover
+pace 7. Air breather oC@ 16. Spring pin
+bAB@ 8. Resistance spring plug 17. Control shaft
+9. Resistance spring 18. Control finger
+10. Steel ball GAO bY@ 19. Lock nut
+dAAG11. Neutral return plunger plug GAD bY@ 20. Lock nut
+12. Neutral return spring pX@ 21. Transfer case adapter
+
+TRM0403
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 - Transmission
+
+22C-3-3
+
+> Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+Disassemly steps
+
+4B) 9W622. Ball bearing
+§V¢ 23. Counter reverse gear
+24. Thrust washer
+pU@ 25. Reverse idler gear
+26. Needle bearing
+QC) 9T¢ 27. Ball bearing
+9S¢ 28. Reverse gear
+29. Needle bearing
+30. 5th speed shift lever
+9C¢@ 31. Spring pin
+PRE 32. Poppet plug
+§0¢ 33. Poppet spring
+34. Steel bal!
+35. Reverse shift fork
+pP¢@ 36. Reverse synchronizer sieeve
+37. Reverse shift rail
+
+4D) 9N¢ 42. Reverse gear bearing sleeve
+
+38. Snap ring
+39. Sth speed shift fork
+
+§0¢ 40. 5th speed synchronizer sleeve
+
+41. 5th speed shift rail
+
+43. Synchronizer spring
+44. Synchronizer ring
+M645. Reverse brake gear
+pL¢ 46. Overtop gear
+§K¢ 47. Sth synchronizer hub
+48. Synchronizer ring
+49. Synchronizer spring
+d¢ 50. Counter 5th speed gear
+51. Reverse idler gear shaft
+52. Needle bearing
+
+TRM0404
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEE8914-D
+
+Revised
+
+22C-3-4 R5M3, V5M3 - Transmission
+
+[ ,
+Apply gear oil to all
+By) moving parts before
+
+installation.
+
+Disassemly steps
+
+pf¢ 53. Clutch housing
+
+54. Inspection hole cover
+bHE55. Oil seal
+§G456. Spacer
+
+57. Snap ring
+9F¢58. Transmission case
+D459. Magnet
+§D460. Magnet holder
+
+TRM040S,
+© Mitsubishi Motors Corporation Dec. 1997 PWEES914-F Revised
+
+R5M3, V5M3 — Transmission
+
+22C-3-5
+
+Apply gear oil to all
+i moving paris before
+| installation.
+
+73
+
+61.
+9cee2.
+90463.
+
+64.
+
+65.
+
+66.
+
+67.
+
+68.
+9B469.
+
+cE 70.
+a> 71.
+OF A472.
+
+7A.
+75.
+76.
+77.
+78.
+
+74
+
+65
+
+Disassemly steps
+
+Interlock plunger
+Spring pin
+
+Spring pin
+
+3rd-4th speed shift rail
+3rd-4th speed shift fork
+Interlock plunger
+1st-2nd speed shift rail
+1st-2nd speed shift fork
+Rear bearing retainer
+Snap ring
+
+Snap ring
+
+Intermediate plate
+
+3. Main drive pinion
+
+Needle bearing
+Synchronizer ring
+Synchronizer spring
+
+Main shaft
+
+Countershaft cluster gear
+
+TRM0406
+
+© Mitsubishi Motors Corporation Dec. 1997 PWEES914-F
+
+Revised
+
+22C-3-5a R5M3, V5M3 - Transmission
+
+DISASSEMBLY AND REASSEMBLY
+<R5M31-7 (Column shift type)>
+
+Apply gear oil to ail
+Sp moving parts before
+| installation.
+
+Disassembly steps
+
+1. Backlight switch
+
+2. Gasket
+
+3. Steel ball
+
+4. Sleeve clamp
+$AK@ 5. Speedometer gear
+
+6. Dust seal guard
+bAJ@ 7. Oil seal
+bAl@ 8. Control shaft cap
+AHE 9. Control housing
+bAG4E10. Air breather
+bAF€ 11. Extension housing cover
+AEG 12. Extension housing
+
+TRMO5S66
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H
+
+Revised
+
+R5M3, V5M3 — Transmission 22C-3-5b
+
+22 +21
+
+40
+—————__
+™ Lubricate all 23 ©)
+internal parts 29 Y
+with gear oil bI 35
+uring reassembly. s 3738
+150
+16
+7
+33
+41 42
+
+Pa 28 [
+. 30
+\ 8 CoO—is
+13
+[19 [1.9 [14 |
+31
+x 32
+34
+Disassembly steps
+13. 5th speed shift lever 30. Reverse shift rail
+GAD OYE 14. Lock nut 31. Snap ring
+GAD Yq 15. Lock nut 32. 5th speed shift fork
+
+BD pW 16. Ball bearing
+pV@_ 17. Counter reverse gear
+18. Thrust washer
+pU@ 19. Reverse idler gear
+20. Needle bearing
+aC) 9T¢@ 21. Ball bearing
+9S@ 22. Reverse gear
+23. Needle bearing
+9C@ 24. Spring pin
+RE 25. Poppet plug
+9Q¢ 26. Poppet spring
+27. Steel ball
+28. Reverse shift fork
+9P@ 29. Reverse synchronizer sleeve
+
+90¢ 33. 5th speed synchronizer sleeve
+
+34. 5th speed shift rail
+4B) 9N@ 35. Reverse gear bearing sleeve
+
+36. Synchronizer spring
+37. Synchronizer ring
+
+OMé@ 38. Reverse brake gear
+
+pL¢ 39. Overtop gear
+
+oK@ 40. 5th speed synchronizer hub
+41. Synchronizer ring
+42, Synchronizer spring
+
+»J¢@ 43. Counter 5th speed gear
+44, Reverse idler gear shaft
+45. Needle bearing
+
+TRMOS67
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEES914-D Added
+
+22C-3-5¢ R5M3, V5M3 — Transmission
+
+Apply gear oil to all
+ry moving parts before
+
+| installation.
+
+Disassembly steps
+
+b¢ 46. Clutch housing
+pHé47. Oil seal
+G¢48. Spacer
+
+49. Snap ring
+bF@50. Transmission case
+90451. Magnet :
+D452. Magnet holder
+
+TRMO568
+
+© Mitsubishi Motors Corporation Dec. 1997 PWEES914-F . Revised
+
+R5M3, V5M3 —- Transmission
+
+22C-3-5d
+
+|
+
+Apply gear
+2») moving parts before
+| installation.
+
+oil to all
+
+Disassembly steps
+
+53.
+C654.
+C655.
+
+56.
+
+57.
+
+58.
+
+59.
+
+60.
+98461.
+$662.
+
+46 63.
+
+OF vats’.
+
+Interlock plunger
+Spring pin
+
+Spring pin
+
+3rd-4th speed shift rail
+3rd-4th speed shift fork
+Interlock plunger
+1st-2nd speed shift rail
+1st-2nd speed shift fork
+Rear bearing retainer
+Snap ring
+
+Snap ring
+
+Intermediate plate
+
+65. Main drive pinion
+
+66.
+67.
+68.
+69.
+70.
+
+Needle bearing
+Synchronizer ring °
+Synchronizer spring
+
+Main shaft
+
+Countershaft cluster gear
+
+TRMOS69
+
+© Mitsubishi Motors Corporation Dec. 1997 PWEE8914-F
+
+Revised
+
+22C-3-5e
+
+R5M3, V5M3 - Transmission
+
+<R5M31-7 (Floor shift type)>
+
+| Apply gear oil to all
+ty) moving parts before
+
+| installation.
+
+Disassembly steps
+
+AB 1. Resistance spring plug
+2. Resistance spring
+3. Steel ball
+bAAG 4. Neutral return plunger plug
+5. Neutral return spring
+6. Neutral return plunger
+AME 7. Control housing
+8. Stopper bracket
+PALE 9. Special bolt
+10. Backlight switch
+
+11. Gasket
+
+12. Steel ball
+
+13. Sleeve clamp
+bAKE 14. Speedometer gear
+
+15. Dust seal guard
+pAJE 16. Oil seal
+bAlé 17. Control shaft cap
+§AHE18. Cover
+AEG 19. Extension housing
+
+TRM1338
+
+© Mitsubishi Motors Corporation July 1999 PWEES914-H
+
+Added
+
+R5M3, V5M3 - Transmission 22C-3-5f
+
+I
+
+Apply gear oil to all
+i moving parts before
+
+| installation.
+
+Disassembly steps
+
+20.
+
+GAD DYE 21.
+GAD DYE 22.
+GBD pWée 23.
+ove 24
+
+5th speed shift lever
+Lock nut
+
+Lock nut
+
+Ball bearing
+
+. Counter reverse gear
+
+25. Thrust washer
+
+gue 26.
+27.
+
+aco 9T@ 28.
+S¢ 29.
+30.
+
+Ce 31.
+RE 32.
+904 33.
+34,
+
+35.
+
+Pq 36. Reverse synchronizer sleeve
+
+Reverse idler gear
+Needle bearing
+Balt bearing
+Reverse gear
+Needle bearing
+Spring pin
+
+Poppet plug
+Poppet spring
+Steel ball
+
+Reverse shift fork
+
+37
+
+38
+
+39
+
+904 40
+
+44
+QDDpNG 42
+43
+
+44
+Me 45
+le 46
+oKe 47
+48
+
+49
+
+w¢ 50
+51
+
+52
+
+. Reverse shift rail
+
+. Snap ring
+
+. 5th speed shift fork
+
+. 5th speed synchronizer sleeve
+. 5th speed shift rail
+
+. Reverse gear bearing sleeve
+. Synchronizer spring
+
+. Synchronizer ring
+
+. Reverse brake gear
+
+. Overtop gear
+
+. 5th speed synchronizer hub
+. Synchronizer ring
+
+. Synchronizer spring
+
+. Counter 5th speed gear
+
+. Reverse idler gear shaft
+
+. Needle bearing
+
+TRM1339
+
+© Mitsubishi Motors Corporation July 1999
+
+PWEE8914-H
+
+Added
+
+22C-3-5g R5M3, V5M3 — Transmission
+
+I ,
+Apply gear oi! to all
+i moving parts before
+
+| installation.
+
+Disassembly steps
+
+bf@ 53. Clutch housing
+pHE54. Oil seal
+§G455. Spacer
+
+56. Snap ring
+9F4@57. Transmission case
+9D¢58. Magnet
+9D¢59. Magnet holder
+
+TRMO568
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H Added
+
+R5M3, V5M3 — Transmission
+
+22C-3-5h
+
+7:
+|
+
+Appiy gear oil to ail
+moving parts before
+installation.
+
+Disassembly steps
+
+60. Interlock plunger
+§C461. Spring pin
+C462. Spring pin
+63. 3rd-4th speed shift rail
+64. 3rd-4th speed shift fork
+65. interlock plunger
+66. 1st-2nd speed shift rail
+67. 1st-2nd speed shift fork
+B468. Rear bearing retainer
+“ED 69. Snap ring
+QE 70. Snap ring
+dFD) pAG71. Intermediate plate
+72. Main drive pinion
+73. Needle bearing
+74. Synchronizer ring
+75, Synchronizer spring
+76. Main shaft
+77. Countershaft cluster gear
+
+TRM1340
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H
+
+Added
+
+22C-3-5i
+
+R5M3, V5M3 - Transmission
+
+<R5M31-B (Floor shift type)>
+
+| Apply gear oil to all
+a) moving parts before
+| installation.
+
+Disassembly steps
+
+gAB4q 1. Resistance spring plug
+2. Resistance spring
+3. Steel ball
+$AA@ 4. Neutral return plunger plug
+5. Neutral return spring
+6. Neutral return plunger
+bAM4 7. Control housing
+8. Stopper bracket
+bALE 9. Special bolt
+
+10.
+11.
+12.
+13.
+AKG 14.
+15.
+pAUG 16.
+bAlG 17.
+pAEG 18.
+
+Backlight switch
+Gasket
+
+Steel ball
+
+Sleeve clamp
+Speedometer gear
+Dust seal guard
+Oil seal
+
+Control shaft cap
+Extension housing
+
+TRM1341
+
+© Mitsubishi Motors Corporation July 1999 PWEES914-H
+
+Added
+
+R5M3, V5M3 - Transmission 22C-3-5j
+
+Apply gear oil to all
+iy) moving parts before
+
+| installation.
+
+2103
+22
+34 ia
+ef
+[49 [1.9 [14 |
+GH 38
+Disassembly steps
+19. 5th speed shift lever 36. Reverse shift rail
+GAD Ye 20. Lock nut 37. Snap ring
+GAD PY@ 21. Lock nut 38. 5th speed shift fork
+4B) pW 22. Ball bearing §90¢ 39. 5th speed synchronizer sleeve
+eV@ 23. Counter reverse gear 40. 5th speed shift rail
+24. Thrust washer 4DD eN@ 41. Reverse gear bearing sleeve
+pU@ 25. Reverse idler gear 42. Synchronizer spring
+26. Needle bearing 43. Synchronizer ring
+GC) 9T¢ 27. Ball bearing oMé¢ 44. Reverse brake gear
+Sq 28. Reverse gear gl¢q 45. Overtop gear
+29. Needle bearing 9K 46. 5th speed synchronizer hub
+9C@ 30. Spring pin 47. Synchronizer ring
+ORE 31. Poppet plug 48. Synchronizer spring
+pQ€ 32. Poppet spring bJ€@ 49. Counter 5th speed gear
+33. Stee! ball 50. Reverse idler gear shaft
+34. Reverse shift fork 51. Needle bearing
+9P¢@ 35. Reverse synchronizer sleeve
+TRM1342
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H Added
+
+22C-3-5k R5M3, VSM3 - Transmission
+
+Apply gear oil to all
+Sp moving parts before
+| installation.
+
+Disassembly steps
+
+pl@ 52. Clutch housing
+HE53. Oil seal
+96454. Spacer
+
+55. Snap ring
+bF4¢56. Transmission case
+D457. Magnet
+9D¢58. Magnet holder
+
+TRM1343
+Added
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H
+
+R5M3, V5M3 — Transmission
+
+22C-3-5l
+
+I ‘
+Apply gear oil to all
+| moving parts before
+
+| installation.
+
+Disassembly steps
+
+59. Interlock plunger
+pC€60. Spring pin
+§€€61. Spring pin
+62. 3rd-4th speed shift rail
+63. 3rd-4th speed shift fork
+64. Interlock plunger
+65. 1st-2nd speed shift rail
+66. 1st-2nd speed shift fork
+§B467. Rear bearing retainer
+OED 68. Snap ring
+fa) 30) 69. Snap ring
+QFO »AG70. Intermediate plate
+71. Main drive pinion
+72. Needle bearing
+73. Synchronizer ring
+74. Synchronizer spring
+75. Main shaft
+76. Countershaft cluster gear
+
+TRM1340
+
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H
+
+Added
+
+22C-3-5m R5M3, V5M3 - Transmission
+
+DISASSEMBLY AND REASSEMBLY
+<V5M31-6 SUPER SELECT 4WD Il>
+
+“ehalu ——8
+
+36 | 3.6 | 26
+
+Disassembly steps
+
+1. Vacuum hose
+bAT@ 2. 4LLC switch
+bATE 3. 2WD switch
+bAT@ 4. Center differential lock switch
+$AT@ 5. 4H switch
+SATE 6. 2WD-4WD switch
+
+7. Gasket
+
+8. Steel ball
+AS 9. Control housing
+9C@ 10. Spring Pin
+
+11. Change shifter
+
+bADE12. Transfer
+
+TRM1378
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+R5M3, V5M3 - Transmission 22C-3-5n
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps “ :
+bARG13. Backlight switch . §A0¢26.Sealbolt
+pRE 14. Poppet plug “B“ (V5M31-6-M, N, S, W, Y) _ 27. Neutral return spring
+bARG 15. Backlight switch (VSM31-6-X for 4M41 engine) 28. Neutral return plunger A
+bARG16. Backlight switch (V5M31-6-X for 4M41 engine) 29, Neutral return plunger B
+17. Gasket 30. Stopper bracket
+18. Steel ball bAM431. Special bolt ~
+§A04¢19. Seal plug (V5M31-6-M, N, S, W, Y) oC@ 32. Spring pin
+20. 4WD switch (V5M31-6-X for 4M41 engine) 33. Control shaft
+21, Gasket (V5M31-6-X for 4M41 engine) 34. Control finger
+bAPE 22. Upper cover QAD bY@ 35. Lock nut
+bABE23. Plug GAD BYE 36. Lock nut
+24. Resistance spring §X¢€ 37. Transfer case adapter
+25. Steel ball
+
+TRM1363
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-5 Added
+
+22C-3-50
+
+R5M3, V5M3 — Transmission
+
+r
+
+‘ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+ABD 9W¢ 38. Ball bearing 55. Snap ring
+pV@ 39. Counter reverse gear 56. 5th speed shift fork
+40, Thrust washer §0¢ 57. 5th speed synchronizer sleeve
+U€ 41. Reverse idler gear 58. 5th speed shift rail
+42. Needle bearing 4D) 9N@ 59. Reverse gear bearing sleeve
+4Cd aT@ 43. Ball bearing 60. Synchronizer spring
+bS@ 44. Reverse gear 61. Synchronizer ring
+45. Needle bearing pM@ 62. Reverse brake gear
+46. 5th speed shift lever bL@ 63. Overtop gear
+eC¢@ 47. Spring pin oK@ 64. Sth synchronizer hub
+bRE 48. Poppet plug “B” 65. Synchronizer ring
+bANG49. Poppet piug “A” 66. Synchronizer spring
+p0¢ 50. Poppet spring 9J¢@ 67. Counter Sth speed gear
+51. Steel ball 68. Reverse idler gear shaft
+52. Reverse shift fork 69. Needie bearing
+bP@ 53. Reverse synchronizer sleeve
+54. Reverse shift rail
+TRM1364
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-5 Added
+
+R5M3, V5M3 - Transmission 22C-3-5p
+
+Apply gear oil to all
+oy) moving parts before
+| installation.
+
+Disassembly steps
+
+91¢ 70. Clutch housing
+71. Inspection hole cover
+oHE72. Oil seal
+6473. Spacer
+74. Snap ring
+oF@75. Transmission case
+
+TRM1365
+Added
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-4
+
+22C-3-5q
+
+R5M3, V5M3 - Transmission
+
+Apply gear oil to all
+moving parts before
+installation.
+
+t
+
+Disassem
+
+76
+96477
+C478
+
+79
+80
+81
+82
+83
+»B484
+
+dE 85
+
+de 86
+
+FD 9AG87
+
+88
+
+89
+
+90
+
+91
+
+92
+
+93
+
+89
+
+bly steps
+
+. Interlock plunger
+
+. Spring pin
+
+. Spring pin
+
+. 3rd-4th speed shift rail
+
+. 3rd-4th speed shift fork
+. Interlock plunger
+
+. 1st-2nd speed shift rail
+. 1st-2nd speed shift fork
+. Rear bearing retainer
+
+. Snap ring
+
+. Snap ring
+
+. Intermediate plate
+
+. Main drive pinion
+
+. Needle bearing
+
+. Synchronizer ring
+
+. Synchronizer spring
+
+. Main shaft
+
+. Countershaft cluster gear
+
+TRM0406
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-]
+
+Added
+
+R5M3, V5M3 - Transmission 22C-3-5r
+
+DISASSEMBLY AND REASSEMBLY
+<V5M31-6 PART TIME 4WD>
+
+ot
+$ Apply gear oil to all
+moving parts before
+installation.
+
+Disassembly steps
+
+1, Vacuum hose
+aC@ 2. Spring Pin
+
+3. Change shifter
+bADE4. Transfer
+
+TRM1366
+© Mitsubishi Motors Corporation Feb, 2000 PWEE8914-E Added
+
+22C-3-5s R5M3, V5M3 — Transmission
+
+f
+
+Sm, Apply gear oil to ali
+
+moving parts before
+installation.
+
+Disassembly steps
+
+SAR@ 5. Backlight switch 16. Neutral return plunger A
+6. Gasket 17. Neutral return plunger B
+7. Steel ball 18. Stopper bracket
+pR¢ = 8. Poppet plug “B” bAM¢19. Special bolt
+bAQ4 9. Seal plug (V5M31-6-M, N, S, W, Y) bC@ 20. Spring pin
+bAP410. Upper cover 21. Control shaft
+bABE11. Plug 22. Control finger
+12. Resistance spring GAD bYE 23. Lock nut
+13. Steel ball GAO PY@ 24. Lock nut
+§A0€14. Seal bolt X@ 25. Transfer case adapter
+
+15. Neutral return spring
+
+TRM1367
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-5 . Added
+
+R5M3, V5M3 - Transmission
+
+22C-3-5t
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+{BD dW 26. Ball bearing
+oV@ 27. Counter reverse gear
+28. Thrust washer
+pU@ 29. Reverse idler gear
+30. Needie bearing
+QC) 9T@ 31. Ball bearing
+: S@ 32. Reverse gear
+. 33. Needle bearing
+34. 5th speed shift lever
+oC@ 35. Spring pin
+ORE 36. Poppet plug “B”
+bANG37. Poppet plug “A”
+Q¢ 38. Poppet spring
+39. Steel ball
+40. Reverse shift fork
+
+P¢ 41. Reverse synchronizer sleeve
+
+42. Reverse shift rail
+
+43.
+
+44,
+
+904¢ 45.
+46. 5th speed shift rail
+
+QD 9N@ 47.
+48. Synchronizer spring
+
+49.
+oM¢ 50.
+ple 51.
+pK@ 52.
+53.
+
+54.
+
+bJq 55.
+56.
+
+57.
+
+Snap ring
+5th speed shift fork
+5th speed synchronizer sleeve
+
+Reverse gear bearing sleeve
+
+Synchronizer ring
+Reverse brake gear
+Overtop gear
+
+5th synchronizer hub
+Synchronizer ring
+Synchronizer spring
+Counter 5th speed gear...
+Reverse idler gear shaft
+Needle bearing
+
+TRM1364
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEES914-1
+
+Added
+
+22C-3-5u R5M3, V5M3 - Transmission
+
+I F
+Apply gear oil to all
+Sp moving parts before
+
+| installation.
+
+Disassembly steps
+
+bl¢ 58. Clutch housing
+59. Inspection hole cover
+bHECO. Oil seal
+§G461. Spacer
+62. Snap ring
+§F¢63. Transmission case
+
+TRM1365
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+R5M3, V5M3 - Transmission
+
+22C-3-5v
+
+Apply
+Dy) moving parts before
+| installation.
+
+gear oil to all
+
+76
+
+Disassem
+
+64
+90465
+9C4q66
+
+67
+68
+
+69.
+
+70.
+
+71,
+
+oB4q72.
+d& = =—73.
+GE) = 74.
+GFD 9AG75.
+76. Main drive pinion
+77,
+78.
+
+79
+80
+81
+
+77
+
+78
+
+68
+
+bly steps
+
+. Interlock plunger
+
+. Spring pin
+
+. Spring pin
+
+. 3rd-4th speed shift rail
+. 3rd-4th speed shift fork
+Interlock plunger
+1st-2nd speed shift rail
+1st-2nd speed shift fork
+Rear bearing retainer
+Snap ring
+
+Snap ring
+
+Intermediate plate
+
+Needle bearing
+Synchronizer ring
+
+. Synchronizer spring
+
+. Main shaft
+
+. Countershaft cluster gear
+
+TRMO0406
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-1
+
+Added
+
+22C-3-6 R5M3, V5M3 -— Transmission
+
+DISASSEMBLY SERVICE POINTS
+GA) LOCK NUT REMOVAL
+
+(1) Slide the shift forks as illustrated to put the two speed gears
+into engagement. <V5M31>
+
+<V5M31>
+
+TRM0415
+
+(2) Shift the reverse shift fork and the 5th synchronizer sleeve
+as shown in the illustration to engage gears to fix the shaft.
+<R5M31>
+
+(3) Remove the main shaft lock nut using the special tool.
+
+or CA Sf
+— MD998835
+
+<R5M31>
+MD998835
+
+“ if
+
+e mae,
+SZ :
+TRMO0571
+
+(4) Remove the lock nut on the countershaft cluster gear using
+the special tool.
+
+TRMO0417
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 ~ Transmission 22C-3-7
+
+<R5M31>_
+
+TRM0572
+
+TRMO0418
+
+MD998348
+
+TRM0420
+
+TRMO0421
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+(Bi) BALL BEARING REMOVAL
+
+aC) BALL BEARING REMOVAL
+
+«Dt REVERSE GEAR BEARING SLEEVE REMOVAL
+
+(1) Attach the special tool to the reverse brake gear, then re-
+move the reverse gear bearing sleeve and the synchronizer
+spring and ring together.
+
+E) SNAP RING REMOVAL
+
+(1) While pushing the main shaft and countershaft cluster gear
+against the intermediate plate, remove the snap rings from
+the rear bearing retainer mounting surface.
+
+PWEE8914-D Revised
+
+R5M3, V5M3 — Transmission
+
+TRM0422
+
+2200048
+
+Countershaft
+cluster gear
+
+Clutch housing
+
+TRM0425,
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+F) INTERMEDIATE PLATE REMOVAL
+
+Caution
+
+@ Removing the intermediate plate will set free the main
+shaft, countershaft cluster gear and main drive pinion at
+the same time.
+
+ADJUSTMENT BEFORE REASSEMBLY
+
+SPACER SELECTION FOR MAIN DRIVE PINION END PLAY
+ADJUSTMENT
+
+(1) Install the main drive pinion to the transmission case.
+
+(2) Place two pieces of solder measuring about 10 mm (0.39 in.)
+in length and 1.6 mm (0.063 in.) in diameter on the ball bear-
+ing as illustrated.
+
+(3) Install the clutch housing and tighten the bolts to the speci-
+fied torque.
+
+(4) If the solders have not been crushed, repeat steps (2) and (3)
+with larger diameter pieces.
+
+(5) Measure the thickness of the crushed solder with a microm-
+eter and select a spacer of thickness that gives standard end
+play.
+
+Standard value: 0 - 0.1 mm (0 - 0.04 in.)
+
+REASSEMBLY SERVICE POINTS
+bA@ = INTERMEDIATE PLATE INSTALLATION
+
+(1) Install the main shaft and the countershaft cluster gear to the
+clutch housing.
+
+PWEE8914-D Revised
+
+R5M3, V5M3 - Transmission 22C-3-9
+
+(2) Using a plastic harnmer, install the intermediate plate.
+
+. NOTE
+Intermediate Pp, Push the intermediate plate until the snap ring grooves for
+P the main shaft and countershaft cluster gear bearings come
+
+out of the rear bearing retainer mounting surface.
+
+TRM0520
+
+»B¢@ REAR BEARING RETAINER INSTALLATION
+
+(1) The rear bearing retainer mounting bolt is a precoated one.
+When it is to be reused, apply a sealant to the bolt before-
+hand.
+
+Specified sealant:
+3M STUD Locking No. 4170 or equivalent
+
+TFM0041
+
+Spring pin 9C4@ = = SPRING PIN INSTALLATION
+|
+
+TRM0210
+
+»D@ = =MAGNET HOLDER / MAGNET INSTALLATION
+
+Y
+
+Magnet
+
+Magnet holder
+TRM0428
+
+© Mitsubishi Motors Corporation Dec. 1997 PWEES914-F , Revised
+
+22C-3-10
+
+R5M3, V5M3 - Transmission
+
+MD998304
+
+TRM0432
+
+© Mitsubishi Motors Corporation Nov. 1995
+
+»F@) = =TRANSMISSION CASE INSTALLATION
+(1) Apply sealant to the transmission case as illustrated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+»G@ SPACER INSTALLATION
+
+(1) Install the previously selected spacer (see “ADJUSTMENT
+BEFORE REASSEMBLY").
+
+oH OIL SEAL INSTALLATION
+(1) After installing the oil seal, apply grease to the oil seal lips.
+Specified grease:
+
+Mitsubishi genuine grease Part No.0101011 or equiv-
+alent
+
+bl@)= = CLUTCH HOUSING INSTALLATION
+
+(1) Apply a bead of sealant to the transmission case as illus-
+trated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+e Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+e Becareful not to damage the oil seal by the spline of
+the main drive pinion.
+
+PWEE8914-E Revised
+
+R5M3, V5M3 - Transmission 22C-3-11
+
+Transmission
+
+»J@ COUNTER 5TH SPEED GEAR INSTALLATION
+
+front side
+TRM0433
+Transmission (
+front side
+
+<_
+
+TRMO0434
+
+)K@ 5TH SPEED SYNCHRONIZER HUB INSTALLATION
+
+Transmission
+front side
+
+—
+
+TRM0435
+
+bL@) =OVERTOP GEAR INSTALLATION
+
+Reverse brake
+
+—}— Mbe98812
+
++} MD998814
+
+TRM0436
+
+bM4@ REVERSE BRAKE GEAR INSTALLATION
+
+<VSM31>
+
+—};—— MD998812
+
+MD998820
+
+-—7-— MD998813
+
+TRM0437
+
+»N4@ REVERSE GEAR BEARING SLEEVE INSTALLATION
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEES8914-D Revised
+
+22C-3-12 R5M3, V5M3 - Transmission
+
+<R5M31> + MB998812
++ MD998814
+
+MB998820 Bearing
+sleeve
+
+TRM0573
+
+CL 90¢€ 5TH SPEED SYNCHRONIZER SLEEVE INSTALLA-
+— TION
+Transmission
+front side
+—_
+coy
+a
+
+TRM0438
+
+»P@ REVERSE SYNCHRONIZER SLEEVE INSTALLATION
+
+Aeas
+Transmission
+front side
+
+\PU
+
+TRM0439
+
+904 = POPPET SPRING INSTALLATION
+
+(1) Install the poppet spring with the small end directed to the
+steel ball.
+
+TRM0426
+
+bR& = POPPET PLUG INSTALLATION
+
+(1) The poppet plug is a precoated one. When it is to be reused,
+apply sealant to the plug beforehand.
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+TRA0296
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 - Transmission ©
+
+22C-3-13
+
+Synchronizer hub
+
+Synchronizer sleeve
+
+TRM0441
+
+—}— mbe08812
+
+Ball bearing
+
+—}— Mb¢998813
+
+MD998820
+
+TRM0442
+
+Transmission
+
+front side
+1S ad
+TRM0443
+Transmission
+front side
+TRM0444
+MD998812
+MD998820
+
+TRM0445
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+»S@ REVERSE GEAR INSTALLATION
+
+(1) Install the reverse gear while aligning the deep grooves in the
+synchronizer hub section with the projections on the sleeve
+inner periphery.
+
+»T¢ ~=BALL BEARING INSTALLATION
+
+§U@ REVERSE IDLER GEAR INSTALLATION
+
+V@ COUNTER REVERSE GEAR INSTALLATION
+
+pWé¢> BALL BEARING INSTALLATION
+
+PWEES8914-D Revised
+
+22C-3-14
+
+R5M3, V5M3 - Transmission
+
+TRM0446
+
+TRM0415
+
+inna)
+ \ namie AS
+a 4
+Yy p ip
+
+S
+G NX
+
+Zz A
+. Synchronizer sleeve
+- shiftfork 5 + oe WEN
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+bX¢ | TRANSFER CASE ADAPTER INSTALLATION
+
+(1) Apply a bead of sealant to the transfer case adapter as illus-
+trated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+e Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+bY@ = =LOCK NUT INSTALLATION
+
+(1) Slide the synchronizer sleeves as illustrated to put the two
+speed gears into engagement. <V5M31>
+
+(2) Shift the reverse shift fork and the 5th synchronizer sleeve
+as shown in the illustration to engage gears to fix the shaft.
+<R5M31>
+
+(3). Using the special tool, tighten the main shaft lock nut to the
+specified torque.
+
+(4) Remove the lock nut and again tighten it to the specified
+torque.
+
+PWEES914-D Revised
+
+R5M3, V5M3 - Transmission 22C-3-15
+
+(5) Using the special tool, tighten the countershaft cluster gear
+
+lock nut to the specified torque.
+(6) Remove the lock nut and again tighten it to the specified
+
+torque.
+
+TRMO576
+
+(7) Stake the two lock nuts firmly using a punch or the like.
+
+»Z¢) ~=UPPER COVER INSTALLATION
+(1) Apply a bead of sealant to the transfer case adapter as iilus-
+trated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+
+equivalent
+
+Caution
+@ Squeeze sealant out evenly to make sure that it is
+
+not broken or excessively supplied.
+
+TRM0450
+Revised
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEES914-D
+
+22C-3-16
+
+R5M3, V5M3 - Transmission
+
+_?
+
+TRAO296
+
+TRMO0451
+
+il Air breather
+
+TRM0453
+
+_ © Mitsubishi Motors Corporation Feb. 1995
+
+bAA@ NEUTRAL RETURN PLUNGER PLUG INSTALLATION
+(1) The plug is a precoated one. When it is to be reused, apply
+sealant beforehand.
+
+Specified sealant:
+Mitsubishi 3M ATD Part No. 8660 or equivalent
+
+»AB4 RESISTANCE SPRING PLUG INSTALLATION
+
+(1) The piug is a precoated one. When it is to be reused, apply
+sealant beforehand.
+
+Specified sealant:
+Mitsubishi 3M ATD Part No. 8660 or equivalent
+
+bAC@ AIR BREATHER INSTALLATION
+
+(1) Apply sealant to the air breather at the area which is inserted
+in transfer case adapter.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+(2) Install the air breather to the transfer case adapter as illus-
+trated.
+
+bAD@ TRANSFER INSTALLATION
+
+(1) Apply a bead of sealant to the transfer case adapter as illus-
+trated. ;
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution ;
+
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+© Do not forget to slide the change shifter over the
+control shaft.
+
+PWEE8914-D Added
+
+R5M3, V5M3 - Transmission
+
+22C-3-17
+
+TRM0578
+
+TRM0579
+
+Oo
+
+Identification
+mark
+
+TRMO0580
+
+TRM0581
+
+Cap
+
+<a
+
+TRMO0582
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+bAE@ EXTENSION HOUSING INSTALLATION
+
+(1) Apply sealant to the extension housing as shown in the il-
+lustration.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+e Squeeze out the sealant evenly to make sure that it
+is not broken or excessively supplied. :
+
+bAF@ EXTENSION HOUSING COVER INSTALLATION
+
+(1) Apply sealant to the extension housing cover as shown in the
+illustration.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+e Squeeze out the sealant evenly to make sure that it
+is not broken or excessively supplied.
+
+»AG@ AIR BREATHER INSTALLATION
+
+(1} Apply sealant as shown in the illustration and install the
+breather with its identification mark directed toward the rear
+of the transmission.
+
+Specified sealant:
+
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+»AH@ CONTROL HOUSING INSTALLATION
+
+(1} Apply sealant to the control housing as shown in the illustra-
+tion.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+e Squeeze out the sealant evenly to make sure that it
+is not broken or excessively supplied.
+
+bAI@ CONTROL SHAFT CAP INSTALLATION
+
+(1) Apply sealant to the outer circumference of the control shaft
+cap and press in the cap until it becomes flat with the exten-
+sion housing surface.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+PWEE8914-D Added
+
+22C-3-18
+
+R5M3, V5M3 - Transmission
+
+FRMO583
+
+Apply
+sealant
+
+TRM1345
+
+Apply
+sealant
+
+TRMO0089
+
+© Mitsubishi Motors Corporation July 1999
+
+pAJ@ OIL SEAL INSTALLASION
+
+(1) After installation, pack grease between the lips of the oil seal.
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent .
+
+gAK@ SPEEDOMETER GEAR INSTALLATION
+(1) Match the mating marks to the number of teeth.
+
+Caution
+@ The number marked on the sleeve is the number of
+teeth of the driven gear.
+
+»AL@- CONTROL HOUSING INSTALLATION
+
+(1) Apply sealant to the control housing as shown in the illustra-
+tion.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+@ Squeeze out the sealant evenly to make sure that it
+is not broken or excessively supplied.
+
+bAM€¢ SPECIAL BOLT INSTALLATION
+(1) Apply sealant to the special bolt as shown in the illustration.
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+Specified sealant:
+3M Scotch Grip No. 2353 or equivalent
+
+PWEES914-H Revised
+
+R5M3, V5M3 - Transmission
+
+22C-3-19
+
+TRM1368
+
+y
+
+TRAO296
+
+Gud
+
+TRM1369
+nd
+S
+TRAO296.
+<VEMBTE XS
+(= H A 1st-2nd
+ox | ++-s 3rd-4th
+© ma
+Cra fe Bth-Rev.
+
+TRM1370
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+SAN@ POPPET PLUG “A” INSTALLATION
+
+(1) The poppet plug “A” is a precoated one. When it is to be re-
+used, apply sealant to the plug beforehand.
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+»A04¢ SEAL BOLT INSTALLATION
+
+(1) The seal bolt is a precoated one. When it is to be reused, ap-
+ply sealant to the bolt beforehand.
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+bAP¢ UPPER COVER INSTALLATION
+(1) Apply a bead of sealant to the upper cover as illustrated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+»AQ¢ SEAL PLUG INSTALLATION
+
+(1) The plug is a precoated one. When it is to be reused, apply
+sealant beforehand.
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+»AR@ BACKLIGHT SWITCH INSTALLATION <V5M31-6-X>
+
+Switch Ident. tape color
+A Red
+B Blue
+Cc White
+PWEES9144 Added
+
+22C-3-20 R5M3, V5M3 ~ Transmission
+
+TRAI808
+
+A TRA1809.
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+»AS@ CONTROL HOUSING INSTALLATION
+(1) Apply sealant to the illustrated position of the control hous-
+ing.
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+e Squeeze the sealant out evenly to make sure that it
+is not broken or excessively supplied.
+
+pAT@ =SWITCHES INSTALLATION
+(1) Install the switches in the right positions.
+
+Mounting Switch Name Tube Color | Connector
+Position Color
+A 4LLC switch Black” Brown
+B 2WD switch Black Black
+Cc Center differential Blue Brown
+lock switch
+D 4H switch Blue White
+2WD-4WD switch Blue Black
+PWEE8914-1 ae Added
+
+R5M3, V5M3 - Main Drive Pinion
+
+22C-4-1
+
+4. MAIN DRIVE PINION
+
+DISASSEMBLY AND REASSEMBLY
+
+Disassembly steps
+
+bB¢ 1. Snap ring
+GAD dA@ 2. Ball bearing
+3. Main drive pinion
+
+yt Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+TRM0511
+
+TRM0454
+
+S MD998812
+
+——MD998814
+
+Ball bearing
+
+MD998823
+
+TRM0455
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+DISASSEMBLY SERVICE POINT
+{Ad BALL BEARING REMOVAL
+
+REASSEMBLY SERVICE POINTS
+bA@ BALL BEARING INSTALLATION
+
+PWEES914-D
+
+Revised
+
+22C-4-2 R5M3, V5M3 - Main Drive Pinion
+
+»B¢ = SNAP RING INSTALLATION
+
+(1) Selectasnap ring which will make the main drive pinion bear-
+ing end play equal to the standard value:
+
+Standard value: 0 - 0.06 mm (0 - 0.0024 in.)
+
+TRMO0456
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 - Countershaft Cluster Gear 22C-5-1
+
+5. COUNTERSHAFT CLUSTER GEAR
+DISASSEMBLY AND REASSEMBLY
+
+f F
+Apply gear oil to all
+ee moving parts before
+
+| installation.
+4 Ce e
+Disassembly steps
+bE@ 1. Snap ring
+GAD pDE 2. Roller bearing
+pC€ 3. Snap ring*
+5 C@ 4. Sub gear*
+9C@ 5. Sub gear spring*
+3 {BD B4¢ 6. Bearing sleeve
+QC) PAE 7. Roller bearing
+1 8. Countershaft cluster gear
+NOTE:
+
+*: Not provided on some model.
+TRMO512
+
+DISASSEMBLY SERVICE POINTS
+. “A> ROLLER BEARING REMOVAL
+Roller bearing Mpg998g01
+
+TRM0457
+
+4B) BEARING SLEEVE REMOVAL
+
+© Mitsubishi Motors Corporation Dec. 1997 PWEESO14-F Revised
+
+22C-5-2 R5M3, V5M3 - Countershaft Cluster Gear
+
+TRMO0459
+
+-}+-—mb998812
+
++ MD998874
+
+Roller bearing
+
+MD998820
+
+TRMO0460
+
+— MD998812
+
++— MD928814
+
+fT
+
+Bearing sleeve
+
+|__mipge8a20
+
+by rrecsaith TRMO0461
+
+TRMO0217
+
+TRM0218
+
+© Mitsubishi Motors Corporation Dec. 1997
+
+iC) ROLLER BEARING REMOVAL
+
+REASSEMBLY SERVICE POINTS
+bA@ ROLLER BEARING INSTALLATION
+
+»B¢ BEARING SLEEVE INSTALLATION
+
+»Cq@ SUB GEAR SPRING / SUB GEAR / SNAP RING
+INSTALLATION
+
+(1) Insert the long leg of the spring in the hole D in the counter-
+shaft cluster gear.
+
+(2) Fit the sub gear on the countershaft cluster gear while insert-
+ing the short leg of the spring in the hole C in the sub gear.
+
+(3) Install the snap ring.
+
+(4) Turn the sub gear clockwise (T) until the hole A in the sub gear
+is aligned with the hole B in the countershaft cluster gear.
+
+PWEE6914-F Revised
+
+R5M3, V5M3 - Countershaft Cluster Gear 22C-5-3
+
+TRM0219
+
+MD998812
+= —MD998817
+
+Roller bearing
+
+TRMO465
+
+© Mitsubishi Motors Corporation Dec. 1997
+
+(5) Insert a bolt (¢5 x 50 mm) in the aligned holes A and B.
+(6) Keep the bolt attached until the countershaft cluster gear has
+been assembled in the transmission case.
+
+»D¢ ROLLER BEARING INSTALLATION
+
+bE@ SNAP RING INSTALLATION
+
+(1) Select a snap ring which will make the countershaft cluster
+gear bearing end play equal to the standard value:
+
+Standard value: 0 - 0.15 mm (0 — 0.0059 in.)
+
+PWEES914-F Added
+
+NOTES
+
+R5M3, V5M3 — Main Shaft
+
+22C-6-1
+
+6. MAIN SHAFT
+DISASSEMBLY AND REASSEMBLY
+
+Disassembly steps
+
+bla 1. Snap ring
+2. Synchronizer ring
+9D¢ 3. Synchronizer spring
+
+HE 4. Srd-4th speed synchronizer sleeve
+Ad bG@ 5. 3rd-4th speed synchronizer hub
+
+bA€ 6. Synchronizer outer ring
+
+bAE 7. Synchronizer cone
+
+bA@ 8. Synchronizer inner ring
+9. 3rd speed gear
+
+bb Lubricate all
+internal parts
+
+with gear oil
+
+during reassembly.
+
+. Needle bearing
+
+. Synchronizer inner ring
+
+. Synchronizer cone
+
+. Synchronizer outer ring
+
+. Synchronizer spring
+
+. Ist-2nd speed synchronizer sleeve
+. 1st-2nd speed synchronizer hub
+
+. Synchronizer outer ring
+
+. Synchronizer cone
+
+10. Needle bearing bAG23. Synchronizer inner ring
+OB) §F¢11. Ball bearing 24. 2nd speed gear
+Bd »E@12. Bearing sleeve 25. Needle bearing
+13. 1st speed gear 26. Main shaft
+TRM0467
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+22C-6-2
+
+R5M3, V5M3 - Main Shaft
+
+Synchronizer hub
+
+MD998801
+
+WL]
+
+i
+
+oy
+
+a
+
+Reem
+hitaam
+Se
+
+io
+
+TRM0468
+
+TRM0469
+
+TRM0472
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+DISASSEMBLY SERVICE POINTS
+(A) 3RD-4TH SPEED SYNCHRONIZER HUB REMOVAL
+
+Bh) BALL BEARING / BEARING SLEEVE REMOVAL
+
+(1) Support the 1st speed gear with the special tool to remove
+the ball bearing and bearing sleeve.
+
+{Cf 1ST-2ND SPEED SYNCHRONIZER HUB REMOVAL
+
+INSPECTION
+MAIN SHAFT
+
+(1) Check the needle bearing mounting surface (area ®) for
+damage, abnormal wear and seizure.
+(2) Check the spline for damage and wear.
+
+NEEDLE BEARING
+
+(1) Check that the needle bearing, combined with the shaft or
+the bearing sleeve and gear, can rotate smoothly without ab-
+normal sound.
+
+(2) Check that the cage is not deformed.
+
+PWEE8914-D Revised
+
+R5M3, V5M3 — Main Shaft 22C-6-3
+
+Damage, breakage
+
+Damage, breakage
+
+OS
+
+Damage, breakage
+
+TFM0273
+
+A
+—>| e—
+Outer ring
+Cone
+Inner ring
+
+Gear
+
+TFM0281
+
+201063
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+SYNCHRONIZER OUTER RING, INNER RING AND CONE
+(1) Check the clutch gear teeth and cone surface for damage.
+
+(2) Assemble the outer ring, inner ring and cone. Push them
+onto the speed gear and measure the clearance “A”. If “A”
+is less than the limit, replace them.
+
+Limit: 0.3 mm (0.012 in.}
+
+Caution
+@ The outer ring, inner ring and cone must be replaced
+together as a set if necessary.
+
+SYNCHRONIZER SLEEVE AND HUB
+
+(1) Combine the synchronizer sleeve and hub and check that
+they can slide smoothly.
+
+(2) Check that the front and rear inner ends of the sleeve are not
+damaged.
+
+Caution
+e Replace the synchronizer sleeve and hub together as
+a set if replacement is necessary.
+
+SYNCHRONIZER SPRING
+
+(1) Check that the spring is free from elasticity deterioration, de-
+formation and fracture.
+
+SPEED GEARS
+
+(1) Check that the tooth flanks of the spiral gear and clutch gear
+are free from damage and wear.
+
+(2) Check that the surface of the synchronizer cone is free from
+roughness, damage and wear.
+
+(3) Check that the inner, front and rear surfaces are free from
+damage and wear.
+
+PWEE8914-D Revised
+
+22C-6-4
+
+R5M3, V5M3 - Main Shaft
+
+DL
+
+Transmission
+front side
+
+=
+
+at
+
+TRM0475
+
+hub
+
+t+—~ MD998812
++— MD998813
+
+Synchronizer + MD998814
+
+TRM0476
+
+Synchronizer sleeve
+
+TRM0441
+
+Synchronizer spring
+
+TRM0478
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+REASSEMBLY SERVICE POINTS
+
+bAq@) = SYNCHRONIZER INNER RING / CONE / OUTER RING
+INSTALLATION
+
+(1) Assemble the inner ring, outer ring and cone and set the as-
+sembly to the synchronizer hub.
+
+»B4 1ST-2ND SPEED SYNCHRONIZER HUB INSTALLA-
+TION
+
+(1) Install the hub in the proper direction as illustrated.
+
+»C@ = 1ST-2ND SYNCHRONIZER SLEEVE INSTALLATION
+
+(1) install the sleeve with its projections aligned with the deep
+grooves in the synchronizer hub.
+
+NOTE
+The synchronizer sleeve can be installed in either direction.
+
+»D¢@ =SYNCHRONIZER SPRING INSTALLATION
+
+(1) install the synchronizer spring onto the synchronizer ring so
+that the spring is settled as illustrated.
+
+PWEE8914-D . Revised
+
+R5M3, V5M3 - Main Shaft
+
+22C-6-5
+
+<V5M31>
+=—— MD998812
+Bearing —— Mb998814
+sleeve
+
+TRM0479
+<R5M31>
++——- MD998812
+y— Mbdee98813
++—— MD998814
+Bearing
+sleeve
+MD998824
+TRMO0599
+<V5M31>
+=— MbDg989812
+—;— mbe989814
+Bail bearing
+Z MD998820
+TRM0480
+<R5M31> ae 2
+7—— Mb¢e98813
+T-— MbDe998814
+boating MD998824
+
+TRMOGOO
+
+<<
+
+Transmission
+front side
+
+HU
+
+J
+
+TRM0481
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+bE@ BEARING SLEEVE INSTALLATION
+
+»F@ = ~=BALL BEARING INSTALLATION
+
+§G¢  3RD-4TH SYNCHRONIZER HUB INSTALLATION
+(1) Install the hub in the proper direction as illustrated.
+
+PWEE8914-D Revised
+
+22C-6-6 R5M3, V5M3 - Main Shaft
+
+c : Lh MD998812
+
+= MD998823
+Synchronizer hub
+
+TRM0482
+
+Transmission
+front side
+
+=
+
+LF
+TRM0483
+
+Synchronizer sleeve
+
+TRM0441
+
+TRM0485,
+
+© Mitsubishi Motors Cornoration Feb. 1995
+
+SH = =3RD-4TH SYNCHRONIZER SLEEVE INSTALLATION
+(1) Install the sleeve in the proper direction as illustrated.
+
+(2) When installing the sleeve, align its projections with the
+deep grooves in the synchronizer hub.
+
+bl@))) SNAP RING INSTALLATION
+
+(1) Select a snap ring which will make the end play of the 3rd-4th
+synchronizer hub equal to the standard value:
+
+Standard value: 0 - 0.08 mm (0 = 0.0031 in.)
+
+PWEES914-D Revised
+
+R5M3, V5M3 — Transfer <V5M31>
+
+22C-7-1
+
+7. TRANSFER <V5M31>
+
+DISASSEMBLY AND REASSEMBLY
+<SUPER SELECT 4WD RHD>
+
+Disassembly steps
+
+pW 1. Detection switch
+2. Steel ball
+3. Gasket
+eVé 4. Plug
+pU4@ 5. Poppet plug
+gT¢@ 6. Poppet spring
+7. Steel ball
+8. Sleeve clamp
+yS@_ 9. Speedometer gear
+
+pR4@ 10. Transfer case plate
+
+®
+
+Lubricate all
+internal parts
+
+with gear oil
+during reassembly.
+
+11. Needle bearing
+12. Countershaft gear
+pQ¢ 13. Spacer
+Pq 14. Rear cover
+p04 15. Spacer
+16. Dust seal guard
+bN¢ 17. Oil seal
+oM478. Oil seal
+19. H-L shift rail plug
+bLE 20. Spring pin (H-L shift fork)
+
+TRM0486
+
+© Mitsubishi Motors Corporation Feb. 1895
+
+PWEE8914-D
+
+Revised
+
+22C-7-2 R5M3, V5M3 - Transfer <V5M31>
+
+Disassembly steps
+
+OAD #L421. H-L shift rail
+Ad 9KE22. Chain cover
+
+23. H-L shift fork
+
+24. H-L clutch sleeve
+
+9K425. Interlock plunger
+
+26. Rear output shaft
+
+27. Needle bearing
+
+28. Needle bearing
+
+29. Center differential case
+ABd pH430. 2-4WD synchronizer
+BD pH431. Chain
+4B} H¢32. Front output shaft
+
+33. Needle bearing
+Cd 6434. Spring pin (2-4WD shift lug)
+
+wo
+
+a Lubricate all
+
+internal parts
+
+with gear oil
+
+during reassembly.
+
+§G435. 2-4WD shift lug
+§G486. Spring seat
+G37. Spring
+
+38. E-ring
+
+39. Spring seat
+
+40. Spring
+§G441. 2-4WD shift rail
+
+42. 2-AWD shift fork
+43. 2-4WD synchronizer sleeve
+
+44. Sleeve
+45. Steel ball
+bF4 46. Snap ring
+
+47. Differential lock hub
+
+TRM0487
+
+. © Mitsubishi Motors Corporation Feb. 1995 PWEES8914-D
+
+Revised
+
+R5M3, V5M3 — Transfer <V5M31> 22C-7-3
+
+Db Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+Disassembly steps
+
+48. Oil pool cover
+bE@49. Magnet holder
+§E€50. Magnet
+
+51. Side cover
+
+52. Side cover gasket
+9D€53. Snap ring
+90454. H-L clutch hub
+
+55. Low speed gear
+
+56. Needle bearing
+9B¢57. Rear bearing retainer
+
+58. Transfer drive shaft
+
+59. Dust seal guard
+pAECO. Oil seal
+
+61. Transfer case
+
+TRM0488
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+22C-7-4 R5M3, V5M3 — Transfer <V5M31>
+
+DISASSEMBLY AND REASSEMBLY
+<SUPER SELECT 4WD LHD>
+
+Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+%@
+
+Disassembly steps
+
+pW 1. Detection switch 11. Needle bearing
+2. Steel ball 12. Counter shaft gear
+3. Gasket §0¢ 13. Spacer
+ave 4. Plug pP¢@ 14. Rear cover
+9U@ 5. Poppet plug p0¢ 15. Spacer
+eT@ 6. Poppet spring 16. Dust seal guard
+7. Steel ball bN€ 17. Oil seal
+8. Sleeve clamp M418. Oil seal
+pS4@ 9. Speedometer gear 19. H-L shift rail plug
+bRE 10. Transfer case plate bL€ 20. Spring pin (H-L shift fork)
+
+TRM0518
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 - Transfer <V5M31> 22C-7-5
+
+Disassembly steps
+
+GAD oL@21. H-L shift rail
+GAD bKE22. Chain cover
+
+23. H-L shift fork
+
+24. H-L clutch sleeve
+
+gKE25. Interlock plunger
+
+26, Rear output shaft
+
+27. Needle bearing
+
+28. Needle bearing
+
+29. Center differential case
+GBD bHE30. 2-4WD synchronizer
+4B} pH431. Chain
+4B) pHE32. Front output shaft
+
+33. Needle bearing
+AC) 96€34. Spring pin (2-4WD shift lug)
+
+fe Lubricate all
+internal parts
+
+with gear oil
+
+during reassembly.
+
+bG435. 2-4WD shift lug
+»G436. Spring seat
+96637. Spring
+38. E-ring
+39. Spring seat
+40. Spring
+§G441. 2-4WD shift rail
+42, 2-4WD shift fork
+43. 2-4WD synchronizer sleeve
+44. Sleeve
+45. Steel ball
+bF@46. Snap ring
+47. Differential lock hub
+
+TRM0519
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEE8914-D
+
+Revised
+
+22C-7-6
+
+R5M3, V5M3 — Transfer <V5M31>
+
+Disassem
+
+48
+
+0£449.
+E650.
+51
+
+bly steps
+
+. Oil pool cover
+Magnet holder
+Magnet
+
+. Side cover
+
+. Side cover gasket
+
+. Snap ring
+
+. H-L clutch hub
+
+. Low speed gear
+
+. Needle bearing
+
+. Rear bearing retainer
+. Transfer drive shaft
+. Dust seal guard
+
+. Oil seal
+
+. Transfer case
+
+Sb Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+TRM0488
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEES914-D
+
+Revised
+
+R5M3, V5M3 - Transfer <V5M31>
+
+22C-7-7
+
+DISASSEMBLY AND REASSEMBLY
+<V5M31-5 PART TIME 4WD RHD>
+
+Disassembly steps
+
+oX@ 1. Detection switch
+2. Steel ball
+3. Gasket
+oV@ 4. Plug
+pU¢ 5. Poppet plug
+9T¢ 6. Poppet spring
+7. Steel ball
+8. Sleeve clamp
+»S¢ 9. Speedometer gear
+oRG10. Transfer case plate
+
+I
+
+‘ Apply gear oil to all
+
+moving parts before
+installation.
+
+11. Needle bearing
+12. Countershaft gear
+90413. Spacer
+bP4@14. Rear cover
+90415. Spacer
+16. Dust seal guard
+oN€1 7. Oil seal
+18. H-L shift rail plug
+§L679. Spring pin (H-L shift fork)
+
+TRM0489
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Revised
+
+22C-7-8
+
+R5M3, V5M3 - Transfer <V5M31>
+
+20 | Ls
+
+Disassembly steps
+
+GAD pL 20. H-L shift rail
+AD $KE21. Chain cover
+22. H-L shift fork
+23. H-L clutch sleeve
+§K€24. Interlock plunger
+CO 9425. Spring pin (2-4WD shift lug)
+26. 2-4WD shift lug
+27. Distance piece
+28. E-ring (2-4WD shift rail}
+29. Spring seat
+30. Spring
+
+{
+sm Apply gear oil to all
+moving parts before
+installation.
+
+31. 2-4WD shift rail
+
+32. 2-4WD shift fork
+ADd pl@ 33. Rear output shaft
+ADD p14 34. Chain ;
+ADD Mé 35. Front output shaft
+
+36. Side cover
+
+37. Side cover gasket
+
+38. Dust seal guard
+
+§A€39. Oil seal
+40. Transfer case
+
+TRM0490
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEES914-1
+
+Revised
+
+R5M3, V5M3 - Transfer <V5M31> 22C-7-8a
+
+DISASSEMBLY AND REASSEMBLY
+<V5M31-5 PART TIME 4WD LHD> .
+
+36 |3.6 | 26 36 [3.6 | 26
+
+f
+
+¢ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+bX 1. Detection switch 11. Needle bearing
+2. Steel ball 12. Countershaft gear
+3. Gasket 90¢13. Spacer
+VE 4. Plug 9P¢@14. Rear cover
+9U@ 5. Poppet plug 90415. Spacer
+614 6. Poppet spring 16. Dust seal guard
+7. Steel ball oN¢17. Oil seal
+8. Sleeve clamp 18. H-L shift rail plug
+bS¢ 9. Speedometer gear gL€19. Spring pin (H-L shift fork)
+
+9R410. Transfer case plate
+
+TRMO0767
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914- Revised
+
+22C-7-8b R5M3, V5M3 - Transfer <V5M31>
+
+Disassembly steps
+
+GAG oLq20, H-L shift rail
+GAD bKE21. Chain cover
+22. H-L shift fork
+23. H-L clutch sleeve
+§K€24. Interlock plunger
+OCd §J@25. Spring pin (2-4WD shift lug)
+26. 2-AWD shift lug
+27. Distance piece
+28. E-ring (2-4WD shift rail)
+29. Spring seat
+30. Spring
+
+——_-—
+‘ Apply gear oil to all
+»* moving parts before
+
+installation.
+
+31. 2-4WD shift rail
+32. 2-4WD shift fork
+Dd g1¢ 33. Rear output shaft
+ODD p14 34. Chain
+4D 91@ 35. Front output shaft
+36. Side cover
+37. Side cover gasket
+38. Dust seal guard
+bAG39. Oil seal
+40. Transfer case
+
+TRMO768
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1
+
+Revised
+
+R5M3, V5M3 — Transfer <V5M31>
+
+22C-7-8c¢
+
+DISASSEMBLY AND REASSEMBLY
+
+<V5M31-6 PART TIME 4WD RHD>
+
+i
+
+mp Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+1. AWD switch
+2. Transfer switch
+3. Steel bail
+4. Gasket
+eVE 5. Plug
+pU€ 6. Poppet plug
+9T@ 7. Poppet spring
+8. Steel ball
+
+»R410. Transfer case plate
+
+9. Vehicle speed sensor
+
+11. Needle bearing
+12. Countershaft gear
+90413. Spacer
+§P€14. Rear cover
+
+90415. Spacer
+
+16. Dust seal guard
+17, Dynamic damper
+oNG18. Oil seal
+19. H-L shift rail plug
+9L€20. Spring pin (H-L shift fork)
+21. Under guard <EXP>
+
+TRM1371
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+Added
+
+22C-7-8d R5M3, V5M3 - Transfer <V5M31>
+
+Disassembly steps
+
+OAD pLE22. H-L shift rail
+GAD §KE23. Chain cover
+24. H-L shift fork
+25. H-L clutch sleeve
+9K426. Interlock plunger
+4Cd 98427. Spring pin (2-4WD shift lug)
+28. 2-4WD shift lug
+29, Distance piece
+30. E-ring (2-4WD shift rail)
+31. Spring seat
+32. Spring
+
+eo TTs———F7
+$ Apply gear oil to all
+moving parts before
+installation.
+
+33. 2-4WD shift rail
+34, 2-4WD shift fork
+QDd p14 35. Rear output shaft
+DD p1¢ 36. Chain
+QD p14 37. Front output shaft
+38. Dust seal guard
+9A4€39. Oil seal
+40. Transfer case
+
+TRM1372
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-]
+
+Added
+
+R5M3, V5M3 - Transfer <V5M31>
+
+22C-7-8e
+
+DISASSEMBLY AND REASSEMBLY
+
+<V5M31-6 PART TIME 4WD LHD>
+
+Disassembly steps
+
+1. AWD switch
+2. Transfer switch
+3. Steel ball
+4. Gasket
+Ve 5. Plug
+pU@ 6. Poppet plug
+9T¢ 7. Poppet spring
+8. Steel ball
+9. Vehicle speed sensor
+R10. Transfer case plate
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+11. Needle bearing
+
+12. Countershaft gear
+0413. Spacer
+pP414. Rear cover
+90415. Spacer
+
+16. Dust seal guard
+
+17. Dynamic damper
+bN¢18. Oil seal
+
+19. H-L shift rail plug
+§L€20. Spring pin (H-L shift fork)
+
+21. Under guard <EXP>
+
+TRM1373
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEEs9 14-1
+
+Added
+
+22C-7-8f R5M3, V5M3 - Transfer <V5M31>
+
+Disassembly steps
+
+GAO oL422. H-L shift rail
+GAD bKE23. Chain cover
+24. H-L shift fork
+25. H-L clutch sleeve
+§K€26. Interlock plunger
+ACH 95427. Spring pin (2-4WD shift lug)
+28, 2-AWD shift lug
+29. Distance piece
+30. E-ring (2-4WD shift rail)
+31. Spring seat
+32. Spring
+
+33. 2-4WD shift rail
+34. 2-4WD shift fork
+DO pl4 35. Rear output shaft
+&DO ol@ 36. Chain
+ADD pl4 37. Front output shaft
+38. Dust seal guard
+bAGS9. Oil seal
+40. Transfer case
+
+TRM1374
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-1
+
+Added
+
+R5M3, V5M8 - Transfer <V5M31> . 22C-7-9
+
+TTT eT
+
+p -)
+© | 2-4WD shift
+fs) rail
+
+TRM0492
+
+TRAO280
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+DISASSEMBLY SERVICE POINTS
+{A H-L SHIFT RAIL / CHAIN COVER REMOVAL
+
+(1) Fix the H-L shift rail at the High side.
+(2) Place the 2-4WD shift rail at the 4WD position.
+
+NOTE
+If the 2-4WD shift rail is placed at the 2WD position, the chain
+cover cannot be removed because of interlocking.
+
+(3) Remove the chain cover and remove H-L shift rail.
+
+{BD 2-4WD SYNCHRONIZER / CHAIN / FRONT OUTPUT
+SHAFT REMOVAL
+
+(1) Remove the 2-4WD synchronizer, chain and front output
+shaft as a set.
+
+dC) SPRING PIN REMOVAL
+
+Caution
+e@ The spring pin may fly out.
+
+Dt) REAR OUTPUT SHAFT / CHAIN / FRONT OUTPUT
+SHAFT REMOVAL
+
+(1) Remove the rear output shaft, chain and front output shaft
+in a set.
+
+INSPECTION
+DETECTION SWITCH
+
+(1) Check for continuity between the connector terminal and
+switch body.
+
+Switch state Continuity
+Switch end pressed No
+Switch end released Yes
+PWEE8914-D Revised
+
+22C-7-10
+
+R5M3, V5M3 — Transfer <V5M31>
+
+NZ
+OP
+eZ
+
+Solder a / /
+— TRMO493
+
+2200048
+
+MB990938
+
+MBg990929
+
+MT10027
+
+TFM0041
+
+Transmission
+front side
+
+<—
+
+TRMO0S15
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+ADJUSTMENT BEFORE REASSEMBLY
+
+SPACER SELECTION FOR ADJUSTMENT OF COUNTER-
+SHAFT GEAR END PLAY
+
+(1) Place pieces of solider [about 10 mm (0.39 in.) in length and
+1.6 mm (0.063 in.) in diameter] on the transfer case as illus-
+trated.
+
+(2) Put the countershaft gear and the transfer case plate and
+tighten the bolts to the specified torque.
+
+(3) if the solder is not crushed, repeat the steps (1) and (2) using
+a thicker solder.
+
+(4) Using a micrometer, measure the thickness of the crushed
+solder. Based on the result, select a spacer which adjusts the
+end play to the standard value shown below:
+
+Standard value: 0 - 0.15 mm (0 ~ 0.0059 in.)
+
+REASSEMBLY SERVICE POINTS
+pA@ OIL SEAL INSTALLATION
+(1) Apply grease to the lip of the oil seal after press-fitting.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent
+
+)Bé REAR BEARING RETAINER INSTALLATION
+
+(1) The rear bearing retainer mounting bolt is a precoated one.
+When it is to be reused, apply sealant beforehand.
+
+Specified sealant:
+3M STUD Locking No. 4170 or equivalent
+
+9C@ = =H-L CLUTCH HUB INSTALLATION
+
+PWEE8914-D Revised
+
+R5M3, V5M3 - Transfer <V5M31> 22C-7-11
+
+TRAO322
+
+j
+Q
+mA —sit
+a | le
+a)
+LZ
+|B T
+‘e, —
+—_e ZA -semore7 TRM0268
+J” =
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+»D@ = =SNAP RING INSTALLATION
+
+(1) Select a snap ring which adjusts the end play of the clutch
+hub to the standard value shown below:
+
+Standard value: 0 — 0.08 mm (0 — 0.0031 in.)
+
+bE€ = =MAGNET / MAGNET HOLDER INSTALLATION
+
+F@)= SNAP RING INSTALLATION
+
+(1) Select a snap ring which adjusts the end play of the differen-
+tial lock hub to the standard value shown below:
+
+Standard value: 0 - 0.08 mm (0 - 0.0031 in.)
+
+9G@ = 2-4WD SHIFT RAIL / SPRING / SPRING SEAT / 2-4WD
+SHIFT LUG / SPRING PIN INSTALLATION
+
+(1) Attach the spring seat and the spring to the shift rail and set
+the shift lug onto the shift rail from inside the transfer case.
+
+(2) Push in the shift rail while paying attention to the direction of
+the hole in the shift rail, then line up the spring pin holes in
+the shift lug and the shift rail.
+
+(3) While pressing the shift rail, install the spring pin in such a
+way that the slit of the spring pin will face the axial center of
+the shift rail.
+
+bH@ =FRONT OUTPUT SHAFT / CHAIN /2-4WD SYNCHRO-
+NIZER INSTALLATION
+(1) Make a white paint mark on the deep grooves (three places)
+in the 2-4WD synchronizer.
+(2) Make a white paint mark on the projections (three places) of
+the 2-4WD synchronizer sleeve splines.
+
+PWEE8914-D Revised
+
+:
+
+22C-7-12 R5M3, V5M3 - Transfer <V5M31>
+
+TRMO0210
+
+TRAO289
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+(3) Place the chain in tight mesh with the 2-4WD synchronizer
+and front output shaft sprockets.
+
+(4) With both sprockets spaced the farthest apart, install them
+in the transfer case.
+
+91¢) FRONT OUTPUT SHAFT / CHAIN / REAR OUTPUT
+SHAFT INSTALLATION
+
+(1) Place the chain in tight mesh with the sprockets of the rear
+output shaft and the front output shaft.
+
+(2) Install the 2-4WD shift fork to the 2-4WD clutch sleeve.
+While inserting the 2-4WD shift rail in the fork hole, install the
+front and rear output shafts.
+
+»J@ = SPRING PIN INSTALLATION
+
+)K¢ = INTERLOCK PLUNGER / CHAIN COVER INSTALLA-
+TION
+
+(1) Insert the interlock plunger into a position where it does not
+interfere with the 2-4WD shift rail.
+
+(2) Apply a bead of sealant to the chain cover as illustrated be-
+forehand.
+
+Specified sealant: :
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+PWEE8914-D Revised
+
+R5M3, V5M3 - Transfer.<V5M31> 22C-7-13
+
+TRA0292
+
+MB990938
+
+MB990929
+
+MT10030
+
+En)
+
+CZ
+
+I—— Spacer
+
+oe
+
+|
+
+TRMO0485
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+»L¢ = .H-L SHIFT RAIL / SPRING PIN INSTALLATION
+
+(1) Insert the H-L shift rail in the H-L shift rail mounting hole in
+the transfer case, while paying attention to the hole direc-
+- tion.
+(2) Line up the spring pin holes in the shift rail and the shift fork
+and install the spring pin so that the slit of the spring pin will
+face the axial center of the shift rail.
+
+»M¢ . OIL SEAL INSTALLATION
+(1) Apply grease to the lip of the oil seal after press-fitting.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent
+
+»N@ © OIL SEAL INSTALLATION
+(1) Apply grease to the lip of the oil seal after press-fitting.
+
+Specified grease: :
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent
+
+§0¢ SPACER INSTALLATION
+
+(1) Measure projection “A” of the rear output shaft bearing and
+“depth “B” of the second stage of the rear cover.
+
+’ (2) Subtract “A” from “B” and let the answer be “C”. Subtract
+
+--the thickness of the spacer from "C”, and select a spacer so
+that the subtracted value will be the standard value shown
+below. .
+
+‘~ Standard value: 0 - 0.1 mm (0 — 0.004 in.)
+
+PWEES914-D- . mh . Revised
+
+R5M3, V5M3 - Transfer <V5M31>
+
+TRA0294
+
+Notched portion of input gear
+
+77 Sub gear |(>
+f_ {NU TRamo497
+
+TRMO0498
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+»P4 REAR.COVER INSTALLATION
+(1) Apply a bead of sealant to the rear cover as illustrated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution :
+
+e@ Squeeze sealant.out evenly to make sure that it is
+not broken or excessively supplied.
+
+p04 -SPACER INSTALLATION
+
+(1) Install the previously selected spacer (see “ADJUSTMENT
+BEFORE REASSEMBLY”). .
+
+gR@ TRANSFER CASE PLATE INSTALLATION
+
+{1} Align one of the sub gear teeth with the notched tooth of the
+input gear.
+
+(2) Apply a bead of sealant to the transfer case plate as illus-
+trated.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+(3) Install the transfer case plate together with the input gear,
+while sliding the input gear tooth aligned in Step (1) along the
+tooth space of the countershaft cluster gear.
+
+NOTE
+The transfer case plate must be installed smoothly without
+hitch.
+
+PWEE8914-D Revised
+
+R5M3, V5M3 - Transfer <V5M31> 22C-7-15
+
+\\ »S@) SPEEDOMETER GEAR INSTALLATION
+
+(1) Match the mating marks to the number of teeth.
+
+Caution
+@ The number marked on the sleeve is the number of
+teeth of the driven gear.
+
+to,
+a
+
+——
+
+TRAO295
+
+9T4 > =POPPET SPRING INSTALLATION
+(1) Install the spring with its tapered end toward the ball.
+
+TRM0426
+
+)U@ =POPPET PLUG INSTALLATION
+
+<n (1) The poppet plug is a precoated plug. When itis to be reused,
+apply sealant beforehand.
+
+Specified sealant: 3M ATD Part No. 8660 or equivalent
+
+TRA0296
+
+pV@ = PLUG INSTALLATION
+
+(1) The plug is a precoated plug. When it is to be reused, apply
+sealant beforehand.
+
+Specified sealant: 3M ATD Part No. 8660 or equivalent
+
+TRA0297
+
+)W¢ DETECTION SWITCH INSTALLATION
+
+(1) Mount the detection switches in the right positions, while
+using care to prevent confusion.
+
+Ball built in, connector brown
+Ball built in, connector black
+Ball separate, connector brown
+Ball separate, connector black
+Ball separate, connector white
+
+= TRM0228
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+22C-7-16 R5M3, V5M3 - Transfer <V5IM31>
+
+bX@ DETECTION SWITCH INSTALLATION
+(1) Mount the detection switches in the right positions, while
+being careful not to confuse anything.
+
+A: Ball built in
+B: -Ball separate
+
+t © Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D - Revised
+
+R5M3, V5M3 - Transfer <V5M31 — Super Select 4WD Il> 22C-7a-1
+
+7a. TRANSFER <V5M31 - SUPER SELECT 4WD Il>
+DISASSEMBLY AND REASSEMBLY
+
+J
+
+; Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+bV@ 1. Shift rail drive gear
+2. Dust seal guard
+3. Dynamic damper
+4. Vehicle speed sensor
+5. O-ring
+6. Rear output sensor
+7. Front output sensor
+8. O-ring
+9U¢ 9. Shift actuator
+10. O-ring
+9U¢11. Main shift rail
+12. Under guard <EXP>
+
+TRM1375
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+22C-7a-2
+
+R53, V5M3 - Transfer <V5M31 — Super Select 4WD Il>
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+eT@ 13. Rear cover
+S¢@ 14. Oil seal
+15. Snap ring
+16. Sensor rotor
+17. Steel ball
+18. Oil guide
+pRE 19. Spacer
+20. Snap ring
+b0@ 21. Snap ring
+Pq 22. Chain cover
+§0¢ 23. Rear output shaft
+24. O-ring
+25. Needle bearing
+26. Snap ring
+
+28. Viscous coupling
+ONG 29. Chain
+GAD 9N@ 30. Front output shaft
+
+27. Center differential planetary carrier
+
+oNG 31
+
+ome 33
+Mg 34
+oMé 35
+
+36
+
+ple 37.
+ple 38.
+GAD pLE 39.
+40.
+
+41,
+Ke 42.
+Ka 43.
+be 44.
+pla 45.
+ola 46.
+47.
+
+. Drive sprocket
+
+. Needle bearing
+
+. Synchronizer inner ring
+. Synchronizer cone
+
+. Synchronizer outer ring
+. Synchronizer spring
+
+Snap ring
+
+2-4WD clutch hub
+Sun gear
+
+Needle bearing
+Wave spring
+2-4WD clutch sleeve
+2-4WD shift fork
+Spacer
+
+Steel ball
+
+Snap ring
+Differential lock hub
+
+TRAI776
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+PWEE8914-1
+
+Added
+
+R5M3, V5M3 ~ Transfer <V5M31 — Super Select 4WD Il> 22C-7a-3
+
+Disassembly steps
+
+bHE 48. Transfer case plate
+
+oC@ 49. Front bearing retainer
+50. Input gear
+
+pG4¢ 51. Oil seal oe
+52. Baffel plate
+53. Needle bearing
+
+54. Countershaft gear Be
+OF@ 55. Spacer
+bE@ 56. High/low clutch sleeve (BD pAG
+
+bEq 57. High/low shift fork
+§D4@ 58. Snap ring
+
+I
+
+Sm Apply gear oil to all
+
+moving parts before
+installation.
+
+59. High/low clutch hub
+60. Low speed gear
+
+61. Needle bearing
+
+62. Rear bearing retainer
+63. Transfer drive shaft
+64. Dust seal guard
+
+65. Oil seal
+
+66. Oil guide
+
+67. Oil pool cover
+
+68. Transfer case
+
+TRA1777
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-!
+
+Added
+
+22C-7a-4 R5M3, V5M3 - Transfer <V5M31 ~ Super Select 4WD II>
+
+TRA1782
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+DISASSEMBLY SERVICE POINTS
+GA) CHAIN / FRONT OUTPUT SHAFT / SUN GEAR RE-
+MOVAL
+
+(1) Remove the chain, front output shaft and sun gear as a set
+from the transfer case.
+
+“Bh OIL POOL COVER REMOVAL
+(1) Unstake the positions shown in the illustration to remove the
+oil pool cover.
+
+Caution
+
+e The oil pool cover normally does not require disas-
+sembly. Once it is removed, the transfer case cannot
+be reused.
+
+REASSEMBLY SERVICE POINTS
+bA@ OIL POOL COVER INSTALLATION
+
+(1) Install the oil pool cover on a new transfer case. Stake the
+projecting portions of the transfer so that the dimensions will
+be as illustrated.
+
+»B@ OIL SEAL INSTALLATION
+
+(1) Use the special tools to install the oil seal on the transfer
+case.
+
+»C@ == REAR BEARING RETAINER / FRONT BEARING RE-
+TAINER INSTALLATION
+
+(1) The bolts used for mounting the rear bearing retainer and
+
+front bearing retainer are pre-coated ones. When they are to
+
+be reused, apply sealant to the threaded portion before
+installation.
+
+Specified sealant:
+3M STUD Locking No. 4170 or equivalent
+
+PWEE8914-1 Added
+
+R5M3, V5M3 - Transfer <V5M31 — Super Select 4WD Il>
+
+22C-7a-5
+
+Solder
+
+TRA1785
+
+2200048
+
+7 MB990938
+4 MB990936
+
+TRA1786
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+»D¢ SNAP RING INSTALLATION
+
+(1) Select a proper snap ring so that the end play of the high/low
+clutch hub will have the standard value, and install the snap
+ring on the transfer drive shaft.
+
+Standard value: 0 - 0.08 mm (0 — 0.003 in.)
+
+bE@ = HIGH/LOW SHIFT FORK / HIGH/LOW CLUTCH
+SLEEVE INSTALLATION
+
+(1) Apply grease to the high/low shift fork shaft inserting por-
+tion, and install the high/low shift fork and high/low clutch
+sleeve in combined state in the transfer case.
+
+bF@ = =SPACER INSTALLATION
+
+(1) Put pieces of solder (approx. 10mm (0.4 in.) long and 1.6mm
+(0.06 in.) in diameter) at the illustrated positions of the trans-
+fer case.
+
+(2) Install the countershaft gear and transfer case plate and
+tighten the bolts to the specified torque.
+
+(8) If the pieces of solder are not crushed, put thicker pieces of
+solder and perform Steps 1 and 2.
+
+(4) Measure the thickness of the crushed pieces of solder with
+a micrometer, and select a spacer of proper thickness so that
+the end play will have the standard value.
+
+Standard value: 0 — 0.15 mm (0 - 0.006 in.)
+
+»G¢ OIL SEAL INSTALLATION
+
+(1) Use the special tools to install the oil seal on the transfer case
+plate.
+
+PWEE8914-1 Added
+
+22C-7a-6 R5M3, V5M3 - Transfer <V5M31 ~ Super Select 4WD Il>
+
+TRA1789
+
+TRAI790
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+bH@ TRANSFER CASE PLATE INSTALLATION
+
+(1) Apply grease to the illustrated position of the high/low shift
+rail inserting portion of the transfer case plate.
+
+(2) Face the notched portion of the input gear in the illustrated
+direction (in the direction of the countershaft gear bearing
+hole).
+
+(3) Apply sealant to the illustrated position of the transfer case.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+@ Squeeze sealant out evenly to make sure that it is
+not broken or excessively supplied.
+
+(4) While making sure that the notched portion of the input gear
+positioned in Step 2 is in alignment with the gear portion of
+the countershaft, install the transfer case plate.
+
+Caution
+
+@ If the sub gear does not readily come in mesh with
+the countershaft gear, rotate the transfer drive shaft,
+etc. to securely engage it.
+
+bl@)- SNAP RING INSTALLATION
+
+(1) Select a proper snap ring so that the end play of the differen-
+tial lock hub will have the standard value, and install it on the
+transfer drive shaft.
+
+Standard value: 0 — 0.08 mm (0 - 0.003 in.)
+
+PWEES914-1 Added
+
+R5M3, V5M3 - Transfer <V5M31 — Super Select 4WD I> 22C-7a-7
+
+TRA1792
+
+TRA1793
+
+TRAI794
+
+TRA1795
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+»J@ = = STEEL BALL / SPACER INSTALLATION
+
+(1) Install the steel ball in the illustrated position of the transfer
+drive shaft and install the spacer with its oil groove toward
+the chain cover.
+
+bK@ = 2-4WD SHIFT FORK / 2-4WD CLUTCH SLEEVE
+INSTALLATION
+(1) Apply grease to the 2-4WD shift fork shaft inserting portion
+
+and install the 2-4WD shift fork and 2-4WD clutch sleeve in
+combined state in the transfer case.
+
+bL@ = =SUN GEAR / 2-4WD CLUTCH HUB AND SNAP RING
+INSTALLATION
+
+(1) Install the 2-4WD clutch hub on the sun gear.
+
+(2) Select a proper snap ring so that the end play of the 2-4WD
+clutch hub will have the standard value, and install it on the
+sun gear.
+
+Standard value: 0 - 0.08 mm (0 — 0.003 in.)
+
+)M@ SYNCHRONIZER OUTER RING / SYNCHRONIZER
+CONE / SYNCHRONIZER INNER RING INSTALLA-
+TION
+
+(1) Combine the synchronizer outer ring, synchronizer cone and
+synchronizer inner ring, press them against the drive sprock-
+et, and measure the dimension shown in the illustration.
+
+Limit value: 0.3 mm (0.012 in.)
+
+(2) If the dimension is out of the limit value, replace them with
+a synchronizer ring set.
+
+(3) Apply gear oil to the synchronizer outer ring and synchronizer
+inner ring.
+
+(4) Line up the notched portion of the 2-4WD clutch hub with the
+projecting portion of the synchronizer ring and instail the ring
+on the 2-4WD ciutch hub.
+
+PWEE8914-1 Added
+
+22C-7a-8 R5M3, V5M3 - Transfer <V5M31 - Super Select 4WD II>
+
+»Né DRIVE SPROCKET / FRONT OUTPUT SHAFT / CHAIN
+INSTALLATION
+
+(1) Set the chain in mesh with the drive sprocket and front out-
+put shaft sprocket and install them in the transfer case.
+
+(2) Install the drive sprocket so that its illustrated holes will
+match the projecting portions of the synchronizer cone.
+
+TRA1797
+
+»0@ REAR OUTPUT SHAFT INSTALLATION
+
+(1) Apply grease to the O-ring at the illustrated position and
+install the rear output shaft.
+
+»P@ CHAIN COVER INSTALLATION
+
+(1) Apply grease to the indicated 2-4WD shfit rail inserting por-
+tion.
+
+TRA1799
+
+(2) Apply a bead of sealant to the illustrated position of the chain
+cover.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+
+© Squeeze the sealant out evenly to make sure that it
+is not broken or excessively supplied.
+
+TRA1800
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-] Added
+
+R5M3, V5M3 - Transfer <V5M31 - Super Select 4WD Il>
+
+22C-7a-9
+
+TRA1801
+
+Projection
+
+TRA1802
+
+Concave
+portion
+
+TRA1803
+
+MB990938
+
+MB990932
+
+TRA1804
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+904 SNAP RING ISNTALLATION
+
+(1)
+(2)
+
+(4)
+
+Install the snap ring in the bearing groove of the rear output
+shaft.
+
+With the rear output shaft pressed against the chain cover,
+measure the clearance between the chain cover and snap
+ring.
+
+Select a snap ring whose thickness is the dimension of the
+measured clearance plus the standard value.
+
+Standard value: 0.12 — 0.24 mm (0.005 ~ 0.009 in.)
+
+Remove the snap ring from the bearing groove of the rear
+output shaft, install the selected snap ring, and reinstall the
+removed snap ring in the bearing groove of the rear output
+shaft.
+
+bR@ = =SPACER INSTALLATION
+
+(1)
+
+(2)
+
+With the rear output shaft pressed toward the chain cover,
+measure the projection of the bearing from the chain cover.
+
+Caution
+© Measure the projection with the snap ring installed.
+
+Measure the dimension of the rear cover concave portion at
+the illustrated position.
+
+Subtract the measured value in Step 1 from the measured
+value in Step 2 to calculate the clearance between the bear-
+ing and rear cover. Select a proper spacer so that the clear-
+ance will have the standard value.
+
+Standard value: 0 - 0.12 mm (0 — 0.05 in.)
+
+»S@ OIL SEAL INSTALLATION
+
+(1)
+
+Use the special tools to install the oil seal in the rear cover.
+
+PWEE8914-1 Added
+
+22C-7a-10 RS5M3, V5M3 - Transfer <V5M31 — Super Select 4WD Il>
+
+TRAI805
+
+TRA1806
+
+Mark
+
+N
+Third gear
+groove
+TRA1807
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+§T¢ > =REAR COVER INSTALLATION
+(1) Apply sealant to the illustrated position of the chain cover.
+
+Specified sealant:
+Mitsubishi genuine sealant Part No. MD997740 or
+equivalent
+
+Caution
+@ Squeeze the sealant out evenly to make sure that it
+is not broken or excessively supplied.
+
+»U¢@ = MAIN SHIFT RAIL / ACTUATOR INSTALLATION
+
+(1) Apply grease to the O-ring.
+(2) Combine the main shift rail key with actuator key and insert
+them in the transfer case.
+
+»V@ = SHIFT RAIL DRIVE GEAR INSTALLATION
+
+(1) Install the shift rail drive gear with its marked tooth in mesh
+with the third gear groove of each shift rail.
+
+PWEES8914-1 Added
+
+R5M3, V5M3 - Transfer Case Plate <V5IM31> 22C-8-1
+
+8. TRANSFER CASE PLATE <V5M31>
+DISASSEMBLY AND REASSEMBLY
+
+fy Lubricate all
+internal parts
+
+with gear oil
+
+during reassembly.
+
+Disassembly steps
+
+9C@ 1. Bearing retainer
+
+2. Transfer input gear
+bB¢ 3. Oil seal
+
+4. Baffle plate
+bA@ 5. Oil seal
+
+6. Transfer case plate
+
+TRMO0500
+
+REASSEMBLY SERVICE POINTS
+pA OIL SEAL INSTALLATION
+
+(1) Use a socket wrench or the like to instail the oil seal. After
+installing, apply grease to the lip of the oi! seal.
+Specified grease:
+Mitsubishi genuine grease Part No. 0101017 or
+equivalent
+
+TRMO0501
+
+MDg998803 »B¢ OIL SEAL INSTALLATION
+(1) After installation, apply grease to the lip of the oil seal.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent
+
+TRM0502
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+22C-8-2 R5M3, V5M3 - Transfer Case Plate <V5M31>
+
+»C@ ~~ BEARING RETAINER INSTALLATION
+
+(1) The rear bearing mounting bolt is a precoated one. When it
+is to be reused, apply sealant beforehand.
+
+Specified sealant:
+3M STUD Locking No. 4170 or equivalent
+
+TFM0041
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEES8914-D Revised
+
+: Transfer input Gear
+RSM3, V5M3 — <v5m31 - Part Time 4WD and Super Select 4WD> 22C-9-1
+
+9. TRANSFER INPUT GEAR
+
+<V5M31 — PART TIME 4WD AND SUPER SELECT 4WD>
+6
+
+DISASSEMBLY AND REASSEMBLY
+
+u Apply gear oil to all 4
+Dy) moving parts before
+
+| _ installation. 033
+
+Disassembly steps
+oC@ 1. Snap ring
+GAD OBE 2. Ball bearing
+3. Snap ring*
+bAE 4. Cone spring*
+5. Sub gear” NOTE
+6. Transfer input gear :
+put g INE
+
+*: Provided for some models only
+
+TRMO0503
+
+DISASSEMBLY SERVICE POINT
+GA) BALL BEARING REMOVAL
+
+REASSEMBLY SERVICE POINTS
+»A@ ~=CONE SPRING INSTALLATION
+(1) Install the cone spring with the white paint side up.
+
+MT10049
+
+»B¢ BALL BEARING INSTALLATION
+
+MD998824
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Revised
+
+Transfer Input Gear
+22C-9-2 R5M3, V5M3 — <V5M31 - Part Time 4WD and Super Select 4WD>
+
+»C@ = SNAP RING INSTALLATION
+
+(1) Select a snap ring which adjusts the end play of the input
+gear bearing to the standard value shown below:
+
+Standard value: 0 — 0.06 mm (0 - 0.0024 in.)
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Revised
+
+RSM3, V5M3 -— Transfer Input Gear <V5M31 — Super Select 4WD I> 22C-9a-1
+
+9a. TRANSFER INPUT GEAR <V5M31 — SUPER SELECT 4WD Il>
+DISASSEMBLY AND REASSEMBLY
+
+5
+Apply gear oil to all 4
+a moving parts before 3
+ia installation. 2
+1
+Disassembly steps
+Bq 1. Snap ring
+GA 9AG 2. Ball bearing
+3. Snap ring
+4. Cone spring
+5. Sub gear
+6. Transfer input gear
+TRA1822
+
+DISASSEMBLY SERVICE POINTS
+“A> BALL BEARING REMOVAL
+(1) Use the special tool to remove the ball bearing.
+
+TRA1823
+
+REASSEMBLY SERVICE POINTS
+bA@ BALL BEARING INSTALLATION
+MP998812 (1) Use the special tool to install the ball bearing.
+
+MD998826
+
+TRA1824
+
+»B4@ SNAP RING INSTALLATION
+
+(1) Select and install a proper snap ring so that the end play of
+the transfer input gear bearing will have the standard value.
+
+Standard value: 0 — 0.06 mm (0 - 0.024 in.)
+
+TRAt825
+
+Added
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-I
+
+Countershaft Gear
+R5M3, V5M3 - <v5M31 - Part Time 4WD and Super Select awD> 22C-10-1
+
+10. COUNTERSHAFT GEAR
+
+<V5M31 - PART TIME 4WD AND SUPER SELECT 4WD>
+
+DISASSEMBLY AND REASSEMBLY
+
+Apply gear oil to all
+Sp moving parts before
+
+| installation.
+
+Disassembly steps
+OAD 9C@ 1. Bail bearing
+oB¢ 2. Snap ring
+BD AE 3. Roller bearing
+4. Countershaft gear
+
+TRMO0504
+
+Ball bearing MbD¢998801
+
+TRMOS505
+
+Roller bearing = MD998801
+
+TRMO0506
+
+MD998812
+
+we
+
+MD998818
+
+q
+
+Roller bearing
+
+TRMO507
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+DISASSEMBLY SERVICE POINTS
+(AD BALL BEARING REMOVAL
+
+4B) ROLLER BEARING REMOVAL
+
+REASSEMBLY SERVICE POINTS
+»Aq = ROLLER BEARING INSTALLATION
+
+PWEE8914-1
+
+Revised
+
+Countershaft Gear
+22C-10-2 RS5M3, V5M3 - <V5M31 — Part Time 4WD and Super Select 4WD>
+
+»B4@ SNAP RING INSTALLATION
+
+(1) Select a snap ring. that adjusts the end play of the counter-
+shaft gear roller bearing to the standard value shown below:
+
+Standard value: 0 - 0.08 mm (0 — 0.0031 in.)
+
+Snap ring
+
+TRMO0508
+
+998812 9C¢ BALL BEARING INSTALLATION
+
+MD998818
+
+TRMOS09
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Revised
+
+Countershaft Gear
+R5M3, V5M3 - <V5M31 — Super Select 4WD II> 22C-10a-1
+
+10a. COUNTERSHAFT GEAR <V5M31 —- SUPER SELECT 4WD Il>
+DISASSEMBLY AND REASSEMBLY
+
+f
+
+Sm Apply gear oil to ail
+moving parts before
+installation.
+
+4
+Disassembly steps
+GAD 9C@ 1. Ball bearing {Bp pA@ 4. Roller bearing
+bB¢ 2. Snap ring {Bp pA 5. Inner race
+{BO bAq 3. Spacer 6. Countershaft gear
+
+TRA1826
+
+DISASSEMBLY SERVICE POINTS
+GAD BALL BEARING REMOVAL
+(1) Use the special tool to remove the ball bearing.
+
+TRA1827
+
+(Bh) SPACER / ROLLER BEARING / INNER RACE RE-
+MOVAL
+
+(1) Remove the spacer and roller bearing.
+(2) Using the special tool, remove the inner race.
+
+NOTE
+
+The removal sequence of roller bearing parts vary depending
+on the direction that the roller bearing was installed. In some
+cases, the inner race, roller bearing and spacer may have to
+be simultaneously removed.
+
+MD998801
+
+Vs TRA1828
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-! Added
+
+Countershaft Gear
+
+22C-10a-2 R5M3, V5M3 — <V5M31 — Super Select 4WD Il>
+
+MD998812
+MD998818
+
+TRA1829
+
+c
+
+Ss
+= 4
+
+MD998812
+
+MD998818
+
+TRA1831
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+REASSEMBLY SERVICE POINTS
+
+bA@ INNER RACE / ROLLER BEARING / SPACER INSTAL-
+LATION
+
+(1) Using the special tool, install the inner race.
+(2) Install the roller bearing and spacer.
+
+»B¢ = SNAP RING INSTALLATION
+
+(1) Select and install a proper snap ring so that the end play of
+the countershaft gear roller bearing will have the standard
+value.
+
+Standard value: 0 - 0.08 mm (0 — 0.003 in.)
+
+»C@ = =BALL BEARING INSTALLATION
+(1) Use the special tools to install the ball bearing.
+
+PWEE8914-1 Added
+
+H-L Shift Fork
+R5M3, V5M3 - <v5M3i - Part Time 4WD and Super Select 4wD> 22C-11-1
+
+11.H-L SHIFT FORK
+<V5M31 — PART TIME 4WD AND SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY
+
+3 Apply gear oil to alll -
+ag) moving parts before
+“uy NG 4 installation.
+
+Disassembly steps
+
+pA 1. Return spring plug
+2. Return spring
+3. Return spring
+4. Select plunger
+5. Plunger boss
+6. H-L shift fork
+
+TRM0226
+
+REASSEMBLY SERVICE POINT
+bA@ RETURN SPRING PLUG INSTALLATION
+(1) Thread the plug in until it is flush with the plunger boss end.
+
+TRM0227
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-1 Revised
+
+Shift Fork and Shift Rail
+R5M3, V5M3 — <V5M31 - Super Select 4WD I> 22C-11a-1
+
+11a. SHIFT FORK AND SHIFT RAIL <V5M31 - SUPER SELECT 4WD Il>
+DISASSEMBLY AND REASSEMBLY
+
+installation. 1
+
+7
+$ 2 4H
+2
+3
+5
+
+Disassembly steps
+
+f
+‘ Apply gear oil to all
+7” moving parts before
+
+pBé 1. Spring pin 9B¢ 5. Spring pin
+pAG 2. 2-AWD shift fork gA@ 6. High/low shift fork
+3. Spring bAG 7. High/low shift rail
+
+bA@ 4. 2-4WD shift rail
+
+TRA1835
+
+REASSEMBLY SERVICE POINTS
+Aq = SHIFT FORK / SHIFT RAIL INSTALLATION
+
+(1) Apply grease to the outer periphery of the shift fork mount-
+ing portion of the shift rail and then assemble the shift fork
+and shift rail.
+
+TRAI837
+
+High/low shift rail 2-4WD shift rail 9B¢ = SPRING PIN INSTALLATION
+
+(1) Install the spring pin with its split toward the forward end of
+the transfer.
+
+TRA1836
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-1 Added
+
+NOTES
+
+R5M3, V5M3 - 2-4WD Synchronizer <V5IM31.- Super Select 4WD> 22C-12-1
+
+12.2-4WD SYNCHRONIZER <V5M31 —- SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY - .
+
+yt Lubricate all
+internal parts
+with gear oil
+during reassembly.
+
+Disassembly steps
+
+bAG 1. Snap ring
+
+. 2-4WD synchronizer hub
+. Synchronizer spring
+
+. Outer synchronizer ring
+
+. Synchronizer cone
+
+. Inner synchronizer ring
+
+. Drive sprocket
+
+. Needle bearing
+
+. Front drive pinion
+
+a
+OONAMNPWNH
+
+TRAQ307
+
+<— A INSPECTION
+Drive sprocket
+
+me, SYNCHRONIZER RING, SYNCHRONIZER CONE
+
+t-———_] (1) Combine the inner and outer synchronizer rings and cone
+
+with the drive sprocket and measure the dimension A in the
+
+illustration. If the dimension A is less than the limit, replace
+
+them as a set.
+
+Limit: 0.3 mm (0.012 in.)
+bial ) NOTE
+
+Scratches may be found on the cone surface in the rotating
+TRA0340 direction. These are produced by the liners of the synchroniz-
+
+Outer ring
+
+Inner ring
+
+er rings and do not mean the malfunction. Therefore, the
+parts need not be replaced if the above-mentioned clearance
+is satisfied.
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEES8914-D an : Revised
+
+22C-12-2 R5M3, VS5M3 - 2-4WD Synchronizer <V5M311 - Super Select 4WD>
+
+REASSEMBLY SERVICE POINT
+“pA SNAP RING INSTALLATION
+
+(1) Select a snap ring that will adjust the end play of the 2-4WD
+synchronizer hub to the standard value:
+
+Standard value: 0 - 0.08 mm (0 - 0.0031 in.)
+
+TRA0310
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+R5M3, V5M3 - Center Differential Case <V5M31 — Super Select 4WD> 22C-13-1
+
+13. CENTER DIFFERENTIAL CASE <V5M31 - SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY
+
+Sb Lubricate all
+
+Disassembly steps internal parts
+
+: A with gear oil
+; . center ciaferental case front during reassembly.
+3. Pinion
+
+4. Thrust washer
+5. Pinion shaft
+6. Center differential case rear
+
+TRAOQ3O5
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+NOTES
+
+R5M3, V5M3 - Rear Output Shaft <V5M31 - Super Select 4WD> 22C-14-1
+
+14.REAR OUTPUT SHAFT <V5M31 - SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY
+
+Disassembly steps
+oBé 1. Snap ring
+GAD BAG 2. Bali bearing
+
+3. Viscous coupling
+4, Rear output shaft
+
+TRA0301
+
+DISASSEMBLY SERVICE POINT
+A> BALL BEARING REMOVAL
+
+TRAQ302
+
+REASSEMBLY SERVICE POINTS
+
+j— MD998812
+bA@ BALL BEARING INSTALLATION
+
+MD998814 —
+
+MDg98823
+ae TRAO3O3
+
+»Bé = SNAP RING INSTALLATION
+
+(1) Select a snap ring that will adjust the end play of the rear out-
+put shaft ball bearing to the standard value:
+
+Standard value: 0 - 0.08 mm (0 - 0.0031 in.)
+
+TRAO304
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+Rear Output Shaft
+
+R5M3, V5M3 — <V5M31 ~ Super Select 4WD Il> 22C-14a-1
+
+14a. REAR OUTPUT SHAFT <V5M31 —- SUPER SELECT 4WD Il>
+
+i
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+9€@ 1. Snap ring
+2. Annulus gear
+Be 3. Snap ring
+“Ad pAG 4. Ball bearing
+5. Rear output shaft
+
+TRA1812
+
+MD998801
+
+TRA1813
+
+MD998812
+
+MD998814
+
+MD998824
+
+TRA1814
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+DISASSEMBLY SERVICE POINTS
+GA BALL BEARING REMOVAL
+(1) Use the special tools to remove the ball bearing.
+
+REASSEMBLY SERVICE POINTS
+bA@ BALL BEARING INSTALLATION
+(1) Use the special tools to install the ball bearing.
+
+PWEES914-1 Added
+
+Rear Output Shaft
+22C-14a-2 R5M3, V5M3 — <v5M31 - Super Select 4WD Il>
+
+»B@ = SNAP RING INSTALLATION
+
+(1) Select and install a proper snap ring so that the end play of
+the rear output shaft bearing will have the standard value.
+
+Standard value: 0 — 0.08 mm (0 - 0.003 in.)
+
+TRAI815
+
+9C@ == SNAP RING INSTALLATION
+
+(1) Select and install a proper snap ring so that the clearance be-
+tween the annulus gear and rear output shaft will have the
+standard value.
+
+Standard value: 0 — 0.08 mm (0 - 0.003 in.)
+
+TRA1816
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
+
+NOTES
+
+R5M3, V5M3 - Rear Output Shaft <V5M31 - Part Time 4WD> 22C-15-1
+
+15.REAR OUTPUT SHAFT <V5M31 — PART TIME 4WD>
+DISASSEMBLY AND REASSEMBLY <V5M31-5>
+
+f
+
+¢ Apply gear oil to all
+
+moving parts before
+installation.
+
+8. Oil guide
+
+9. Sprocket spacer
+10. Steel bail
+11. Drive sprocket
+
+Disassembly steps 12. Needle bearing
+
+15 oF@ 1. Snap ring 13. Sprocket sleeve
+
+QAO 9E@ 2. H-L clutch hub 14. Steel ball
+3. Low speed gear 15. 2-4WD clutch sleeve
+4. Bearing spacer ODD 9B416. 2-4WD clutch hub
+5. Needle bearing QD) — 17. Stopper plate
+
+GBD »D@ 6. Lock nut QD) »AG18. Ball bearing
+
+18 QC) oC@ 7. Ball bearing 19. Rear output shaft
+TRAOSIS.
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1
+
+Revised
+
+22C-15-2
+
+R5M3, V5M3 - Rear Output Shaft <V5M31 - Part Time 4WD>
+
+f
+
+‘ Apply gear oil to all
+moving parts before
+installation.
+
+Disassembly steps
+bF@ 1. Snap ring
+
+AD bE@ 2. Clutch hub (H-L)
+3. Low speed gear
+A. Needle bearing
+
+5. Snap ring
+
+6. Rotor
+
+7. Steel ball
+GBH pD4 8. Lock nut
+
+Cd »C@ 9. Radial ball bearing
+
+10. Oil guide
+
+11, Sprocket spacer
+
+12. Steel ball
+
+13. Drive sprocket
+
+DISASSEMBLY AND REASSEMBLY <V5M31-6>
+
+14, Needle bearing
+15. Sprocket sleeve
+16. Steel ball
+17. Inner synchronizer ring
+18. Synchronizer cone
+19. Outer synchronizer ring
+20. Synchronizer spring
+21. Clutch sleeve
+QDO §B422. Clutch hub (2-4WD)
+QD) 23. Stopper plate
+Dh pAG24. Ball bearing
+25. Rear output shaft
+
+TRM1376
+
+MDs98801
+
+Mrt0031
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+DISASSEMBLY SERVICE POINTS
+GA) H-L CLUTCH HUB REMOVAL
+
+PWEES8914-1
+
+Revised
+
+R5M3, V5M3 - Rear Output Shaft <V5M31- Part Time 4WD> 22C-15-3
+
+HEED, TRAQ316
+
+C__MTi0035
+
+Outer ring A Drive sprocket
+C “>
+one
+i -—-——_]
+
+.—__.
+
+Inner ring TRAO340
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+4B) LOCK NUT REMOVAL
+
+(1) Clamp the drive sprocket in a vice with soft jaws attached.
+(2) Use a chisel and hammer to unstake the lock nut.
+
+(3) Fix the rear output shaft by putting the clutch sleeve in mesh
+with the drive sprocket. .
+(4) Use the special tool to remove the lock nut.
+
+&€} BALL BEARING REMOVAL
+
+{Dt 2-4WD CLUTCH HUB / STOPPER PLATE / BALL
+BEARING REMOVAL
+
+INSPECTION
+
+OUTER SYNCHRONIZER RING / INNER SYNCHRONIZER
+RING / SYNCHRONIZER CONE
+
+(1) Combine the inner and outer synchronizer rings and cone
+with drive sprocket, and measure dimension A in the illustra-
+tion. If dimension A is less than the limit, replace them as a
+set.
+
+Limit value: 0.3 mm (0.012 in.)
+
+PWEE8914-I Revised
+
+22C-15-4 RSM3, V5M3 - Rear Output Shaft <V5M31 - Part Time 4WD>
+
+ spse 38 ip! REASSEMBLY SERVICE POINTS
+| bA@ BALL BEARING INSTALLATION
+12
+tal fl
+4
+i |
+‘RMO050
+<V5M31-5>  \yipg9ss12 — | »B¢@ = 2-4WD CLUTCH HUB INSTALLATION
+Mp998813 —t | (1) pect the clutch hub as shown and install it to the rear output
+MbDg998e14 ‘ shatt.
+a
+WO WI H
+Mbg98821 le
+|
+MT10041 |. TRMO0051
+<V5M31-6>
+MD998812
+MD998813
+mMp998814 °
+in T
+MD998821
+_—
+MT10041 fe TRM1358
+T_T
+Mp998812 9C@ =~ BALL BEARING INSTALLATION
+g Mbesse13
+lal
+MD998801
+»D¢ LOCK NUT INSTALLATION
+(1) Use the special tool to tighten the lock nut to the specified
+torque. :
+(2) Use a punch and hammer to stake the lock nut.
+Vie | TRA0318
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-1 Added
+
+R5M3, V5M3 - Rear Output Shaft <V5M31- Part Time 4WD> 22C-15-5
+
+bE@ = H-L CLUTCH HUB INSTALLATION
+
+(1) Direct the clutch hub as shown and install it to the rear output
+shaft.
+
+MD998812
+
+MD998821
+
+MD998801
+
+MT10045 Le TAM1377
+
+9F¢ = SNAP RING INSTALLATION
+\ (1) Select a snap ring that will adjust the end play of H-L clutch
+
+hub to the standard value:
+
+Snap ring
+
+Standard value: 0 - 0.08 mm (0 - 0.0031 in.)
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-1 Added
+
+NOTES
+
+R5M3, V5M3 — Transfer Drive Shaft <V5M31 - Super Select 4WD> 22C-16-1
+
+16. TRANSFER DRIVE SHAFT <V5M31 - SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY
+
+Disassembly steps
+
+GAD bAG 1. Ball bearing
+2. Transfer drive shaft
+
+TRMO0S10
+
+DISASSEMBLY SERVICE POINT
+(A) BALL BEARING REMOVAL
+
+MD998917
+
+TRAO312
+
+_ ipeeas12 REASSEMBLY SERVICE POINT
+eA@) BALL BEARING INSTALLATION
+mp998814—+
+O{ | mp9e8830——+ ¢
++ MD998192
+C\io998017 ¢
+a TRA0313.
+
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Revised
+
+Transfer Drive Shaft
+
+R5M3, V5M3 - <V5M31 - Super Select 4WD Il> 22C-16a-1
+
+16a. TRANSFER DRIVE SHAFT <V5M31 ~ SUPER SELECT 4WD Il>
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+GAD BAG 1. Ball bearing
+2. Transfer drive shaft
+
+TRA1832
+
+TRA1833
+
+MD998812
+MD998814
+
+MD998830
+MD998192
+
+TRA1834
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+DISASSEMBLY SERVICE POINTS
+@A) BALL BEARING REMOVAL
+(1) Use the special tools to remove the ball bearing.
+
+REASSEMBLY SERVICE POINTS
+»A@ BALL BEARING INSTALLATION
+(2) Use the special tools to install the ball bearing.
+
+PWEES914-1 Added
+
+NOTES
+
+Front Output Shaft
+R5M3, VSM3 — <V5M3i - Part Time 4WD and Super Select 4wD> 22C-17-1
+
+17.FRONT OUTPUT SHAFT
+<V5M31 — PART TIME 4WD AND SUPER SELECT 4WD>
+
+DISASSEMBLY AND REASSEMBLY
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+GAD BAG 1. Ball bearing
+2. Front output shaft
+
+TRAO319
+
+=} DISASSEMBLY SERVICE POINT
+(AD BALL BEARING REMOVAL
+
+IMD998801 B
+—=4
+
+_-——WiFi0087 |
+
+mogessid npoaedisy REASSEMBLY SERVICE POINT
+
+Mpgo8s1 3 bA@ BALL BEARING INSTALLATION
+MD998818
+
+MD998801
+
+ee .
+(ne TRM0048
+
+© Mitsubishi Motors Corporation Feb, 2000 PWEE8914-I Revised
+
+’ Front Output Shaft .
+R5M3, V5M3 - <v5M31 - Super Select 4WD li> 22C-17a-1
+
+17a. FRONT OUTPUT SHAFT <V5M31 —- SUPER SELECT 4WD I>
+
+f
+
+$ Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+Ad »Bq 1. Ball bearing
+2. Sensor rotor
+4B #AE 3. Ball bearing
+4. Front output shaft
+
+TRA1817
+
+DISASSEMBLY SERVICE POINTS
+GA) BALL BEARING REMOVAL
+(1) Use the special tools to remove the ball bearing.
+
+TRAI818
+
+4B) BALL BEARING REMOVAL
+(1) Use the special tools to remove the ball bearing.
+
+ee TRAI819
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES914-1 Added
+
+Front Output Shaft
+
+22C-17a-2 R5M3, V5M3 - <V5M31 - Super Select 4WD Il>
+
+MD998812
+
+_ TRA1820
+
+MD998812
+
+MD998813
+MD998818
+
+TRA1821
+
+© Mitsubishi Motors Corporation Feb. 2000
+
+REASSEMBLY SERVICE POINTS
+bA@ BALL BEARING INSTALLATION
+(1) Use the special tools to install the ball bearing.
+
+»Bé BALL BEARING INSTALLATION
+(1) Use the special tools to install the ball bearing.
+
+PWEE8914-1
+
+Added
+
+NOTES
+
+Speedometer Gear <R5M31, V5M31 —
+R5M3, V5M3 — Part Time 4WD and Super Select 4WD>
+
+22C-18-1
+18. SPEEDOMETER GEAR
+
+<R5M31, VSM31 — PART TIME 4WD AND SUPER SELECT 4WD>
+DISASSEMBLY AND REASSEMBLY
+
+sf |
+BI4
+Disassembly steps
+
+O91
+1. O-ring
+bA@ 2. Spring pin
+3. Speedometer driven gear
+4. O-ring
+5. Sleeve
+
+Apply gear oil to alt
+moving parts before
+installation.
+
+110008
+
+REASSEMBLY SERVICE POINT
+9Aq = SPRING PIN INSTALLATION
+
+(1) Drive the spring pin into position so that its slit faces outward
+as illustrated.
+
+Becca
+KK KK
+ez
+
+110019
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEES8914-1
+
+Revised
+
+NOTES
+
+R5M3, V5M3 — Control Housing <R5M31> 22C-19-1
+
+19. CONTROL HOUSING <R5M31>
+DISASSEMBLY AND REASSEMBLY <Column shift type>
+
+i :
+Apply gear oil to all
+cy moving parts before
+
+installation.
+
+25
+
+12 — 20
+18 [18 | 1.8 | 13 | 13 7 ar
+8 yt ;
+
+See 039/28 -—— 10
+aw,
+
+Disassembly steps
+
+oL¢ 1. Plunger 96415. Dish spring
+2. Jam nut 16. Bolt
+3. Spring washer 17. Snap ring
+4. Select lever 9F@18. Select lever
+5. Select shaft 9F4@19. Control finger
+OK 6. Oil seal 20. Resistance spring retainer
+7. Reamer bolt 21. Resistance spring
+8. Spring washer 9E€22. Spring pin
+9. Flange bolt 9D4¢23. Detent plate
+§J@10. Return spring 9C€24. Cover
+11. Stopper plate §B425. Needle bearing
+12. Stopper bracket pA€26. Oil seal
+014 13. Spring pin 27. Needle bearing
+9H@14. Set screw 28. Control housing
+
+TRMO584
+© Mitsubishi Motors Corporation July 1999 PWEE8914-H Revised
+
+22C-19-2
+
+R5M3, V5M3 — Control Housing <R5M31>
+
+Oil seal
+
+Tes
+
+TRM0585
+
+Needle
+
+bearing
+SN
+
+Contro! housing
+
+a
+
+TRMO0586
+
+Control
+
+housing
+
+~—_ 4
+
+TRMO0587
+
+Detent plate
+
+TRM0588
+
+TRMO589
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+REASSEMBLY SERVICE POINTS
+pA OIL SEAL INSTALLATION
+(1) After installation, pack grease between the lips of the oil seal.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0107011 or
+equivalent
+
+9B¢ NEEDLE BEARING INSTALLATION
+
+(1) Install the needle bearing in the control housing as shown in
+the illustration.
+
+oC@ COVER INSTALLATION
+
+(1) Install the cover with its seal positioned as shown in the il-
+lustration.
+
+9D¢@ = DETENT PLATE INSTALLATION
+(1} Install the detent plate as shown in the illustration.
+
+bEq = SPRING PIN INSTALLATION
+
+(1) Install the spring pin with its slit positioned as shown in the
+illustration.
+
+PWEE8914-D Added
+
+R5M3, V5M3 - Control Housing <R5M31> 22C-19-3
+
+9F@ = =CONTROL FINGER / SELECT LEVER INSTALLATION
+(1) Apply grease to the splines of the select lever.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+equivalent
+
+TRMO590.
+
+(2) Install the control finger to the select lever while aligning
+
+Y their wider key and keyway.
+
+TRMO591
+
+9G¢@ DISH SPRING INSTALLATION
+
+(1) Install the dish spring as shown in the illustration.
+tee
+ae Dish spring
+
+TRM0592
+
+1 bH@ SET SCREW INSTALLATION
+
+| (1) Align the groove of the select lever with the set scre\
+mounting hole and install the set screw.
+
+Set screw.
+
+TRMO0583
+
+mm §1@ =) PRING PIN INSTALLATION
+
+35 in.) (1) Install the spring pin so that the dimension shown in the il-
+lustration is obtained.
+
+TRM0594
+© Mitsubishi Motors Corporation Feb. 1995 PWEE8914-D Added
+
+—- Control Housing <R5M31>
+
+22C-19-4 R5M3, V5M3
+bJ¢ RETURN SPRING INSTALLATION
+(1) Install the return spring as shown in the illustration.
+i, Ke)
+Return spring TRMO595
+bK@ OIL SEAL INSTALLATION
+
+ZL
+
+=
+
+Oil seal
+97
+fay
+
+la
+
+TRMO596
+
+(1) After installation, pack grease between the lips of the oil seal.
+
+Specified grease:
+Mitsubishi genuine grease Part No. 0101011 or
+
+equivalent
+
+oL@ = PLUNGER INSTALLATION
+(1) If a plunger is to be reused, apply sealant before installation
+
+Specified sealant:
+3M ATD Part No. 8660 or equivalent
+
+TRMO0597
+
+© Mitsubishi Motors Corporation Feb. 1995
+
+PWEE8914-D
+
+Added
+
+Shift Rail Drive Gear
+R5M3, V5M3 ~ <v5i3i - Super Select 4WD Il> 22C-20-1
+
+20. SHIFT RAIL DRIVE GEAR <V5IM31 - SUPER SELECT 4WD II>
+
+f
+
+s Apply gear oil to all
+
+moving parts before
+installation.
+
+Disassembly steps
+
+1. Snap ring
+bAG 2. Shift rail drive gear
+3. Bearing
+4. Shift rail drive gear shaft
+5. Washer
+6. Snap ring TRAI&10
+
+REASSEMBLY SERVICE POINTS
+
+Aq = SHIFT RAIL DRIVE GEAR INSTALLATION
+
+(1) Install the shift rail drive gear such that its mark does not face
+the washer.
+
+TRAI811
+
+© Mitsubishi Motors Corporation Feb. 2000 PWEE8914-1 Added
