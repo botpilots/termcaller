@@ -3,3 +3,9 @@ node_modules
 .env
 
 /src/generated/prisma
+
+# Local SQLite databases (created by `npm run db:push`)
+database.sqlite
+database.sqlite-journal
+prisma/database.sqlite
+prisma/database.sqlite-journal
