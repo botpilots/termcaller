@@ -110,6 +110,7 @@ router.post('/:id/upload', authenticateToken, upload.single('file'), async (req:
     }
 
     // Start background processing
+    console.log(`[Upload] Received PDF for project ${id}: ${file.originalname} (${file.size} bytes)`);
     processPdfBackground(id, file.path);
 
     res.json({ message: 'Upload successful, processing started' });
@@ -133,6 +134,7 @@ router.get('/:id/stream', authenticateToken, (req: AuthRequest, res) => {
     sseClients.set(id, []);
   }
   sseClients.get(id)!.push(res);
+  console.log(`[SSE] Client connected for project ${id} (${sseClients.get(id)!.length} total)`);
 
   // Remove client when connection closes
   req.on('close', () => {
@@ -146,6 +148,7 @@ router.get('/:id/stream', authenticateToken, (req: AuthRequest, res) => {
         sseClients.delete(id);
       }
     }
+    console.log(`[SSE] Client disconnected for project ${id}`);
   });
 });
 

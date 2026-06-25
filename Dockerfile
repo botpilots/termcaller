@@ -1,5 +1,5 @@
 # Stage 1: Build the frontend
-FROM node:20-alpine AS frontend-builder
+FROM node:22-alpine AS frontend-builder
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
 RUN npm ci
@@ -7,11 +7,11 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Build the backend and serve
-FROM node:20-alpine
+FROM node:22-alpine
 WORKDIR /app
 
-# We need python and build tools for native dependencies like better-sqlite3
-RUN apk add --no-cache python3 make g++ sqlite
+# Build tools for better-sqlite3; ImageMagick + Ghostscript for gm PDF rendering
+RUN apk add --no-cache python3 make g++ sqlite imagemagick ghostscript
 
 # Copy root package.json if it exists (optional, helps with workspaces)
 COPY package*.json ./

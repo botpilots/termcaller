@@ -8,8 +8,8 @@ const apiKey = process.env.QUARKUS_LANGCHAIN4J_AI_GEMINI_API_KEY || process.env.
 const ai = new GoogleGenAI({ apiKey });
 
 export interface ExtractedCallout {
-  calloutIdentifier: string;
-  actualIdentifier?: string;
+  calloutIdentifiers: string[];
+  actualIdentifiers?: string[];
   figureNumber: string;
   sourceTerm: string;
   functionalDescription: string;
@@ -30,13 +30,15 @@ const responseSchema = {
       items: {
         type: Type.OBJECT,
         properties: {
-          calloutIdentifier: { 
-            type: Type.STRING,
-            description: "The identifier as stated in the text."
+          calloutIdentifiers: { 
+            type: Type.ARRAY,
+            items: { type: Type.STRING },
+            description: "One or more callout identifiers that share this sourceTerm and functionalDescription. Group duplicates on the same page into a single entry instead of repeating the description."
           },
-          actualIdentifier: { 
-            type: Type.STRING,
-            description: "The identifier as it actually appears in the image. Useful for catching mismatches/wrongly put callouts. Omit this field completely if it matches the calloutIdentifier."
+          actualIdentifiers: { 
+            type: Type.ARRAY,
+            items: { type: Type.STRING },
+            description: "Optional. Parallel to calloutIdentifiers — the identifier as it actually appears in the image when it differs from the text. Omit this field completely if all identifiers match."
           },
           figureNumber: {
             type: Type.STRING,
@@ -48,7 +50,7 @@ const responseSchema = {
             description: "A general, independent description of the part's typical function. Avoid overly specific context-bound actions."
           }
         },
-        required: ["calloutIdentifier", "figureNumber", "sourceTerm", "functionalDescription"]
+        required: ["calloutIdentifiers", "figureNumber", "sourceTerm", "functionalDescription"]
       }
     },
     unreferencedCallouts: {
@@ -91,8 +93,9 @@ INSTRUCTIONS:
 3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
 4. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
 5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the illustrations.
-6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, OMIT the "actualIdentifier" field completely.
-7. Extract the figure number (e.g., "Figure 4.1") if explicitly stated. If not found, return an empty string for "figureNumber".
+6. GROUPING: When multiple callouts on this page refer to the same part with the same name and meaning, return ONE extractedConcepts entry with all their identifiers in "calloutIdentifiers" (e.g. ["12", "15", "18"]). Do NOT repeat sourceTerm or functionalDescription for each duplicate.
+7. Validation: Record each identifier as stated in the text in "calloutIdentifiers". If an identifier shown in the image differs (a wrongly put callout), record the image's version at the matching index in "actualIdentifiers". If all match, OMIT "actualIdentifiers" completely.
+8. Extract the figure number (e.g., "Figure 4.1") if explicitly stated. If not found, return an empty string for "figureNumber".
 `;
 
   try {

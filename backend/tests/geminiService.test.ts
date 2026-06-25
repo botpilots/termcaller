@@ -56,8 +56,8 @@ describe.skipIf(!runGeminiTests)('Gemini Extraction Service (Multi-Turn Chat)', 
     expect(Array.isArray(result.extractedConcepts)).toBe(true);
     
     // Check if it found the Dial (A) and Hatch (B) from page 14
-    const foundA = result.extractedConcepts.some(c => c.calloutIdentifier === 'A');
-    const foundB = result.extractedConcepts.some(c => c.calloutIdentifier === 'B');
+    const foundA = result.extractedConcepts.some(c => c.calloutIdentifiers?.includes('A'));
+    const foundB = result.extractedConcepts.some(c => c.calloutIdentifiers?.includes('B'));
     
     expect(foundA || foundB).toBe(true);
   }, 120000); // 2 minute timeout for potential multi-turn API calls

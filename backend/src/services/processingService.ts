@@ -13,44 +13,61 @@ export const sseClients = new Map<string, any[]>();
 
 export function sendSSEEvent(projectId: string, event: string, data: any) {
   const clients = sseClients.get(projectId);
-  if (clients) {
-    clients.forEach(client => {
-      client.write(`event: ${event}\n`);
-      client.write(`data: ${JSON.stringify(data)}\n\n`);
-    });
+  if (!clients || clients.length === 0) {
+    console.log(`[SSE] No clients connected for project ${projectId} — dropped ${event}:`, data);
+    return;
   }
+  console.log(`[SSE] ${event} → project ${projectId} (${clients.length} client(s)):`, data);
+  clients.forEach(client => {
+    client.write(`event: ${event}\n`);
+    client.write(`data: ${JSON.stringify(data)}\n\n`);
+  });
 }
 
 export async function processPdfBackground(projectId: string, pdfPath: string) {
+  const startTime = Date.now();
+  console.log(`[Processing] Started project ${projectId}, pdf: ${pdfPath}`);
+
   try {
     const data = new Uint8Array(fs.readFileSync(pdfPath));
     const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
     const totalPages = pdfDocument.numPages;
+
+    console.log(`[Processing] PDF has ${totalPages} pages`);
 
     let processedPages = 0;
     sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages });
 
     const chunkSize = 6;
     for (let i = 1; i <= totalPages; i += chunkSize) {
-      const chunk = [];
+      const chunk: number[] = [];
       for (let j = 0; j < chunkSize && i + j <= totalPages; j++) {
         chunk.push(i + j);
       }
 
+      console.log(`[Processing] Chunk pages ${chunk.join(', ')}`);
+
       await Promise.all(chunk.map(async (pageNumber) => {
+        const pageStart = Date.now();
         try {
+          console.log(`[Processing] Page ${pageNumber}: extracting...`);
           const pageData = await extractPageData(pdfPath, pageNumber);
-          
+
           if (!pageData.hasIllustrations) {
-            processedPages++;
-            sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages, skipped: true });
+            console.log(`[Processing] Page ${pageNumber}: skipped (no illustrations)`);
+            sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, skipped: true, pageNumber });
             return;
           }
 
+          console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
           const result = await analyzePageWithGemini(pageData.imageBase64);
+          console.log(`[Processing] Page ${pageNumber}: Gemini returned ${result.extractedConcepts.length} concept(s)`);
 
           // Save to database
           for (const concept of result.extractedConcepts) {
+            const identifiers = concept.calloutIdentifiers ?? [];
+            if (identifiers.length === 0) continue;
+
             // Find or create Keyword
             let keyword = await prisma.keyword.findFirst({
               where: { projectId, sourceTerm: concept.sourceTerm }
@@ -116,52 +133,59 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               });
             }
 
-            // Create Callout
-            await prisma.callout.create({
-              data: {
-                illustrationId: illustration.id,
-                identifier: concept.calloutIdentifier,
-                actualIdentifier: concept.actualIdentifier || null,
-                sourceTerm: concept.sourceTerm,
-                conceptId: dbConcept.id
-              }
-            });
+            for (let i = 0; i < identifiers.length; i++) {
+              const identifier = identifiers[i];
+              if (!identifier) continue;
+              const actualFromImage = concept.actualIdentifiers?.[i];
+              const actualIdentifier =
+                actualFromImage && actualFromImage !== identifier ? actualFromImage : null;
 
-            // Send SSE event for new keyword/concept
-            sendSSEEvent(projectId, 'keyword_extracted', {
-              keyword: {
-                id: keyword.id,
-                sourceTerm: keyword.sourceTerm
-              },
-              concept: {
-                id: dbConcept.id,
-                candidateConceptName: dbConcept.candidateConceptName,
-                definitionText: dbConcept.definitionText
-              },
-              callout: {
-                identifier: concept.calloutIdentifier,
-                figureNumber: concept.figureNumber,
-                pageNumber
-              }
-            });
+              await prisma.callout.create({
+                data: {
+                  illustrationId: illustration.id,
+                  identifier,
+                  actualIdentifier,
+                  sourceTerm: concept.sourceTerm,
+                  conceptId: dbConcept.id
+                }
+              });
+
+              sendSSEEvent(projectId, 'keyword_extracted', {
+                keyword: {
+                  id: keyword.id,
+                  sourceTerm: keyword.sourceTerm
+                },
+                concept: {
+                  id: dbConcept.id,
+                  candidateConceptName: dbConcept.candidateConceptName,
+                  definitionText: dbConcept.definitionText
+                },
+                callout: {
+                  identifier,
+                  figureNumber: concept.figureNumber,
+                  pageNumber
+                }
+              });
+            }
           }
 
-          processedPages++;
-          sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages });
+          const elapsed = Date.now() - pageStart;
+          console.log(`[Processing] Page ${pageNumber}: done in ${elapsed}ms`);
+          sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, pageNumber });
         } catch (error) {
-          console.error(`Error processing page ${pageNumber}:`, error);
-          processedPages++;
-          sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages, error: true });
+          console.error(`[Processing] Page ${pageNumber}: error`, error);
+          sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, error: true, pageNumber });
         }
       }));
     }
 
-    sendSSEEvent(projectId, 'complete', { success: true });
+    const totalElapsed = Date.now() - startTime;
+    console.log(`[Processing] Finished project ${projectId} — ${processedPages}/${totalPages} pages in ${totalElapsed}ms`);
+    sendSSEEvent(projectId, 'complete', { success: true, processedPages, totalPages });
   } catch (error) {
-    console.error('Error in background processing:', error);
+    console.error('[Processing] Fatal error:', error);
     sendSSEEvent(projectId, 'error', { message: 'Failed to process PDF' });
   } finally {
-    // Optionally clean up the uploaded file
-    // fs.unlinkSync(pdfPath);
+    console.log(`[Processing] Done (project ${projectId})`);
   }
 }

@@ -46,9 +46,12 @@ export const Dashboard = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedProjectDetails, setSelectedProjectDetails] = useState<Project | null>(null);
+  const [selectedKeywordId, setSelectedKeywordId] = useState<string | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
+
+  const selectedKeyword = selectedProjectDetails?.keywords?.find(k => k.id === selectedKeywordId) ?? null;
 
   // Fetch Projects on load
   useEffect(() => {
@@ -65,6 +68,21 @@ export const Dashboard = () => {
     };
     fetchProjects();
   }, []);
+
+  useEffect(() => {
+    setSelectedKeywordId(null);
+  }, [selectedProjectId]);
+
+  useEffect(() => {
+    const keywords = selectedProjectDetails?.keywords;
+    if (!keywords?.length) {
+      setSelectedKeywordId(null);
+      return;
+    }
+    if (!selectedKeywordId || !keywords.some(k => k.id === selectedKeywordId)) {
+      setSelectedKeywordId(keywords[0].id);
+    }
+  }, [selectedProjectDetails?.keywords, selectedKeywordId]);
 
   // Fetch specific project details when selected
   useEffect(() => {
@@ -110,8 +128,9 @@ export const Dashboard = () => {
 
       eventSource.addEventListener('progress', (e) => {
         const data = JSON.parse(e.data);
+        console.log('[SSE] progress', data);
         setProgress(data);
-        if (data.current === data.total) {
+        if (data.current >= data.total) {
           setIsProcessing(false);
         } else {
           setIsProcessing(true);
@@ -133,12 +152,12 @@ export const Dashboard = () => {
               existingKeyword.concepts.push(data.concept);
             }
             if (!existingKeyword.callouts) existingKeyword.callouts = [];
-            existingKeyword.callouts.push(data.callout);
+            existingKeyword.callouts.push({ ...data.callout, concept: data.concept });
           } else {
             newKeywords.push({
               ...data.keyword,
               concepts: [data.concept],
-              callouts: [data.callout]
+              callouts: [{ ...data.callout, concept: data.concept }]
             });
           }
           
@@ -149,7 +168,9 @@ export const Dashboard = () => {
         });
       });
 
-      eventSource.addEventListener('complete', () => {
+      eventSource.addEventListener('complete', (e) => {
+        const data = e.data ? JSON.parse(e.data) : {};
+        console.log('[SSE] complete', data);
         setIsProcessing(false);
         setProgress(null);
       });
@@ -188,6 +209,9 @@ export const Dashboard = () => {
       
       setIsProcessing(true);
       setProgress({ current: 0, total: 1 }); // Temporary until real progress comes
+
+      // Brief pause so the SSE connection from selectedProjectId change can establish
+      await new Promise(resolve => setTimeout(resolve, 500));
 
       await axios.post(`/api/projects/${response.data.id}/upload`, formData, {
         headers: {
