@@ -5,6 +5,9 @@ import { PrismaClient } from '@prisma/client';
 import { extractPageData } from './pdfParser.js';
 import { analyzePageWithGemini } from './geminiService.js';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import { mapWithConcurrency } from '../utils/mapWithConcurrency.js';
+import { buildAdjacentImages } from '../utils/adjacentImages.js';
+import { TimeoutError } from '../utils/withTimeout.js';
 import crypto from 'crypto';
 
 const prisma = new PrismaClient();
@@ -39,16 +42,11 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
     let processedPages = 0;
     sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages });
 
-    const chunkSize = 6;
-    for (let i = 1; i <= totalPages; i += chunkSize) {
-      const chunk: number[] = [];
-      for (let j = 0; j < chunkSize && i + j <= totalPages; j++) {
-        chunk.push(i + j);
-      }
+    const concurrency = 6;
+    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+    console.log(`[Processing] ${totalPages} pages, concurrency ${concurrency}`);
 
-      console.log(`[Processing] Chunk pages ${chunk.join(', ')}`);
-
-      await Promise.all(chunk.map(async (pageNumber) => {
+    await mapWithConcurrency(pageNumbers, concurrency, async (pageNumber) => {
         const pageStart = Date.now();
         try {
           console.log(`[Processing] Page ${pageNumber}: extracting...`);
@@ -61,15 +59,23 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
           }
 
           console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
-          const result = await analyzePageWithGemini(pageData.imageBase64);
+          const result = await analyzePageWithGemini(pageData.imageBase64, async () => {
+            const [prevPage, nextPage] = await Promise.all([
+              pageNumber > 1 ? extractPageData(pdfPath, pageNumber - 1) : null,
+              pageNumber < totalPages ? extractPageData(pdfPath, pageNumber + 1) : null,
+            ]);
+            return buildAdjacentImages(prevPage, nextPage);
+          });
           console.log(`[Processing] Page ${pageNumber}: Gemini returned ${result.extractedConcepts.length} concept(s)`);
 
           // Save to database
           for (const concept of result.extractedConcepts) {
             const identifiers = concept.calloutIdentifiers ?? [];
             if (identifiers.length === 0) continue;
+            if (!concept.sourceTerm?.trim()) continue;
 
             const sourceTerm = normalizeSourceTerm(concept.sourceTerm);
+            if (!sourceTerm) continue;
 
             // Find or create Keyword
             let keyword = await prisma.keyword.findFirst({
@@ -136,20 +142,13 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               });
             }
 
-            // Pair calloutIdentifiers[i] (expected, from text) with actualIdentifiers[i] (shown on image).
-            // Mismatch example: text "15" vs image "16" → identifier=15, actualIdentifier=16.
-            for (let i = 0; i < identifiers.length; i++) {
-              const identifier = identifiers[i];
+            for (const identifier of identifiers) {
               if (!identifier) continue;
-              const actualFromImage = concept.actualIdentifiers?.[i];
-              const actualIdentifier =
-                actualFromImage && actualFromImage !== identifier ? actualFromImage : null;
 
               await prisma.callout.create({
                 data: {
                   illustrationId: illustration.id,
                   identifier,
-                  actualIdentifier,
                   sourceTerm,
                   conceptId: dbConcept.id
                 }
@@ -178,11 +177,14 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
           console.log(`[Processing] Page ${pageNumber}: done in ${elapsed}ms`);
           sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, pageNumber });
         } catch (error) {
-          console.error(`[Processing] Page ${pageNumber}: error`, error);
-          sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, error: true, pageNumber });
+          if (error instanceof TimeoutError) {
+            console.error(`[Processing] Page ${pageNumber}: Gemini timed out`);
+          } else {
+            console.error(`[Processing] Page ${pageNumber}: error`, error);
+          }
+          sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, error: true, pageNumber, timedOut: error instanceof TimeoutError });
         }
-      }));
-    }
+    });
 
     const totalElapsed = Date.now() - startTime;
     console.log(`[Processing] Finished project ${projectId} — ${processedPages}/${totalPages} pages in ${totalElapsed}ms`);

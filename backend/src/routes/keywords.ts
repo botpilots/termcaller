@@ -9,6 +9,7 @@ const prisma = new PrismaClient();
 
 router.post('/:id/analyze-similarity', authenticateToken, async (req: AuthRequest, res) => {
   const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing keyword id' });
 
   try {
     const keyword = await prisma.keyword.findFirst({

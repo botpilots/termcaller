@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractPageData } from '../src/services/pdfParser';
+import { extractPageData } from '../src/services/pdfParser.js';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';

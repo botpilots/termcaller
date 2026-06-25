@@ -12,9 +12,10 @@ const __dirname = path.dirname(__filename);
 import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projects.js';
 import keywordRoutes from './routes/keywords.js';
+import validationRoutes from './routes/validation.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // Middleware
 app.use(cors());
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/keywords', keywordRoutes);
+app.use('/api/validation', validationRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'API is running' });

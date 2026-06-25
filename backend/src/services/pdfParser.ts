@@ -13,9 +13,14 @@ export interface ParsedPage {
   hasIllustrations: boolean;
 }
 
+function jpegPaintOpCount(opCounts: Record<number, number>): number {
+  const jpegOp = (pdfjsLib.OPS as Record<string, number>)['paintJpegXObject'];
+  return jpegOp !== undefined ? (opCounts[jpegOp] || 0) : 0;
+}
+
 function pageHasIllustrations(opCounts: Record<number, number>): boolean {
   const paintImage = opCounts[pdfjsLib.OPS.paintImageXObject] || 0;
-  const paintJpeg = opCounts[pdfjsLib.OPS.paintJpegXObject] || 0;
+  const paintJpeg = jpegPaintOpCount(opCounts);
   if (paintImage > 0 || paintJpeg > 0) {
     return true;
   }
@@ -72,7 +77,7 @@ export async function extractPageData(
       .density(300, 300)
       .background('white')
       .flatten()
-      .toBuffer('PNG', (err, buffer) => {
+      .toBuffer('PNG', (err: Error | null, buffer: Buffer) => {
         if (err) {
           return reject(err);
         }
