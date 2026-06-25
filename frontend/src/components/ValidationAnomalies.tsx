@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Loader2 } from 'lucide-react';
 
 export interface LabelMismatch {
   textIdentifier: string;
@@ -16,13 +16,15 @@ interface ValidationAnomaliesProps {
   validation: FigureValidationResult | null;
   isLoading: boolean;
   error: string | null;
+  pendingMessage?: string;
 }
 
-export function ValidationAnomalies({ validation, isLoading, error }: ValidationAnomaliesProps) {
+export function ValidationAnomalies({ validation, isLoading, error, pendingMessage }: ValidationAnomaliesProps) {
   if (isLoading) {
     return (
-      <div className="mb-6 text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-4">
-        Running callout validation…
+      <div className="mb-6 text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-center">
+        <Loader2 className="animate-spin mr-2 shrink-0" size={16} />
+        Validating referential integrity for all figures…
       </div>
     );
   }
@@ -35,7 +37,16 @@ export function ValidationAnomalies({ validation, isLoading, error }: Validation
     );
   }
 
-  if (!validation) return null;
+  if (!validation) {
+    if (pendingMessage) {
+      return (
+        <div className="mb-6 text-sm text-gray-500 bg-gray-50 border border-dashed border-gray-200 rounded-lg p-4">
+          {pendingMessage}
+        </div>
+      );
+    }
+    return null;
+  }
 
   const hasAnomalies =
     validation.unreferencedCallouts.length > 0 ||
@@ -116,6 +127,14 @@ function AnomalySection({
         ))}
       </ul>
     </div>
+  );
+}
+
+export function figureHasAnomalies(validation: FigureValidationResult): boolean {
+  return (
+    validation.unreferencedCallouts.length > 0 ||
+    validation.uncalledReferences.length > 0 ||
+    validation.labelMismatches.length > 0
   );
 }
 

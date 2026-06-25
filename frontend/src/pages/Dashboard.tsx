@@ -4,11 +4,12 @@ import { Folder, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
 import { SimilarityCluster, type SimilarityResult } from '../components/SimilarityCluster';
-import { BrowsePanel, ProgressBanner, type BrowseTab } from '../components/BrowsePanel';
+import { BrowsePanel, ProgressBanner, BrowseSectionHeader, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
 import { OccurrencesTable, type CalloutRow } from '../components/OccurrencesTable';
 import {
   ValidationAnomalies,
   buildAnomalyMap,
+  figureHasAnomalies,
   type FigureValidationResult,
 } from '../components/ValidationAnomalies';
 
@@ -44,6 +45,7 @@ interface Keyword {
 interface Project {
   id: string;
   name: string;
+  pdfPath?: string | null;
   keywords?: Keyword[];
   illustrations?: Illustration[];
 }
@@ -81,8 +83,9 @@ function mapCalloutsToKeywords(data: Project): Project {
 export const Dashboard = () => {
   const { user, logout } = useAuth();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [keywords, setKeywords] = useState<Keyword[]>([]);
+  const [figures, setFigures] = useState<Illustration[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [selectedProjectDetails, setSelectedProjectDetails] = useState<Project | null>(null);
   const [browseTab, setBrowseTab] = useState<BrowseTab>('keywords');
   const [selectedKeywordId, setSelectedKeywordId] = useState<string | null>(null);
   const [selectedFigurePage, setSelectedFigurePage] = useState<number | null>(null);
@@ -92,27 +95,39 @@ export const Dashboard = () => {
   const [similarityResult, setSimilarityResult] = useState<SimilarityResult | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [similarityError, setSimilarityError] = useState<string | null>(null);
-  const [figureValidation, setFigureValidation] = useState<FigureValidationResult | null>(null);
-  const [isValidating, setIsValidating] = useState(false);
-  const [validationError, setValidationError] = useState<string | null>(null);
+  const [figureValidations, setFigureValidations] = useState<Record<number, FigureValidationResult>>({});
+  const [figureValidationErrors, setFigureValidationErrors] = useState<Record<number, string>>({});
+  const [isValidatingAll, setIsValidatingAll] = useState(false);
+  const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
   const eventSourceRef = useRef<EventSource | null>(null);
 
-  const selectedKeyword = selectedProjectDetails?.keywords?.find(k => k.id === selectedKeywordId) ?? null;
+  const selectedKeyword = keywords.find(k => k.id === selectedKeywordId) ?? null;
 
-  const identifiedFigures = useMemo(
-    () =>
-      (selectedProjectDetails?.illustrations ?? [])
-        .filter(ill => ill.figureNumber)
-        .sort((a, b) => a.pageNumber - b.pageNumber),
-    [selectedProjectDetails?.illustrations]
-  );
+  const selectedFigure = figures.find(f => f.pageNumber === selectedFigurePage) ?? null;
+  const figureValidation =
+    selectedFigurePage !== null ? (figureValidations[selectedFigurePage] ?? null) : null;
+  const figureValidationError =
+    selectedFigurePage !== null ? (figureValidationErrors[selectedFigurePage] ?? null) : null;
 
-  const selectedFigure =
-    identifiedFigures.find(f => f.pageNumber === selectedFigurePage) ?? null;
+  const selectedProject = projects.find(p => p.id === selectedProjectId) ?? null;
+  const hasPdf = Boolean(selectedProject?.pdfPath);
+  const hasExistingData = keywords.length > 0 || figures.length > 0;
 
-  const fetchProjectDetails = useCallback(async (projectId: string) => {
+  const fetchKeywords = useCallback(async (projectId: string) => {
     const response = await axios.get(`/api/projects/${projectId}`);
-    setSelectedProjectDetails(mapCalloutsToKeywords(response.data));
+    const data = mapCalloutsToKeywords(response.data);
+    setKeywords(data.keywords ?? []);
+    // Keep pdfPath in sync — project list may be stale after upload or page reload
+    if (response.data.pdfPath) {
+      setProjects(prev =>
+        prev.map(p => (p.id === projectId ? { ...p, pdfPath: response.data.pdfPath } : p))
+      );
+    }
+  }, []);
+
+  const fetchFigures = useCallback(async (projectId: string) => {
+    const response = await axios.get(`/api/projects/${projectId}/figures`);
+    setFigures(response.data);
   }, []);
 
   useEffect(() => {
@@ -137,8 +152,11 @@ export const Dashboard = () => {
     setActiveTab('callouts');
     setSimilarityResult(null);
     setSimilarityError(null);
-    setFigureValidation(null);
-    setValidationError(null);
+    setFigureValidations({});
+    setFigureValidationErrors({});
+    setValidationBatchError(null);
+    setKeywords([]);
+    setFigures([]);
   }, [selectedProjectId]);
 
   useEffect(() => {
@@ -148,73 +166,36 @@ export const Dashboard = () => {
   }, [selectedKeywordId]);
 
   useEffect(() => {
-    setFigureValidation(null);
-    setValidationError(null);
-  }, [selectedFigurePage]);
-
-  useEffect(() => {
-    const keywords = selectedProjectDetails?.keywords;
+    const keywordList = keywords;
     if (browseTab !== 'keywords') return;
-    if (!keywords?.length) {
+    if (!keywordList.length) {
       setSelectedKeywordId(null);
       return;
     }
-    if (!selectedKeywordId || !keywords.some(k => k.id === selectedKeywordId)) {
-      setSelectedKeywordId(keywords[0].id);
+    if (!selectedKeywordId || !keywordList.some(k => k.id === selectedKeywordId)) {
+      setSelectedKeywordId(keywordList[0].id);
     }
-  }, [selectedProjectDetails?.keywords, selectedKeywordId, browseTab]);
+  }, [keywords, selectedKeywordId, browseTab]);
 
   useEffect(() => {
     if (browseTab !== 'figures') return;
-    if (!identifiedFigures.length) {
+    if (!figures.length) {
       setSelectedFigurePage(null);
       return;
     }
-    if (selectedFigurePage === null || !identifiedFigures.some(f => f.pageNumber === selectedFigurePage)) {
-      setSelectedFigurePage(identifiedFigures[0].pageNumber);
+    if (selectedFigurePage === null || !figures.some(f => f.pageNumber === selectedFigurePage)) {
+      setSelectedFigurePage(figures[0].pageNumber);
     }
-  }, [identifiedFigures, selectedFigurePage, browseTab]);
-
-  useEffect(() => {
-    if (browseTab !== 'figures' || !selectedProjectId || selectedFigurePage === null) return;
-
-    let cancelled = false;
-
-    const runValidation = async () => {
-      setIsValidating(true);
-      setValidationError(null);
-      try {
-        const response = await axios.post(
-          `/api/projects/${selectedProjectId}/figures/${selectedFigurePage}/validate`
-        );
-        if (!cancelled) {
-          setFigureValidation(response.data.validation);
-        }
-      } catch (error) {
-        console.error('Figure validation failed', error);
-        if (!cancelled) {
-          setValidationError('Validation failed. Re-upload the PDF if this project predates PDF storage.');
-          setFigureValidation(null);
-        }
-      } finally {
-        if (!cancelled) setIsValidating(false);
-      }
-    };
-
-    runValidation();
-    return () => {
-      cancelled = true;
-    };
-  }, [browseTab, selectedProjectId, selectedFigurePage]);
+  }, [figures, selectedFigurePage, browseTab]);
 
   useEffect(() => {
     if (!selectedProjectId) return;
 
     const setup = async () => {
       try {
-        await fetchProjectDetails(selectedProjectId);
+        await Promise.all([fetchKeywords(selectedProjectId), fetchFigures(selectedProjectId)]);
       } catch (error) {
-        console.error('Failed to fetch project details', error);
+        console.error('Failed to fetch project data', error);
       }
 
       if (eventSourceRef.current) {
@@ -233,10 +214,8 @@ export const Dashboard = () => {
 
       eventSource.addEventListener('keyword_extracted', e => {
         const data = JSON.parse(e.data);
-        setSelectedProjectDetails(prev => {
-          if (!prev) return prev;
-
-          const newKeywords = [...(prev.keywords || [])];
+        setKeywords(prev => {
+          const newKeywords = [...prev];
           const existingKeywordIndex = newKeywords.findIndex(k => k.id === data.keyword.id);
 
           if (existingKeywordIndex >= 0) {
@@ -255,7 +234,7 @@ export const Dashboard = () => {
           }
 
           newKeywords.sort((a, b) => a.sourceTerm.localeCompare(b.sourceTerm));
-          return { ...prev, keywords: newKeywords };
+          return newKeywords;
         });
       });
 
@@ -263,7 +242,7 @@ export const Dashboard = () => {
         setIsProcessing(false);
         setProgress(null);
         try {
-          await fetchProjectDetails(selectedProjectId);
+          await Promise.all([fetchKeywords(selectedProjectId), fetchFigures(selectedProjectId)]);
         } catch (error) {
           console.error('Failed to refresh project after processing', error);
         }
@@ -281,15 +260,17 @@ export const Dashboard = () => {
         eventSourceRef.current.close();
       }
     };
-  }, [selectedProjectId, fetchProjectDetails]);
+  }, [selectedProjectId, fetchKeywords, fetchFigures]);
 
   const handleBrowseTabChange = (tab: BrowseTab) => {
     setBrowseTab(tab);
     if (tab === 'keywords') {
       setSelectedFigurePage(null);
-      setFigureValidation(null);
     } else {
       setSelectedKeywordId(null);
+      if (selectedProjectId) {
+        fetchFigures(selectedProjectId).catch(console.error);
+      }
     }
   };
 
@@ -299,24 +280,77 @@ export const Dashboard = () => {
 
     try {
       const response = await axios.post('/api/projects', { name: file.name });
-      setProjects([response.data, ...projects]);
-      setSelectedProjectId(response.data.id);
+      const projectId = response.data.id;
 
       const formData = new FormData();
       formData.append('file', file);
 
-      setIsProcessing(true);
-      setProgress({ current: 0, total: 1 });
+      await new Promise(resolve => setTimeout(resolve, 300));
 
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      await axios.post(`/api/projects/${response.data.id}/upload`, formData, {
+      const uploadResponse = await axios.post(`/api/projects/${projectId}/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
+
+      setProjects([
+        { ...response.data, pdfPath: uploadResponse.data.pdfPath ?? 'uploaded' },
+        ...projects,
+      ]);
+      setSelectedProjectId(projectId);
     } catch (error) {
       console.error('Failed to create project from file', error);
+    }
+  };
+
+  const handleStartExtraction = async () => {
+    if (!selectedProjectId || isProcessing || !hasPdf) return;
+
+    setIsProcessing(true);
+    setProgress({ current: 0, total: 1 });
+
+    try {
+      await axios.post(`/api/projects/${selectedProjectId}/extract`);
+    } catch (error) {
+      console.error('Failed to start extraction', error);
       setIsProcessing(false);
       setProgress(null);
+    }
+  };
+
+  const handleValidateAllFigures = async () => {
+    if (!selectedProjectId || !hasPdf) return;
+
+    setIsValidatingAll(true);
+    setValidationBatchError(null);
+    setFigureValidationErrors({});
+
+    try {
+      const response = await axios.post(`/api/projects/${selectedProjectId}/figures/validate-all`);
+      const next: Record<number, FigureValidationResult> = {};
+      const errors: Record<number, string> = {};
+      for (const item of response.data.results) {
+        if (item.validation) {
+          next[item.pageNumber] = item.validation;
+        }
+        if (item.error) {
+          errors[item.pageNumber] = item.error;
+        }
+      }
+      setFigureValidations(next);
+      setFigureValidationErrors(errors);
+      await fetchFigures(selectedProjectId);
+
+      if (response.data.failed > 0) {
+        setValidationBatchError(
+          `${response.data.failed} of ${response.data.total} figure(s) failed validation.`
+        );
+      }
+    } catch (error) {
+      console.error('Batch figure validation failed', error);
+      setValidationBatchError(
+        'Validation failed. Re-upload the PDF if this project predates PDF storage.'
+      );
+    } finally {
+      setIsValidatingAll(false);
     }
   };
 
@@ -391,14 +425,35 @@ export const Dashboard = () => {
   const listContent =
     browseTab === 'keywords' ? (
       <>
-        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Keywords</h2>
-        {selectedProjectDetails?.keywords?.length === 0 && !isProcessing ? (
+        <BrowseSectionHeader
+          title="Keywords"
+          actionLabel="Extract"
+          actionTitle="Extract keywords from uploaded PDF"
+          onAction={handleStartExtraction}
+          isLoading={isProcessing}
+          disabled={!hasPdf || !selectedProjectId}
+          variant="blue"
+          icon="extract"
+        />
+        {!hasPdf && !hasExistingData ? (
           <div className="text-sm text-gray-500 text-center py-8">
-            No keywords extracted yet. Upload a PDF to begin.
+            Upload a PDF, then click Extract to begin.
+          </div>
+        ) : !hasPdf && hasExistingData ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            Could not link a PDF to this project. Upload again using the header, or select a newer project.
+          </div>
+        ) : keywords.length === 0 && !isProcessing ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            Click Extract to run keyword extraction.
+          </div>
+        ) : keywords.length === 0 && isProcessing ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            Extracting keywords…
           </div>
         ) : (
           <ul className="space-y-1">
-            {selectedProjectDetails?.keywords?.map(keyword => (
+            {keywords.map(keyword => (
               <li key={keyword.id}>
                 <button
                   type="button"
@@ -419,14 +474,47 @@ export const Dashboard = () => {
       </>
     ) : (
       <>
-        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Figures</h2>
-        {identifiedFigures.length === 0 && !isProcessing ? (
+        <BrowseSectionHeader
+          title="Figures"
+          actionLabel="Validate"
+          actionTitle="Validate referential integrity for all figures"
+          onAction={handleValidateAllFigures}
+          isLoading={isValidatingAll}
+          disabled={!hasPdf || !selectedProjectId}
+          variant="amber"
+          icon="validate"
+        />
+        {validationBatchError && (
+          <div className="mb-3 text-xs text-red-700 bg-red-50 border border-red-200 rounded-lg p-2">
+            {validationBatchError}
+          </div>
+        )}
+        {figures.length === 0 && isValidatingAll ? (
           <div className="text-sm text-gray-500 text-center py-8">
-            No identified figures yet. Figures need an explicit figure number from extraction.
+            Discovering and validating figures…
+          </div>
+        ) : figures.length === 0 && !hasPdf ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            Upload a PDF using the header to get started.
+          </div>
+        ) : figures.length === 0 && hasPdf ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            Click Validate to discover and check figures.
+          </div>
+        ) : figures.length === 0 ? (
+          <div className="text-sm text-gray-500 text-center py-8">
+            No identified figures in this project (no explicit figure numbers found).
           </div>
         ) : (
           <ul className="space-y-1">
-            {identifiedFigures.map(figure => (
+            {figures.map(figure => {
+              const validation = figureValidations[figure.pageNumber];
+              const pageError = figureValidationErrors[figure.pageNumber];
+              const validated = validation !== undefined;
+              const hasError = Boolean(pageError);
+              const hasIssues = validated && figureHasAnomalies(validation);
+
+              return (
               <li key={figure.id}>
                 <button
                   type="button"
@@ -437,14 +525,31 @@ export const Dashboard = () => {
                       : 'text-gray-700 hover:bg-gray-100 border border-transparent'
                   }`}
                 >
-                  <span className="font-medium">Fig. {figure.figureNumber}</span>
+                  <span className="font-medium flex items-center gap-1.5">
+                    Fig. {figure.figureNumber}
+                    {(validated || hasError) && (
+                      <span
+                        className={`inline-block w-2 h-2 rounded-full shrink-0 ${
+                          hasError ? 'bg-red-500' : hasIssues ? 'bg-amber-500' : 'bg-green-500'
+                        }`}
+                        title={
+                          hasError
+                            ? pageError
+                            : hasIssues
+                              ? 'Anomalies found'
+                              : 'No anomalies'
+                        }
+                      />
+                    )}
+                  </span>
                   <span className="text-gray-400 font-normal block text-xs mt-0.5">
                     Page {figure.pageNumber} · {figure.callouts.length} callout
                     {figure.callouts.length !== 1 ? 's' : ''}
                   </span>
                 </button>
               </li>
-            ))}
+            );
+            })}
           </ul>
         )}
       </>
@@ -465,8 +570,10 @@ export const Dashboard = () => {
           activeTab={browseTab}
           onTabChange={handleBrowseTabChange}
           progressSlot={
-            isProcessing && progress ? (
-              <ProgressBanner current={progress.current} total={progress.total} compact />
+            browseTab === 'keywords' && isProcessing && progress ? (
+              <ProgressBanner current={progress.current} total={progress.total} compact label="Extracting..." />
+            ) : browseTab === 'figures' && isValidatingAll ? (
+              <IndeterminateProgressBanner compact label="Validating figures..." variant="amber" />
             ) : null
           }
           listContent={listContent}
@@ -478,9 +585,9 @@ export const Dashboard = () => {
           {selectedProjectId ? (
             <div className="flex-1 p-8 flex flex-col max-w-5xl mx-auto w-full overflow-y-auto">
               <div className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
-                {isProcessing && progress && !selectedProjectDetails?.keywords?.length && (
+                {isProcessing && progress && !keywords.length && browseTab === 'keywords' && (
                   <div className="mb-8">
-                    <ProgressBanner current={progress.current} total={progress.total} />
+                    <ProgressBanner current={progress.current} total={progress.total} label="Extracting keywords..." />
                   </div>
                 )}
 
@@ -576,8 +683,13 @@ export const Dashboard = () => {
 
                     <ValidationAnomalies
                       validation={figureValidation}
-                      isLoading={isValidating}
-                      error={validationError}
+                      isLoading={isValidatingAll}
+                      error={figureValidationError}
+                      pendingMessage={
+                        !figureValidation && !figureValidationError && !isValidatingAll
+                          ? 'Click Validate in the Figures sidebar to discover and check referential integrity.'
+                          : undefined
+                      }
                     />
 
                     <h4 className="text-sm font-medium text-gray-700 mb-3">Occurrences</h4>
@@ -587,19 +699,41 @@ export const Dashboard = () => {
                       emptyMessage="No callouts on this figure."
                     />
                   </div>
-                ) : browseTab === 'keywords' && selectedProjectDetails?.keywords?.length ? (
+                ) : !hasPdf && !hasExistingData ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    Upload a PDF using the header to get started.
+                  </div>
+                ) : browseTab === 'keywords' && keywords.length === 0 ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    {hasPdf
+                      ? 'Click Extract in the Keywords sidebar to run extraction.'
+                      : 'Re-upload the PDF, then click Extract in the Keywords sidebar.'}
+                  </div>
+                ) : browseTab === 'figures' && figures.length === 0 && isValidatingAll ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    Discovering and validating figures…
+                  </div>
+                ) : browseTab === 'figures' && figures.length === 0 && !hasPdf ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    Upload a PDF using the header to get started.
+                  </div>
+                ) : browseTab === 'figures' && figures.length === 0 && hasPdf ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    Click Validate in the Figures sidebar to discover and check figures.
+                  </div>
+                ) : browseTab === 'figures' && figures.length === 0 ? (
+                  <div className="text-sm text-gray-500 text-center py-12">
+                    No identified figures in this project (no explicit figure numbers found).
+                  </div>
+                ) : browseTab === 'keywords' ? (
                   <div className="text-sm text-gray-500 text-center py-12">
                     Select a keyword from the list to view its occurrences.
                   </div>
-                ) : browseTab === 'figures' && identifiedFigures.length ? (
+                ) : (
                   <div className="text-sm text-gray-500 text-center py-12">
-                    Select a figure from the list to view occurrences and validation.
+                    Select a figure from the list to view occurrences and validation results.
                   </div>
-                ) : !isProcessing ? (
-                  <div className="text-sm text-gray-500 text-center py-12">
-                    Upload a PDF to extract keywords and terminology.
-                  </div>
-                ) : null}
+                )}
               </div>
             </div>
           ) : (

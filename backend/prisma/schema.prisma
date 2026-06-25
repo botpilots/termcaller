@@ -75,6 +75,8 @@ model Illustration {
   updatedAt    DateTime @updatedAt
 
   callouts Callout[]
+
+  @@unique([projectId, pageNumber])
 }
 
 model Callout {

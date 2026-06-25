@@ -1,13 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { PrismaClient } from '@prisma/client';
-import { extractPageData } from './pdfParser.js';
 import { analyzePageWithGemini } from './geminiService.js';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
-import { mapWithConcurrency } from '../utils/mapWithConcurrency.js';
-import { buildAdjacentImages } from '../utils/adjacentImages.js';
 import { TimeoutError } from '../utils/withTimeout.js';
+import { upsertIllustration } from './illustrationUpsert.js';
+import { scanPdfPages } from '../utils/pdfPageScan.js';
 import crypto from 'crypto';
 
 const prisma = new PrismaClient();
@@ -33,42 +29,40 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
   console.log(`[Processing] Started project ${projectId}, pdf: ${pdfPath}`);
 
   try {
-    const data = new Uint8Array(fs.readFileSync(pdfPath));
-    const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
-    const totalPages = pdfDocument.numPages;
-
-    console.log(`[Processing] PDF has ${totalPages} pages`);
-
     let processedPages = 0;
-    sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages });
+    let totalPages = 0;
 
-    const concurrency = 6;
-    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-    console.log(`[Processing] ${totalPages} pages, concurrency ${concurrency}`);
+    await scanPdfPages(pdfPath, {
+      filter: 'all',
+      onPage: async ({ pageNumber, pageData, totalPages: pages, fetchAdjacentImages }) => {
+        totalPages = pages;
+        if (processedPages === 0) {
+          console.log(`[Processing] PDF has ${totalPages} pages`);
+          sendSSEEvent(projectId, 'progress', { current: processedPages, total: totalPages });
+        }
 
-    await mapWithConcurrency(pageNumbers, concurrency, async (pageNumber) => {
         const pageStart = Date.now();
         try {
-          console.log(`[Processing] Page ${pageNumber}: extracting...`);
-          const pageData = await extractPageData(pdfPath, pageNumber);
-
           if (!pageData.hasIllustrations) {
             console.log(`[Processing] Page ${pageNumber}: skipped (no illustrations)`);
-            sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, skipped: true, pageNumber });
-            return;
+            sendSSEEvent(projectId, 'progress', {
+              current: ++processedPages,
+              total: totalPages,
+              skipped: true,
+              pageNumber,
+            });
+            return null;
           }
 
-          console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
-          const result = await analyzePageWithGemini(pageData.imageBase64, async () => {
-            const [prevPage, nextPage] = await Promise.all([
-              pageNumber > 1 ? extractPageData(pdfPath, pageNumber - 1) : null,
-              pageNumber < totalPages ? extractPageData(pdfPath, pageNumber + 1) : null,
-            ]);
-            return buildAdjacentImages(prevPage, nextPage);
-          });
-          console.log(`[Processing] Page ${pageNumber}: Gemini returned ${result.extractedConcepts.length} concept(s)`);
+          console.log(`[Processing] Page ${pageNumber}: extracting...`);
+          await upsertIllustration(prisma, projectId, pageNumber);
 
-          // Save to database
+          console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
+          const result = await analyzePageWithGemini(pageData.imageBase64, fetchAdjacentImages);
+          console.log(
+            `[Processing] Page ${pageNumber}: Gemini returned ${result.extractedConcepts.length} concept(s)`
+          );
+
           for (const concept of result.extractedConcepts) {
             const identifiers = concept.calloutIdentifiers ?? [];
             if (identifiers.length === 0) continue;
@@ -77,25 +71,26 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
             const sourceTerm = normalizeSourceTerm(concept.sourceTerm);
             if (!sourceTerm) continue;
 
-            // Find or create Keyword
             let keyword = await prisma.keyword.findFirst({
-              where: { projectId, sourceTerm }
+              where: { projectId, sourceTerm },
             });
 
             if (!keyword) {
               keyword = await prisma.keyword.create({
                 data: {
                   projectId,
-                  sourceTerm
-                }
+                  sourceTerm,
+                },
               });
             }
 
-            // Create Concept
-            const definitionHash = crypto.createHash('md5').update(concept.functionalDescription + sourceTerm).digest('hex');
-            
+            const definitionHash = crypto
+              .createHash('md5')
+              .update(concept.functionalDescription + sourceTerm)
+              .digest('hex');
+
             let dbConcept = await prisma.concept.findUnique({
-              where: { definitionHash }
+              where: { definitionHash },
             });
 
             if (!dbConcept) {
@@ -106,25 +101,23 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   definitionText: concept.functionalDescription,
                   projectId,
                   keywords: {
-                    connect: { id: keyword.id }
-                  }
-                }
+                    connect: { id: keyword.id },
+                  },
+                },
               });
             } else {
-              // Connect to keyword if not already
               await prisma.concept.update({
                 where: { id: dbConcept.id },
                 data: {
                   keywords: {
-                    connect: { id: keyword.id }
-                  }
-                }
+                    connect: { id: keyword.id },
+                  },
+                },
               });
             }
 
-            // Create Illustration if not exists
-            let illustration = await prisma.illustration.findFirst({
-              where: { projectId, pageNumber }
+            let illustration = await prisma.illustration.findUnique({
+              where: { projectId_pageNumber: { projectId, pageNumber } },
             });
 
             if (!illustration) {
@@ -132,13 +125,13 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                 data: {
                   projectId,
                   pageNumber,
-                  figureNumber: concept.figureNumber || null
-                }
+                  figureNumber: concept.figureNumber || null,
+                },
               });
             } else if (concept.figureNumber && !illustration.figureNumber) {
               illustration = await prisma.illustration.update({
                 where: { id: illustration.id },
-                data: { figureNumber: concept.figureNumber }
+                data: { figureNumber: concept.figureNumber },
               });
             }
 
@@ -150,25 +143,25 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   illustrationId: illustration.id,
                   identifier,
                   sourceTerm,
-                  conceptId: dbConcept.id
-                }
+                  conceptId: dbConcept.id,
+                },
               });
 
               sendSSEEvent(projectId, 'keyword_extracted', {
                 keyword: {
                   id: keyword.id,
-                  sourceTerm: keyword.sourceTerm
+                  sourceTerm: keyword.sourceTerm,
                 },
                 concept: {
                   id: dbConcept.id,
                   candidateConceptName: dbConcept.candidateConceptName,
-                  definitionText: dbConcept.definitionText
+                  definitionText: dbConcept.definitionText,
                 },
                 callout: {
                   identifier,
                   figureNumber: concept.figureNumber,
-                  pageNumber
-                }
+                  pageNumber,
+                },
               });
             }
           }
@@ -182,12 +175,23 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
           } else {
             console.error(`[Processing] Page ${pageNumber}: error`, error);
           }
-          sendSSEEvent(projectId, 'progress', { current: ++processedPages, total: totalPages, error: true, pageNumber, timedOut: error instanceof TimeoutError });
+          sendSSEEvent(projectId, 'progress', {
+            current: ++processedPages,
+            total: totalPages,
+            error: true,
+            pageNumber,
+            timedOut: error instanceof TimeoutError,
+          });
         }
+
+        return null;
+      },
     });
 
     const totalElapsed = Date.now() - startTime;
-    console.log(`[Processing] Finished project ${projectId} — ${processedPages}/${totalPages} pages in ${totalElapsed}ms`);
+    console.log(
+      `[Processing] Finished project ${projectId} — ${processedPages}/${totalPages} pages in ${totalElapsed}ms`
+    );
     sendSSEEvent(projectId, 'complete', { success: true, processedPages, totalPages });
   } catch (error) {
     console.error('[Processing] Fatal error:', error);

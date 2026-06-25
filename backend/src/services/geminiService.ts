@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
+import { GEMINI_EXTRACTION_TIMEOUT_MS } from '../constants/gemini.js';
 import { withTimeout } from '../utils/withTimeout.js';
 
 dotenv.config();
@@ -7,8 +8,8 @@ dotenv.config();
 const apiKey = process.env.QUARKUS_LANGCHAIN4J_AI_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
 
-/** Max wait per Gemini round-trip (initial + optional follow-up each get this budget). */
-export const GEMINI_EXTRACTION_TIMEOUT_MS = 60_000;
+/** @deprecated Import from constants/gemini.js */
+export { GEMINI_EXTRACTION_TIMEOUT_MS };
 
 /** Term extraction result for one page. Callout validation is handled separately. */
 export interface ExtractedCallout {

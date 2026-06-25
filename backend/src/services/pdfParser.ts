@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import gm from 'gm';
+import { PDF_RENDER_DENSITY } from '../constants/pdfProcessing.js';
 
 // Ensure the worker is configured (required for pdfjs-dist in Node)
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/legacy/build/pdf.worker.mjs';
@@ -12,6 +13,8 @@ export interface ParsedPage {
   imageBase64: string;
   hasIllustrations: boolean;
 }
+
+type PdfDocument = Awaited<ReturnType<typeof pdfjsLib.getDocument>['promise']>;
 
 function jpegPaintOpCount(opCounts: Record<number, number>): number {
   const jpegOp = (pdfjsLib.OPS as Record<string, number>)['paintJpegXObject'];
@@ -33,77 +36,94 @@ function pageHasIllustrations(opCounts: Record<number, number>): boolean {
   return constructPath >= 100 && setStrokeRGBColor >= 100;
 }
 
+/** Cached PDF handle — parse once, extract many pages. */
+export class PdfSession {
+  readonly pdfPath: string;
+  readonly totalPages: number;
+  private readonly pdfDocument: PdfDocument;
+
+  private constructor(pdfPath: string, pdfDocument: PdfDocument) {
+    this.pdfPath = pdfPath;
+    this.pdfDocument = pdfDocument;
+    this.totalPages = pdfDocument.numPages;
+  }
+
+  static async open(pdfPath: string): Promise<PdfSession> {
+    const data = new Uint8Array(fs.readFileSync(pdfPath));
+    const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
+    return new PdfSession(pdfPath, pdfDocument);
+  }
+
+  async close(): Promise<void> {
+    await this.pdfDocument.destroy();
+  }
+
+  async extractPageData(pageNumber: number, outputDir?: string): Promise<ParsedPage> {
+    if (pageNumber < 1 || pageNumber > this.totalPages) {
+      throw new Error(`Invalid page number ${pageNumber}. Document has ${this.totalPages} pages.`);
+    }
+
+    const page = await this.pdfDocument.getPage(pageNumber);
+
+    const opList = await page.getOperatorList();
+    const opCounts: Record<number, number> = {};
+    for (const fn of opList.fnArray) {
+      opCounts[fn] = (opCounts[fn] || 0) + 1;
+    }
+
+    const hasIllustrations = pageHasIllustrations(opCounts);
+
+    const textContent = await page.getTextContent();
+    const textItems = textContent.items.map((item: { str: string }) => item.str);
+    const text = textItems.join(' ');
+
+    const imageMagick = gm.subClass({ imageMagick: true });
+
+    return new Promise((resolve, reject) => {
+      imageMagick(`${this.pdfPath}[${pageNumber - 1}]`)
+        .density(PDF_RENDER_DENSITY, PDF_RENDER_DENSITY)
+        .background('white')
+        .flatten()
+        .toBuffer('PNG', (err: Error | null, buffer: Buffer) => {
+          if (err) {
+            return reject(err);
+          }
+
+          const base64Data = buffer.toString('base64');
+
+          if (outputDir) {
+            if (!fs.existsSync(outputDir)) {
+              fs.mkdirSync(outputDir, { recursive: true });
+            }
+
+            const imagePath = path.join(outputDir, `page_${pageNumber}.png`);
+            fs.writeFileSync(imagePath, buffer);
+
+            const textPath = path.join(outputDir, `page_${pageNumber}.txt`);
+            fs.writeFileSync(textPath, text);
+          }
+
+          resolve({
+            pageNumber,
+            text,
+            imageBase64: base64Data,
+            hasIllustrations,
+          });
+        });
+    });
+  }
+}
+
+/** Convenience: open session, extract one page, close. Prefer PdfSession for multi-page work. */
 export async function extractPageData(
   pdfPath: string,
   pageNumber: number,
   outputDir?: string
 ): Promise<ParsedPage> {
-  const data = new Uint8Array(fs.readFileSync(pdfPath));
-  
-  // Load the PDF document
-  const loadingTask = pdfjsLib.getDocument({ data });
-  const pdfDocument = await loadingTask.promise;
-  
-  if (pageNumber < 1 || pageNumber > pdfDocument.numPages) {
-    throw new Error(`Invalid page number ${pageNumber}. Document has ${pdfDocument.numPages} pages.`);
+  const session = await PdfSession.open(pdfPath);
+  try {
+    return await session.extractPageData(pageNumber, outputDir);
+  } finally {
+    await session.close();
   }
-
-  const page = await pdfDocument.getPage(pageNumber);
-
-  // 0. Detect if page has illustrations (raster images or complex vector graphics)
-  const opList = await page.getOperatorList();
-  const opCounts: Record<number, number> = {};
-  for (const fn of opList.fnArray) {
-    opCounts[fn] = (opCounts[fn] || 0) + 1;
-  }
-  
-  const hasIllustrations = pageHasIllustrations(opCounts);
-
-  // 1. Extract Text using pdfjs-dist
-  const textContent = await page.getTextContent();
-  const textItems = textContent.items.map((item: any) => item.str);
-  const text = textItems.join(' ');
-
-  // 2. Extract Image using GraphicsMagick (via gm)
-  // This uses the system's ImageMagick/GraphicsMagick to render the PDF page
-  // It handles all the complex PDF vector/font rendering natively
-  
-  // Note: gm uses 0-based indexing for pages, so pageNumber - 1
-  const imageMagick = gm.subClass({ imageMagick: true }); // Use ImageMagick
-  
-  return new Promise((resolve, reject) => {
-    // Render at 300 DPI, flatten against white background
-    imageMagick(`${pdfPath}[${pageNumber - 1}]`)
-      .density(300, 300)
-      .background('white')
-      .flatten()
-      .toBuffer('PNG', (err: Error | null, buffer: Buffer) => {
-        if (err) {
-          return reject(err);
-        }
-        
-        const base64Data = buffer.toString('base64');
-        
-        if (outputDir) {
-          if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir, { recursive: true });
-          }
-          
-          // Save image
-          const imagePath = path.join(outputDir, `page_${pageNumber}.png`);
-          fs.writeFileSync(imagePath, buffer);
-          
-          // Save text
-          const textPath = path.join(outputDir, `page_${pageNumber}.txt`);
-          fs.writeFileSync(textPath, text);
-        }
-        
-        resolve({
-          pageNumber,
-          text,
-          imageBase64: base64Data,
-          hasIllustrations
-        });
-      });
-  });
 }

@@ -1,13 +1,16 @@
 import express from 'express';
-import { PrismaClient, type Prisma } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { authenticateToken } from '../middleware/auth.js';
 import type { AuthRequest } from '../middleware/auth.js';
 import multer from 'multer';
 import fs from 'fs';
 import { sseClients, processPdfBackground } from '../services/processingService.js';
-import { extractPageData } from '../services/pdfParser.js';
-import { validateFigurePage } from '../services/figureValidationService.js';
-import { buildAdjacentImages } from '../utils/adjacentImages.js';
+import {
+  validateProjectFigure,
+  validateAllProjectFigures,
+  type IllustrationWithCallouts,
+} from '../services/figureValidationService.js';
+import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
 
 const router = express.Router();
 
@@ -15,9 +18,11 @@ const prisma = new PrismaClient();
 
 const upload = multer({ dest: 'uploads/' });
 
-type IllustrationWithCallouts = Prisma.IllustrationGetPayload<{
-  include: { callouts: { include: { concept: true } } };
-}>;
+const illustrationInclude = {
+  callouts: {
+    include: { concept: true },
+  },
+} as const;
 
 // Get all projects for the logged in user
 router.get('/', authenticateToken, async (req: AuthRequest, res) => {
@@ -92,14 +97,15 @@ router.get('/:id', authenticateToken, async (req: AuthRequest, res) => {
       return res.status(404).json({ error: 'Project not found' });
     }
 
-    res.json(project);
+    const pdfPath = await resolveProjectPdfPath(project, prisma);
+    res.json({ ...project, pdfPath: pdfPath ?? project.pdfPath });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to fetch project details' });
   }
 });
 
-// Upload PDF and start processing
+// Upload PDF only — extraction is started separately via POST /:id/extract
 router.post('/:id/upload', authenticateToken, upload.single('file'), async (req: AuthRequest, res) => {
   const { id } = req.params;
   if (!id) return res.status(400).json({ error: 'Missing project id' });
@@ -118,30 +124,45 @@ router.post('/:id/upload', authenticateToken, upload.single('file'), async (req:
       return res.status(404).json({ error: 'Project not found' });
     }
 
-    // Persist PDF path and start background processing
+    // Persist PDF path only
     console.log(`[Upload] Received PDF for project ${id}: ${file.originalname} (${file.size} bytes)`);
     await prisma.project.update({
       where: { id },
       data: { pdfPath: file.path },
     });
-    processPdfBackground(id, file.path);
 
-    res.json({ message: 'Upload successful, processing started' });
+    res.json({ message: 'Upload successful', pdfPath: file.path });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to process upload' });
   }
 });
 
-// Validate callout anomalies for an identified figure on a page
-router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: AuthRequest, res) => {
-  const { id, pageNumber: pageNumberParam } = req.params;
+// Start keyword extraction for an uploaded PDF
+router.post('/:id/extract', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
   if (!id) return res.status(400).json({ error: 'Missing project id' });
-  const pageNumber = Number(pageNumberParam);
 
-  if (!Number.isInteger(pageNumber) || pageNumber < 1) {
-    return res.status(400).json({ error: 'Invalid page number' });
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
+    }
+
+    console.log(`[Extract] Starting keyword extraction for project ${id}`);
+    processPdfBackground(id, loaded.pdfPath);
+
+    res.json({ message: 'Extraction started' });
+  } catch (error) {
+    console.error('[Extract] Failed to start extraction:', error);
+    res.status(500).json({ error: 'Failed to start extraction' });
   }
+});
+
+// Identified figures only (independent from keyword extraction)
+router.get('/:id/figures', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
 
   try {
     const project = await prisma.project.findFirst({
@@ -152,17 +173,68 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
       return res.status(404).json({ error: 'Project not found' });
     }
 
-    if (!project.pdfPath || !fs.existsSync(project.pdfPath)) {
-      return res.status(400).json({ error: 'PDF not available for this project' });
+    const figures = await prisma.illustration.findMany({
+      where: {
+        projectId: id,
+        figureNumber: { not: null },
+      },
+      include: illustrationInclude,
+      orderBy: { pageNumber: 'asc' },
+    });
+
+    res.json(figures);
+  } catch (error) {
+    console.error('[Figures] Failed to list figures:', error);
+    res.status(500).json({ error: 'Failed to fetch figures' });
+  }
+});
+
+// Validate referential integrity — scans PDF, discovers figures, upserts DB (6 concurrent)
+router.post('/:id/figures/validate-all', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
+    }
+
+    console.log(`[Validation] Batch validating figures for project ${id}`);
+    const results = await validateAllProjectFigures(prisma, id, loaded.pdfPath);
+
+    const failed = results.filter((r: { error?: string }) => r.error).length;
+    res.json({
+      results,
+      validated: results.length - failed,
+      failed,
+      total: results.length,
+    });
+  } catch (error) {
+    console.error('[Validation] Batch figure validation failed:', error);
+    res.status(500).json({ error: 'Batch figure validation failed' });
+  }
+});
+
+// Validate callout anomalies for a single identified figure
+router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: AuthRequest, res) => {
+  const { id, pageNumber: pageNumberParam } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+  const pageNumber = Number(pageNumberParam);
+
+  if (!Number.isInteger(pageNumber) || pageNumber < 1) {
+    return res.status(400).json({ error: 'Invalid page number' });
+  }
+
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
     }
 
     const illustration = (await prisma.illustration.findFirst({
       where: { projectId: id, pageNumber },
-      include: {
-        callouts: {
-          include: { concept: true },
-        },
-      },
+      include: illustrationInclude,
     })) as IllustrationWithCallouts | null;
 
     if (!illustration) {
@@ -174,22 +246,14 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
     }
 
     const pdfDocument = await import('pdfjs-dist/legacy/build/pdf.mjs').then(m =>
-      m.getDocument({ data: new Uint8Array(fs.readFileSync(project.pdfPath!)) }).promise
+      m.getDocument({ data: new Uint8Array(fs.readFileSync(loaded.pdfPath)) }).promise
     );
-    const totalPages = pdfDocument.numPages;
 
-    const result = await validateFigurePage(
-      project.pdfPath,
+    const result = await validateProjectFigure(
+      loaded.pdfPath,
       pageNumber,
-      illustration,
-      illustration.callouts,
-      async () => {
-        const [prevPage, nextPage] = await Promise.all([
-          pageNumber > 1 ? extractPageData(project.pdfPath!, pageNumber - 1) : null,
-          pageNumber < totalPages ? extractPageData(project.pdfPath!, pageNumber + 1) : null,
-        ]);
-        return buildAdjacentImages(prevPage, nextPage);
-      }
+      pdfDocument.numPages,
+      illustration
     );
 
     res.json({
