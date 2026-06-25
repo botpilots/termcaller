@@ -11,7 +11,8 @@
     "db:studio": "cd backend && npx prisma studio",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npx prisma generate && npx tsx watch src/index.ts",
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:db": "nodemon --watch backend/prisma/schema.prisma --exec \"npm run db:push -- --accept-data-loss\"",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:db\"",
     "build": "cd frontend && npm run build && cd ../backend && npx prisma generate && npx tsc",
     "start": "cd backend && npx tsx src/index.ts"
   },
