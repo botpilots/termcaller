@@ -26,9 +26,6 @@ export const Dashboard = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedProjectDetails, setSelectedProjectDetails] = useState<Project | null>(null);
-  
-  const [isCreatingProject, setIsCreatingProject] = useState(false);
-  const [newProjectName, setNewProjectName] = useState('');
 
   // Fetch Projects on load
   useEffect(() => {
@@ -63,18 +60,23 @@ export const Dashboard = () => {
     }
   }, [selectedProjectId]);
 
-  const handleCreateProject = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newProjectName.trim()) return;
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
     try {
-      const response = await axios.post('/api/projects', { name: newProjectName });
+      // Create a project named after the uploaded file
+      const response = await axios.post('/api/projects', { name: file.name });
       setProjects([response.data, ...projects]);
       setSelectedProjectId(response.data.id);
-      setIsCreatingProject(false);
-      setNewProjectName('');
+      
+      // TODO: Actually upload the file contents to the backend here
+      // const formData = new FormData();
+      // formData.append('file', file);
+      // await axios.post(`/api/projects/${response.data.id}/upload`, formData);
+      
     } catch (error) {
-      console.error('Failed to create project', error);
+      console.error('Failed to create project from file', error);
     }
   };
 
@@ -99,30 +101,7 @@ export const Dashboard = () => {
                 <option key={p.id} value={p.id}>{p.name}</option>
               ))}
             </select>
-            <button
-              onClick={() => setIsCreatingProject(!isCreatingProject)}
-              className="p-2 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100"
-              title="New Project"
-            >
-              <Plus size={20} />
-            </button>
           </div>
-
-          {isCreatingProject && (
-            <form onSubmit={handleCreateProject} className="mt-3 flex space-x-2">
-              <input
-                type="text"
-                placeholder="Project name"
-                className="flex-1 text-sm border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border"
-                value={newProjectName}
-                onChange={(e) => setNewProjectName(e.target.value)}
-                autoFocus
-              />
-              <button type="submit" className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-blue-700">
-                Save
-              </button>
-            </form>
-          )}
         </div>
 
         {/* Sidebar Content: Keywords */}
@@ -175,10 +154,11 @@ export const Dashboard = () => {
               </p>
               
               <div className="flex justify-center space-x-4">
-                <button className="flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition-colors">
+                <label className="flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition-colors cursor-pointer">
                   <Plus className="mr-2" size={20} />
                   Upload PDF Document
-                </button>
+                  <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} />
+                </label>
                 <button className="flex items-center px-6 py-3 bg-white text-gray-700 border border-gray-300 font-medium rounded-lg hover:bg-gray-50 shadow-sm transition-colors">
                   <Download className="mr-2" size={20} />
                   Export TBX Basic
@@ -190,7 +170,12 @@ export const Dashboard = () => {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center text-gray-500">
               <Folder className="mx-auto h-12 w-12 text-gray-300 mb-3" />
-              <p>Select or create a project to get started</p>
+              <p className="mb-4">Select a project or upload a new PDF to get started</p>
+              <label className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition-colors cursor-pointer">
+                <Plus className="mr-2" size={18} />
+                Upload PDF Document
+                <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} />
+              </label>
             </div>
           </div>
         )}
