@@ -26,7 +26,9 @@ const frontendDistPath = path.join(__dirname, '../../frontend/dist');
 app.use(express.static(frontendDistPath));
 
 // Fallback to React app for non-API routes
-app.get('*', (req, res) => {
+// Note for Express 5+: path-to-regexp v8 requires explicit params or syntax
+// Using the wildcard parameter syntax for Express 5
+app.get('/*', (req, res) => {
   res.sendFile(path.join(frontendDistPath, 'index.html'));
 });
 

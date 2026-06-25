@@ -1,3 +1,7 @@
 This project is a 48 hour hackathon project for innovative localization ideas.
 
-Assume user has a gcloud account and project designated for this project.
+Assume user has a gcloud account and create a new cloud project designated for this project.
+
+After each definite implementation of a fix or feature, commit.
+
+Before implementation an idea, create a ticket in the docs/tickets directory. Read the README.md file therein.
