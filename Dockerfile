@@ -24,12 +24,8 @@ RUN npm ci
 # Copy backend source
 COPY backend/ ./
 
-# Generate Prisma Client
+# Generate Prisma Client and run migrations
 RUN npx prisma generate
-
-# Build backend (if using tsc) or we can use tsx for simpler deployment
-# We'll use tsx in production for this hackathon setup for simplicity, 
-# or you can add a build step here.
 
 # Copy frontend dist to where backend expects it
 # The backend index.ts expects frontend dist at ../../frontend/dist relative to backend/src
@@ -47,5 +43,5 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-# For production, it's better to build TS to JS, but tsx works well for hackathons
-CMD ["npx", "tsx", "src/index.ts"]
+# Push DB schema before starting the server
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npx tsx src/index.ts"]
