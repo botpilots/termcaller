@@ -29,7 +29,10 @@ const responseSchema = {
         properties: {
           calloutIdentifier: { type: Type.STRING },
           sourceTerm: { type: Type.STRING },
-          functionalDescription: { type: Type.STRING }
+          functionalDescription: { 
+            type: Type.STRING,
+            description: "A general, independent description of the part's typical function. Avoid overly specific context-bound actions."
+          }
         },
         required: ["calloutIdentifier", "sourceTerm", "functionalDescription"]
       }
@@ -65,8 +68,9 @@ I am providing a high-resolution image of a manual page.
 
 INSTRUCTIONS:
 1. Identify all "callouts" (numbers or letters pointing to parts) in the illustrations.
-2. For each callout, search the provided text in the image to find its name (sourceTerm) and write a concise functional description.
-3. CRITICAL: If a callout exists in the image but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
+2. For each callout, search the provided text in the image to find its name (sourceTerm).
+3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
+4. CRITICAL: If a callout exists in the image but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
 `;
 
   try {
