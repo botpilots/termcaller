@@ -81,7 +81,7 @@ You are an expert technical documentation analyst.
 I am providing a high-resolution image of a single manual page. This page may contain MULTIPLE illustrations and text sections.
 
 INSTRUCTIONS:
-1. Identify all "callouts" (numbers or letters pointing to parts) across ALL illustrations on this page. Do not stop after finding callouts in just one illustration.
+1. Identify all "callouts" (numbers or letters pointing to parts) across ALL illustrations on this page.
 2. For each callout found anywhere on the page, search the provided text in the image to find its name (sourceTerm).
 3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
 4. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.

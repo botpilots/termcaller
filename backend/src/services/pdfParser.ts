@@ -13,6 +13,21 @@ export interface ParsedPage {
   hasIllustrations: boolean;
 }
 
+function pageHasIllustrations(opCounts: Record<number, number>): boolean {
+  const paintImage = opCounts[pdfjsLib.OPS.paintImageXObject] || 0;
+  const paintJpeg = opCounts[pdfjsLib.OPS.paintJpegXObject] || 0;
+  if (paintImage > 0 || paintJpeg > 0) {
+    return true;
+  }
+
+  const constructPath = opCounts[pdfjsLib.OPS.constructPath] || 0;
+  const setStrokeRGBColor = opCounts[pdfjsLib.OPS.setStrokeRGBColor] || 0;
+
+  // Technical illustrations use many stroked vector paths with distinct stroke colors.
+  // Section divider pages in this manual top out around ~115 paths / ~56 stroke colors.
+  return constructPath >= 100 && setStrokeRGBColor >= 100;
+}
+
 export async function extractPageData(
   pdfPath: string,
   pageNumber: number,
@@ -37,12 +52,7 @@ export async function extractPageData(
     opCounts[fn] = (opCounts[fn] || 0) + 1;
   }
   
-  const paintImage = opCounts[pdfjsLib.OPS.paintImageXObject] || 0;
-  const paintJpeg = opCounts[pdfjsLib.OPS.paintJpegXObject] || 0;
-  const constructPath = opCounts[pdfjsLib.OPS.constructPath] || 0;
-  
-  // Heuristic: if it has raster images, or more than 200 vector paths, it likely has illustrations
-  const hasIllustrations = paintImage > 0 || paintJpeg > 0 || constructPath > 200;
+  const hasIllustrations = pageHasIllustrations(opCounts);
 
   // 1. Extract Text using pdfjs-dist
   const textContent = await page.getTextContent();

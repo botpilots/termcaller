@@ -7,7 +7,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-describe('Gemini Extraction Service (Multi-Turn Chat)', () => {
+// Opt-in only: skipped in CI/automation to avoid live Gemini API calls.
+// Run locally with: RUN_GEMINI_TESTS=1 npm test
+const runGeminiTests = process.env.RUN_GEMINI_TESTS === '1';
+
+describe.skipIf(!runGeminiTests)('Gemini Extraction Service (Multi-Turn Chat)', () => {
   const fixturePath = path.resolve(__dirname, '../../Instructionbook_10081322_BioDrill500.pdf');
 
   it('should extract callouts and handle missing context via chat chaining', async () => {
