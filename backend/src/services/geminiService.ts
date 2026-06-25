@@ -9,7 +9,7 @@ const ai = new GoogleGenAI({ apiKey });
 
 export interface ExtractedCallout {
   calloutIdentifier: string;
-  actualIdentifier: string;
+  actualIdentifier?: string;
   sourceTerm: string;
   functionalDescription: string;
 }
@@ -35,7 +35,7 @@ const responseSchema = {
           },
           actualIdentifier: { 
             type: Type.STRING,
-            description: "The identifier as it actually appears in the image. Useful for catching mismatches/wrongly put callouts."
+            description: "The identifier as it actually appears in the image. Useful for catching mismatches/wrongly put callouts. Omit this field completely if it matches the calloutIdentifier."
           },
           sourceTerm: { type: Type.STRING },
           functionalDescription: { 
@@ -43,7 +43,7 @@ const responseSchema = {
             description: "A general, independent description of the part's typical function. Avoid overly specific context-bound actions."
           }
         },
-        required: ["calloutIdentifier", "actualIdentifier", "sourceTerm", "functionalDescription"]
+        required: ["calloutIdentifier", "sourceTerm", "functionalDescription"]
       }
     },
     unreferencedCallouts: {
@@ -86,7 +86,7 @@ INSTRUCTIONS:
 3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
 4. CRITICAL: If a callout exists in the image but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
 5. Identify "uncalledReferences": terms explicitly mentioned in the text as belonging to THAT specific figure, but which do NOT have a corresponding callout in the image.
-6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, keep them the same.
+6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, OMIT the "actualIdentifier" field completely.
 `;
 
   try {
