@@ -11,7 +11,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 # Build tools for better-sqlite3; ImageMagick + Ghostscript for gm PDF rendering
-RUN apk add --no-cache python3 make g++ sqlite imagemagick ghostscript
+RUN apk add --no-cache python3 make g++ sqlite imagemagick ghostscript openssl
 
 # Copy root package.json if it exists (optional, helps with workspaces)
 COPY package*.json ./
