@@ -4,6 +4,7 @@ import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { PrismaClient } from '@prisma/client';
 import { extractPageData } from './pdfParser.js';
 import { analyzePageWithGemini } from './geminiService.js';
+import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
 import crypto from 'crypto';
 
 const prisma = new PrismaClient();
@@ -68,22 +69,24 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
             const identifiers = concept.calloutIdentifiers ?? [];
             if (identifiers.length === 0) continue;
 
+            const sourceTerm = normalizeSourceTerm(concept.sourceTerm);
+
             // Find or create Keyword
             let keyword = await prisma.keyword.findFirst({
-              where: { projectId, sourceTerm: concept.sourceTerm }
+              where: { projectId, sourceTerm }
             });
 
             if (!keyword) {
               keyword = await prisma.keyword.create({
                 data: {
                   projectId,
-                  sourceTerm: concept.sourceTerm
+                  sourceTerm
                 }
               });
             }
 
             // Create Concept
-            const definitionHash = crypto.createHash('md5').update(concept.functionalDescription + concept.sourceTerm).digest('hex');
+            const definitionHash = crypto.createHash('md5').update(concept.functionalDescription + sourceTerm).digest('hex');
             
             let dbConcept = await prisma.concept.findUnique({
               where: { definitionHash }
@@ -93,7 +96,7 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               dbConcept = await prisma.concept.create({
                 data: {
                   definitionHash,
-                  candidateConceptName: concept.sourceTerm,
+                  candidateConceptName: sourceTerm,
                   definitionText: concept.functionalDescription,
                   projectId,
                   keywords: {
@@ -133,6 +136,8 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               });
             }
 
+            // Pair calloutIdentifiers[i] (expected, from text) with actualIdentifiers[i] (shown on image).
+            // Mismatch example: text "15" vs image "16" → identifier=15, actualIdentifier=16.
             for (let i = 0; i < identifiers.length; i++) {
               const identifier = identifiers[i];
               if (!identifier) continue;
@@ -145,7 +150,7 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   illustrationId: illustration.id,
                   identifier,
                   actualIdentifier,
-                  sourceTerm: concept.sourceTerm,
+                  sourceTerm,
                   conceptId: dbConcept.id
                 }
               });

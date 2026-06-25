@@ -252,32 +252,53 @@ export const Dashboard = () => {
 
         {/* Sidebar Content: Keywords */}
         <div className="flex-1 overflow-y-auto p-4">
+          {isProcessing && progress && (
+            <div className="mb-4 bg-blue-50 p-3 rounded-lg border border-blue-100">
+              <div className="flex justify-between items-center mb-2">
+                <div className="flex items-center text-blue-800 text-xs font-medium">
+                  <Loader2 className="animate-spin mr-1.5" size={14} />
+                  Processing...
+                </div>
+                <div className="text-xs text-blue-600 font-medium">
+                  {progress.current} / {progress.total}
+                </div>
+              </div>
+              <div className="w-full bg-blue-200 rounded-full h-2">
+                <div
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-500"
+                  style={{ width: `${Math.max(5, (progress.current / progress.total) * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+
           <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
             Extracted Keywords
           </h2>
-          
+
           {selectedProjectDetails?.keywords?.length === 0 && !isProcessing ? (
             <div className="text-sm text-gray-500 text-center py-8">
               No keywords extracted yet. Upload a PDF to begin.
             </div>
           ) : (
-            <div className="space-y-4">
+            <ul className="space-y-1">
               {selectedProjectDetails?.keywords?.map(keyword => (
-                <div key={keyword.id} className="bg-white rounded-md border border-gray-200 shadow-sm p-3">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    {keyword.sourceTerm} <span className="text-gray-400 font-normal text-sm">({keyword.callouts?.length || 0})</span>
-                  </h3>
-                  <div className="space-y-2">
-                    {keyword.concepts.map(concept => (
-                      <div key={concept.id} className="text-sm bg-gray-50 p-2 rounded border border-gray-100">
-                        <p className="font-medium text-blue-700">{concept.candidateConceptName}</p>
-                        <p className="text-gray-600 mt-1 line-clamp-2" title={concept.definitionText}>{concept.definitionText}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <li key={keyword.id}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedKeywordId(keyword.id)}
+                    className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                      selectedKeywordId === keyword.id
+                        ? 'bg-blue-100 text-blue-900 font-medium border border-blue-200'
+                        : 'text-gray-700 hover:bg-gray-100 border border-transparent'
+                    }`}
+                  >
+                    {keyword.sourceTerm}{' '}
+                    <span className="text-gray-400 font-normal">({keyword.callouts?.length || 0})</span>
+                  </button>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
 
@@ -315,7 +336,7 @@ export const Dashboard = () => {
                 </div>
               </div>
 
-              {isProcessing && progress && (
+              {isProcessing && progress && !selectedProjectDetails?.keywords?.length && (
                 <div className="mb-8 bg-blue-50 p-4 rounded-lg border border-blue-100">
                   <div className="flex justify-between items-center mb-2">
                     <div className="flex items-center text-blue-800 font-medium">
@@ -327,56 +348,71 @@ export const Dashboard = () => {
                     </div>
                   </div>
                   <div className="w-full bg-blue-200 rounded-full h-2.5">
-                    <div 
-                      className="bg-blue-600 h-2.5 rounded-full transition-all duration-500" 
+                    <div
+                      className="bg-blue-600 h-2.5 rounded-full transition-all duration-500"
                       style={{ width: `${Math.max(5, (progress.current / progress.total) * 100)}%` }}
-                    ></div>
+                    />
                   </div>
                 </div>
               )}
 
-              {selectedProjectDetails?.keywords && selectedProjectDetails.keywords.length > 0 && (
+              {selectedKeyword ? (
                 <div>
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Extracted Concepts</h3>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">{selectedKeyword.sourceTerm}</h3>
+                      <p className="text-sm text-gray-500 mt-0.5">
+                        {selectedKeyword.callouts?.length || 0} occurrence{(selectedKeyword.callouts?.length || 0) !== 1 ? 's' : ''}
+                      </p>
+                    </div>
                     <button className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors">
                       Analyse Similarities
                     </button>
                   </div>
-                  <div className="overflow-x-auto border border-gray-200 rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Page</th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Figure</th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Callout</th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Term</th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Concept / Description</th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
-                        {selectedProjectDetails.keywords.flatMap(kw => 
-                          (kw.callouts || []).map((callout, idx) => {
-                            const concept = kw.concepts.find(c => c.id === callout.concept?.id) || kw.concepts[0];
+                  {(selectedKeyword.callouts?.length ?? 0) > 0 ? (
+                    <div className="overflow-x-auto border border-gray-200 rounded-lg">
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Page</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Figure</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Callout</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Concept / Description</th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {selectedKeyword.callouts!.map((callout, idx) => {
+                            const concept = callout.concept ?? selectedKeyword.concepts[0];
                             return (
-                              <tr key={`${kw.id}-${idx}`} className="hover:bg-gray-50">
+                              <tr key={`${selectedKeyword.id}-${idx}`} className="hover:bg-gray-50">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{callout.pageNumber}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{callout.figureNumber || '-'}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{callout.identifier}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{kw.sourceTerm}</td>
                                 <td className="px-6 py-4 text-sm text-gray-500">
                                   <div className="font-medium text-gray-900">{concept?.candidateConceptName}</div>
                                   <div className="text-gray-500 truncate max-w-md" title={concept?.definitionText}>{concept?.definitionText}</div>
                                 </td>
                               </tr>
                             );
-                          })
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
+                      No callouts extracted for this keyword yet.
+                    </div>
+                  )}
                 </div>
-              )}
+              ) : selectedProjectDetails?.keywords?.length ? (
+                <div className="text-sm text-gray-500 text-center py-12">
+                  Select a keyword from the sidebar to view its callouts.
+                </div>
+              ) : !isProcessing ? (
+                <div className="text-sm text-gray-500 text-center py-12">
+                  Upload a PDF to extract keywords and terminology.
+                </div>
+              ) : null}
             </div>
           </div>
         ) : (

@@ -7,8 +7,30 @@ dotenv.config();
 const apiKey = process.env.QUARKUS_LANGCHAIN4J_AI_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
 
+/**
+ * Gemini extraction result for one page.
+ *
+ * Three kinds of callout anomalies:
+ *
+ * 1. Label mismatch (per extracted concept, parallel arrays):
+ *    calloutIdentifiers[i] = expected label from TEXT (e.g. "15")
+ *    actualIdentifiers[i]  = label shown on IMAGE for the same part (e.g. "16")
+ *    Read as pairs by index: text says 15, image shows 16 → documentation typo.
+ *    The part's meaning comes from sourceTerm, not from decoding the image label.
+ *    Omit actualIdentifiers entirely when all pairs match.
+ *
+ * 2. unreferencedCallouts: identifier appears in the image but has no text explanation.
+ *
+ * 3. uncalledReferences: text assigns an identifier (e.g. "Dial (C)") but it is missing from the image.
+ */
 export interface ExtractedCallout {
+  /** Expected callout label(s) as stated in the document text. */
   calloutIdentifiers: string[];
+  /**
+   * Optional. Parallel to calloutIdentifiers — same length, same index.
+   * actualIdentifiers[i] is what the IMAGE shows when it differs from calloutIdentifiers[i].
+   * Example: calloutIdentifiers ["15"], actualIdentifiers ["16"] → text says 15, image shows 16.
+   */
   actualIdentifiers?: string[];
   figureNumber: string;
   sourceTerm: string;
@@ -17,7 +39,9 @@ export interface ExtractedCallout {
 
 export interface AnalysisResult {
   extractedConcepts: ExtractedCallout[];
+  /** Image has this callout label, but the text never explains it. */
   unreferencedCallouts: string[];
+  /** Text references this callout label, but it is missing from the image. */
   uncalledReferences: string[];
 }
 
@@ -33,18 +57,21 @@ const responseSchema = {
           calloutIdentifiers: { 
             type: Type.ARRAY,
             items: { type: Type.STRING },
-            description: "One or more callout identifiers that share this sourceTerm and functionalDescription. Group duplicates on the same page into a single entry instead of repeating the description."
+            description: "Expected callout label(s) from the document text. When grouped, all labels that share this sourceTerm and functionalDescription."
           },
           actualIdentifiers: { 
             type: Type.ARRAY,
             items: { type: Type.STRING },
-            description: "Optional. Parallel to calloutIdentifiers — the identifier as it actually appears in the image when it differs from the text. Omit this field completely if all identifiers match."
+            description: "Optional. Parallel to calloutIdentifiers (same length, matched by index). actualIdentifiers[i] is the label shown on the IMAGE when it differs from calloutIdentifiers[i]. Example: text says 15, image shows 16. Omit entirely when all pairs match."
           },
           figureNumber: {
             type: Type.STRING,
             description: "The figure number this callout belongs to, if explicitly stated (e.g., 'Figure 4.1'). If not found, return an empty string."
           },
-          sourceTerm: { type: Type.STRING },
+          sourceTerm: {
+            type: Type.STRING,
+            description: "The part name as a singular noun in lowercase (e.g. 'screw', 'bracket'). Always singularize plurals from the document ('Screws' → 'screw') and ignore original casing ('Dial' → 'dial')."
+          },
           functionalDescription: { 
             type: Type.STRING,
             description: "A general, independent description of the part's typical function. Avoid overly specific context-bound actions."
@@ -90,12 +117,13 @@ I am providing a high-resolution image of a single manual page. This page may co
 INSTRUCTIONS:
 1. Identify all "callouts" (numbers or letters pointing to parts) across ALL illustrations on this page.
 2. For each callout found anywhere on the page, search the provided text in the image to find its name (sourceTerm).
-3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
-4. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
-5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the illustrations.
-6. GROUPING: When multiple callouts on this page refer to the same part with the same name and meaning, return ONE extractedConcepts entry with all their identifiers in "calloutIdentifiers" (e.g. ["12", "15", "18"]). Do NOT repeat sourceTerm or functionalDescription for each duplicate.
-7. Validation: Record each identifier as stated in the text in "calloutIdentifiers". If an identifier shown in the image differs (a wrongly put callout), record the image's version at the matching index in "actualIdentifiers". If all match, OMIT "actualIdentifiers" completely.
-8. Extract the figure number (e.g., "Figure 4.1") if explicitly stated. If not found, return an empty string for "figureNumber".
+3. NORMALIZE sourceTerm: always output singular nouns in lowercase. If the document says "Screws", "BRACKET", or "Dials", output "screw", "bracket", or "dial". Never keep plural forms or original casing.
+4. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
+5. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
+6. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the illustrations.
+7. GROUPING: When multiple callouts on this page refer to the same part with the same name and meaning, return ONE extractedConcepts entry with all their identifiers in "calloutIdentifiers" (e.g. ["12", "15", "18"]). Do NOT repeat sourceTerm or functionalDescription for each duplicate. Group plurals and different casings under the same normalized sourceTerm.
+8. LABEL MISMATCH (parallel arrays): Record each identifier as stated in the text in "calloutIdentifiers". If the image shows a different label for the same part, record the image label at the same index in "actualIdentifiers" (e.g. calloutIdentifiers ["15"], actualIdentifiers ["16"] means text says 15 but image shows 16). If all labels match, OMIT "actualIdentifiers" completely.
+9. Extract the figure number (e.g., "Figure 4.1") if explicitly stated. If not found, return an empty string for "figureNumber".
 `;
 
   try {

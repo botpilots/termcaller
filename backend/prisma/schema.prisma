@@ -81,8 +81,8 @@ model Callout {
   illustrationId String
   illustration   Illustration @relation(fields: [illustrationId], references: [id], onDelete: Cascade)
 
-  identifier       String // e.g., "7", "A", "arrow-1"
-  actualIdentifier String?
+  identifier       String  // Expected callout label from document text (e.g. "15")
+  actualIdentifier String? // Image label when it differs from identifier (e.g. text "15", image "16")
   sourceTerm       String // e.g., "bracket", "cover"
 
   conceptId String?
