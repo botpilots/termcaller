@@ -76,6 +76,11 @@ function listSourceDocuments(): SourceDocument[] {
     if (ext !== '.pdf' && ext !== '.txt') continue;
 
     const id = path.basename(entry.name, ext);
+    if (/hocr/i.test(entry.name)) {
+      console.log(`  (skip OCR dump: ${entry.name})`);
+      continue;
+    }
+
     sources.push({
       id,
       path: path.join(MANUALS_DIR, entry.name),
