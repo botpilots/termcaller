@@ -7,10 +7,12 @@
     "doc": "docs"
   },
   "scripts": {
+    "db:push": "cd backend && npx prisma db push",
+    "db:studio": "cd backend && npx prisma studio",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && npx tsx watch src/index.ts",
+    "dev:backend": "cd backend && npx prisma generate && npx tsx watch src/index.ts",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "build": "cd frontend && npm run build && cd ../backend && npx tsc",
+    "build": "cd frontend && npm run build && cd ../backend && npx prisma generate && npx tsc",
     "start": "cd backend && npx tsx src/index.ts"
   },
   "keywords": [],
