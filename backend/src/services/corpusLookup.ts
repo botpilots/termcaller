@@ -46,6 +46,12 @@ const WORD_RANK_PATH = path.resolve(
 );
 
 let cachedIndex: CorpusIndex | null = null;
+let cachedMtimeMs = 0;
+
+function readWordRankFile(): WordRankFile {
+  const raw = fs.readFileSync(WORD_RANK_PATH, 'utf8');
+  return JSON.parse(raw) as WordRankFile;
+}
 
 function buildIndex(data: WordRankFile): CorpusIndex {
   const byTerm = new Map<string, CorpusTermStats>();
@@ -142,9 +148,7 @@ export function getCorpusTermsMap(): {
   vocabSize: number;
   terms: Record<string, { f: number; d: number; r: number }>;
 } {
-  const index = loadCorpusIndex();
-  const raw = fs.readFileSync(WORD_RANK_PATH, 'utf8');
-  const data = JSON.parse(raw) as WordRankFile;
+  const data = readWordRankFile();
   const terms: Record<string, { f: number; d: number; r: number }> = {};
 
   for (let i = 0; i < data.v.length; i++) {
@@ -152,23 +156,27 @@ export function getCorpusTermsMap(): {
   }
 
   return {
-    docs: index.docs,
-    totalTokens: index.totalTokens,
-    vocabSize: index.vocabSize,
+    docs: data.docs,
+    totalTokens: data.n,
+    vocabSize: data.v.length,
     terms,
   };
 }
 
 export function loadCorpusIndex(): CorpusIndex {
-  if (cachedIndex) return cachedIndex;
+  const stat = fs.statSync(WORD_RANK_PATH);
+  if (cachedIndex && stat.mtimeMs === cachedMtimeMs) {
+    return cachedIndex;
+  }
 
-  const raw = fs.readFileSync(WORD_RANK_PATH, 'utf8');
-  const data = JSON.parse(raw) as WordRankFile;
+  const data = readWordRankFile();
   cachedIndex = buildIndex(data);
+  cachedMtimeMs = stat.mtimeMs;
   return cachedIndex;
 }
 
 /** @visibleForTesting */
 export function resetCorpusIndexCache(): void {
   cachedIndex = null;
+  cachedMtimeMs = 0;
 }

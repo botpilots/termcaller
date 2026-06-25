@@ -33,7 +33,7 @@ export function corpusRarityFromRank(freqRank: number, vocabSize: number): numbe
   if (freqRank < 0 || vocabSize <= 1) {
     return 1;
   }
-  return freqRank / (vocabSize - 1);
+  return Math.min(1, freqRank / (vocabSize - 1));
 }
 
 export function combinePhraseRarity(perTokenRarities: number[], tokenCount: number): number {

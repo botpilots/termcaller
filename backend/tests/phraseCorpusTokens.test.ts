@@ -39,6 +39,10 @@ describe('corpusRarityFromRank', () => {
     expect(corpusRarityFromRank(-1, 100)).toBe(1);
     expect(corpusRarityFromRank(50, 101)).toBe(0.5);
   });
+
+  it('clamps rarity when rank exceeds stale vocab size', () => {
+    expect(corpusRarityFromRank(12542, 10232)).toBe(1);
+  });
 });
 
 describe('combinePhraseRarity', () => {
