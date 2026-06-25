@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 describe('PDF Parser Service', () => {
-  const fixturePath = path.resolve(__dirname, '../../Instructionbook_10081322_BioDrill500.pdf');
+  const fixturePath = path.resolve(__dirname, '../../test_data/Instructionbook_10081322_BioDrill500.pdf');
   const outputDir = path.resolve(__dirname, 'output');
 
   it('should extract high-res image and text from a specific page', async () => {
