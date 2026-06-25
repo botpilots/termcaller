@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Folder, Plus, LogOut, FileText, Download, Loader2 } from 'lucide-react';
+import { Folder, Plus, LogOut, Download, Loader2 } from 'lucide-react';
 import axios from 'axios';
 
 interface Concept {
