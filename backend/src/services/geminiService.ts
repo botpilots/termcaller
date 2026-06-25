@@ -78,14 +78,14 @@ export async function analyzePageWithGemini(
 
   const initialPrompt = `
 You are an expert technical documentation analyst. 
-I am providing a high-resolution image of a manual page.
+I am providing a high-resolution image of a single manual page. This page may contain MULTIPLE illustrations and text sections.
 
 INSTRUCTIONS:
-1. Identify all "callouts" (numbers or letters pointing to parts) in the illustrations.
-2. For each callout, search the provided text in the image to find its name (sourceTerm).
+1. Identify all "callouts" (numbers or letters pointing to parts) across ALL illustrations on this page. Do not stop after finding callouts in just one illustration.
+2. For each callout found anywhere on the page, search the provided text in the image to find its name (sourceTerm).
 3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
-4. CRITICAL: If a callout exists in the image but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
-5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the image.
+4. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
+5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the illustrations.
 6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, OMIT the "actualIdentifier" field completely.
 `;
 

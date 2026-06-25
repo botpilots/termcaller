@@ -30,6 +30,13 @@ describe('Gemini Extraction Service (Multi-Turn Chat)', () => {
       };
     };
 
+    console.log(`Page ${pageNum} has illustrations: ${currPage.hasIllustrations}`);
+    
+    if (!currPage.hasIllustrations) {
+      console.log('Skipping Gemini analysis because page has no illustrations.');
+      return;
+    }
+
     console.log('Starting Gemini Chat Session...');
     const result = await analyzePageWithGemini(
       currPage.imageBase64,
