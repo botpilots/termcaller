@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Folder, Plus, LogOut, Download, Loader2 } from 'lucide-react';
+import { Folder, LogOut, Loader2 } from 'lucide-react';
 import axios from 'axios';
+import { DashboardHeader } from '../components/DashboardHeader';
+import { SimilarityCluster, type SimilarityResult } from '../components/SimilarityCluster';
 
 interface Concept {
   id: string;
@@ -41,6 +43,8 @@ interface Progress {
   skipped?: boolean;
 }
 
+type MainTab = 'callouts' | 'similarity';
+
 export const Dashboard = () => {
   const { user, logout } = useAuth();
   const [projects, setProjects] = useState<Project[]>([]);
@@ -49,6 +53,10 @@ export const Dashboard = () => {
   const [selectedKeywordId, setSelectedKeywordId] = useState<string | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [activeTab, setActiveTab] = useState<MainTab>('callouts');
+  const [similarityResult, setSimilarityResult] = useState<SimilarityResult | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [similarityError, setSimilarityError] = useState<string | null>(null);
   const eventSourceRef = useRef<EventSource | null>(null);
 
   const selectedKeyword = selectedProjectDetails?.keywords?.find(k => k.id === selectedKeywordId) ?? null;
@@ -71,7 +79,16 @@ export const Dashboard = () => {
 
   useEffect(() => {
     setSelectedKeywordId(null);
+    setActiveTab('callouts');
+    setSimilarityResult(null);
+    setSimilarityError(null);
   }, [selectedProjectId]);
+
+  useEffect(() => {
+    setActiveTab('callouts');
+    setSimilarityResult(null);
+    setSimilarityError(null);
+  }, [selectedKeywordId]);
 
   useEffect(() => {
     const keywords = selectedProjectDetails?.keywords;
@@ -226,30 +243,37 @@ export const Dashboard = () => {
     }
   };
 
+  const handleAnalyzeSimilarity = async () => {
+    if (!selectedKeyword) return;
+
+    setIsAnalyzing(true);
+    setSimilarityError(null);
+
+    try {
+      const response = await axios.post(`/api/keywords/${selectedKeyword.id}/analyze-similarity`);
+      setSimilarityResult(response.data);
+    } catch (error) {
+      console.error('Failed to analyse similarity', error);
+      setSimilarityError('Failed to analyse similarities. Ensure concepts exist and try again.');
+      setSimilarityResult(null);
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen flex-col bg-white">
+      <DashboardHeader
+        projects={projects}
+        selectedProjectId={selectedProjectId}
+        onProjectChange={setSelectedProjectId}
+        onFileUpload={handleFileUpload}
+        isProcessing={isProcessing}
+      />
+
+      <div className="flex flex-1 overflow-hidden">
       {/* Sidebar */}
       <div className="w-80 bg-gray-50 border-r border-gray-200 flex flex-col">
-        {/* Sidebar Header: Project Selector */}
-        <div className="p-4 border-b border-gray-200 bg-white">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-xl font-bold text-gray-900">Termcaller</h1>
-          </div>
-          
-          <div className="flex space-x-2">
-            <select
-              className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-              value={selectedProjectId || ''}
-              onChange={(e) => setSelectedProjectId(e.target.value)}
-            >
-              <option value="" disabled>Select a project</option>
-              {projects.map(p => (
-                <option key={p.id} value={p.id}>{p.name}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
         {/* Sidebar Content: Keywords */}
         <div className="flex-1 overflow-y-auto p-4">
           {isProcessing && progress && (
@@ -316,26 +340,6 @@ export const Dashboard = () => {
         {selectedProjectId ? (
           <div className="flex-1 p-8 flex flex-col max-w-5xl mx-auto w-full overflow-y-auto">
             <div className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
-              <div className="flex justify-between items-center mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900">{selectedProjectDetails?.name}</h2>
-                  <p className="text-gray-500 text-sm mt-1">Project Details</p>
-                </div>
-                <div className="flex space-x-3">
-                  {!isProcessing && (
-                    <label className="flex items-center px-4 py-2 bg-blue-50 text-blue-700 font-medium rounded-lg hover:bg-blue-100 transition-colors cursor-pointer border border-blue-200">
-                      <Plus className="mr-2" size={18} />
-                      Upload PDF
-                      <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} />
-                    </label>
-                  )}
-                  <button className="flex items-center px-4 py-2 bg-white text-gray-700 border border-gray-300 font-medium rounded-lg hover:bg-gray-50 shadow-sm transition-colors">
-                    <Download className="mr-2" size={18} />
-                    Export TBX
-                  </button>
-                </div>
-              </div>
-
               {isProcessing && progress && !selectedProjectDetails?.keywords?.length && (
                 <div className="mb-8 bg-blue-50 p-4 rounded-lg border border-blue-100">
                   <div className="flex justify-between items-center mb-2">
@@ -362,14 +366,53 @@ export const Dashboard = () => {
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">{selectedKeyword.sourceTerm}</h3>
                       <p className="text-sm text-gray-500 mt-0.5">
+                        {selectedKeyword.concepts.length} concept{selectedKeyword.concepts.length !== 1 ? 's' : ''} ·{' '}
                         {selectedKeyword.callouts?.length || 0} occurrence{(selectedKeyword.callouts?.length || 0) !== 1 ? 's' : ''}
                       </p>
                     </div>
-                    <button className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors">
-                      Analyse Similarities
-                    </button>
                   </div>
-                  {(selectedKeyword.callouts?.length ?? 0) > 0 ? (
+
+                  <div className="flex items-center justify-between border-b border-gray-200 mb-4">
+                    <div className="flex gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setActiveTab('callouts')}
+                        className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                          activeTab === 'callouts'
+                            ? 'border-blue-600 text-blue-700'
+                            : 'border-transparent text-gray-500 hover:text-gray-700'
+                        }`}
+                      >
+                        Callouts
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setActiveTab('similarity')}
+                        className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                          activeTab === 'similarity'
+                            ? 'border-indigo-600 text-indigo-700'
+                            : 'border-transparent text-gray-500 hover:text-gray-700'
+                        }`}
+                      >
+                        Similarity
+                      </button>
+                    </div>
+
+                    {activeTab === 'similarity' && (
+                      <button
+                        type="button"
+                        onClick={handleAnalyzeSimilarity}
+                        disabled={isAnalyzing || selectedKeyword.concepts.length === 0}
+                        className="mb-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                      >
+                        {isAnalyzing && <Loader2 className="animate-spin mr-2" size={16} />}
+                        Analyse Similarities
+                      </button>
+                    )}
+                  </div>
+
+                  {activeTab === 'callouts' ? (
+                  (selectedKeyword.callouts?.length ?? 0) > 0 ? (
                     <div className="overflow-x-auto border border-gray-200 rounded-lg">
                       <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
@@ -377,20 +420,21 @@ export const Dashboard = () => {
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Page</th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Figure</th>
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Callout</th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Concept / Description</th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Definition</th>
                           </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                          {selectedKeyword.callouts!.map((callout, idx) => {
+                          {[...(selectedKeyword.callouts ?? [])]
+                            .sort((a, b) => a.pageNumber - b.pageNumber)
+                            .map((callout, idx) => {
                             const concept = callout.concept ?? selectedKeyword.concepts[0];
                             return (
                               <tr key={`${selectedKeyword.id}-${idx}`} className="hover:bg-gray-50">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{callout.pageNumber}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{callout.figureNumber || '-'}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{callout.identifier}</td>
-                                <td className="px-6 py-4 text-sm text-gray-500">
-                                  <div className="font-medium text-gray-900">{concept?.candidateConceptName}</div>
-                                  <div className="text-gray-500 truncate max-w-md" title={concept?.definitionText}>{concept?.definitionText}</div>
+                                <td className="px-6 py-4 text-sm text-gray-700" title={concept?.definitionText}>
+                                  {concept?.definitionText || '-'}
                                 </td>
                               </tr>
                             );
@@ -401,6 +445,32 @@ export const Dashboard = () => {
                   ) : (
                     <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
                       No callouts extracted for this keyword yet.
+                    </div>
+                  )
+                  ) : (
+                    <div>
+                      {similarityError && (
+                        <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
+                          {similarityError}
+                        </div>
+                      )}
+
+                      {!similarityResult && !isAnalyzing && (
+                        <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
+                          Click &quot;Analyse Similarities&quot; to map how closely each definition aligns with the centroid.
+                        </div>
+                      )}
+
+                      {isAnalyzing && (
+                        <div className="flex items-center justify-center py-12 text-indigo-700">
+                          <Loader2 className="animate-spin mr-2" size={20} />
+                          Computing embeddings and similarity scores...
+                        </div>
+                      )}
+
+                      {similarityResult && !isAnalyzing && (
+                        <SimilarityCluster result={similarityResult} />
+                      )}
                     </div>
                   )}
                 </div>
@@ -419,15 +489,11 @@ export const Dashboard = () => {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center text-gray-500">
               <Folder className="mx-auto h-12 w-12 text-gray-300 mb-3" />
-              <p className="mb-4">Select a project or upload a new PDF to get started</p>
-              <label className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition-colors cursor-pointer">
-                <Plus className="mr-2" size={18} />
-                Upload PDF Document
-                <input type="file" accept=".pdf" className="hidden" onChange={handleFileUpload} />
-              </label>
+              <p>Select a project or upload a new PDF using the header to get started.</p>
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
