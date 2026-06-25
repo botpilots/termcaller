@@ -2,10 +2,15 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { authenticateToken } from '../middleware/auth.js';
 import type { AuthRequest } from '../middleware/auth.js';
+import multer from 'multer';
+import path from 'path';
+import { sseClients, processPdfBackground } from '../services/processingService.js';
 
 const router = express.Router();
 
 const prisma = new PrismaClient();
+
+const upload = multer({ dest: 'uploads/' });
 
 // Get all projects for the logged in user
 router.get('/', authenticateToken, async (req: AuthRequest, res) => {
@@ -63,6 +68,15 @@ router.get('/:id', authenticateToken, async (req: AuthRequest, res) => {
             concepts: true,
           }
         },
+        illustrations: {
+          include: {
+            callouts: {
+              include: {
+                concept: true
+              }
+            }
+          }
+        }
       },
     });
 
@@ -75,6 +89,64 @@ router.get('/:id', authenticateToken, async (req: AuthRequest, res) => {
     console.error(error);
     res.status(500).json({ error: 'Failed to fetch project details' });
   }
+});
+
+// Upload PDF and start processing
+router.post('/:id/upload', authenticateToken, upload.single('file'), async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  const file = req.file;
+
+  if (!file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+
+  try {
+    const project = await prisma.project.findFirst({
+      where: { id, userId: req.user!.userId }
+    });
+
+    if (!project) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    // Start background processing
+    processPdfBackground(id, file.path);
+
+    res.json({ message: 'Upload successful, processing started' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to process upload' });
+  }
+});
+
+// SSE endpoint for progress and keyword streaming
+router.get('/:id/stream', authenticateToken, (req: AuthRequest, res) => {
+  const { id } = req.params;
+
+  // Set headers for SSE
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  // Add client to the map
+  if (!sseClients.has(id)) {
+    sseClients.set(id, []);
+  }
+  sseClients.get(id)!.push(res);
+
+  // Remove client when connection closes
+  req.on('close', () => {
+    const clients = sseClients.get(id);
+    if (clients) {
+      const index = clients.indexOf(res);
+      if (index !== -1) {
+        clients.splice(index, 1);
+      }
+      if (clients.length === 0) {
+        sseClients.delete(id);
+      }
+    }
+  });
 });
 
 export default router;

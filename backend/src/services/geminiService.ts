@@ -10,6 +10,7 @@ const ai = new GoogleGenAI({ apiKey });
 export interface ExtractedCallout {
   calloutIdentifier: string;
   actualIdentifier?: string;
+  figureNumber: string;
   sourceTerm: string;
   functionalDescription: string;
 }
@@ -37,13 +38,17 @@ const responseSchema = {
             type: Type.STRING,
             description: "The identifier as it actually appears in the image. Useful for catching mismatches/wrongly put callouts. Omit this field completely if it matches the calloutIdentifier."
           },
+          figureNumber: {
+            type: Type.STRING,
+            description: "The figure number this callout belongs to, if explicitly stated (e.g., 'Figure 4.1'). If not found, return an empty string."
+          },
           sourceTerm: { type: Type.STRING },
           functionalDescription: { 
             type: Type.STRING,
             description: "A general, independent description of the part's typical function. Avoid overly specific context-bound actions."
           }
         },
-        required: ["calloutIdentifier", "sourceTerm", "functionalDescription"]
+        required: ["calloutIdentifier", "figureNumber", "sourceTerm", "functionalDescription"]
       }
     },
     unreferencedCallouts: {
@@ -87,6 +92,7 @@ INSTRUCTIONS:
 4. CRITICAL: If a callout exists in ANY image on the page but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
 5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the illustrations.
 6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, OMIT the "actualIdentifier" field completely.
+7. Extract the figure number (e.g., "Figure 4.1") if explicitly stated. If not found, return an empty string for "figureNumber".
 `;
 
   try {

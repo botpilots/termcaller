@@ -11,25 +11,26 @@ datasource db {
 }
 
 model User {
-  id           String    @id @default(uuid())
-  username     String    @unique
+  id           String   @id @default(uuid())
+  username     String   @unique
   passwordHash String
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
-  projects     Project[]
+  projects Project[]
 }
 
 model Project {
-  id          String         @id @default(uuid())
-  name        String
-  userId      String
-  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
+  id        String   @id @default(uuid())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  keywords    Keyword[]
-  concepts    Concept[]
+  keywords      Keyword[]
+  concepts      Concept[]
+  illustrations Illustration[]
 }
 
 model Keyword {
@@ -40,44 +41,53 @@ model Keyword {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
-  concepts   Concept[] @relation("KeywordConcepts")
+  concepts Concept[] @relation("KeywordConcepts")
 }
 
 model Concept {
-  id                   String    @id @default(uuid())
-  definitionHash       String    @unique // To ensure uniqueness based on candidateConceptName + definitionText
-  candidateConceptName String    // e.g., "Mounting bracket"
-  definitionText       String    // e.g., "Rigid structural component..."
-  vectorEmbedding      String?   // JSON serialized Float[]
-  
-  projectId            String
-  project              Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
+  id                   String  @id @default(uuid())
+  definitionHash       String  @unique // To ensure uniqueness based on candidateConceptName + definitionText
+  candidateConceptName String // e.g., "Mounting bracket"
+  definitionText       String // e.g., "Rigid structural component..."
+  vectorEmbedding      String? // JSON serialized Float[]
 
-  keywords             Keyword[] @relation("KeywordConcepts")
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  keywords Keyword[] @relation("KeywordConcepts")
+  callouts Callout[]
 }
 
 // Keeping these around for the actual PDF/Illustration parsing phase
 model Illustration {
-  id        String   @id @default(uuid())
-  title     String?
-  imageUrl  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  
-  callouts  Callout[]
+  id           String   @id @default(uuid())
+  projectId    String
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  pageNumber   Int
+  figureNumber String?
+  title        String?
+  imageUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  callouts Callout[]
 }
 
 model Callout {
   id             String       @id @default(uuid())
   illustrationId String
   illustration   Illustration @relation(fields: [illustrationId], references: [id], onDelete: Cascade)
-  
-  identifier     String       // e.g., "7", "A", "arrow-1"
-  sourceTerm     String       // e.g., "bracket", "cover"
-  
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+
+  identifier       String // e.g., "7", "A", "arrow-1"
+  actualIdentifier String?
+  sourceTerm       String // e.g., "bracket", "cover"
+
+  conceptId String?
+  concept   Concept? @relation(fields: [conceptId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
