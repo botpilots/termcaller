@@ -3,9 +3,8 @@ import path from 'path';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import gm from 'gm';
 import { PDF_RENDER_DENSITY } from '../constants/pdfProcessing.js';
-
-// Ensure the worker is configured (required for pdfjs-dist in Node)
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/legacy/build/pdf.worker.mjs';
+import { loadPdfDocument, type PdfDocument } from '../utils/pdfjsLoad.js';
+import { joinPdfTextItems } from '../utils/joinPdfTextItems.js';
 
 export interface ParsedPage {
   pageNumber: number;
@@ -14,7 +13,7 @@ export interface ParsedPage {
   hasIllustrations: boolean;
 }
 
-type PdfDocument = Awaited<ReturnType<typeof pdfjsLib.getDocument>['promise']>;
+type PdfLoadingTask = ReturnType<typeof loadPdfDocument>;
 
 function jpegPaintOpCount(opCounts: Record<number, number>): number {
   const jpegOp = (pdfjsLib.OPS as Record<string, number>)['paintJpegXObject'];
@@ -41,21 +40,24 @@ export class PdfSession {
   readonly pdfPath: string;
   readonly totalPages: number;
   private readonly pdfDocument: PdfDocument;
+  private readonly loadingTask: PdfLoadingTask;
 
-  private constructor(pdfPath: string, pdfDocument: PdfDocument) {
+  private constructor(pdfPath: string, pdfDocument: PdfDocument, loadingTask: PdfLoadingTask) {
     this.pdfPath = pdfPath;
     this.pdfDocument = pdfDocument;
+    this.loadingTask = loadingTask;
     this.totalPages = pdfDocument.numPages;
   }
 
   static async open(pdfPath: string): Promise<PdfSession> {
     const data = new Uint8Array(fs.readFileSync(pdfPath));
-    const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
-    return new PdfSession(pdfPath, pdfDocument);
+    const loadingTask = loadPdfDocument(data);
+    const pdfDocument = await loadingTask.promise;
+    return new PdfSession(pdfPath, pdfDocument, loadingTask);
   }
 
   async close(): Promise<void> {
-    await this.pdfDocument.destroy();
+    await this.loadingTask.destroy();
   }
 
   async extractPageData(pageNumber: number, outputDir?: string): Promise<ParsedPage> {
@@ -74,8 +76,7 @@ export class PdfSession {
     const hasIllustrations = pageHasIllustrations(opCounts);
 
     const textContent = await page.getTextContent();
-    const textItems = textContent.items.map((item: { str: string }) => item.str);
-    const text = textItems.join(' ');
+    const text = joinPdfTextItems(textContent.items);
 
     const imageMagick = gm.subClass({ imageMagick: true });
 

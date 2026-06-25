@@ -1,7 +1,7 @@
 import type { Prisma, PrismaClient } from '@prisma/client';
 import fs from 'fs';
-import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import { extractPageData } from './pdfParser.js';
+import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import {
   pickValidateMode,
   validatePageWithGemini,
@@ -125,7 +125,7 @@ export async function validateAllProjectFigures(
   concurrency = 6
 ): Promise<FigureValidationItemResult[]> {
   const data = new Uint8Array(fs.readFileSync(pdfPath));
-  const pdfDocument = await pdfjsLib.getDocument({ data }).promise;
+  const pdfDocument = await openPdfDocument(data);
   const totalPages = pdfDocument.numPages;
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 

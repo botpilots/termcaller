@@ -11,6 +11,7 @@ import {
   type IllustrationWithCallouts,
 } from '../services/figureValidationService.js';
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
+import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
 
 const router = express.Router();
@@ -244,9 +245,7 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
       return res.status(404).json({ error: 'No illustration found for this page' });
     }
 
-    const pdfDocument = await import('pdfjs-dist/legacy/build/pdf.mjs').then(m =>
-      m.getDocument({ data: new Uint8Array(fs.readFileSync(loaded.pdfPath)) }).promise
-    );
+    const pdfDocument = await openPdfDocument(new Uint8Array(fs.readFileSync(loaded.pdfPath)));
 
     const result = await validateProjectFigure(
       loaded.pdfPath,
