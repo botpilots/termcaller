@@ -53,7 +53,7 @@ const responseSchema = {
     },
     uncalledReferences: {
       type: Type.ARRAY,
-      description: "List of terms clearly evident in the text as belonging to THAT specific figure, but which are missing a corresponding callout in the image.",
+      description: "List of terms that are explicitly assigned a callout identifier in the text (e.g., 'Dial (C)'), but that specific callout identifier is MISSING from the image.",
       items: { type: Type.STRING }
     }
   },
@@ -85,7 +85,7 @@ INSTRUCTIONS:
 2. For each callout, search the provided text in the image to find its name (sourceTerm).
 3. Write a concise, GENERAL, and INDEPENDENT functional description for the sourceTerm. Describe what the part is or its general purpose, NOT the specific action being performed with it in this exact step (e.g., for a "Dial", write "A control knob used for manual adjustments" rather than "turned to open the hatch").
 4. CRITICAL: If a callout exists in the image but is NOT explained in the text, DO NOT guess its physical nature. Add its identifier to the "unreferencedCallouts" array.
-5. Identify "uncalledReferences": terms explicitly mentioned in the text as belonging to THAT specific figure, but which do NOT have a corresponding callout in the image.
+5. Identify "uncalledReferences": terms that are explicitly assigned a callout identifier in the text (e.g., "Dial (C)"), but that specific callout identifier is MISSING from the image.
 6. Validation: For extracted concepts, record the identifier as stated in the text in "calloutIdentifier". If the actual identifier shown in the image differs (a wrongly put callout), record the image's version in "actualIdentifier". If they match, OMIT the "actualIdentifier" field completely.
 `;
 
