@@ -7,8 +7,59 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
+model User {
+  id           String    @id @default(uuid())
+  username     String    @unique
+  passwordHash String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  projects     Project[]
+}
+
+model Project {
+  id          String         @id @default(uuid())
+  name        String
+  userId      String
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  keywords    Keyword[]
+  concepts    Concept[]
+}
+
+model Keyword {
+  id         String   @id @default(uuid())
+  sourceTerm String
+  projectId  String
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  concepts   Concept[] @relation("KeywordConcepts")
+}
+
+model Concept {
+  id                   String    @id @default(uuid())
+  definitionHash       String    @unique // To ensure uniqueness based on candidateConceptName + definitionText
+  candidateConceptName String    // e.g., "Mounting bracket"
+  definitionText       String    // e.g., "Rigid structural component..."
+  vectorEmbedding      String?   // JSON serialized Float[]
+  
+  projectId            String
+  project              Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  keywords             Keyword[] @relation("KeywordConcepts")
+}
+
+// Keeping these around for the actual PDF/Illustration parsing phase
 model Illustration {
   id        String   @id @default(uuid())
   title     String?
@@ -29,17 +80,4 @@ model Callout {
   
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
-
-  concepts       ConceptCandidate[]
-}
-
-model ConceptCandidate {
-  id               String   @id @default(uuid())
-  calloutId        String
-  callout          Callout  @relation(fields: [calloutId], references: [id], onDelete: Cascade)
-  
-  candidateConcept String   // e.g., "Mounting bracket"
-  definition       String   // e.g., "Rigid structural component..."
-  
-  createdAt        DateTime @default(now())
 }
