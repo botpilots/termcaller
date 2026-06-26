@@ -1,280 +1,117 @@
-# Reality-Grounded Terminology Generation
+# 🌍 Reality-Grounded Terminology Generation (termcaller)
 
-## Vision
+> **Elevator Pitch:** *Termcaller* revolutionizes technical translation by using vision AI to understand what words actually mean in physical reality. Instead of blindly extracting generic terms from text, we analyze diagrams and illustrations to generate precise, visually-grounded concepts—empowering technical authors and localization teams with better terminology, faster.
 
-Technical documentation is the foundation for high-quality translation.
-
-However, terminology often originates from generic language rather than a precise understanding of the physical objects being described.
-
-Our vision is to generate terminology that is grounded in visual reality.
-
-Instead of asking AI to extract terms from text, we use images, diagrams, screenshots, and callouts to understand the concepts behind those terms.
-
-The result is a stronger conceptual foundation for technical authoring, terminology management, and localization.
+**Built in 48 hours for the Localization Hackathon.**
 
 ---
 
-# The Problem
+## 🚀 What We Achieved in 48 Hours
 
-Terminology is inherently difficult.
+During this hackathon, we built a fully functional end-to-end web application capable of multimodal terminology extraction:
 
-Unlike paragraphs or complete procedures, individual terms contain very little semantic information.
-
-Consider terms such as:
-
-* cover
-* bracket
-* guide
-* holder
-* attachment point
-
-These words can represent many different concepts depending on the product and the surrounding visual context.
-
-This makes terminology difficult for:
-
-* Technical authors
-* Terminology managers
-* Translators
-* AI systems
-
-Traditional terminology extraction operates on text alone.
-
-As a result, AI tends to extract every seemingly important noun while having little understanding of whether those words actually represent distinct engineering concepts.
+- **Multimodal AI Integration:** Integrated **Google Gemini 3 Flash** to analyze visual diagrams alongside local text to generate accurate concept definitions.
+- **Semantic Vector Clustering:** Used `text-embedding-004` to semantically group and cluster concepts based on physical meaning, automatically merging identical concepts (≥95% similarity).
+- **Domain Corpus Scoring:** Developed an algorithm to score and deprioritize generic words using a service manual corpus.
+- **PDF Processing Pipeline:** Implemented extraction of illustrations and text context directly from technical manuals.
+- **Interactive UI:** Built a complete React frontend allowing users to upload PDFs, curate terminology, visualize semantic outliers, and manage concepts.
+- **TBX-Basic Export:** Fully compliant terminology export ready for CAT tools and Translation Memory systems.
 
 ---
 
-# The Root Cause
+## 🎥 Demo & Screenshots
 
-The problem begins long before translation.
+*(Judges: Check out our application in action!)*
 
-Technical authors frequently choose generic terminology because:
+**▶️ [Watch the Demo Video Here](#) *(Placeholder)***
 
-* a more precise term is unknown
-* engineering terminology is unavailable
-* previous documentation used the same wording
-* generic terminology is the safest choice
-
-Later, localization teams build termbases around these source terms.
-
-The result is highly consistent translation of terminology that may already be under-specified.
-
-Current workflows optimize consistency.
-
-They rarely improve the underlying concepts.
+### Gallery
+| Dashboard & Upload | Curation & Clustering | Visual Context Validation |
+|:---:|:---:|:---:|
+| ![Dashboard Screenshot](docs/assets/placeholder_dashboard.png) <br> *Upload and process technical manuals* | ![Curation Screenshot](docs/assets/placeholder_curation.png) <br> *Auto-merging & semantic clustering* | ![Validation Screenshot](docs/assets/placeholder_validation.png) <br> *Verifying terms against visual reality* |
 
 ---
 
-# Our Approach
+## 💡 The Problem
 
-Rather than extracting terminology from language, we generate concept candidates from visual evidence.
+Terminology is inherently difficult. Unlike complete paragraphs or procedures, individual terms contain very little semantic information. Consider terms like `cover`, `bracket`, `guide`, or `holder`. These words can represent entirely different concepts depending on the product and the surrounding visual context.
 
-Images contain information that is often missing from text.
-
-A diagram may reveal that an "attachment point" is actually a "top tether anchor."
-
-A component described as a "cover" may visually correspond to an inspection panel or battery compartment cover.
-
-The image becomes the primary source of semantic information.
-
-The surrounding text provides local grounding.
+Traditional terminology extraction operates on text alone. AI tends to extract every seemingly important noun while having little understanding of whether those words represent distinct engineering concepts. This leads to generic source terms, underspecified translations, and workflows that optimize for consistency over conceptual accuracy.
 
 ---
 
-# MVP
+## 🛠️ Our Approach
 
-The first version intentionally solves only one problem:
+Rather than extracting terminology from language alone, we generate concept candidates from **visual evidence**. 
 
-Generate reality-grounded concept candidates independently for every illustration.
+Images contain information missing from text. A diagram may reveal that an "attachment point" is actually a "top tether anchor." A component described as a "cover" may visually correspond to an inspection panel or battery compartment cover. The image becomes the primary source of semantic information, while the surrounding text provides local grounding.
 
-There is no document-wide reasoning.
-
-There is no automatic terminology management.
-
-Each illustration is treated as an independent work item.
-
-This makes the solution:
-
-* highly parallelizable
-* scalable
-* simple to explain
-* suitable for large technical documentation sets
+### Workflow
+1. **Extraction:** Extract all illustrations from the document. Every illustration becomes an independent processing task.
+2. **Contextualization:** Identify callouts, labels, surrounding documentation, and figure captions to establish the local context for every referenced object.
+3. **Generation:** **Gemini 3 Flash** receives the illustration, nearby documentation, and the callout identifier to generate a source term, candidate concept name, and a concise definition describing the object and its engineering function.
+4. **Vector Clustering:** Concept definitions are embedded into a semantic vector space. Concept candidates are grouped by their source term, and semantic similarity is calculated between all generated definitions to produce a similarity distribution.
+5. **Curation & Validation:** The UI highlights potential semantic outliers, allowing terminology managers to decide whether concepts should be merged, split, or modified.
 
 ---
 
-# Workflow
+## ⚙️ Technical Architecture
 
-## Step 1
+A monolithic repository built with modern web technologies:
 
-Extract all illustrations from the document.
+- **Frontend:** React 19, React Router, Vite, Tailwind CSS, Lucide Icons.
+- **Backend:** Node.js, Express, SQLite (Prisma ORM).
+- **AI Integration:** Google Gemini 3 Flash (multimodal extraction, validation) & `text-embedding-004` (semantic vectors).
+- **Document Processing:** `pdfjs-dist` (PDF text/image extraction) & `gm` (GraphicsMagick for images).
 
-Supported inputs:
-
-* DITA XML
-* Generic XML
-* PDF
-* HTML
-
-Every illustration becomes an independent processing task.
-
----
-
-## Step 2
-
-Identify:
-
-* callouts
-* labels
-* surrounding documentation
-* figure captions
-
-This establishes the local context for every referenced object.
+### Data Model
+- **Users:** Authentication.
+- **Projects:** Partitions terminology per uploaded document set.
+- **Keywords (Source Terms):** E.g., "bracket", "cover". Acts as the grouping node.
+- **Concepts:** Unique definitions (e.g., "Rigid structural component"). String-based uniqueness ensures identical AI outputs collapse into a single concept.
 
 ---
 
-## Step 3
+## 🏁 Getting Started
 
-For every callout, the multimodal LLM receives:
+### Prerequisites
+* Node.js >= 22
+* GraphicsMagick (`brew install graphicsmagick` on macOS)
+* Google Gemini API Key
 
-* the illustration
-* the nearby documentation
-* the callout identifier
+### Installation
 
-The model generates:
+1. Clone the repository and install dependencies:
+   ```bash
+   npm install
+   ```
 
-* Source term
-* Candidate concept name
-* A concise definition describing the object and its engineering function
+2. Set up environment variables:
+   Create a `.env` file in the `backend/` directory:
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   JWT_SECRET=your_jwt_secret_here
+   ```
 
-The definition should focus on:
+3. Initialize the database:
+   ```bash
+   npm run db:push
+   ```
 
-* what the object is
-* what it does
-* its visible physical characteristics
-
-rather than the specific procedure in which it appears.
-
-Example:
-
-```json
-{
-  "callout": 7,
-  "sourceTerm": "bracket",
-  "candidateConcept": "Mounting bracket",
-  "definition": "Rigid structural component used to provide a fixed mounting interface between two mechanical components."
-}
+### Development
+Run the development servers concurrently (frontend, backend, and database schema watcher):
+```bash
+npm run dev
 ```
 
-Every image is processed independently.
-
----
-
-## Step 4
-
-Concept definitions are embedded into a semantic vector space.
-
-Initially, no automatic clustering or AI-driven terminology decisions are made.
-
-Instead, concept candidates are grouped by their source term.
-
-Example:
-
-```text
-cover
-
-  Definition A
-  Definition B
-  Definition C
+### Production Build
+```bash
+npm run build
+npm start
 ```
 
-```text
-bracket
-
-  Definition A
-  Definition B
-  Definition C
-```
-
-Within each source-term group, semantic similarity is calculated between all generated definitions.
-
-This produces a similarity distribution for every term.
-
 ---
 
-## Step 5
+## 🔮 Future Work
 
-The user interface presents the results.
-
-The objective is not to automate terminology management.
-
-The objective is to surface potential inconsistencies efficiently.
-
-Rather than making decisions automatically, the system highlights possible outliers.
-
-Example:
-
-```text
-Source term
-
-Bracket
-
-Occurrences
-
-41
-
-Potential semantic outliers
-
-3
-```
-
-The terminology manager can inspect those occurrences and decide whether:
-
-* they represent the same concept
-* a separate concept should be created
-* the source terminology is sufficiently precise
-
-The AI prepares the evidence.
-
-The human makes the terminology decision.
-
----
-
-# Why This Works
-
-The MVP intentionally avoids solving the hardest problem:
-
-Automatically deciding whether two concepts should be merged or split.
-
-Instead, it generates high-quality concept definitions for every occurrence and lets semantic similarity identify possible outliers.
-
-This significantly reduces AI creativity while still leveraging multimodal reasoning where it provides the greatest value.
-
----
-
-# Future Work
-
-Future versions may introduce document-wide concept analysis.
-
-Potential capabilities include:
-
-* automatic clustering of concepts
-* concept merging recommendations
-* concept splitting recommendations
-* TBX generation
-* multilingual terminology generation
-* terminology enrichment for software localization
-
-The MVP provides the foundation for these future capabilities while remaining simple, explainable, and practical.
-
----
-
-# Long-Term Vision
-
-Today's terminology workflows begin with words.
-
-We propose beginning with the objects those words describe.
-
-By grounding concept generation in visual reality, technical documentation becomes more precise at its source.
-
-Better concepts lead to better terminology.
-
-Better terminology leads to better translations.
+Future versions may introduce document-wide concept analysis, including automatic clustering of concepts, concept merging/splitting recommendations, and multilingual terminology generation. The MVP provides the foundation for these capabilities while remaining simple, explainable, and practical.
