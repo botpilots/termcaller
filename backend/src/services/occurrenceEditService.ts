@@ -24,17 +24,17 @@ export interface SaveOccurrenceResult {
   concepts: KeywordConceptEmbedding[];
 }
 
-export interface DeleteOccurrenceInput {
+export interface IgnoreOccurrenceInput {
   keywordId: string;
   pageNumber: number;
   figureNumber?: string;
   identifiers: string;
 }
 
-export interface DeleteOccurrenceResult {
+export interface IgnoreOccurrenceResult {
   projectId: string;
-  keywordId: string | null;
-  keywordDeleted: boolean;
+  keywordId: string;
+  ignoredConceptIds: string[];
 }
 
 function definitionHash(definitionText: string, sourceTerm: string): string {
@@ -241,59 +241,29 @@ async function findOccurrenceCallouts(
   return { keyword, targetCallouts };
 }
 
-export async function deleteOccurrence(
+export async function ignoreOccurrence(
   prisma: PrismaClient,
   userId: string,
-  input: DeleteOccurrenceInput
-): Promise<DeleteOccurrenceResult | null> {
+  input: IgnoreOccurrenceInput
+): Promise<IgnoreOccurrenceResult | null> {
   const match = await findOccurrenceCallouts(prisma, userId, input);
   if (!match) return null;
 
   const { keyword, targetCallouts } = match;
   const conceptIds = [...new Set(targetCallouts.map(callout => callout.conceptId).filter(Boolean))] as string[];
 
-  await prisma.callout.deleteMany({
-    where: { id: { in: targetCallouts.map(callout => callout.id) } },
-  });
-
-  for (const conceptId of conceptIds) {
-    const remainingForKeyword = await prisma.callout.count({
-      where: {
-        conceptId,
-        concept: { keywords: { some: { id: keyword.id } } },
-      },
-    });
-
-    if (remainingForKeyword === 0) {
-      await prisma.concept.update({
-        where: { id: conceptId },
-        data: { keywords: { disconnect: { id: keyword.id } } },
-      });
-    }
-
-    const remainingCallouts = await prisma.callout.count({ where: { conceptId } });
-    if (remainingCallouts === 0) {
-      await prisma.concept.delete({ where: { id: conceptId } });
-    }
+  if (conceptIds.length === 0) {
+    throw new Error('Occurrence has no concept to ignore');
   }
 
-  const keywordWithConcepts = await prisma.keyword.findUnique({
-    where: { id: keyword.id },
-    include: { concepts: true },
+  await prisma.concept.updateMany({
+    where: { id: { in: conceptIds } },
+    data: { excludedFromExport: true },
   });
-
-  if (keywordWithConcepts && keywordWithConcepts.concepts.length === 0) {
-    await prisma.keyword.delete({ where: { id: keyword.id } });
-    return {
-      projectId: keyword.projectId,
-      keywordId: null,
-      keywordDeleted: true,
-    };
-  }
 
   return {
     projectId: keyword.projectId,
     keywordId: keyword.id,
-    keywordDeleted: false,
+    ignoredConceptIds: conceptIds,
   };
 }

@@ -1,26 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
-import type { CalloutRow } from './OccurrencesTable';
-import { OccurrenceForm } from './OccurrenceForm';
-import { OccurrenceRail } from './OccurrenceRail';
 import { DocumentPreview, type DocumentPreviewHandle } from './DocumentPreview';
 import { DocumentPreviewSidebar } from './DocumentPreviewSidebar';
-import { countFiguresForKeyword } from '../utils/figureOccurrences';
+import {
+  KeywordCurationPanel,
+  type KeywordCurationState,
+} from './KeywordCurationPanel';
 import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
-import { figureOccurrenceKey } from '../utils/figureOccurrences';
-import { ConfirmPromptModal } from './ConfirmPromptModal';
-import { useOccurrenceEditorState } from '../hooks/useOccurrenceEditorState';
-import type { KeywordConceptEmbedding } from '../types/keywordConcept';
 
 interface KeywordDocumentViewProps {
   projectId: string;
   keywordId: string;
   pageCount: number | null | undefined;
   sourceTerm: string;
-  conceptCount: number;
-  keywordRows: CalloutRow[];
-  onOccurrenceSaved?: (result: { keywordId: string; concepts: KeywordConceptEmbedding[] }) => void;
-  onOccurrenceDeleted?: (result: { keywordId: string | null; keywordDeleted: boolean }) => void;
+  figureCount: number;
 }
 
 function firstCalloutId(identifier: string): string {
@@ -32,17 +25,16 @@ export function KeywordDocumentView({
   keywordId,
   pageCount,
   sourceTerm,
-  conceptCount,
-  keywordRows,
-  onOccurrenceSaved,
-  onOccurrenceDeleted,
+  figureCount,
 }: KeywordDocumentViewProps) {
+  const [curationState, setCurationState] = useState<KeywordCurationState | null>(null);
+  const [isLoadingCuration, setIsLoadingCuration] = useState(true);
+  const [curationLoadError, setCurationLoadError] = useState<string | null>(null);
+
   const [focusedPage, setFocusedPage] = useState<number | null>(null);
-  const [selectedRowKey, setSelectedRowKey] = useState<string | null>(null);
   const [highlightsByPage, setHighlightsByPage] = useState<Record<number, HighlightBox[]>>({});
   const [locateStatus, setLocateStatus] = useState<'idle' | 'loading' | 'hit' | 'miss'>('idle');
   const [locateHint, setLocateHint] = useState<string | null>(null);
-  const [hoverPulsePage, setHoverPulsePage] = useState<number | null>(null);
   const [autoPulsePage, setAutoPulsePage] = useState<number | null>(null);
   const [autoPulseGeneration, setAutoPulseGeneration] = useState(0);
   const scrollSettledPageRef = useRef<number | null>(null);
@@ -61,11 +53,18 @@ export function KeywordDocumentView({
   }, []);
 
   const maybeStartAutoPulse = useCallback(
-    (pageNumber: number) => {
+    (pageNumber: number, boxes?: HighlightBox[]) => {
       if (autoPulseConsumedRef.current) return;
-      if (scrollSettledPageRef.current !== pageNumber) return;
       if (locateReadyPageRef.current !== pageNumber) return;
-      if (!highlightsByPageRef.current[pageNumber]?.length) return;
+
+      const pageBoxes = boxes ?? highlightsByPageRef.current[pageNumber];
+      if (!pageBoxes?.length) return;
+
+      const viewportPage = previewRef.current?.getViewportCenterPage();
+      const scrollReady =
+        scrollSettledPageRef.current === pageNumber || viewportPage === pageNumber;
+      if (!scrollReady) return;
+
       autoPulseConsumedRef.current = true;
       triggerAutoPulse(pageNumber);
     },
@@ -80,30 +79,36 @@ export function KeywordDocumentView({
     [maybeStartAutoPulse]
   );
 
-  const occurrencePages = useMemo(
-    () => [...new Set(keywordRows.map(row => row.pageNumber))].sort((a, b) => a - b),
-    [keywordRows]
-  );
+  const fetchCurationState = useCallback(async () => {
+    setIsLoadingCuration(true);
+    setCurationLoadError(null);
 
-  const sortedRows = useMemo(
-    () =>
-      [...keywordRows].sort(
-        (a, b) =>
-          a.pageNumber - b.pageNumber ||
-          (a.figureNumber ?? '').localeCompare(b.figureNumber ?? '', undefined, { numeric: true }) ||
-          a.identifier.localeCompare(b.identifier)
-      ),
-    [keywordRows]
-  );
+    try {
+      const response = await axios.get<KeywordCurationState>(
+        `/api/keywords/${keywordId}/curation`
+      );
+      setCurationState(response.data);
+      return response.data;
+    } catch {
+      setCurationLoadError('Failed to load keyword curation state.');
+      setCurationState(null);
+      return null;
+    } finally {
+      setIsLoadingCuration(false);
+    }
+  }, [keywordId]);
 
-  const occurrenceSignature = useMemo(
-    () => `${sourceTerm}:${sortedRows.map(r => figureOccurrenceKey(r)).join('|')}`,
-    [sourceTerm, sortedRows]
-  );
-  const lastInitializedSignatureRef = useRef<string | null>(null);
+  useEffect(() => {
+    void fetchCurationState();
+  }, [fetchCurationState]);
 
-  const locateOnPage = useCallback(
-    async (pageNumber: number, row: CalloutRow, referencePage: number) => {
+  const locateFigure = useCallback(
+    async (
+      pageNumber: number,
+      identifiers: string,
+      referencePage: number,
+      mergeIntoExisting = false
+    ) => {
       setLocateStatus('loading');
       setLocateHint(null);
 
@@ -113,7 +118,7 @@ export function KeywordDocumentView({
           {
             params: {
               term: sourceTerm,
-              callout: firstCalloutId(row.identifier),
+              callout: firstCalloutId(identifiers),
               referencePage,
             },
           }
@@ -123,165 +128,147 @@ export function KeywordDocumentView({
         const matchedPage = response.data.matchedPage ?? pageNumber;
 
         if (boxes.length > 0) {
-          setHighlightsByPage({ [matchedPage]: boxes });
+          setHighlightsByPage(prev => {
+            if (!mergeIntoExisting) {
+              return { [matchedPage]: boxes };
+            }
+            return {
+              ...prev,
+              [matchedPage]: [...(prev[matchedPage] ?? []), ...boxes],
+            };
+          });
           setLocateStatus('hit');
           locateReadyPageRef.current = matchedPage;
           if (matchedPage !== pageNumber) {
             setLocateHint(`Matched on page ${matchedPage}`);
             setFocusedPage(matchedPage);
           }
-          maybeStartAutoPulse(matchedPage);
-        } else {
+          maybeStartAutoPulse(matchedPage, boxes);
+          return matchedPage;
+        }
+
+        if (!mergeIntoExisting) {
           setHighlightsByPage({});
           setLocateStatus('miss');
         }
+        return null;
       } catch {
-        setLocateStatus('miss');
+        if (!mergeIntoExisting) {
+          setLocateStatus('miss');
+        }
+        return null;
       }
     },
     [projectId, sourceTerm, maybeStartAutoPulse]
   );
 
-  const focusRow = useCallback(
-    (row: CalloutRow) => {
-      const key = figureOccurrenceKey(row);
+  const locateAllConceptFigures = useCallback(
+    async (state: KeywordCurationState) => {
+      const figures = state.concept?.figures ?? [];
+      if (figures.length === 0) {
+        setHighlightsByPage({});
+        setLocateStatus('idle');
+        return;
+      }
+
+      setLocateStatus('loading');
+      setLocateHint(null);
+      scrollSettledPageRef.current = null;
+      locateReadyPageRef.current = null;
+      autoPulseConsumedRef.current = false;
+      setAutoPulsePage(null);
+
       const referencePage =
-        previewRef.current?.getViewportCenterPage() ?? focusedPage ?? row.pageNumber;
+        previewRef.current?.getViewportCenterPage() ?? figures[0]!.pageNumber;
+
+      const results = await Promise.all(
+        figures.map(figure =>
+          axios
+            .get<PageLocateResult>(`/api/projects/${projectId}/pages/${figure.pageNumber}/locate`, {
+              params: {
+                term: sourceTerm,
+                callout: firstCalloutId(figure.identifiers),
+                referencePage,
+              },
+            })
+            .then(response => ({
+              figure,
+              boxes: response.data.boxes ?? [],
+              matchedPage: response.data.matchedPage ?? figure.pageNumber,
+            }))
+            .catch(() => ({
+              figure,
+              boxes: [] as HighlightBox[],
+              matchedPage: figure.pageNumber,
+            }))
+        )
+      );
+
+      const merged: Record<number, HighlightBox[]> = {};
+      let firstHitPage: number | null = null;
+
+      for (const result of results) {
+        if (result.boxes.length > 0) {
+          const page = result.matchedPage;
+          merged[page] = [...(merged[page] ?? []), ...result.boxes];
+          if (firstHitPage === null) {
+            firstHitPage = page;
+          }
+        }
+      }
+
+      setHighlightsByPage(merged);
+      if (firstHitPage !== null) {
+        setLocateStatus('hit');
+        locateReadyPageRef.current = firstHitPage;
+        setFocusedPage(firstHitPage);
+        maybeStartAutoPulse(firstHitPage, merged[firstHitPage]);
+      } else {
+        setLocateStatus('miss');
+        setFocusedPage(figures[0]!.pageNumber);
+      }
+    },
+    [projectId, sourceTerm, maybeStartAutoPulse]
+  );
+
+  useEffect(() => {
+    if (!curationState?.concept) return;
+    void locateAllConceptFigures(curationState);
+  }, [curationState, locateAllConceptFigures]);
+
+  useEffect(() => {
+    const page = locateReadyPageRef.current;
+    if (page == null) return;
+    maybeStartAutoPulse(page);
+  }, [highlightsByPage, maybeStartAutoPulse]);
+
+  const occurrencePages = useMemo(() => {
+    const pages = new Set<number>();
+    for (const figure of curationState?.concept?.figures ?? []) {
+      pages.add(figure.pageNumber);
+    }
+    for (const warning of curationState?.definitionWarnings ?? []) {
+      pages.add(warning.pageNumber);
+    }
+    return [...pages].sort((a, b) => a - b);
+  }, [curationState]);
+
+  const handleWarningClick = useCallback(
+    (warning: KeywordCurationState['definitionWarnings'][number]) => {
+      const referencePage =
+        previewRef.current?.getViewportCenterPage() ?? focusedPage ?? warning.pageNumber;
       scrollSettledPageRef.current = null;
       locateReadyPageRef.current = null;
       autoPulseConsumedRef.current = false;
       setAutoPulsePage(null);
       setLocateHint(null);
-      setSelectedRowKey(key);
-      setFocusedPage(row.pageNumber);
-      void locateOnPage(row.pageNumber, row, referencePage);
+      setFocusedPage(warning.pageNumber);
+      void locateFigure(warning.pageNumber, warning.identifiers, referencePage, false);
     },
-    [locateOnPage, focusedPage]
+    [focusedPage, locateFigure]
   );
-
-  useEffect(() => {
-    if (sortedRows.length === 0) {
-      lastInitializedSignatureRef.current = null;
-      setFocusedPage(null);
-      setSelectedRowKey(null);
-      setHighlightsByPage({});
-      setLocateStatus('idle');
-      return;
-    }
-
-    if (lastInitializedSignatureRef.current === occurrenceSignature) return;
-    lastInitializedSignatureRef.current = occurrenceSignature;
-
-    const row = sortedRows[0]!;
-    const referencePage = previewRef.current?.getViewportCenterPage() ?? row.pageNumber;
-    scrollSettledPageRef.current = null;
-    locateReadyPageRef.current = null;
-    autoPulseConsumedRef.current = false;
-    setAutoPulsePage(null);
-    setLocateHint(null);
-    setSelectedRowKey(figureOccurrenceKey(row));
-    setFocusedPage(row.pageNumber);
-    void locateOnPage(row.pageNumber, row, referencePage);
-  }, [occurrenceSignature, sortedRows, locateOnPage]);
-
-  const [isSavingOccurrence, setIsSavingOccurrence] = useState(false);
-  const [isDeletingOccurrence, setIsDeletingOccurrence] = useState(false);
-  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
-  const [occurrenceSaveError, setOccurrenceSaveError] = useState<string | null>(null);
-  const [occurrenceDeleteError, setOccurrenceDeleteError] = useState<string | null>(null);
 
   const previewEnabled = pageCount != null && pageCount > 0;
-
-  const {
-    activeKey,
-    selectedRow,
-    draft,
-    originalDraft,
-    updateDraft,
-    selectRow,
-    isTermChanged,
-    markDraftSaved,
-  } = useOccurrenceEditorState(keywordRows, 'keyword', selectedRowKey, sourceTerm);
-
-  const handleOccurrenceConfirm = useCallback(async () => {
-    if (!activeKey || !draft || !selectedRow || !originalDraft) return;
-
-    setIsSavingOccurrence(true);
-    setOccurrenceSaveError(null);
-
-    try {
-      const response = await axios.patch<{
-        keywordId: string;
-        concepts: KeywordConceptEmbedding[];
-      }>(`/api/keywords/${keywordId}/occurrences`, {
-        pageNumber: selectedRow.pageNumber,
-        figureNumber: selectedRow.figureNumber ?? '1',
-        originalIdentifiers: originalDraft.identifier,
-        identifier: draft.identifier,
-        sourceTerm: draft.sourceTerm,
-        definitionText: draft.definitionText ?? '',
-        originalSourceTerm: originalDraft.sourceTerm,
-      });
-
-      markDraftSaved(activeKey);
-      onOccurrenceSaved?.({
-        keywordId: response.data.keywordId,
-        concepts: response.data.concepts,
-      });
-    } catch {
-      setOccurrenceSaveError('Failed to save occurrence. Please try again.');
-    } finally {
-      setIsSavingOccurrence(false);
-    }
-  }, [
-    activeKey,
-    draft,
-    selectedRow,
-    originalDraft,
-    keywordId,
-    markDraftSaved,
-    onOccurrenceSaved,
-  ]);
-
-  const handleOccurrenceDeleteRequest = useCallback(() => {
-    if (!selectedRow || !originalDraft) return;
-    setDeleteConfirmOpen(true);
-  }, [selectedRow, originalDraft]);
-
-  const handleOccurrenceDeleteConfirm = useCallback(async () => {
-    if (!selectedRow || !originalDraft) return;
-
-    setDeleteConfirmOpen(false);
-    setIsDeletingOccurrence(true);
-    setOccurrenceDeleteError(null);
-
-    try {
-      const response = await axios.delete<{ keywordId: string | null; keywordDeleted: boolean }>(
-        `/api/keywords/${keywordId}/occurrences`,
-        {
-          data: {
-            pageNumber: selectedRow.pageNumber,
-            figureNumber: selectedRow.figureNumber ?? '1',
-            identifiers: originalDraft.identifier,
-          },
-        }
-      );
-
-      onOccurrenceDeleted?.(response.data);
-    } catch {
-      setOccurrenceDeleteError('Failed to delete concept. Please try again.');
-    } finally {
-      setIsDeletingOccurrence(false);
-    }
-  }, [selectedRow, originalDraft, keywordId, onOccurrenceDeleted]);
-
-  const handleOccurrenceSelect = useCallback(
-    (row: CalloutRow) => {
-      selectRow(row);
-      focusRow(row);
-    },
-    [focusRow, selectRow]
-  );
 
   return (
     <div className={`flex flex-1 min-h-0 min-w-0 ${previewEnabled ? '' : 'max-w-5xl mx-auto w-full'}`}>
@@ -292,52 +279,21 @@ export function KeywordDocumentView({
             : 'flex-1 rounded-xl shadow-sm border border-gray-200'
         }`}
       >
-        <div className="flex flex-1 min-h-0">
-          <OccurrenceRail
-            rows={keywordRows}
-            mode="keyword"
-            activeKey={activeKey}
-            onSelect={handleOccurrenceSelect}
-            compact={previewEnabled}
-            className={previewEnabled ? '' : 'rounded-bl-xl'}
-          />
-
-          <div className="flex flex-col flex-1 min-h-0 min-w-0">
-            <div className={previewEnabled ? 'p-4 border-b border-gray-100 shrink-0' : 'p-8 pb-4 shrink-0'}>
-              <h3 className="text-lg font-semibold text-gray-900">{sourceTerm}</h3>
-              <p className="text-sm text-gray-500 mt-0.5">
-                {conceptCount} concept{conceptCount !== 1 ? 's' : ''} ·{' '}
-                {countFiguresForKeyword(keywordRows)} figure
-                {countFiguresForKeyword(keywordRows) !== 1 ? 's' : ''}
-              </p>
-            </div>
-
-            <div className={`flex-1 min-h-0 min-w-0 overflow-y-auto ${previewEnabled ? '' : 'pb-8'}`}>
-              {keywordRows.length === 0 ? (
-                <div className="text-sm text-gray-500 text-center py-12 px-6">
-                  No callouts extracted for this keyword yet.
-                </div>
-              ) : (
-                <OccurrenceForm
-                  selectedRow={selectedRow}
-                  draft={draft}
-                  mode="keyword"
-                  onDraftChange={updateDraft}
-                  onHighlightPulseHover={setHoverPulsePage}
-                  onConfirm={() => void handleOccurrenceConfirm()}
-                  onDelete={handleOccurrenceDeleteRequest}
-                  showTermChangeHint={isTermChanged(activeKey ?? '')}
-                  isSaving={isSavingOccurrence}
-                  isDeleting={isDeletingOccurrence}
-                  saveError={occurrenceSaveError}
-                  deleteError={occurrenceDeleteError}
-                  cohesionRating={selectedRow?.cohesionRating ?? null}
-                  compact={previewEnabled}
-                />
-              )}
-            </div>
-          </div>
+        <div className={`border-b border-gray-100 shrink-0 ${previewEnabled ? 'p-4' : 'p-8 pb-4'}`}>
+          <h3 className="text-lg font-semibold text-gray-900">{sourceTerm}</h3>
+          <p className="text-sm text-gray-500 mt-0.5">
+            {figureCount} figure{figureCount !== 1 ? 's' : ''}
+          </p>
         </div>
+
+        <KeywordCurationPanel
+          sourceTerm={sourceTerm}
+          state={curationState}
+          isLoading={isLoadingCuration}
+          loadError={curationLoadError}
+          onWarningClick={handleWarningClick}
+          compact={previewEnabled}
+        />
       </div>
 
       <DocumentPreviewSidebar enabled={previewEnabled}>
@@ -350,50 +306,15 @@ export function KeywordDocumentView({
           highlightsByPage={highlightsByPage}
           locateStatus={locateStatus}
           locateHint={locateHint}
-          hoverPulsePage={hoverPulsePage}
+          hoverPulsePage={null}
           autoPulsePage={autoPulsePage}
           autoPulseGeneration={autoPulseGeneration}
           onScrollSettled={handleScrollSettled}
           onFocusedPageChange={pageNumber => {
-            const referencePage =
-              previewRef.current?.getViewportCenterPage() ?? focusedPage ?? pageNumber;
             setFocusedPage(pageNumber);
-
-            const currentRow = selectedRowKey
-              ? sortedRows.find(r => figureOccurrenceKey(r) === selectedRowKey)
-              : undefined;
-            if (currentRow?.pageNumber === pageNumber) {
-              void locateOnPage(pageNumber, currentRow, referencePage);
-              return;
-            }
-
-            const row = sortedRows.find(r => r.pageNumber === pageNumber);
-            if (row) {
-              setSelectedRowKey(figureOccurrenceKey(row));
-              void locateOnPage(pageNumber, row, referencePage);
-            }
           }}
         />
       </DocumentPreviewSidebar>
-
-      <ConfirmPromptModal
-        open={deleteConfirmOpen}
-        title="Delete concept?"
-        message={
-          selectedRow ? (
-            <>
-              Remove this concept from the keyword group? This deletes the callout and definition
-              for page {selectedRow.pageNumber}, figure {selectedRow.figureNumber ?? '1'}.
-            </>
-          ) : (
-            'Remove this concept from the keyword group?'
-          )
-        }
-        confirmLabel="Delete"
-        cancelLabel="Cancel"
-        onConfirm={() => void handleOccurrenceDeleteConfirm()}
-        onCancel={() => setDeleteConfirmOpen(false)}
-      />
     </div>
   );
 }

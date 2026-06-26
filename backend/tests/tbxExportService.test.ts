@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildTbxBasicXml, TBX_PREFERRED_ADMIN_STATUS } from '../src/services/tbxExportService.js';
+import { buildTbxBasicXml, selectCanonicalConceptsForKeywords, TBX_PREFERRED_ADMIN_STATUS } from '../src/services/tbxExportService.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SAMPLE_BASIC = fs.readFileSync(
@@ -89,5 +89,42 @@ describe('buildTbxBasicXml', () => {
     expect(SAMPLE_BASIC).toContain('<martif type="TBX-Basic" xml:lang="en">');
     expect(SAMPLE_BASIC).toContain('<descrip type="definition">');
     expect(SAMPLE_BASIC).toContain('<termNote type="administrativeStatus">');
+  });
+
+  it('exports one canonical concept per keyword when multiple concepts are linked', () => {
+    const concepts = selectCanonicalConceptsForKeywords([
+      {
+        sourceTerm: 'bracket',
+        concepts: [
+          {
+            id: 'canonical-id',
+            candidateConceptName: 'bracket',
+            definitionText: 'Structural bracket for engine mount.',
+            vectorEmbedding: JSON.stringify([1, 0, 0]),
+            excludedFromExport: false,
+          },
+          {
+            id: 'outlier-id',
+            candidateConceptName: 'bracket',
+            definitionText: 'Flexible hose adapter.',
+            vectorEmbedding: JSON.stringify([0, 1, 0]),
+            excludedFromExport: false,
+          },
+        ],
+      },
+    ]);
+
+    expect(concepts).toHaveLength(1);
+    expect(concepts[0]?.id).toBe('canonical-id');
+    expect(concepts[0]?.definitionText).toBe('Structural bracket for engine mount.');
+
+    const xml = buildTbxBasicXml({
+      projectName: 'Bracket export',
+      concepts,
+    });
+
+    expect(xml.match(/<termEntry /g)).toHaveLength(1);
+    expect(xml).toContain('Structural bracket for engine mount.');
+    expect(xml).not.toContain('Flexible hose adapter.');
   });
 });

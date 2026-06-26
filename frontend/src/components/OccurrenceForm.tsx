@@ -1,4 +1,4 @@
-import { Eye, Trash2 } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import type { CalloutRow } from './OccurrencesTable';
 import { CohesionBadge } from './CohesionBadge';
 import type { CohesionRating } from '../utils/conceptCohesion';
@@ -12,12 +12,12 @@ interface OccurrenceFormProps {
   onDraftChange: (patch: Partial<OccurrenceDraftFields>) => void;
   onHighlightPulseHover?: (pageNumber: number | null) => void;
   onConfirm?: () => void;
-  onDelete?: () => void;
+  onIgnore?: () => void;
   showTermChangeHint?: boolean;
   isSaving?: boolean;
-  isDeleting?: boolean;
+  isIgnoring?: boolean;
   saveError?: string | null;
-  deleteError?: string | null;
+  ignoreError?: string | null;
   cohesionRating?: CohesionRating | null;
   compact?: boolean;
   emptyMessage?: string;
@@ -30,12 +30,12 @@ export function OccurrenceForm({
   onDraftChange,
   onHighlightPulseHover,
   onConfirm,
-  onDelete,
+  onIgnore,
   showTermChangeHint = false,
   isSaving = false,
-  isDeleting = false,
+  isIgnoring = false,
   saveError = null,
-  deleteError = null,
+  ignoreError = null,
   cohesionRating = null,
   compact = false,
   emptyMessage,
@@ -75,23 +75,23 @@ export function OccurrenceForm({
                 </button>
               )}
             </div>
-            {onDelete && (
+            {onIgnore && (
               <button
                 type="button"
-                onClick={onDelete}
-                disabled={isDeleting || isSaving}
-                title="Delete this concept from the keyword group"
-                className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-lg border border-red-200 text-red-600 hover:bg-red-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={onIgnore}
+                disabled={isIgnoring || isSaving}
+                title="Ignore this occurrence (excluded from TBX export)"
+                className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Trash2 size={14} />
-                {isDeleting ? 'Deleting…' : 'Delete'}
+                <EyeOff size={14} />
+                {isIgnoring ? 'Ignoring…' : 'Ignore'}
               </button>
             )}
           </div>
         )}
 
-        {mode === 'keyword' && deleteError && (
-          <p className="text-sm text-red-600">{deleteError}</p>
+        {mode === 'keyword' && ignoreError && (
+          <p className="text-sm text-red-600">{ignoreError}</p>
         )}
 
         <div>
@@ -152,7 +152,7 @@ export function OccurrenceForm({
               <button
                 type="button"
                 onClick={onConfirm}
-                disabled={isSaving || isDeleting}
+                disabled={isSaving || isIgnoring}
                 className="px-4 py-2 text-sm font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSaving ? 'Saving…' : 'Confirm'}

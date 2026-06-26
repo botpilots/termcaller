@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { analyzePageWithGemini } from './geminiService.js';
 import { embedConceptDefinition } from './conceptEmbeddingService.js';
+import { autoMergeProjectKeywords } from './conceptMergeService.js';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
 import { TimeoutError } from '../utils/withTimeout.js';
 import { scanPdfPages } from '../utils/pdfPageScan.js';
@@ -195,6 +196,25 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
     console.log(
       `[Processing] Finished project ${projectId} — ${processedPages}/${totalPages} pages in ${totalElapsed}ms`
     );
+
+    try {
+      const project = await prisma.project.findUnique({
+        where: { id: projectId },
+        select: { userId: true },
+      });
+      if (project) {
+        const mergeSummary = await autoMergeProjectKeywords(prisma, projectId, project.userId);
+        if (mergeSummary) {
+          console.log(
+            `[Auto-merge] Project ${projectId}: ${mergeSummary.conceptsMerged} concept(s) merged across ${mergeSummary.keywordsProcessed} keyword(s)`,
+            mergeSummary.details
+          );
+        }
+      }
+    } catch (error) {
+      console.error(`[Auto-merge] Failed for project ${projectId}:`, error);
+    }
+
     sendSSEEvent(projectId, 'complete', { success: true, processedPages, totalPages });
   } catch (error) {
     console.error('[Processing] Fatal error:', error);

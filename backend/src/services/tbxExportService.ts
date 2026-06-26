@@ -1,5 +1,7 @@
 import { create } from 'xmlbuilder2';
 import type { PrismaClient } from '@prisma/client';
+import { pickCanonicalConceptForKeyword } from './keywordCurationService.js';
+import { parseEmbedding } from '../utils/vectorMath.js';
 
 export const TBX_PREFERRED_ADMIN_STATUS = 'preferredTerm-admn-sts';
 
@@ -21,6 +23,61 @@ export interface TbxExportProjectData {
   projectName: string;
   defaultLanguage: string;
   concepts: TbxExportConcept[];
+}
+
+export interface TbxKeywordConceptInput {
+  id: string;
+  candidateConceptName: string;
+  definitionText: string;
+  vectorEmbedding: string | null;
+  excludedFromExport: boolean;
+}
+
+export interface TbxKeywordInput {
+  sourceTerm: string;
+  concepts: TbxKeywordConceptInput[];
+}
+
+export function selectCanonicalConceptsForKeywords(
+  keywords: TbxKeywordInput[]
+): TbxExportConcept[] {
+  const concepts: TbxExportConcept[] = [];
+
+  for (const keyword of keywords) {
+    const exportable = keyword.concepts.filter(concept => !concept.excludedFromExport);
+    if (exportable.length === 0) continue;
+
+    const embedded = exportable
+      .map(concept => ({
+        id: concept.id,
+        definitionText: concept.definitionText,
+        vector: parseEmbedding(concept.vectorEmbedding),
+      }))
+      .filter(
+        (entry): entry is { id: string; definitionText: string; vector: number[] } =>
+          entry.vector !== null && entry.vector.length > 0
+      );
+
+    let canonicalId: string | undefined;
+    if (embedded.length > 0) {
+      canonicalId = pickCanonicalConceptForKeyword(embedded)?.id;
+    }
+
+    const canonical =
+      (canonicalId ? exportable.find(concept => concept.id === canonicalId) : undefined) ??
+      exportable[0];
+
+    if (!canonical) continue;
+
+    concepts.push({
+      id: canonical.id,
+      candidateConceptName: canonical.candidateConceptName,
+      definitionText: canonical.definitionText,
+      keywords: [{ sourceTerm: keyword.sourceTerm }],
+    });
+  }
+
+  return concepts;
 }
 
 function uniqueTerms(concept: TbxExportConcept): string[] {
@@ -94,9 +151,11 @@ export async function loadProjectTbxData(
   const project = await prisma.project.findFirst({
     where: { id: projectId, userId },
     include: {
-      concepts: {
-        include: { keywords: true },
-        orderBy: { candidateConceptName: 'asc' },
+      keywords: {
+        include: {
+          concepts: true,
+        },
+        orderBy: { sourceTerm: 'asc' },
       },
     },
   });
@@ -107,12 +166,18 @@ export async function loadProjectTbxData(
     projectId: project.id,
     projectName: project.name,
     defaultLanguage,
-    concepts: project.concepts.map((concept) => ({
-      id: concept.id,
-      candidateConceptName: concept.candidateConceptName,
-      definitionText: concept.definitionText,
-      keywords: concept.keywords.map((keyword) => ({ sourceTerm: keyword.sourceTerm })),
-    })),
+    concepts: selectCanonicalConceptsForKeywords(
+      project.keywords.map(keyword => ({
+        sourceTerm: keyword.sourceTerm,
+        concepts: keyword.concepts.map(concept => ({
+          id: concept.id,
+          candidateConceptName: concept.candidateConceptName,
+          definitionText: concept.definitionText,
+          vectorEmbedding: concept.vectorEmbedding,
+          excludedFromExport: concept.excludedFromExport,
+        })),
+      }))
+    ),
   };
 }
 

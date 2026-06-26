@@ -7,8 +7,6 @@ import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, In
 import { OccurrencesEditor } from '../components/OccurrencesEditor';
 import type { CalloutRow } from '../components/OccurrencesTable';
 import { KeywordDocumentView } from '../components/KeywordDocumentView';
-import type { KeywordConceptEmbedding } from '../types/keywordConcept';
-import { computeConceptCohesionScores } from '../utils/conceptCohesion';
 import {
   ValidationAnomalies,
   buildAnomalyMap,
@@ -21,13 +19,14 @@ import {
   type KeywordPriority,
   type KeywordSortMode,
 } from '../utils/keywordPriority';
-import { countFiguresForKeyword, groupCalloutsByFigure } from '../utils/figureOccurrences';
+import { countFiguresForKeyword } from '../utils/figureOccurrences';
 
 interface Concept {
   id: string;
   candidateConceptName: string;
   definitionText: string;
   vectorEmbedding?: string | null;
+  excludedFromExport?: boolean;
 }
 
 interface Callout {
@@ -74,31 +73,19 @@ interface Progress {
   skipped?: boolean;
 }
 
-function mergeKeywordConceptEmbeddings(
-  concepts: Concept[],
-  updates: KeywordConceptEmbedding[]
-): Concept[] {
-  const byId = new Map(concepts.map(concept => [concept.id, concept]));
-  for (const update of updates) {
-    const existing = byId.get(update.id);
-    byId.set(update.id, {
-      id: update.id,
-      candidateConceptName: existing?.candidateConceptName ?? '',
-      definitionText: update.definitionText,
-      vectorEmbedding: update.vectorEmbedding,
-    });
-  }
-  return [...byId.values()];
-}
-
 function mapCalloutsToKeywords(data: Project): Project {
   if (!data.keywords || !data.illustrations) return data;
 
   data.keywords.forEach(kw => {
+    kw.concepts = kw.concepts.filter(c => !c.excludedFromExport);
     kw.callouts = [];
     data.illustrations!.forEach(ill => {
       ill.callouts.forEach(callout => {
-        if (callout.concept && kw.concepts.some(c => c.id === callout.concept!.id)) {
+        if (
+          callout.concept &&
+          !callout.concept.excludedFromExport &&
+          kw.concepts.some(c => c.id === callout.concept!.id && !c.excludedFromExport)
+        ) {
           kw.callouts!.push({
             ...callout,
             pageNumber: ill.pageNumber,
@@ -129,6 +116,7 @@ export const Dashboard = () => {
   const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
   const [corpusScores, setCorpusScores] = useState<Record<string, CorpusTermScore>>({});
   const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
+  const [warningsByKeyword, setWarningsByKeyword] = useState<Record<string, boolean>>({});
   const [isExporting, setIsExporting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
@@ -153,11 +141,24 @@ export const Dashboard = () => {
   const hasPdf = Boolean(selectedProject?.pdfPath);
   const hasExistingData = keywords.length > 0 || figures.length > 0;
 
+  const fetchCurationSummary = useCallback(async (projectId: string) => {
+    try {
+      const response = await axios.get<Record<string, boolean>>(
+        `/api/projects/${projectId}/curation-summary`
+      );
+      setWarningsByKeyword(response.data);
+    } catch (error) {
+      console.error('Failed to fetch curation summary', error);
+      setWarningsByKeyword({});
+    }
+  }, []);
+
   const fetchKeywords = useCallback(async (projectId: string) => {
     const response = await axios.get(`/api/projects/${projectId}`);
     const data = mapCalloutsToKeywords(response.data);
     const nextKeywords = data.keywords ?? [];
     setKeywords(nextKeywords);
+    void fetchCurationSummary(projectId);
     // Keep pdfPath and pageCount in sync — project list may be stale after upload or page reload
     if (response.data.pdfPath || response.data.pageCount != null) {
       setProjects(prev =>
@@ -173,7 +174,7 @@ export const Dashboard = () => {
       );
     }
     return nextKeywords;
-  }, []);
+  }, [fetchCurationSummary]);
 
   const fetchFigures = useCallback(async (projectId: string) => {
     const response = await axios.get(`/api/projects/${projectId}/figures`);
@@ -229,6 +230,7 @@ export const Dashboard = () => {
     setValidationBatchError(null);
     setKeywords([]);
     setFigures([]);
+    setWarningsByKeyword({});
   }, [selectedProjectId]);
 
   useEffect(() => {
@@ -487,21 +489,6 @@ export const Dashboard = () => {
     }
   };
 
-  const keywordRows: CalloutRow[] = useMemo(() => {
-    if (!selectedKeyword) return [];
-
-    const cohesionScores = computeConceptCohesionScores(selectedKeyword.concepts);
-
-    return groupCalloutsByFigure(
-      selectedKeyword.callouts ?? [],
-      selectedKeyword.concepts[0]?.definitionText
-    ).map(row => ({
-      ...row,
-      sourceTerm: selectedKeyword.sourceTerm,
-      cohesionRating: row.conceptId ? cohesionScores.get(row.conceptId)?.rating : undefined,
-    }));
-  }, [selectedKeyword]);
-
   const figureRows: CalloutRow[] = useMemo(() => {
     if (!selectedFigure) return [];
 
@@ -578,7 +565,10 @@ export const Dashboard = () => {
           </div>
         ) : (
           <ul className="space-y-1">
-            {rankedKeywords.map(keyword => (
+            {rankedKeywords.map(keyword => {
+              const hasDefinitionWarnings = warningsByKeyword[keyword.id] ?? false;
+
+              return (
               <li key={keyword.id}>
                 <button
                   type="button"
@@ -590,7 +580,20 @@ export const Dashboard = () => {
                   }`}
                 >
                   <span className="flex items-center justify-between gap-2">
-                    <span>{keyword.sourceTerm}</span>
+                    <span className="flex items-center gap-1.5 min-w-0">
+                      {hasDefinitionWarnings && (
+                        <span
+                          className="inline-block w-2 h-2 rounded-full shrink-0 bg-amber-500"
+                          title="Terminology warning"
+                        />
+                      )}
+                      <span className="truncate">{keyword.sourceTerm}</span>
+                      {hasDefinitionWarnings && (
+                        <span className="text-[10px] font-medium uppercase tracking-wide text-amber-700 shrink-0">
+                          Warning
+                        </span>
+                      )}
+                    </span>
                     <span className="text-gray-400 font-normal shrink-0">
                       ({countFiguresForKeyword(keyword.callouts)})
                     </span>
@@ -602,7 +605,8 @@ export const Dashboard = () => {
                   )}
                 </button>
               </li>
-            ))}
+            );
+            })}
           </ul>
         )}
       </>
@@ -735,32 +739,7 @@ export const Dashboard = () => {
                   keywordId={selectedKeyword.id}
                   pageCount={selectedProject?.pageCount}
                   sourceTerm={selectedKeyword.sourceTerm}
-                  conceptCount={selectedKeyword.concepts.length}
-                  keywordRows={keywordRows}
-                  onOccurrenceSaved={({ keywordId, concepts }) => {
-                    setKeywords(prev =>
-                      prev.map(keyword =>
-                        keyword.id === keywordId
-                          ? {
-                              ...keyword,
-                              concepts: mergeKeywordConceptEmbeddings(keyword.concepts, concepts),
-                            }
-                          : keyword
-                      )
-                    );
-                    void fetchKeywords(selectedProjectId).then(() => {
-                      setSelectedKeywordId(keywordId);
-                    });
-                  }}
-                  onOccurrenceDeleted={result => {
-                    void fetchKeywords(selectedProjectId).then(freshKeywords => {
-                      if (result.keywordDeleted || !result.keywordId) {
-                        setSelectedKeywordId(freshKeywords[0]?.id ?? null);
-                        return;
-                      }
-                      setSelectedKeywordId(result.keywordId);
-                    });
-                  }}
+                  figureCount={countFiguresForKeyword(selectedKeyword.callouts)}
                 />
               </div>
             ) : (

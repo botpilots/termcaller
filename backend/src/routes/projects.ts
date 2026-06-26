@@ -16,6 +16,10 @@ import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { getPdfPageCount } from '../utils/pdfPageCount.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
 import { exportProjectTbxBasic } from '../services/tbxExportService.js';
+import { autoMergeProjectKeywords } from '../services/conceptMergeService.js';
+import {
+  getProjectCurationSummary,
+} from '../services/keywordCurationService.js';
 import { extractPageData } from '../services/pdfParser.js';
 import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import { ensurePageCacheDir, pageCachePath } from '../utils/pageImageCache.js';
@@ -212,6 +216,42 @@ router.post('/:id/upload', authenticateToken, upload.single('file'), async (req:
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to process upload' });
+  }
+});
+
+// Phase 1 curation: auto-merge duplicate concepts within keyword groups
+router.post('/:id/curate/auto-merge', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  try {
+    const result = await autoMergeProjectKeywords(prisma, id, req.user!.userId);
+    if (!result) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    res.json(result);
+  } catch (error) {
+    console.error('[Auto-merge] Failed:', error);
+    res.status(500).json({ error: 'Auto-merge failed' });
+  }
+});
+
+// Phase 2 curation: pending review flags per keyword
+router.get('/:id/curation-summary', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  try {
+    const summary = await getProjectCurationSummary(prisma, id, req.user!.userId);
+    if (!summary) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    res.json(summary);
+  } catch (error) {
+    console.error('[Curation summary] Failed:', error);
+    res.status(500).json({ error: 'Failed to load curation summary' });
   }
 });
 

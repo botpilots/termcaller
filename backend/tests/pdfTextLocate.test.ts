@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   adjacentPageSearchOrder,
+  findTermBoxes,
   locateOnPdfPage,
   locateOnPdfPageWithAdjacent,
   pickNearestPage,
@@ -17,6 +18,37 @@ describe('adjacentPageSearchOrder', () => {
     expect(adjacentPageSearchOrder(1, 10)).toEqual([1, 2]);
     expect(adjacentPageSearchOrder(10, 10)).toEqual([10, 9]);
     expect(adjacentPageSearchOrder(1, 1)).toEqual([1]);
+  });
+});
+
+describe('findTermBoxes', () => {
+  it('matches a phrase split across lines in reading order', () => {
+    const runs = [
+      { str: 'sealing', x: 100, y: 200, width: 50, height: 12 },
+      { str: 'cover', x: 100, y: 220, width: 40, height: 12 },
+    ];
+
+    const boxes = findTermBoxes(runs, 'sealing cover');
+    expect(boxes).toHaveLength(2);
+    expect(boxes.map(box => box.y)).toEqual([200, 220]);
+  });
+
+  it('falls back to individual tokens when words are separated by other text', () => {
+    const runs = [
+      { str: 'sealing', x: 100, y: 200, width: 50, height: 12 },
+      { str: 'plate', x: 100, y: 210, width: 40, height: 12 },
+      { str: 'cover', x: 100, y: 220, width: 40, height: 12 },
+    ];
+
+    const boxes = findTermBoxes(runs, 'sealing cover');
+    expect(boxes).toHaveLength(2);
+    expect(boxes.map(box => box.y)).toEqual([200, 220]);
+  });
+
+  it('returns empty when not all tokens are present', () => {
+    const runs = [{ str: 'sealing', x: 100, y: 200, width: 50, height: 12 }];
+
+    expect(findTermBoxes(runs, 'sealing cover')).toHaveLength(0);
   });
 });
 
@@ -54,6 +86,17 @@ describe('locateOnPdfPageWithAdjacent', () => {
     expect(result.matchedPage).toBe(14);
     expect(result.boxes.length).toBeGreaterThan(0);
     expect(result.boxes.every(box => box.pageNumber === 14)).toBe(true);
+    expect(result.boxes.every(box => box.matchType === 'term')).toBe(true);
+  }, 30000);
+
+  it('searches adjacent pages for the term even when a callout label exists on the figure page', async () => {
+    const result = await locateOnPdfPageWithAdjacent(fixturePath, 15, {
+      term: 'BioDrill',
+      callout: '1',
+    });
+    expect(result.matchedPage).toBe(14);
+    expect(result.boxes.length).toBeGreaterThan(0);
+    expect(result.boxes.every(box => box.matchType === 'term')).toBe(true);
   }, 30000);
 
   it('prefers the requested page over an adjacent page when both match', async () => {

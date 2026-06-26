@@ -63,3 +63,36 @@ export function cohesionToneClass(rating: CohesionRating): string {
       return 'text-red-700';
   }
 }
+
+export interface CanonicalOutlierSplit<T extends { id: string }> {
+  canonicalId: string | null;
+  outlierIds: string[];
+}
+
+/** Split concepts into canonical (closest to centroid) and outlier ids (< CLOSE cohesion). */
+export function splitCanonicalAndOutliers<T extends { id: string; vectorEmbedding?: string | null }>(
+  concepts: T[]
+): CanonicalOutlierSplit<T> {
+  const scores = computeConceptCohesionScores(concepts);
+  if (concepts.length === 0) {
+    return { canonicalId: null, outlierIds: [] };
+  }
+
+  let canonicalId = concepts[0]!.id;
+  let bestSimilarity = scores.get(canonicalId)?.similarity ?? -1;
+
+  for (const concept of concepts) {
+    const similarity = scores.get(concept.id)?.similarity ?? -1;
+    if (similarity > bestSimilarity) {
+      canonicalId = concept.id;
+      bestSimilarity = similarity;
+    }
+  }
+
+  const outlierIds = concepts
+    .filter(concept => concept.id !== canonicalId)
+    .filter(concept => scores.get(concept.id)?.rating !== 'CLOSE')
+    .map(concept => concept.id);
+
+  return { canonicalId, outlierIds };
+}

@@ -8,10 +8,6 @@ interface HighlightOverlayProps {
   pulseGeneration: number;
 }
 
-function fillFor(box: HighlightBox): string {
-  return box.matchType === 'term' ? 'rgba(59, 130, 246, 0.22)' : 'rgba(245, 158, 11, 0.28)';
-}
-
 function HighlightOverlayInner({ highlights, pulseMode, pulseGeneration }: HighlightOverlayProps) {
   const pulseActive = useDeferredPulse(pulseMode, pulseGeneration);
 
@@ -37,7 +33,7 @@ function HighlightOverlayInner({ highlights, pulseMode, pulseGeneration }: Highl
             top: `${padded.y * 100}%`,
             width: `${padded.width * 100}%`,
             height: `${padded.height * 100}%`,
-            backgroundColor: fillFor(box),
+            backgroundColor: 'rgba(59, 130, 246, 0.22)',
           }}
         />
         );

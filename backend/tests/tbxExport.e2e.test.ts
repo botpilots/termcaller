@@ -83,9 +83,12 @@ describe('GET /api/projects/:id/export/tbx (admin DB projects)', () => {
       expect(xml).not.toContain('<!DOCTYPE');
       expect(xml).toContain('<body>');
 
-      const conceptCount = await prisma.concept.count({ where: { projectId } });
+      const keywordCount = await prisma.keyword.count({
+        where: { projectId, concepts: { some: {} } },
+      });
       const termEntryCount = (xml.match(/<termEntry /g) ?? []).length;
-      expect(termEntryCount).toBe(conceptCount);
+      expect(termEntryCount).toBeLessThanOrEqual(keywordCount);
+      expect(termEntryCount).toBeGreaterThan(0);
     }
   });
 });

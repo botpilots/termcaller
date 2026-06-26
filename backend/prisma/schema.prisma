@@ -52,6 +52,7 @@ model Concept {
   candidateConceptName String // e.g., "Mounting bracket"
   definitionText       String // e.g., "Rigid structural component..."
   vectorEmbedding      String? // JSON serialized Float[]
+  excludedFromExport   Boolean @default(false)
 
   projectId String
   project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)

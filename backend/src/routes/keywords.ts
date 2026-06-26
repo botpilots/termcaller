@@ -2,10 +2,86 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { authenticateToken } from '../middleware/auth.js';
 import type { AuthRequest } from '../middleware/auth.js';
-import { deleteOccurrence, saveOccurrenceEdit } from '../services/occurrenceEditService.js';
+import { ignoreOccurrence, saveOccurrenceEdit } from '../services/occurrenceEditService.js';
+import {
+  branchConcept,
+  getKeywordCurationState,
+  ignoreConcept,
+} from '../services/keywordCurationService.js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
+
+router.get('/:id/curation', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing keyword id' });
+
+  try {
+    const state = await getKeywordCurationState(prisma, id, req.user!.userId);
+    if (!state) {
+      return res.status(404).json({ error: 'Keyword not found' });
+    }
+
+    res.json(state);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Failed to load curation state';
+    console.error('[Keyword curation]', error);
+    res.status(500).json({ error: message });
+  }
+});
+
+router.post('/:id/branch', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing keyword id' });
+
+  const { conceptId, newSourceTerm } = req.body ?? {};
+
+  if (typeof conceptId !== 'string' || typeof newSourceTerm !== 'string') {
+    return res.status(400).json({ error: 'Invalid branch payload' });
+  }
+
+  try {
+    const result = await branchConcept(prisma, req.user!.userId, {
+      keywordId: id,
+      conceptId,
+      newSourceTerm,
+    });
+
+    if (!result) {
+      return res.status(404).json({ error: 'Keyword not found' });
+    }
+
+    const state = await getKeywordCurationState(prisma, id, req.user!.userId);
+    res.json({ ...result, curation: state });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Failed to branch concept';
+    console.error('[Keyword branch]', error);
+    res.status(400).json({ error: message });
+  }
+});
+
+router.post('/:id/concepts/:conceptId/ignore', authenticateToken, async (req: AuthRequest, res) => {
+  const { id, conceptId } = req.params;
+  if (!id || !conceptId) return res.status(400).json({ error: 'Missing keyword or concept id' });
+
+  try {
+    const result = await ignoreConcept(prisma, req.user!.userId, {
+      keywordId: id,
+      conceptId,
+    });
+
+    if (!result) {
+      return res.status(404).json({ error: 'Keyword not found' });
+    }
+
+    const state = await getKeywordCurationState(prisma, id, req.user!.userId);
+    res.json({ ...result, curation: state });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Failed to ignore concept';
+    console.error('[Keyword ignore concept]', error);
+    res.status(400).json({ error: message });
+  }
+});
 
 router.patch('/:id/occurrences', authenticateToken, async (req: AuthRequest, res) => {
   const { id } = req.params;
@@ -56,7 +132,7 @@ router.patch('/:id/occurrences', authenticateToken, async (req: AuthRequest, res
   }
 });
 
-router.delete('/:id/occurrences', authenticateToken, async (req: AuthRequest, res) => {
+router.post('/:id/occurrences/ignore', authenticateToken, async (req: AuthRequest, res) => {
   const { id } = req.params;
   if (!id) return res.status(400).json({ error: 'Missing keyword id' });
 
@@ -67,7 +143,7 @@ router.delete('/:id/occurrences', authenticateToken, async (req: AuthRequest, re
   }
 
   try {
-    const result = await deleteOccurrence(prisma, req.user!.userId, {
+    const result = await ignoreOccurrence(prisma, req.user!.userId, {
       keywordId: id,
       pageNumber,
       figureNumber: typeof figureNumber === 'string' ? figureNumber : undefined,
@@ -80,8 +156,8 @@ router.delete('/:id/occurrences', authenticateToken, async (req: AuthRequest, re
 
     res.json(result);
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to delete occurrence';
-    console.error('[Occurrence delete]', error);
+    const message = error instanceof Error ? error.message : 'Failed to ignore occurrence';
+    console.error('[Occurrence ignore]', error);
     res.status(500).json({ error: message });
   }
 });
