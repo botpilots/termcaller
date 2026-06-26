@@ -3,13 +3,10 @@ import { useAuth } from '../context/AuthContext';
 import { Folder, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
-import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
-import { OccurrencesEditor } from '../components/OccurrencesEditor';
-import type { CalloutRow } from '../components/OccurrencesTable';
+import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, type BrowseTab } from '../components/BrowsePanel';
 import { KeywordDocumentView } from '../components/KeywordDocumentView';
+import { FigureDocumentView } from '../components/FigureDocumentView';
 import {
-  ValidationAnomalies,
-  buildAnomalyMap,
   figureHasAnomalies,
   type FigureValidationResult,
 } from '../components/ValidationAnomalies';
@@ -43,6 +40,7 @@ interface Illustration {
   pageNumber: number;
   figureNumber?: string | null;
   callouts: Callout[];
+  validation?: FigureValidationResult | null;
 }
 
 interface Keyword {
@@ -113,6 +111,7 @@ export const Dashboard = () => {
   const [figureValidations, setFigureValidations] = useState<Record<string, FigureValidationResult>>({});
   const [figureValidationErrors, setFigureValidationErrors] = useState<Record<string, string>>({});
   const [isValidatingAll, setIsValidatingAll] = useState(false);
+  const [validationProgress, setValidationProgress] = useState<Progress | null>(null);
   const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
   const [corpusScores, setCorpusScores] = useState<Record<string, CorpusTermScore>>({});
   const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
@@ -177,8 +176,15 @@ export const Dashboard = () => {
   }, [fetchCurationSummary]);
 
   const fetchFigures = useCallback(async (projectId: string) => {
-    const response = await axios.get(`/api/projects/${projectId}/figures`);
+    const response = await axios.get<Illustration[]>(`/api/projects/${projectId}/figures`);
     setFigures(response.data);
+
+    const persisted: Record<string, FigureValidationResult> = {};
+    for (const figure of response.data) {
+      if (!figure.validation) continue;
+      persisted[figureKey(figure.pageNumber, figure.figureNumber ?? '1')] = figure.validation;
+    }
+    setFigureValidations(persisted);
   }, []);
 
   useEffect(() => {
@@ -228,6 +234,7 @@ export const Dashboard = () => {
     setFigureValidations({});
     setFigureValidationErrors({});
     setValidationBatchError(null);
+    setValidationProgress(null);
     setKeywords([]);
     setFigures([]);
     setWarningsByKeyword({});
@@ -318,6 +325,22 @@ export const Dashboard = () => {
         } catch (error) {
           console.error('Failed to refresh project after processing', error);
         }
+      });
+
+      eventSource.addEventListener('validation_progress', e => {
+        const data = JSON.parse(e.data);
+        setValidationProgress(data);
+        setIsValidatingAll(data.current < data.total);
+      });
+
+      eventSource.addEventListener('validation_complete', () => {
+        setIsValidatingAll(false);
+        setValidationProgress(null);
+      });
+
+      eventSource.addEventListener('validation_error', () => {
+        setIsValidatingAll(false);
+        setValidationProgress(null);
       });
 
       eventSource.addEventListener('error', e => {
@@ -456,6 +479,10 @@ export const Dashboard = () => {
     setIsValidatingAll(true);
     setValidationBatchError(null);
     setFigureValidationErrors({});
+    setValidationProgress({
+      current: 0,
+      total: selectedProject?.pageCount ?? 1,
+    });
 
     try {
       const response = await axios.post(`/api/projects/${selectedProjectId}/figures/validate-all`);
@@ -486,48 +513,9 @@ export const Dashboard = () => {
       );
     } finally {
       setIsValidatingAll(false);
+      setValidationProgress(null);
     }
   };
-
-  const figureRows: CalloutRow[] = useMemo(() => {
-    if (!selectedFigure) return [];
-
-    const anomalyMap = buildAnomalyMap(figureValidation);
-    const rows: CalloutRow[] = selectedFigure.callouts.map(callout => ({
-      identifier: callout.identifier,
-      pageNumber: selectedFigure.pageNumber,
-      sourceTerm: callout.concept?.candidateConceptName ?? callout.sourceTerm,
-      definitionText: callout.concept?.definitionText,
-      anomaly: anomalyMap.get(callout.identifier),
-    }));
-
-    if (figureValidation) {
-      for (const id of figureValidation.unreferencedCallouts) {
-        if (!rows.some(r => r.identifier === id)) {
-          rows.push({
-            identifier: id,
-            pageNumber: selectedFigure.pageNumber,
-            sourceTerm: undefined,
-            definitionText: undefined,
-            anomaly: 'Unreferenced',
-          });
-        }
-      }
-      for (const id of figureValidation.uncalledReferences) {
-        if (!rows.some(r => r.identifier === id)) {
-          rows.push({
-            identifier: id,
-            pageNumber: selectedFigure.pageNumber,
-            sourceTerm: undefined,
-            definitionText: undefined,
-            anomaly: 'Uncalled ref.',
-          });
-        }
-      }
-    }
-
-    return rows;
-  }, [selectedFigure, figureValidation]);
 
   const listContent =
     browseTab === 'keywords' ? (
@@ -613,7 +601,7 @@ export const Dashboard = () => {
     ) : (
       <>
         <BrowseSectionHeader
-          title="Figures"
+          title="Validation"
           actionLabel="Validate"
           actionTitle="Validate referential integrity for all figures"
           onAction={handleValidateAllFigures}
@@ -664,7 +652,7 @@ export const Dashboard = () => {
                       : 'text-gray-700 hover:bg-gray-100 border border-transparent'
                   }`}
                 >
-                  <span className="font-medium flex items-center gap-1.5">
+                  <span className="font-medium flex items-center gap-1.5 min-w-0">
                     Fig. {figure.figureNumber ?? '1'}
                     {(validated || hasError) && (
                       <span
@@ -679,6 +667,11 @@ export const Dashboard = () => {
                               : 'No anomalies'
                         }
                       />
+                    )}
+                    {hasIssues && (
+                      <span className="text-[10px] font-medium uppercase tracking-wide text-amber-700 shrink-0">
+                        Warning
+                      </span>
                     )}
                   </span>
                   <span className="text-gray-400 font-normal block text-xs mt-0.5">
@@ -716,8 +709,14 @@ export const Dashboard = () => {
           progressSlot={
             browseTab === 'keywords' && isProcessing && progress ? (
               <ProgressBanner current={progress.current} total={progress.total} compact label="Extracting..." />
-            ) : browseTab === 'figures' && isValidatingAll ? (
-              <IndeterminateProgressBanner compact label="Validating figures..." variant="amber" />
+            ) : browseTab === 'figures' && isValidatingAll && validationProgress ? (
+              <ProgressBanner
+                current={validationProgress.current}
+                total={validationProgress.total}
+                compact
+                label="Validating..."
+                variant="amber"
+              />
             ) : null
           }
           listContent={listContent}
@@ -742,6 +741,24 @@ export const Dashboard = () => {
                   figureCount={countFiguresForKeyword(selectedKeyword.callouts)}
                 />
               </div>
+            ) : browseTab === 'figures' && selectedFigure ? (
+              <div className="flex-1 flex flex-col min-h-0 min-w-0">
+                <FigureDocumentView
+                  projectId={selectedProjectId}
+                  pageCount={selectedProject?.pageCount}
+                  pageNumber={selectedFigure.pageNumber}
+                  figureNumber={selectedFigure.figureNumber ?? '1'}
+                  calloutCount={selectedFigure.callouts.length}
+                  validation={figureValidation}
+                  validationError={figureValidationError}
+                  isValidatingAll={isValidatingAll}
+                  pendingMessage={
+                    !figureValidation && !figureValidationError && !isValidatingAll
+                      ? 'Click Validate in the Validation sidebar to discover and check referential integrity.'
+                      : undefined
+                  }
+                />
+              </div>
             ) : (
             <div className="flex-1 p-8 flex flex-col max-w-5xl mx-auto w-full overflow-y-auto">
               <div className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
@@ -751,37 +768,7 @@ export const Dashboard = () => {
                   </div>
                 )}
 
-                {browseTab === 'figures' && selectedFigure ? (
-                  <div>
-                    <div className="mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        Figure {selectedFigure.figureNumber ?? '1'}
-                      </h3>
-                      <p className="text-sm text-gray-500 mt-0.5">
-                        Page {selectedFigure.pageNumber} · {selectedFigure.callouts.length} callout
-                        {selectedFigure.callouts.length !== 1 ? 's' : ''}
-                      </p>
-                    </div>
-
-                    <ValidationAnomalies
-                      validation={figureValidation}
-                      isLoading={isValidatingAll}
-                      error={figureValidationError}
-                      pendingMessage={
-                        !figureValidation && !figureValidationError && !isValidatingAll
-                          ? 'Click Validate in the Figures sidebar to discover and check referential integrity.'
-                          : undefined
-                      }
-                    />
-
-                    <h4 className="text-sm font-medium text-gray-700 mb-3">Occurrences</h4>
-                    <OccurrencesEditor
-                      rows={figureRows}
-                      mode="figure"
-                      emptyMessage="No callouts on this figure."
-                    />
-                  </div>
-                ) : !hasPdf && !hasExistingData ? (
+                {!hasPdf && !hasExistingData ? (
                   <div className="text-sm text-gray-500 text-center py-12">
                     Upload a PDF using the header to get started.
                   </div>
@@ -801,7 +788,7 @@ export const Dashboard = () => {
                   </div>
                 ) : browseTab === 'figures' && figures.length === 0 && hasPdf ? (
                   <div className="text-sm text-gray-500 text-center py-12">
-                    Click Validate in the Figures sidebar to discover and check figures.
+                    Click Validate in the Validation sidebar to discover and check figures.
                   </div>
                 ) : browseTab === 'figures' && figures.length === 0 ? (
                   <div className="text-sm text-gray-500 text-center py-12">

@@ -1,4 +1,4 @@
-import { Loader2, LogOut, Tag, Image, Play, ShieldCheck, Filter } from 'lucide-react';
+import { Loader2, LogOut, Tag, ShieldCheck, Play, Filter } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 export type BrowseTab = 'keywords' | 'figures';
@@ -109,7 +109,7 @@ export function BrowsePanel({
 }: BrowsePanelProps) {
   const tabs: { id: BrowseTab; label: string; icon: typeof Tag }[] = [
     { id: 'keywords', label: 'Keywords', icon: Tag },
-    { id: 'figures', label: 'Figures', icon: Image },
+    { id: 'figures', label: 'Validation', icon: ShieldCheck },
   ];
 
   return (
@@ -160,27 +160,46 @@ export function ProgressBanner({
   total,
   compact = false,
   label = 'Processing...',
+  variant = 'blue',
 }: {
   current: number;
   total: number;
   compact?: boolean;
   label?: string;
+  variant?: 'blue' | 'amber';
 }) {
+  const tone =
+    variant === 'amber'
+      ? {
+          box: 'bg-amber-50 border-amber-100',
+          text: 'text-amber-800',
+          count: 'text-amber-600',
+          track: 'bg-amber-200',
+          bar: 'bg-amber-600',
+        }
+      : {
+          box: 'bg-blue-50 border-blue-100',
+          text: 'text-blue-800',
+          count: 'text-blue-600',
+          track: 'bg-blue-200',
+          bar: 'bg-blue-600',
+        };
+
   return (
-    <div className={`mb-4 bg-blue-50 rounded-lg border border-blue-100 ${compact ? 'p-3' : 'p-4'}`}>
+    <div className={`mb-4 rounded-lg border ${tone.box} ${compact ? 'p-3' : 'p-4'}`}>
       <div className="flex justify-between items-center mb-2">
-        <div className={`flex items-center text-blue-800 font-medium ${compact ? 'text-xs' : 'text-sm'}`}>
+        <div className={`flex items-center font-medium ${tone.text} ${compact ? 'text-xs' : 'text-sm'}`}>
           <Loader2 className={`animate-spin mr-1.5 ${compact ? '' : 'mr-2'}`} size={compact ? 14 : 18} />
           {label}
         </div>
-        <div className={`text-blue-600 font-medium ${compact ? 'text-xs' : 'text-sm'}`}>
+        <div className={`font-medium ${tone.count} ${compact ? 'text-xs' : 'text-sm'}`}>
           {current} / {total}
         </div>
       </div>
-      <div className={`w-full bg-blue-200 rounded-full ${compact ? 'h-2' : 'h-2.5'}`}>
+      <div className={`w-full rounded-full ${tone.track} ${compact ? 'h-2' : 'h-2.5'}`}>
         <div
-          className={`bg-blue-600 rounded-full transition-all duration-500 ${compact ? 'h-2' : 'h-2.5'}`}
-          style={{ width: `${Math.max(5, (current / total) * 100)}%` }}
+          className={`rounded-full transition-all duration-500 ${tone.bar} ${compact ? 'h-2' : 'h-2.5'}`}
+          style={{ width: `${total > 0 ? Math.max(5, (current / total) * 100) : 5}%` }}
         />
       </div>
     </div>

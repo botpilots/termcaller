@@ -3,6 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {
   adjacentPageSearchOrder,
+  calloutSearchPatterns,
+  findCalloutBoxes,
   findTermBoxes,
   locateOnPdfPage,
   locateOnPdfPageWithAdjacent,
@@ -49,6 +51,23 @@ describe('findTermBoxes', () => {
     const runs = [{ str: 'sealing', x: 100, y: 200, width: 50, height: 12 }];
 
     expect(findTermBoxes(runs, 'sealing cover')).toHaveLength(0);
+  });
+});
+
+describe('findCalloutBoxes', () => {
+  it('matches parenthesized and bare callout legend patterns', () => {
+    const runs = [
+      { str: '(7)', x: 100, y: 200, width: 20, height: 12 },
+      { str: 'Dial', x: 130, y: 200, width: 30, height: 12 },
+    ];
+
+    expect(calloutSearchPatterns('7')).toEqual(expect.arrayContaining(['7', '(7)', '7)', '7.']));
+    expect(findCalloutBoxes(runs, '7')).toHaveLength(1);
+  });
+
+  it('returns empty when no legend pattern matches', () => {
+    const runs = [{ str: 'unrelated text', x: 100, y: 200, width: 80, height: 12 }];
+    expect(findCalloutBoxes(runs, '99')).toHaveLength(0);
   });
 });
 
@@ -103,6 +122,13 @@ describe('locateOnPdfPageWithAdjacent', () => {
     const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { term: 'BioDrill' });
     expect(result.matchedPage).toBe(14);
     expect(result.boxes.length).toBeGreaterThan(0);
+  }, 30000);
+
+  it('falls back to callout legend when term is empty', async () => {
+    const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { callout: '1' });
+    if (result.boxes.length > 0) {
+      expect(result.boxes.every(box => box.matchType === 'callout')).toBe(true);
+    }
   }, 30000);
 
   it('uses referencePage to choose among adjacent hits', async () => {

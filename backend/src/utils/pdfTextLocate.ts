@@ -65,14 +65,15 @@ async function textRunsFromPage(
 
 function normalizeBox(
   box: { x: number; y: number; width: number; height: number },
-  viewport: { width: number; height: number }
+  viewport: { width: number; height: number },
+  matchType: 'term' | 'callout' = 'term'
 ): NormalizedBox {
   return {
     x: box.x / viewport.width,
     y: box.y / viewport.height,
     width: box.width / viewport.width,
     height: box.height / viewport.height,
-    matchType: 'term',
+    matchType,
   };
 }
 
@@ -203,6 +204,54 @@ function findSubstringBoxes(runs: TextRun[], query: string): RawBox[] {
   return findTermBoxes(runs, query);
 }
 
+/** Legend-style patterns for a callout identifier when no source term is available. */
+export function calloutSearchPatterns(calloutId: string): string[] {
+  const id = calloutId.trim();
+  if (!id) return [];
+
+  const patterns = new Set<string>([id, `(${id})`, `${id})`, `${id}.`]);
+  return [...patterns];
+}
+
+/** Locate callout legend labels in the PDF text layer. */
+export function findCalloutBoxes(runs: TextRun[], calloutId: string): RawBox[] {
+  for (const pattern of calloutSearchPatterns(calloutId)) {
+    const hits = findSubstringBoxes(runs, pattern);
+    if (hits.length > 0) {
+      return hits;
+    }
+  }
+
+  return [];
+}
+
+function locateBoxesOnPage(
+  runs: TextRun[],
+  options: { term?: string; callout?: string; calloutFallback?: boolean }
+): { boxes: RawBox[]; matchType: 'term' | 'callout' } {
+  const term = options.term?.trim() ?? '';
+  if (term) {
+    const termBoxes = findSubstringBoxes(runs, term);
+    if (termBoxes.length > 0) {
+      return { boxes: termBoxes, matchType: 'term' };
+    }
+  }
+
+  if (options.calloutFallback === false) {
+    return { boxes: [], matchType: 'term' };
+  }
+
+  const callout = options.callout?.trim() ?? '';
+  if (callout) {
+    const calloutBoxes = findCalloutBoxes(runs, callout);
+    if (calloutBoxes.length > 0) {
+      return { boxes: calloutBoxes, matchType: 'callout' };
+    }
+  }
+
+  return { boxes: [], matchType: 'term' };
+}
+
 /** Page numbers to scan when the occurrence page has no match. */
 export function adjacentPageSearchOrder(pageNumber: number, totalPages: number): number[] {
   const order = [pageNumber];
@@ -229,16 +278,16 @@ export function pickNearestPage(candidates: number[], referencePage: number): nu
 async function locateOnPdfPageInternal(
   pdfDocument: Awaited<ReturnType<typeof loadPdfDocument>['promise']>,
   pageNumber: number,
-  options: { term?: string; callout?: string }
+  options: { term?: string; callout?: string; calloutFallback?: boolean }
 ): Promise<PageLocateResult> {
   const page = await pdfDocument.getPage(pageNumber);
   const scale = PDF_RENDER_DENSITY / 72;
   const viewport = page.getViewport({ scale });
   const runs = await textRunsFromPage(page, viewport);
-  const termBoxes = findSubstringBoxes(runs, options.term ?? '');
+  const { boxes, matchType } = locateBoxesOnPage(runs, options);
 
   return {
-    boxes: termBoxes.map(box => normalizeBox(box, viewport)),
+    boxes: boxes.map(box => normalizeBox(box, viewport, matchType)),
     imageWidth: Math.round(viewport.width),
     imageHeight: Math.round(viewport.height),
   };
@@ -287,47 +336,73 @@ export async function locateOnPdfPageWithAdjacent(
     }
 
     const refPage = referencePage ?? pageNumber;
-    const onOccurrencePage = await locateOnPdfPageInternal(pdfDocument, pageNumber, options);
 
-    if (onOccurrencePage.boxes.length > 0) {
+    const searchAcrossPages = async (
+      searchOptions: { term?: string; callout?: string; calloutFallback?: boolean }
+    ) => {
+      const onOccurrencePage = await locateOnPdfPageInternal(pdfDocument, pageNumber, searchOptions);
+
+      if (onOccurrencePage.boxes.length > 0) {
+        return {
+          boxes: onOccurrencePage.boxes.map(box => ({ ...box, pageNumber })),
+          matchedPage: pageNumber,
+          imageWidth: onOccurrencePage.imageWidth,
+          imageHeight: onOccurrencePage.imageHeight,
+        };
+      }
+
+      const adjacentHits: Array<{ page: number; result: PageLocateResult }> = [];
+
+      for (const candidate of adjacentPageSearchOrder(pageNumber, numPages)) {
+        if (candidate === pageNumber) continue;
+        const result = await locateOnPdfPageInternal(pdfDocument, candidate, searchOptions);
+        if (result.boxes.length > 0) {
+          adjacentHits.push({ page: candidate, result });
+        }
+      }
+
+      if (adjacentHits.length > 0) {
+        const matchedPage = pickNearestPage(
+          adjacentHits.map(hit => hit.page),
+          refPage
+        );
+        const hit = adjacentHits.find(entry => entry.page === matchedPage)!;
+        return {
+          boxes: hit.result.boxes.map(box => ({ ...box, pageNumber: matchedPage })),
+          matchedPage,
+          imageWidth: hit.result.imageWidth,
+          imageHeight: hit.result.imageHeight,
+        };
+      }
+
       return {
-        boxes: onOccurrencePage.boxes.map(box => ({ ...box, pageNumber })),
-        matchedPage: pageNumber,
+        boxes: [] as NormalizedBoxWithPage[],
+        matchedPage: null,
         imageWidth: onOccurrencePage.imageWidth,
         imageHeight: onOccurrencePage.imageHeight,
       };
+    };
+
+    const termResult = await searchAcrossPages({
+      term: options.term,
+      callout: options.callout,
+      calloutFallback: false,
+    });
+    if (termResult.boxes.length > 0) {
+      return termResult;
     }
 
-    const adjacentHits: Array<{ page: number; result: PageLocateResult }> = [];
-
-    for (const candidate of adjacentPageSearchOrder(pageNumber, numPages)) {
-      if (candidate === pageNumber) continue;
-      const result = await locateOnPdfPageInternal(pdfDocument, candidate, options);
-      if (result.boxes.length > 0) {
-        adjacentHits.push({ page: candidate, result });
+    if (options.callout?.trim()) {
+      const calloutResult = await searchAcrossPages({
+        callout: options.callout,
+        calloutFallback: true,
+      });
+      if (calloutResult.boxes.length > 0) {
+        return calloutResult;
       }
     }
 
-    if (adjacentHits.length > 0) {
-      const matchedPage = pickNearestPage(
-        adjacentHits.map(hit => hit.page),
-        refPage
-      );
-      const hit = adjacentHits.find(entry => entry.page === matchedPage)!;
-      return {
-        boxes: hit.result.boxes.map(box => ({ ...box, pageNumber: matchedPage })),
-        matchedPage,
-        imageWidth: hit.result.imageWidth,
-        imageHeight: hit.result.imageHeight,
-      };
-    }
-
-    return {
-      boxes: [],
-      matchedPage: null,
-      imageWidth: onOccurrencePage.imageWidth,
-      imageHeight: onOccurrencePage.imageHeight,
-    };
+    return termResult;
   } finally {
     await loadingTask.destroy();
   }

@@ -3,21 +3,29 @@ import fs from 'fs';
 import { extractPageData } from './pdfParser.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import {
-  pickValidateMode,
-  validatePageWithGemini,
+  validatePageFiguresWithGemini,
   type CalloutValidationResult,
+  type FigureValidationInput,
   type PageValidateMode,
 } from './geminiValidationService.js';
 import type { ExtractedCallout } from './geminiService.js';
 import { buildAdjacentImages } from '../utils/adjacentImages.js';
 import { mapWithConcurrency } from '../utils/mapWithConcurrency.js';
 import { upsertIllustration } from './illustrationUpsert.js';
+import { saveFigureValidation } from './figureValidationPersist.js';
+import { sendSSEEvent } from './processingService.js';
 
 export type IllustrationWithCallouts = Prisma.IllustrationGetPayload<{
   include: { callouts: { include: { concept: true } } };
 }>;
 
 type CalloutWithConcept = IllustrationWithCallouts['callouts'][number];
+
+const EMPTY_VALIDATION: CalloutValidationResult = {
+  unreferencedCallouts: [],
+  uncalledReferences: [],
+  labelMismatches: [],
+};
 
 export function buildExtractedConceptsFromCallouts(
   illustration: { figureNumber: string | null },
@@ -47,6 +55,58 @@ export function buildExtractedConceptsFromCallouts(
   }));
 }
 
+function compareFigureNumber(a: string, b: string): number {
+  const na = Number(a);
+  const nb = Number(b);
+  if (Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+  return a.localeCompare(b, undefined, { numeric: true });
+}
+
+function sortIllustrationsByFigureNumber(
+  illustrations: IllustrationWithCallouts[]
+): IllustrationWithCallouts[] {
+  return [...illustrations].sort((a, b) =>
+    compareFigureNumber(a.figureNumber ?? '1', b.figureNumber ?? '1')
+  );
+}
+
+function buildKnownFigures(illustrations: IllustrationWithCallouts[]): FigureValidationInput[] {
+  return sortIllustrationsByFigureNumber(illustrations).map(illustration => ({
+    figureNumber: illustration.figureNumber ?? '1',
+    extractedConcepts: buildExtractedConceptsFromCallouts(illustration, illustration.callouts),
+  }));
+}
+
+export function mapPageValidationToFigures(
+  knownFigures: FigureValidationInput[],
+  discoveredFigures: Array<CalloutValidationResult & { figureNumber: string }>
+): Array<{ figureNumber: string; validation: CalloutValidationResult }> {
+  if (knownFigures.length === 0) {
+    return discoveredFigures.map(figure => ({
+      figureNumber: figure.figureNumber,
+      validation: {
+        unreferencedCallouts: figure.unreferencedCallouts,
+        uncalledReferences: figure.uncalledReferences,
+        labelMismatches: figure.labelMismatches,
+      },
+    }));
+  }
+
+  return knownFigures.map((known, index) => {
+    const discovered = discoveredFigures[index];
+    return {
+      figureNumber: known.figureNumber,
+      validation: discovered
+        ? {
+            unreferencedCallouts: discovered.unreferencedCallouts,
+            uncalledReferences: discovered.uncalledReferences,
+            labelMismatches: discovered.labelMismatches,
+          }
+        : EMPTY_VALIDATION,
+    };
+  });
+}
+
 async function loadIllustrationsForPage(
   prisma: PrismaClient,
   projectId: string,
@@ -59,76 +119,55 @@ async function loadIllustrationsForPage(
   });
 }
 
-async function validatePageByMode(
+async function validateSinglePage(
   pdfPath: string,
   pageNumber: number,
   totalPages: number,
-  mode: PageValidateMode,
-  illustration: IllustrationWithCallouts | null,
-  imageBase64?: string
-): Promise<{
-  validation: CalloutValidationResult;
-  discoveredFigures?: Array<{ figureNumber: string; validation: CalloutValidationResult }>;
-}> {
-  const pageImage = imageBase64 ?? (await extractPageData(pdfPath, pageNumber)).imageBase64;
-  const extractedConcepts =
-    mode === 'withConcepts' && illustration
-      ? buildExtractedConceptsFromCallouts(illustration, illustration.callouts)
-      : [];
+  illustrations: IllustrationWithCallouts[],
+  pageImageBase64?: string,
+  pageText?: string
+): Promise<Array<{ figureNumber: string; validation: CalloutValidationResult }>> {
+  const pageData = pageImageBase64
+    ? { imageBase64: pageImageBase64, text: pageText ?? '' }
+    : await extractPageData(pdfPath, pageNumber);
+  const knownFigures = buildKnownFigures(illustrations);
 
-  const validation = await validatePageWithGemini(
-    pageImage,
-    mode,
-    extractedConcepts,
+  const result = await validatePageFiguresWithGemini(
+    pageData.imageBase64,
+    knownFigures,
     async () => {
       const [prevPage, nextPage] = await Promise.all([
         pageNumber > 1 ? extractPageData(pdfPath, pageNumber - 1) : null,
         pageNumber < totalPages ? extractPageData(pdfPath, pageNumber + 1) : null,
       ]);
       return buildAdjacentImages(prevPage, nextPage);
-    }
+    },
+    pageData.text
   );
 
-  if (mode === 'discoverAndValidate') {
-    const discoveredFigures = (validation.discoveredFigures ?? []).map((figure) => ({
-      figureNumber: figure.figureNumber,
-      validation: {
-        unreferencedCallouts: figure.unreferencedCallouts,
-        uncalledReferences: figure.uncalledReferences,
-        labelMismatches: figure.labelMismatches,
-      },
-    }));
-
-    return {
-      validation: {
-        unreferencedCallouts: [],
-        uncalledReferences: [],
-        labelMismatches: [],
-      },
-      ...(discoveredFigures.length > 0 ? { discoveredFigures } : {}),
-    };
-  }
-
-  return {
-    validation: {
-      unreferencedCallouts: validation.unreferencedCallouts,
-      uncalledReferences: validation.uncalledReferences,
-      labelMismatches: validation.labelMismatches,
-    },
-  };
+  return mapPageValidationToFigures(knownFigures, result.discoveredFigures);
 }
 
 export async function validateProjectFigure(
   pdfPath: string,
   pageNumber: number,
   totalPages: number,
-  illustration: IllustrationWithCallouts
+  illustration: IllustrationWithCallouts,
+  pageIllustrations?: IllustrationWithCallouts[]
 ): Promise<{ extractedConcepts: ExtractedCallout[]; validation: CalloutValidationResult; mode: PageValidateMode }> {
-  const mode = pickValidateMode(illustration);
-  const extractedConcepts = buildExtractedConceptsFromCallouts(illustration, illustration.callouts);
-  const { validation } = await validatePageByMode(pdfPath, pageNumber, totalPages, mode, illustration);
+  const illustrations = sortIllustrationsByFigureNumber(
+    pageIllustrations && pageIllustrations.length > 0 ? pageIllustrations : [illustration]
+  );
+  const pageResults = await validateSinglePage(pdfPath, pageNumber, totalPages, illustrations);
+  const match =
+    pageResults.find(result => result.figureNumber === (illustration.figureNumber ?? '1')) ??
+    pageResults[0];
 
-  return { extractedConcepts, validation, mode };
+  return {
+    extractedConcepts: buildExtractedConceptsFromCallouts(illustration, illustration.callouts),
+    validation: match?.validation ?? EMPTY_VALIDATION,
+    mode: 'pageValidate',
+  };
 }
 
 export interface FigureValidationItemResult {
@@ -153,6 +192,9 @@ export async function validateAllProjectFigures(
 
   console.log(`[Validation] Scanning ${totalPages} page(s) for project ${projectId}`);
 
+  let completedPages = 0;
+  sendSSEEvent(projectId, 'validation_progress', { current: 0, total: totalPages });
+
   const rawResults = await mapWithConcurrency(pageNumbers, concurrency, async pageNumber => {
     try {
       const pageData = await extractPageData(pdfPath, pageNumber);
@@ -161,23 +203,22 @@ export async function validateAllProjectFigures(
       }
 
       const illustrations = await loadIllustrationsForPage(prisma, projectId, pageNumber);
+      const figureResults = await validateSinglePage(
+        pdfPath,
+        pageNumber,
+        totalPages,
+        illustrations,
+        pageData.imageBase64,
+        pageData.text
+      );
+
       const pageResults: FigureValidationItemResult[] = [];
 
       if (illustrations.length === 0) {
-        const mode: PageValidateMode = 'discoverAndValidate';
-        const { discoveredFigures } = await validatePageByMode(
-          pdfPath,
-          pageNumber,
-          totalPages,
-          mode,
-          null,
-          pageData.imageBase64
-        );
-
         const figuresToUpsert =
-          discoveredFigures && discoveredFigures.length > 0
-            ? discoveredFigures
-            : [{ figureNumber: '1', validation: { unreferencedCallouts: [], uncalledReferences: [], labelMismatches: [] } }];
+          figureResults.length > 0
+            ? figureResults
+            : [{ figureNumber: '1', validation: EMPTY_VALIDATION }];
 
         for (const discovered of figuresToUpsert) {
           const upserted = await upsertIllustration(
@@ -187,11 +228,19 @@ export async function validateAllProjectFigures(
             discovered.figureNumber
           );
 
+          await saveFigureValidation(
+            prisma,
+            projectId,
+            pageNumber,
+            upserted.figureNumber,
+            discovered.validation
+          );
+
           pageResults.push({
             pageNumber,
             figureNumber: upserted.figureNumber,
             calloutCount: 0,
-            mode,
+            mode: 'pageValidate',
             validation: discovered.validation,
           });
         }
@@ -199,23 +248,26 @@ export async function validateAllProjectFigures(
         return pageResults;
       }
 
-      for (const illustration of illustrations) {
-        const mode = pickValidateMode(illustration);
-        const { validation } = await validatePageByMode(
-          pdfPath,
+      const illustrationByFigure = new Map(
+        illustrations.map(illustration => [illustration.figureNumber ?? '1', illustration])
+      );
+
+      for (const figureResult of figureResults) {
+        const illustration = illustrationByFigure.get(figureResult.figureNumber);
+        await saveFigureValidation(
+          prisma,
+          projectId,
           pageNumber,
-          totalPages,
-          mode,
-          illustration,
-          pageData.imageBase64
+          figureResult.figureNumber,
+          figureResult.validation
         );
 
         pageResults.push({
           pageNumber,
-          figureNumber: illustration.figureNumber,
-          calloutCount: illustration.callouts.length,
-          mode,
-          validation,
+          figureNumber: figureResult.figureNumber,
+          calloutCount: illustration?.callouts.length ?? 0,
+          mode: 'pageValidate',
+          validation: figureResult.validation,
         });
       }
 
@@ -229,13 +281,20 @@ export async function validateAllProjectFigures(
         return null;
       }
 
-      return illustrations.map((illustration) => ({
+      return illustrations.map(illustration => ({
         pageNumber,
-        figureNumber: illustration.figureNumber,
+        figureNumber: illustration.figureNumber ?? '1',
         calloutCount: illustration.callouts.length,
-        mode: pickValidateMode(illustration),
+        mode: 'pageValidate' as const,
         error: message,
       }));
+    } finally {
+      completedPages += 1;
+      sendSSEEvent(projectId, 'validation_progress', {
+        current: completedPages,
+        total: totalPages,
+        pageNumber,
+      });
     }
   });
 
@@ -259,22 +318,16 @@ export async function validateFigurePage(
   callouts: CalloutWithConcept[],
   fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>
 ): Promise<{ extractedConcepts: ExtractedCallout[]; validation: CalloutValidationResult }> {
-  const mode = pickValidateMode({ ...illustration, callouts });
   const extractedConcepts = buildExtractedConceptsFromCallouts(illustration, callouts);
-
-  const validation = await validatePageWithGemini(
+  const result = await validatePageFiguresWithGemini(
     (await extractPageData(pdfPath, pageNumber)).imageBase64,
-    mode,
-    extractedConcepts,
+    [{ figureNumber: illustration.figureNumber ?? '1', extractedConcepts }],
     fetchAdjacentImages
   );
 
+  const first = result.discoveredFigures[0];
   return {
     extractedConcepts,
-    validation: {
-      unreferencedCallouts: validation.unreferencedCallouts,
-      uncalledReferences: validation.uncalledReferences,
-      labelMismatches: validation.labelMismatches,
-    },
+    validation: first ?? EMPTY_VALIDATION,
   };
 }

@@ -5,12 +5,13 @@ import type { AuthRequest } from '../middleware/auth.js';
 import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
-import { sseClients, processPdfBackground } from '../services/processingService.js';
+import { sseClients, processPdfBackground, sendSSEEvent } from '../services/processingService.js';
 import {
   validateProjectFigure,
   validateAllProjectFigures,
   type IllustrationWithCallouts,
 } from '../services/figureValidationService.js';
+import { saveFigureValidation, withParsedValidation } from '../services/figureValidationPersist.js';
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { getPdfPageCount } from '../utils/pdfPageCount.js';
@@ -296,7 +297,7 @@ router.get('/:id/figures', authenticateToken, async (req: AuthRequest, res) => {
       orderBy: [{ pageNumber: 'asc' }, { figureNumber: 'asc' }],
     });
 
-    res.json(figures);
+    res.json(figures.map(withParsedValidation));
   } catch (error) {
     console.error('[Figures] Failed to list figures:', error);
     res.status(500).json({ error: 'Failed to fetch figures' });
@@ -318,6 +319,11 @@ router.post('/:id/figures/validate-all', authenticateToken, async (req: AuthRequ
     const results = await validateAllProjectFigures(prisma, id, loaded.pdfPath);
 
     const failed = results.filter((r: { error?: string }) => r.error).length;
+    sendSSEEvent(id, 'validation_complete', {
+      validated: results.length - failed,
+      failed,
+      total: results.length,
+    });
     res.json({
       results,
       validated: results.length - failed,
@@ -326,6 +332,7 @@ router.post('/:id/figures/validate-all', authenticateToken, async (req: AuthRequ
     });
   } catch (error) {
     console.error('[Validation] Batch figure validation failed:', error);
+    sendSSEEvent(id, 'validation_error', { message: 'Batch figure validation failed' });
     res.status(500).json({ error: 'Batch figure validation failed' });
   }
 });
@@ -346,14 +353,17 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
       return res.status(loaded.status).json({ error: loaded.error });
     }
 
-    const illustration = (await prisma.illustration.findFirst({
-      where: {
-        projectId: id,
-        pageNumber,
-        ...(req.query.figureNumber ? { figureNumber: String(req.query.figureNumber) } : {}),
-      },
+    const illustrations = (await prisma.illustration.findMany({
+      where: { projectId: id, pageNumber },
       include: illustrationInclude,
-    })) as IllustrationWithCallouts | null;
+      orderBy: { figureNumber: 'asc' },
+    })) as IllustrationWithCallouts[];
+
+    const figureNumberFilter =
+      typeof req.query.figureNumber === 'string' ? req.query.figureNumber : undefined;
+    const illustration = figureNumberFilter
+      ? illustrations.find(entry => entry.figureNumber === figureNumberFilter)
+      : illustrations[0];
 
     if (!illustration) {
       return res.status(404).json({ error: 'No illustration found for this page' });
@@ -365,7 +375,16 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
       loaded.pdfPath,
       pageNumber,
       pdfDocument.numPages,
-      illustration
+      illustration,
+      illustrations
+    );
+
+    await saveFigureValidation(
+      prisma,
+      id,
+      pageNumber,
+      illustration.figureNumber ?? '1',
+      result.validation
     );
 
     res.json({

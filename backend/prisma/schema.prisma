@@ -70,11 +70,13 @@ model Illustration {
   projectId    String
   project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   pageNumber   Int
-  figureNumber String   @default("1")
-  title        String?
-  imageUrl     String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  figureNumber     String   @default("1")
+  title            String?
+  imageUrl         String?
+  validationResult String? // JSON serialized CalloutValidationResult
+  validatedAt      DateTime?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 
   callouts Callout[]
 

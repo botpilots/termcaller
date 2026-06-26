@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle2, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export interface LabelMismatch {
   textIdentifier: string;
@@ -12,14 +12,97 @@ export interface FigureValidationResult {
   labelMismatches: LabelMismatch[];
 }
 
+export type ValidationWarningKind = 'unreferenced' | 'uncalled' | 'labelMismatch';
+
+export interface ValidationWarningItem {
+  kind: ValidationWarningKind;
+  calloutId: string;
+  pageNumber: number;
+  figureNumber: string;
+  sourceTerm?: string;
+  imageIdentifier?: string;
+  title: string;
+  description: string;
+}
+
+const WARNING_KIND_LABELS: Record<ValidationWarningKind, string> = {
+  unreferenced: 'Unreferenced callout',
+  uncalled: 'Uncalled reference',
+  labelMismatch: 'Label mismatch',
+};
+
+const WARNING_KIND_DESCRIPTIONS: Record<ValidationWarningKind, string> = {
+  unreferenced: 'Visible in the illustration but not explained in the page text.',
+  uncalled: 'Assigned in the text but missing from the illustration.',
+  labelMismatch: 'Text and image use different labels for the same part.',
+};
+
+export function buildValidationWarnings(
+  validation: FigureValidationResult,
+  pageNumber: number,
+  figureNumber: string
+): ValidationWarningItem[] {
+  const warnings: ValidationWarningItem[] = [];
+
+  for (const calloutId of validation.unreferencedCallouts) {
+    warnings.push({
+      kind: 'unreferenced',
+      calloutId,
+      pageNumber,
+      figureNumber,
+      title: `Callout ${calloutId}`,
+      description: WARNING_KIND_DESCRIPTIONS.unreferenced,
+    });
+  }
+
+  for (const calloutId of validation.uncalledReferences) {
+    warnings.push({
+      kind: 'uncalled',
+      calloutId,
+      pageNumber,
+      figureNumber,
+      title: `Callout ${calloutId}`,
+      description: WARNING_KIND_DESCRIPTIONS.uncalled,
+    });
+  }
+
+  for (const mismatch of validation.labelMismatches) {
+    warnings.push({
+      kind: 'labelMismatch',
+      calloutId: mismatch.textIdentifier,
+      pageNumber,
+      figureNumber,
+      sourceTerm: mismatch.sourceTerm || undefined,
+      imageIdentifier: mismatch.imageIdentifier,
+      title: `Text ${mismatch.textIdentifier} → image ${mismatch.imageIdentifier}${
+        mismatch.sourceTerm ? ` (${mismatch.sourceTerm})` : ''
+      }`,
+      description: WARNING_KIND_DESCRIPTIONS.labelMismatch,
+    });
+  }
+
+  return warnings;
+}
+
 interface ValidationAnomaliesProps {
   validation: FigureValidationResult | null;
+  pageNumber: number;
+  figureNumber: string;
   isLoading: boolean;
   error: string | null;
   pendingMessage?: string;
+  onWarningClick?: (warning: ValidationWarningItem) => void;
 }
 
-export function ValidationAnomalies({ validation, isLoading, error, pendingMessage }: ValidationAnomaliesProps) {
+export function ValidationAnomalies({
+  validation,
+  pageNumber,
+  figureNumber,
+  isLoading,
+  error,
+  pendingMessage,
+  onWarningClick,
+}: ValidationAnomaliesProps) {
   if (isLoading) {
     return (
       <div className="mb-6 text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-center">
@@ -48,84 +131,49 @@ export function ValidationAnomalies({ validation, isLoading, error, pendingMessa
     return null;
   }
 
-  const hasAnomalies =
-    validation.unreferencedCallouts.length > 0 ||
-    validation.uncalledReferences.length > 0 ||
-    validation.labelMismatches.length > 0;
+  const warnings = buildValidationWarnings(validation, pageNumber, figureNumber);
 
-  if (!hasAnomalies) {
-    return (
-      <div className="mb-6 flex items-start gap-2 text-sm text-green-800 bg-green-50 border border-green-200 rounded-lg p-4">
-        <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
-        <div>
-          <p className="font-medium">No anomalies detected</p>
-          <p className="text-green-700 mt-0.5">Callout labels match between text and illustration.</p>
-        </div>
-      </div>
-    );
+  if (warnings.length === 0) {
+    return null;
   }
 
   return (
-    <div className="mb-6 border border-amber-200 rounded-lg overflow-hidden">
-      <div className="flex items-center gap-2 px-4 py-3 bg-amber-50 border-b border-amber-200 text-amber-900 text-sm font-medium">
-        <AlertTriangle size={16} />
-        Validation anomalies
-      </div>
-      <div className="divide-y divide-amber-100 bg-white">
-        {validation.unreferencedCallouts.length > 0 && (
-          <AnomalySection
-            title="Unreferenced callouts"
-            description="Visible in the illustration but not explained in the text."
-            items={validation.unreferencedCallouts.map(id => `Callout ${id}`)}
-          />
-        )}
-        {validation.uncalledReferences.length > 0 && (
-          <AnomalySection
-            title="Uncalled references"
-            description="Assigned in the text but missing from the illustration."
-            items={validation.uncalledReferences.map(id => `Callout ${id}`)}
-          />
-        )}
-        {validation.labelMismatches.length > 0 && (
-          <AnomalySection
-            title="Label mismatches"
-            description="Text and image use different labels for the same part."
-            items={validation.labelMismatches.map(
-              m =>
-                `Text ${m.textIdentifier} → image ${m.imageIdentifier}${
-                  m.sourceTerm ? ` (${m.sourceTerm})` : ''
-                }`
-            )}
-          />
-        )}
-      </div>
-    </div>
-  );
-}
+    <div className="mb-6 space-y-3">
+      {warnings.map(warning => {
+        const card = (
+          <>
+            <span className="block text-xs font-semibold text-amber-800 uppercase tracking-wider">
+              Referential integrity warning
+            </span>
+            <p className="text-sm font-medium text-gray-900">
+              {warning.title} · {WARNING_KIND_LABELS[warning.kind]}
+            </p>
+            <p className="text-sm text-amber-900/80 leading-relaxed">{warning.description}</p>
+          </>
+        );
 
-function AnomalySection({
-  title,
-  description,
-  items,
-}: {
-  title: string;
-  description: string;
-  items: string[];
-}) {
-  return (
-    <div className="px-4 py-3">
-      <p className="text-sm font-medium text-gray-900">{title}</p>
-      <p className="text-xs text-gray-500 mt-0.5 mb-2">{description}</p>
-      <ul className="flex flex-wrap gap-2">
-        {items.map(item => (
-          <li
-            key={item}
-            className="text-xs font-medium px-2 py-1 rounded-md bg-amber-100 text-amber-900 border border-amber-200"
+        if (!onWarningClick) {
+          return (
+            <div
+              key={`${warning.kind}:${warning.calloutId}`}
+              className="rounded-lg border border-amber-200 bg-amber-50/40 p-4 space-y-2"
+            >
+              {card}
+            </div>
+          );
+        }
+
+        return (
+          <button
+            key={`${warning.kind}:${warning.calloutId}`}
+            type="button"
+            onClick={() => onWarningClick(warning)}
+            className="w-full text-left rounded-lg border border-amber-200 bg-amber-50/40 p-4 space-y-2 hover:border-amber-300 transition-colors"
           >
-            {item}
-          </li>
-        ))}
-      </ul>
+            {card}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -136,26 +184,4 @@ export function figureHasAnomalies(validation: FigureValidationResult): boolean 
     validation.uncalledReferences.length > 0 ||
     validation.labelMismatches.length > 0
   );
-}
-
-/** Map validation results to per-callout anomaly labels for table rows. */
-export function buildAnomalyMap(validation: FigureValidationResult | null): Map<string, string> {
-  const map = new Map<string, string>();
-  if (!validation) return map;
-
-  for (const id of validation.unreferencedCallouts) {
-    map.set(id, 'Unreferenced');
-  }
-  for (const id of validation.uncalledReferences) {
-    map.set(id, map.has(id) ? `${map.get(id)}, Uncalled ref.` : 'Uncalled ref.');
-  }
-  for (const m of validation.labelMismatches) {
-    const label = `Label mismatch (${m.imageIdentifier} on image)`;
-    map.set(m.textIdentifier, map.has(m.textIdentifier) ? `${map.get(m.textIdentifier)}, ${label}` : label);
-    if (m.imageIdentifier !== m.textIdentifier) {
-      map.set(m.imageIdentifier, map.has(m.imageIdentifier) ? `${map.get(m.imageIdentifier)}, ${label}` : label);
-    }
-  }
-
-  return map;
 }
