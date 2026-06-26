@@ -2,13 +2,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 import type { CalloutRow } from './OccurrencesTable';
-import { OccurrencesEditor } from './OccurrencesEditor';
+import { OccurrenceForm } from './OccurrenceForm';
+import { OccurrenceRail } from './OccurrenceRail';
 import { DocumentPreview, type DocumentPreviewHandle } from './DocumentPreview';
 import { DocumentPreviewSidebar } from './DocumentPreviewSidebar';
 import { SimilarityCluster, type SimilarityResult } from './SimilarityCluster';
 import { countFiguresForKeyword } from '../utils/figureOccurrences';
 import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
 import { figureOccurrenceKey } from '../utils/figureOccurrences';
+import { useOccurrenceEditorState } from '../hooks/useOccurrenceEditorState';
 
 type MainTab = 'callouts' | 'similarity';
 
@@ -192,16 +194,33 @@ export function KeywordDocumentView({
 
   const previewEnabled = activeTab === 'callouts' && pageCount != null && pageCount > 0;
 
+  const { activeKey, selectedRow, draft, updateDraft, selectRow } = useOccurrenceEditorState(
+    keywordRows,
+    'keyword',
+    selectedRowKey
+  );
+
+  const handleOccurrenceSelect = useCallback(
+    (row: CalloutRow) => {
+      selectRow(row);
+      if (activeTab !== 'callouts') {
+        onTabChange('callouts');
+      }
+      focusRow(row);
+    },
+    [activeTab, focusRow, onTabChange, selectRow]
+  );
+
   return (
     <div className={`flex flex-1 min-h-0 min-w-0 ${previewEnabled ? '' : 'max-w-5xl mx-auto w-full'}`}>
       <div
         className={`flex flex-col min-h-0 min-w-0 bg-white overflow-hidden ${
           previewEnabled
             ? 'flex-1 border-r border-gray-200'
-            : 'flex-1 rounded-xl shadow-sm border border-gray-200 p-8'
+            : 'flex-1 rounded-xl shadow-sm border border-gray-200'
         }`}
       >
-        <div className={previewEnabled ? 'p-4 border-b border-gray-100 shrink-0' : 'mb-4'}>
+        <div className={previewEnabled ? 'p-4 border-b border-gray-100 shrink-0' : 'p-8 pb-4 shrink-0'}>
           <h3 className="text-lg font-semibold text-gray-900">{sourceTerm}</h3>
           <p className="text-sm text-gray-500 mt-0.5">
             {conceptCount} concept{conceptCount !== 1 ? 's' : ''} ·{' '}
@@ -212,7 +231,7 @@ export function KeywordDocumentView({
 
         <div
           className={`flex items-center justify-between border-b border-gray-200 shrink-0 ${
-            previewEnabled ? 'px-4' : 'mb-4'
+            previewEnabled ? 'px-4' : 'px-8'
           }`}
         >
           <div className="flex gap-1">
@@ -253,38 +272,54 @@ export function KeywordDocumentView({
           )}
         </div>
 
-        <div className={`flex-1 min-h-0 overflow-y-auto ${previewEnabled ? 'p-3' : ''}`}>
-          {activeTab === 'callouts' ? (
-            <OccurrencesEditor
-              rows={keywordRows}
-              mode="keyword"
-              emptyMessage="No callouts extracted for this keyword yet."
-              selectedKey={selectedRowKey}
-              onSelect={focusRow}
-              onHighlightPulseHover={setHoverPulsePage}
-              compact={previewEnabled}
-            />
-          ) : (
-            <div className={previewEnabled ? 'p-1' : 'mt-4'}>
-              {similarityError && (
-                <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
-                  {similarityError}
+        <div className="flex flex-1 min-h-0">
+          <OccurrenceRail
+            rows={keywordRows}
+            mode="keyword"
+            activeKey={activeKey}
+            onSelect={handleOccurrenceSelect}
+            compact={previewEnabled}
+            className={previewEnabled ? '' : 'rounded-bl-xl'}
+          />
+
+          <div className={`flex-1 min-h-0 min-w-0 overflow-y-auto ${previewEnabled ? '' : 'pb-8'}`}>
+            {activeTab === 'callouts' ? (
+              keywordRows.length === 0 ? (
+                <div className="text-sm text-gray-500 text-center py-12 px-6">
+                  No callouts extracted for this keyword yet.
                 </div>
-              )}
-              {!similarityResult && !isAnalyzing && (
-                <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
-                  Click &quot;Analyse&quot; to map definition similarity.
-                </div>
-              )}
-              {isAnalyzing && (
-                <div className="flex items-center justify-center py-12 text-indigo-700 text-sm">
-                  <Loader2 className="animate-spin mr-2" size={18} />
-                  Computing embeddings…
-                </div>
-              )}
-              {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
-            </div>
-          )}
+              ) : (
+                <OccurrenceForm
+                  selectedRow={selectedRow}
+                  draft={draft}
+                  mode="keyword"
+                  onDraftChange={updateDraft}
+                  onHighlightPulseHover={setHoverPulsePage}
+                  compact={previewEnabled}
+                />
+              )
+            ) : (
+              <div className={previewEnabled ? 'p-3' : 'p-5'}>
+                {similarityError && (
+                  <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
+                    {similarityError}
+                  </div>
+                )}
+                {!similarityResult && !isAnalyzing && (
+                  <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
+                    Click &quot;Analyse&quot; to map definition similarity.
+                  </div>
+                )}
+                {isAnalyzing && (
+                  <div className="flex items-center justify-center py-12 text-indigo-700 text-sm">
+                    <Loader2 className="animate-spin mr-2" size={18} />
+                    Computing embeddings…
+                  </div>
+                )}
+                {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
