@@ -1,5 +1,5 @@
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import type { HighlightBox, HighlightPulseMode } from '../types/documentPreview';
 import { HighlightOverlay } from './HighlightOverlay';
 import { usePageImage } from '../hooks/usePageImage';
@@ -17,6 +17,10 @@ interface DocumentPreviewProps {
   hoverPulsePage: number | null;
   autoPulsePage: number | null;
   autoPulseGeneration: number;
+  matchIndex?: number | null;
+  matchCount?: number;
+  onPrevMatch?: () => void;
+  onNextMatch?: () => void;
   onFocusedPageChange: (pageNumber: number) => void;
   onScrollSettled: (pageNumber: number) => void;
   onFindOnPage?: () => void;
@@ -147,6 +151,10 @@ export const DocumentPreview = forwardRef<DocumentPreviewHandle, DocumentPreview
     hoverPulsePage,
     autoPulsePage,
     autoPulseGeneration,
+    matchIndex,
+    matchCount = 0,
+    onPrevMatch,
+    onNextMatch,
     onFocusedPageChange,
     onScrollSettled,
     onFindOnPage,
@@ -259,6 +267,29 @@ export const DocumentPreview = forwardRef<DocumentPreviewHandle, DocumentPreview
             {focusedPage ? ` · viewing page ${focusedPage}` : ''}
           </span>
           <span className="flex items-center gap-2">
+            {matchCount > 1 && onPrevMatch && onNextMatch && (
+              <span className="inline-flex items-center gap-0.5 rounded border border-gray-200 bg-gray-50">
+                <button
+                  type="button"
+                  onClick={onPrevMatch}
+                  title="Previous match"
+                  className="p-1 rounded-l hover:bg-gray-100 text-gray-600"
+                >
+                  <ChevronLeft size={14} />
+                </button>
+                <span className="px-1 tabular-nums text-gray-600 min-w-[4.5rem] text-center">
+                  {matchIndex != null ? matchIndex + 1 : '–'} / {matchCount}
+                </span>
+                <button
+                  type="button"
+                  onClick={onNextMatch}
+                  title="Next match"
+                  className="p-1 rounded-r hover:bg-gray-100 text-gray-600"
+                >
+                  <ChevronRight size={14} />
+                </button>
+              </span>
+            )}
             {locateStatus === 'loading' && (
               <span className="inline-flex items-center text-blue-600">
                 <Loader2 className="animate-spin mr-1" size={12} />

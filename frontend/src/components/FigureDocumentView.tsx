@@ -110,7 +110,6 @@ export function FigureDocumentView({
           {
             params: {
               term: warning.sourceTerm ?? '',
-              callout: warning.calloutId,
               referencePage,
             },
           }

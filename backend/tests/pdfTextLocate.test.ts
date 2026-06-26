@@ -6,6 +6,8 @@ import {
   calloutSearchPatterns,
   findCalloutBoxes,
   findTermBoxes,
+  findTermOccurrenceGroups,
+  locateAllTermMatchesInDocument,
   locateOnPdfPage,
   locateOnPdfPageWithAdjacent,
   pickNearestPage,
@@ -16,10 +18,10 @@ const fixturePath = path.resolve(__dirname, '../../test_data/Instructionbook_100
 
 describe('adjacentPageSearchOrder', () => {
   it('searches N, then N−1, then N+1 within bounds', () => {
-    expect(adjacentPageSearchOrder(5, 10, 1)).toEqual([5, 4, 6]);
-    expect(adjacentPageSearchOrder(1, 10, 1)).toEqual([1, 2]);
-    expect(adjacentPageSearchOrder(10, 10, 1)).toEqual([10, 9]);
-    expect(adjacentPageSearchOrder(1, 1, 1)).toEqual([1]);
+    expect(adjacentPageSearchOrder(5, 10)).toEqual([5, 4, 6]);
+    expect(adjacentPageSearchOrder(1, 10)).toEqual([1, 2]);
+    expect(adjacentPageSearchOrder(10, 10)).toEqual([10, 9]);
+    expect(adjacentPageSearchOrder(1, 1)).toEqual([1]);
   });
 });
 
@@ -35,22 +37,25 @@ describe('findTermBoxes', () => {
     expect(boxes.map(box => box.y)).toEqual([200, 220]);
   });
 
-  it('falls back to individual tokens when words are separated by other text', () => {
+  it('does not match partial tokens when the full phrase is absent', () => {
     const runs = [
       { str: 'sealing', x: 100, y: 200, width: 50, height: 12 },
       { str: 'plate', x: 100, y: 210, width: 40, height: 12 },
       { str: 'cover', x: 100, y: 220, width: 40, height: 12 },
     ];
 
-    const boxes = findTermBoxes(runs, 'sealing cover');
-    expect(boxes).toHaveLength(2);
-    expect(boxes.map(box => box.y)).toEqual([200, 220]);
+    expect(findTermBoxes(runs, 'sealing cover')).toHaveLength(0);
   });
 
-  it('returns empty when not all tokens are present', () => {
-    const runs = [{ str: 'sealing', x: 100, y: 200, width: 50, height: 12 }];
+  it('groups multi-run matches as one occurrence', () => {
+    const runs = [
+      { str: 'sealing', x: 100, y: 200, width: 50, height: 12 },
+      { str: 'cover', x: 100, y: 220, width: 40, height: 12 },
+    ];
 
-    expect(findTermBoxes(runs, 'sealing cover')).toHaveLength(0);
+    const groups = findTermOccurrenceGroups(runs, 'sealing cover');
+    expect(groups).toHaveLength(1);
+    expect(groups[0]).toHaveLength(2);
   });
 });
 
@@ -108,7 +113,7 @@ describe('locateOnPdfPageWithAdjacent', () => {
     expect(result.boxes.every(box => box.matchType === 'term')).toBe(true);
   }, 30000);
 
-  it('searches adjacent pages for the term even when a callout label exists on the figure page', async () => {
+  it('does not fall back to callout when term is missing on occurrence page', async () => {
     const result = await locateOnPdfPageWithAdjacent(fixturePath, 15, {
       term: 'BioDrill',
       callout: '1',
@@ -118,18 +123,26 @@ describe('locateOnPdfPageWithAdjacent', () => {
     expect(result.boxes.every(box => box.matchType === 'term')).toBe(true);
   }, 30000);
 
+  it('returns no match when only callout is provided', async () => {
+    const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { callout: '1' });
+    expect(result.boxes).toHaveLength(0);
+    expect(result.matchedPage).toBeNull();
+  }, 30000);
+
   it('prefers the requested page over an adjacent page when both match', async () => {
     const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { term: 'BioDrill' });
     expect(result.matchedPage).toBe(14);
     expect(result.boxes.length).toBeGreaterThan(0);
   }, 30000);
 
-  it('falls back to callout legend when term is empty', async () => {
-    const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { callout: '1' });
-    if (result.boxes.length > 0) {
-      expect(result.boxes.every(box => box.matchType === 'callout')).toBe(true);
-    }
-  }, 30000);
+  it('finds all document occurrences of a term', async () => {
+    const result = await locateAllTermMatchesInDocument(fixturePath, 'BioDrill');
+    expect(result.matches.length).toBeGreaterThan(0);
+    expect(result.matches.every(match => match.boxes.length > 0)).toBe(true);
+    expect(result.matches.every(match => match.boxes.every(box => box.matchType === 'term'))).toBe(
+      true
+    );
+  }, 60000);
 
   it('uses referencePage to choose among adjacent hits', async () => {
     const onPage = await locateOnPdfPage(fixturePath, 15, { term: 'BioDrill' });
@@ -152,8 +165,8 @@ describe('locateOnPdfPageWithAdjacent', () => {
       15,
       { term: 'BioDrill' },
       undefined,
-      50
+      20
     );
-    expect(withRefFarFromNeighbor.matchedPage).toBe(20); // wait, radius=5 around 15 is 10..20, 20 is closest to 50
+    expect(withRefFarFromNeighbor.matchedPage).toBe(14);
   }, 30000);
 });

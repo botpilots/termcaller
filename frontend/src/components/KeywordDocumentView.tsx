@@ -6,7 +6,7 @@ import {
   KeywordCurationPanel,
   type KeywordCurationState,
 } from './KeywordCurationPanel';
-import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
+import type { HighlightBox, TermDocumentMatch, TermDocumentMatchesResult } from '../types/documentPreview';
 
 interface KeywordDocumentViewProps {
   projectId: string;
@@ -16,8 +16,52 @@ interface KeywordDocumentViewProps {
   figureCount: number;
 }
 
-function firstCalloutId(identifier: string): string {
-  return identifier.split(',')[0]?.trim() ?? identifier;
+function pickInitialMatchIndex(matches: TermDocumentMatch[], hintPages: number[]): number {
+  if (matches.length === 0) return 0;
+  if (hintPages.length === 0) return 0;
+
+  for (const page of hintPages) {
+    const index = matches.findIndex(match => match.pageNumber === page);
+    if (index >= 0) return index;
+  }
+
+  const referencePage = hintPages[0]!;
+  let bestIndex = 0;
+  let bestDistance = Infinity;
+  for (let index = 0; index < matches.length; index++) {
+    const distance = Math.abs(matches[index]!.pageNumber - referencePage);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = index;
+    }
+  }
+  return bestIndex;
+}
+
+function matchesToHighlightsByPage(
+  matches: TermDocumentMatch[],
+  activeMatchIndex: number | null
+): Record<number, HighlightBox[]> {
+  const byPage: Record<number, HighlightBox[]> = {};
+
+  matches.forEach((match, index) => {
+    const isActive = activeMatchIndex === index;
+    for (const box of match.boxes) {
+      const entry: HighlightBox = {
+        ...box,
+        pageNumber: match.pageNumber,
+        matchType: 'term',
+      };
+      if (!byPage[match.pageNumber]) {
+        byPage[match.pageNumber] = [];
+      }
+      byPage[match.pageNumber]!.push(entry);
+      // Dim non-active matches via opacity handled in overlay later - for now show all
+      void isActive;
+    }
+  });
+
+  return byPage;
 }
 
 export function KeywordDocumentView({
@@ -32,7 +76,8 @@ export function KeywordDocumentView({
   const [curationLoadError, setCurationLoadError] = useState<string | null>(null);
 
   const [focusedPage, setFocusedPage] = useState<number | null>(null);
-  const [highlightsByPage, setHighlightsByPage] = useState<Record<number, HighlightBox[]>>({});
+  const [documentMatches, setDocumentMatches] = useState<TermDocumentMatch[]>([]);
+  const [activeMatchIndex, setActiveMatchIndex] = useState<number | null>(null);
   const [locateStatus, setLocateStatus] = useState<'idle' | 'loading' | 'hit' | 'miss'>('idle');
   const [locateHint, setLocateHint] = useState<string | null>(null);
   const [autoPulsePage, setAutoPulsePage] = useState<number | null>(null);
@@ -40,9 +85,6 @@ export function KeywordDocumentView({
   const scrollSettledPageRef = useRef<number | null>(null);
   const locateReadyPageRef = useRef<number | null>(null);
   const pulseGenerationRef = useRef(0);
-  const highlightsByPageRef = useRef(highlightsByPage);
-  highlightsByPageRef.current = highlightsByPage;
-
   const autoPulseConsumedRef = useRef(false);
   const previewRef = useRef<DocumentPreviewHandle>(null);
 
@@ -53,16 +95,13 @@ export function KeywordDocumentView({
   }, []);
 
   const maybeStartAutoPulse = useCallback(
-    (pageNumber: number, boxes?: HighlightBox[]) => {
+    (pageNumber: number) => {
       if (autoPulseConsumedRef.current) return;
       if (locateReadyPageRef.current !== pageNumber) return;
 
-      const pageBoxes = boxes ?? highlightsByPageRef.current[pageNumber];
-      if (!pageBoxes?.length) return;
-
-      const viewportPage = previewRef.current?.getViewportCenterPage();
       const scrollReady =
-        scrollSettledPageRef.current === pageNumber || viewportPage === pageNumber;
+        scrollSettledPageRef.current === pageNumber ||
+        previewRef.current?.getViewportCenterPage() === pageNumber;
       if (!scrollReady) return;
 
       autoPulseConsumedRef.current = true;
@@ -102,148 +141,110 @@ export function KeywordDocumentView({
     void fetchCurationState();
   }, [fetchCurationState]);
 
-  const locateFigure = useCallback(
-    async (
-      pageNumber: number,
-      identifiers: string,
-      referencePage: number,
-      mergeIntoExisting = false
-    ) => {
-      setLocateStatus('loading');
-      setLocateHint(null);
+  const hintPages = useMemo(() => {
+    const pages = new Set<number>();
+    for (const figure of curationState?.concept?.figures ?? []) {
+      pages.add(figure.pageNumber);
+    }
+    return [...pages].sort((a, b) => a - b);
+  }, [curationState]);
 
-      try {
-        const response = await axios.get<PageLocateResult>(
-          `/api/projects/${projectId}/pages/${pageNumber}/locate`,
-          {
-            params: {
-              term: sourceTerm,
-              callout: firstCalloutId(identifiers),
-              referencePage,
-            },
-          }
-        );
-
-        const boxes = response.data.boxes ?? [];
-        const matchedPage = response.data.matchedPage ?? pageNumber;
-
-        if (boxes.length > 0) {
-          setHighlightsByPage(prev => {
-            if (!mergeIntoExisting) {
-              return { [matchedPage]: boxes };
-            }
-            return {
-              ...prev,
-              [matchedPage]: [...(prev[matchedPage] ?? []), ...boxes],
-            };
-          });
-          setLocateStatus('hit');
-          locateReadyPageRef.current = matchedPage;
-          if (matchedPage !== pageNumber) {
-            setLocateHint(`Matched on page ${matchedPage}`);
-            setFocusedPage(matchedPage);
-          }
-          maybeStartAutoPulse(matchedPage, boxes);
-          return matchedPage;
-        }
-
-        if (!mergeIntoExisting) {
-          setHighlightsByPage({});
-          setLocateStatus('miss');
-        }
-        return null;
-      } catch {
-        if (!mergeIntoExisting) {
-          setLocateStatus('miss');
-        }
-        return null;
-      }
-    },
-    [projectId, sourceTerm, maybeStartAutoPulse]
-  );
-
-  const locateAllConceptFigures = useCallback(
-    async (state: KeywordCurationState) => {
-      const figures = state.concept?.figures ?? [];
-      if (figures.length === 0) {
-        setHighlightsByPage({});
-        setLocateStatus('idle');
-        return;
-      }
-
+  const locateAllTermMatches = useCallback(
+    async (term: string, pages: number[]) => {
       setLocateStatus('loading');
       setLocateHint(null);
       scrollSettledPageRef.current = null;
       locateReadyPageRef.current = null;
       autoPulseConsumedRef.current = false;
       setAutoPulsePage(null);
+      setDocumentMatches([]);
+      setActiveMatchIndex(null);
 
-      const referencePage =
-        previewRef.current?.getViewportCenterPage() ?? figures[0]!.pageNumber;
+      try {
+        const response = await axios.get<TermDocumentMatchesResult>(
+          `/api/projects/${projectId}/term-matches`,
+          { params: { term } }
+        );
 
-      const results = await Promise.all(
-        figures.map(figure =>
-          axios
-            .get<PageLocateResult>(`/api/projects/${projectId}/pages/${figure.pageNumber}/locate`, {
-              params: {
-                term: sourceTerm,
-                callout: firstCalloutId(figure.identifiers),
-                referencePage,
-              },
-            })
-            .then(response => ({
-              figure,
-              boxes: response.data.boxes ?? [],
-              matchedPage: response.data.matchedPage ?? figure.pageNumber,
-            }))
-            .catch(() => ({
-              figure,
-              boxes: [] as HighlightBox[],
-              matchedPage: figure.pageNumber,
-            }))
-        )
-      );
+        const matches = response.data.matches ?? [];
+        setDocumentMatches(matches);
 
-      const merged: Record<number, HighlightBox[]> = {};
-      let firstHitPage: number | null = null;
-
-      for (const result of results) {
-        if (result.boxes.length > 0) {
-          const page = result.matchedPage;
-          merged[page] = [...(merged[page] ?? []), ...result.boxes];
-          if (firstHitPage === null) {
-            firstHitPage = page;
-          }
+        if (matches.length > 0) {
+          const initialIndex = pickInitialMatchIndex(matches, pages);
+          const initialMatch = matches[initialIndex]!;
+          setActiveMatchIndex(initialIndex);
+          setLocateStatus('hit');
+          locateReadyPageRef.current = initialMatch.pageNumber;
+          setFocusedPage(initialMatch.pageNumber);
+          setLocateHint(`${matches.length} match${matches.length !== 1 ? 'es' : ''} in document`);
+          return;
         }
-      }
 
-      setHighlightsByPage(merged);
-      if (firstHitPage !== null) {
-        setLocateStatus('hit');
-        locateReadyPageRef.current = firstHitPage;
-        setFocusedPage(firstHitPage);
-        maybeStartAutoPulse(firstHitPage, merged[firstHitPage]);
-      } else {
         setLocateStatus('miss');
-        setFocusedPage(figures[0]!.pageNumber);
+        if (pages.length > 0) {
+          setFocusedPage(pages[0]!);
+          setLocateHint('Term not found in PDF text layer');
+        }
+      } catch {
+        setLocateStatus('miss');
+        setLocateHint('Failed to search document');
       }
     },
-    [projectId, sourceTerm, maybeStartAutoPulse]
+    [projectId]
   );
 
   useEffect(() => {
-    if (!curationState?.concept) return;
-    void locateAllConceptFigures(curationState);
-  }, [curationState, locateAllConceptFigures]);
+    if (!sourceTerm.trim()) return;
+    void locateAllTermMatches(sourceTerm, hintPages);
+  }, [sourceTerm, hintPages, locateAllTermMatches]);
 
   useEffect(() => {
     const page = locateReadyPageRef.current;
     if (page == null) return;
     maybeStartAutoPulse(page);
-  }, [highlightsByPage, maybeStartAutoPulse]);
+  }, [documentMatches, activeMatchIndex, maybeStartAutoPulse]);
+
+  const highlightsByPage = useMemo(
+    () => matchesToHighlightsByPage(documentMatches, activeMatchIndex),
+    [documentMatches, activeMatchIndex]
+  );
+
+  const goToMatch = useCallback(
+    (index: number) => {
+      const match = documentMatches[index];
+      if (!match) return;
+
+      scrollSettledPageRef.current = null;
+      locateReadyPageRef.current = null;
+      autoPulseConsumedRef.current = false;
+      setAutoPulsePage(null);
+      setActiveMatchIndex(index);
+      locateReadyPageRef.current = match.pageNumber;
+      setFocusedPage(match.pageNumber);
+      setLocateHint(
+        `Match ${index + 1} of ${documentMatches.length} · page ${match.pageNumber}`
+      );
+    },
+    [documentMatches]
+  );
+
+  const handlePrevMatch = useCallback(() => {
+    if (documentMatches.length === 0 || activeMatchIndex === null) return;
+    const nextIndex = (activeMatchIndex - 1 + documentMatches.length) % documentMatches.length;
+    goToMatch(nextIndex);
+  }, [activeMatchIndex, documentMatches.length, goToMatch]);
+
+  const handleNextMatch = useCallback(() => {
+    if (documentMatches.length === 0 || activeMatchIndex === null) return;
+    const nextIndex = (activeMatchIndex + 1) % documentMatches.length;
+    goToMatch(nextIndex);
+  }, [activeMatchIndex, documentMatches.length, goToMatch]);
 
   const occurrencePages = useMemo(() => {
     const pages = new Set<number>();
+    for (const match of documentMatches) {
+      pages.add(match.pageNumber);
+    }
     for (const figure of curationState?.concept?.figures ?? []) {
       pages.add(figure.pageNumber);
     }
@@ -251,21 +252,27 @@ export function KeywordDocumentView({
       pages.add(warning.pageNumber);
     }
     return [...pages].sort((a, b) => a - b);
-  }, [curationState]);
+  }, [curationState, documentMatches]);
 
   const handleWarningClick = useCallback(
     (warning: KeywordCurationState['definitionWarnings'][number]) => {
-      const referencePage =
-        previewRef.current?.getViewportCenterPage() ?? focusedPage ?? warning.pageNumber;
       scrollSettledPageRef.current = null;
       locateReadyPageRef.current = null;
       autoPulseConsumedRef.current = false;
       setAutoPulsePage(null);
       setLocateHint(null);
       setFocusedPage(warning.pageNumber);
-      void locateFigure(warning.pageNumber, warning.identifiers, referencePage, false);
+
+      const matchOnPage = documentMatches.findIndex(
+        match => match.pageNumber === warning.pageNumber
+      );
+      if (matchOnPage >= 0) {
+        goToMatch(matchOnPage);
+      } else {
+        setLocateHint(`No text-layer match on page ${warning.pageNumber}`);
+      }
     },
-    [focusedPage, locateFigure]
+    [documentMatches, goToMatch]
   );
 
   const previewEnabled = pageCount != null && pageCount > 0;
@@ -309,6 +316,10 @@ export function KeywordDocumentView({
           hoverPulsePage={null}
           autoPulsePage={autoPulsePage}
           autoPulseGeneration={autoPulseGeneration}
+          matchIndex={activeMatchIndex}
+          matchCount={documentMatches.length}
+          onPrevMatch={documentMatches.length > 1 ? handlePrevMatch : undefined}
+          onNextMatch={documentMatches.length > 1 ? handleNextMatch : undefined}
           onScrollSettled={handleScrollSettled}
           onFocusedPageChange={pageNumber => {
             setFocusedPage(pageNumber);

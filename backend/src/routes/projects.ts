@@ -24,7 +24,7 @@ import {
 import { extractPageData } from '../services/pdfParser.js';
 import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import { ensurePageCacheDir, pageCachePath } from '../utils/pageImageCache.js';
-import { locateOnPdfPageWithAdjacent } from '../utils/pdfTextLocate.js';
+import { locateAllTermMatchesInDocument, locateOnPdfPageWithAdjacent } from '../utils/pdfTextLocate.js';
 
 const router = express.Router();
 
@@ -428,6 +428,30 @@ router.get('/:id/pages/:pageNumber/image', authenticateToken, async (req: AuthRe
   } catch (error) {
     console.error('[Pages] Failed to serve page image:', error);
     res.status(500).json({ error: 'Failed to render page image' });
+  }
+});
+
+// All text-layer occurrences of a term across the document
+router.get('/:id/term-matches', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  const term = typeof req.query.term === 'string' ? req.query.term : '';
+  if (!term.trim()) {
+    return res.status(400).json({ error: 'Provide term query parameter' });
+  }
+
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
+    }
+
+    const result = await locateAllTermMatchesInDocument(loaded.pdfPath, term);
+    res.json(result);
+  } catch (error) {
+    console.error('[Pages] Term matches failed:', error);
+    res.status(500).json({ error: 'Failed to locate term in document' });
   }
 });
 

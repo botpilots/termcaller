@@ -15,6 +15,15 @@ export interface PageLocateResult {
   imageHeight: number;
 }
 
+export interface TermDocumentMatch {
+  pageNumber: number;
+  boxes: HighlightBox[];
+}
+
+export interface TermDocumentMatchesResult {
+  matches: TermDocumentMatch[];
+}
+
 export function occurrenceRowKey(row: { pageNumber: number; figureNumber?: string; identifier: string }): string {
   return `${row.pageNumber}:${row.figureNumber ?? ''}:${row.identifier}`;
 }
