@@ -1,8 +1,8 @@
 /** Concurrent workers for full-document PDF page scans (Extract + Validate). */
-export const PDF_PAGE_CONCURRENCY = 6;
+export const PDF_PAGE_CONCURRENCY = 8;
 
 /** DPI used when rendering PDF pages for Gemini vision input. */
-export const PDF_RENDER_DENSITY = 300;
+export const PDF_RENDER_DENSITY = 200;
 
 /** Lossless WebP — smaller payloads than PNG at the same DPI. */
 export const PDF_RENDER_FORMAT = 'WEBP' as const;

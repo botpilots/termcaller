@@ -56,7 +56,7 @@ const partSchema = {
     },
     sourceTerm: {
       type: Type.STRING,
-      description: 'Singular lowercase part name from text. Empty if not found.',
+      description: 'Singular part names as printed excluding any dimensions, units, counts, alphabetic suffixes and descriptive sentences. Empty if not found.',
     },
     functionalDescription: {
       type: Type.STRING,
@@ -156,17 +156,25 @@ export async function analyzePageWithGemini(
   });
 
   const initialPrompt = `
-You are a technical manual callout extractor. Scan the page image and list labeled parts — no analysis beyond what is visible.
+You are a technical manual callout extractor. Scan the page image and list labeled parts. Do no analysis beyond what is visible.
 
-INSTRUCTIONS:
-1. If the page has no illustrations or technical diagrams with callout labels, return {"figures": []}. Do not invent figures or callouts.
-2. Return one entry in figures per illustration, ordered top-to-bottom then left-to-right. Do not include figures that have no callout labels.
-3. For each illustration, list every callout label (arrow/leader identifiers) in parts grouped by the part they point at.
-4. Group callouts that point at the same part — list all labels in calloutIdentifiers.
-5. Name each part once (sourceTerm): one text lookup per group. Duplicate arrows to the same part do not need separate lookups.
-6. If no direct label exists, an indirect reference is fine (e.g. "location of all hex screws").
-7. Use singular lowercase nouns. Empty string if still unnamed.
-8. Write a concise, general functional description — not the illustration's step action.
+EXTRACTION RULES:
+- Return {"figures": []} if the page has no technical diagrams with callout labels.
+- Do not invent figures or callouts.
+- Order figures top-to-bottom, then left-to-right.
+- Exclude figures without callout labels.
+- Extract ONLY physical spare parts.
+- SKIP instructions, sentences, dimensions, torque specs.
+- SKIP generic hardware (screws, washers, nuts, bolts) labeled ONLY with dimensions/standards (e.g., "M4x8 DIN 912", "ø4 DIN 6798", "Din 125").
+
+GROUPING & NAMING:
+- Group callouts pointing to the same part (list all labels in calloutIdentifiers).
+- Name each part once (sourceTerm). Look at captions if the label itself isn't a name.
+- sourceTerm must be singular, exactly as printed.
+- OMIT dimensions, sizes, counts, torque, units, and alphabetic suffixes (e.g., "nut" not "M30 nut" or "nut (3)").
+- KEEP compound names ("electrical nut") and type designators ("R needle", "O-ring").
+- Leave sourceTerm empty if unnamed.
+- functionalDescription: Briefly state what the part is/does. DO NOT describe the step action on the page.
 `;
 
   try {
@@ -191,7 +199,7 @@ INSTRUCTIONS:
 
       const adjacentImages = await fetchAdjacentImages();
       const followUpContents: Array<string | { inlineData: { mimeType: string; data: string } }> = [
-        `Callout(s) ${unresolvedIds.join(', ')} still have empty sourceTerm. Search adjacent pages for a name. One lookup per grouped callout set is enough. Keep the figures array order unchanged. Keep empty string if still not found.`,
+        `Callout(s) ${unresolvedIds.join(', ')} still have empty sourceTerm. Search adjacent pages for a name. One lookup per grouped callout set is enough. Keep figures order unchanged. Apply the same naming exclusions (no dimensions, counts, etc.). Return empty string if still not found.`,
       ];
 
       if (adjacentImages.prevImageBase64) {

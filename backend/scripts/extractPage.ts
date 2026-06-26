@@ -22,7 +22,6 @@ async function main() {
   console.log('\n--- Page render ---');
   console.log({
     imageMimeType: page.imageMimeType,
-    hasIllustrations: page.hasIllustrations,
     textChars: page.text.length,
     approxImageKB: Math.round(imageBytes / 1024),
     base64Chars: page.imageBase64.length,
@@ -32,11 +31,6 @@ async function main() {
 
   if (!runGemini) {
     console.log('\nAdd --gemini to call the live API.');
-    return;
-  }
-
-  if (!page.hasIllustrations) {
-    console.log('\nPage has no illustrations — skipping Gemini.');
     return;
   }
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
+    "test:timing": "vitest run pdfPreprocessingTiming --reporter=verbose",
     "build:corpus": "tsx scripts/buildManualCorpus.ts",
     "ocr:pdf": "tsx scripts/ocrPdfToText.ts",
     "export:tbx": "tsx scripts/exportTbxArtifacts.ts",

@@ -1,0 +1,1974 @@
+{
+  "projectId": "57fa9837-606a-4781-8b1f-0378fc8e6884",
+  "projectName": "Planmed_Sophie_Spare_Parts_Manual.pdf",
+  "pdfFile": "Planmed_Sophie_Spare_Parts_Manual.pdf",
+  "extractionMode": "baseline_with_messy_hardware",
+  "counts": {
+    "uniqueKeywords": 490,
+    "concepts": 534,
+    "illustrations": 67,
+    "callouts": 676
+  },
+  "keywords": [
+    {
+      "sourceTerm": "Abdomen guard",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Adapter",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Adapter lower plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Adapter upper plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Adjustable chain link",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "AEC-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "AEC-Calibration phantom",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "AEC-sensor assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Allen key",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Anode motor capacitor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Arm assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Aspa-Screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Ball bearing",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Ball bearing holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Base casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base display assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Base display cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base display PCB",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Base electrical assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base insulation plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Base rear cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Beam window",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Beam window cover",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bearing adjusting ring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bearing holding bracket",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bearing locking bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bearing screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Biopsy shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bottom plate",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Bracket",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Brake block",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Brake frame",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bucky cable holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bucky grid control cable",
+      "calloutCount": 8
+    },
+    {
+      "sourceTerm": "Bucky grid grounding cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bucky grid reference pcb",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bucky motor",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bucky R2",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bucky ref. PCB",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bulb",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Bush",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Bushing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-ARM",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "C-arm axle inner bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm axle outer bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm bearing holding plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm center frame assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm center frame casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm center frame complete",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm locking bolt",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm locking knob",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "C-arm locking nut assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm lower cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm rotation AC-motor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm rotation axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm top cover",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "C-arm top cover assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm vertical cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "C-arm vertical cover support plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable bracket assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable guide",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable guide assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable holding bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cable strip anchor",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Cable tie holder",
+      "calloutCount": 7
+    },
+    {
+      "sourceTerm": "Carbon fiber paddleR2",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Carbon fiber R2",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cass. micro holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cassette Kodak MIN-R2",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Cassette Mamoray & MR Detail",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Cassette mechanism spring pin",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cassette shelf casting assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cassette table top cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cassette table top cover Stereotactics assembly, Daylight",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Center frame cover plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Chain assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Chain link plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Chain tensioning screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Chin guard",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Classic optional display cable 2.",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Clutch disk",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Clutch fork",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Clutch spring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Collimator assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Collimator circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Collimator front cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "COLLIMATOR PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Collimator side cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Collimator wedge",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Column casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Column rear cover fastening plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Complete gas-spring assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Complete telescopic column electronics installation",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Compression mechanism assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Compression motor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Compression paddle",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Compression worm-screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Connector bracket",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Contolr panel plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Control panel assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Control panel housing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Control panel membrane",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Control panel support plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Corner plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Cytoguide device",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Daylight extension plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Daylight ID System with cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Densitometer",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 125",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 127",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 471",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Din 6798",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 6799",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 7984",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 7985",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Din 7991",
+      "calloutCount": 18
+    },
+    {
+      "sourceTerm": "Din 84",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Din 912",
+      "calloutCount": 8
+    },
+    {
+      "sourceTerm": "Din 913",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 914",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Din 915",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 916",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Din 934",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Din 936",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "DIN 963",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Display circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Display PCB",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Display spacing bush",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Drive belt",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Drive chain",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Drum assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Drum assembly with release trigger Stereotactic device",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Drum latch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Emergency release clutch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Emergency release moment adjustment ring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "End cap",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "End piece",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Exposure control PCB",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Exposure switch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Exposure switch assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Exposure switch base USA",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Exposure switch cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Exposure switch cable assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Exposure switch frame assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Extended spot paddle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Extension cable for mobile unit",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fan",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fan casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fan support",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fastening piece",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fastening plate",
+      "calloutCount": 6
+    },
+    {
+      "sourceTerm": "Fastening plta",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Feed back measuring cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Filter",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Filter ladder assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Finger switch assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fluorescent screen",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Folding radiation shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Foot control assembly",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Foot control cable",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Foot control casing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Foot control casting",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Foot control cover",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Foot control extension cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Foot control spring",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Footcontrol cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Footcontrol cable TM",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Force sensor assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Force sensor spiral cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Friction piece",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Friction spring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Front axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Front collector circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Front cover plate",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Front wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Front wheel axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "FRONTCOLLECTOR PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Fuse holder cap",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Gas-spring assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Gas-spring lower axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Gas-spring tension adjuster assy",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Gas-spring upper axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator power spiral cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator to AEC sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator to collimator cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator to labeling head cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator to Mag.control cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Generator to shelf collector cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "GN615 KM5",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Grid",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Grommet",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Guide block",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Guide bushing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Guide nut",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Guide plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hair cursor attachment",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hall detector bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hall sensor bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Handle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Handle fixing plate II",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Handle washer",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Head support arm, left",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Head support arm, right",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hinge",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hinge bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hinge screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hood",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Hood assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hood bottom cover plate, left",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Hood bottom cover plate, right",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Hood lug, left",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Hood lug, right",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Inner compression mech. assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Inner compression mechanism casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Insulation sheet",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Label writer with adapter cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Labeling circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Labeling head",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Labeling head holder assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Labeling head microswitch cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lamp assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Large cassette detector cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Large cassette microswitch assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Led sleeve",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Left C-arm side panel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left lower cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left lower paddle holder assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left platen sensor cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left side dummy wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left side paddle holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Left side table guide assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Levelling foot",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lever assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lever holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift down Hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift motor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift motor assembly",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Lift motor capacitor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift motor capacitor cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift motor ground cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Lift motor pulse cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Lift motor warm screw nut assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lift ref. PCB",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Lift up Hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lifting handle",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Linear ball bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Linear ball-bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Linear ball-bearing assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Linear bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Linear bearing assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Linear bearing bar",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Livingston printer cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking knob adjuster",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking knob base",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking knob limiter",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking lever",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking mech. frame",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking mech. trigger",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking pin",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Locking ring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lower chainwheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lower chainwheel axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lower chainwheel bearing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Lower cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag bearing bush",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag control circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "MAG CONTROL PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag down hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag nut collar",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag pulse hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag up hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag.down Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag.pulse Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "MAG/LOAD clamp",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "MAG/LOAD DC-motor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "MAG/LOAD motor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mag/Load motor rotation sensor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Magn.up Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Magnet",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Magnet holder",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Magnet holder & magnet",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Magnet holder assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Magnet holder sleeve",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Main axle assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mains filter ground cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains filter input cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains filter output cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains Fuse",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mains fuse input cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains fuse output cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains input cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mains switch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mains voltage spiral cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Mammographic remote control cover",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Microswitch holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Microswitch plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mirror",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Mirror assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Motor attachment bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Motor cable",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Motor fixing bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "New floating Mag/Load worm screw assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "New worm screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Nut",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Nut assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "O-ring",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Opto detector plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Opto fixing plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Perforated biopsy paddle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pin",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pin-extracting tool E-CONNECTOR",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pin-extracting tool MINIFIT",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pin-extracting tool UMNL",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Planet adapter",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Planmed cytoguide adaptation",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Planmed Cytoguide biopsy unit",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Plastic able tie",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Plastic adapter",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Plastic cable tie",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Plastic cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Plastic PCB clip",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Plastic spacer",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Plate nut",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Plug",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Power connector holder bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Power connector screw holder bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Power connector spacer",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Power spiral cable",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Power Supply assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Power supply signal cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Power supply signal cables assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Press down Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Press down hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Press up Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Press up hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Protection cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Protective curtain",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Protective curtain guide",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pulse plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Pulse plate holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Quide plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Radiation shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear collector circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear collector PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear collector to front collector cable",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Rear cover assembly",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Rear Cpu PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear processor circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear software chip PLCC",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rear wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rectangular biopsy paddle",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Release Hall-cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Release hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Remote control cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Remote control circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right C-arm side panel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right lower cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right lower paddle holder assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right platen sensor cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right side paddle holder",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Right side table guide assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation bottom Hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation motor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation motor capacitor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation reference circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation reference PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rotation sensor assy",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Rotation up Hall-sensor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Rubber pad",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Rubber stopper",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "screw",
+      "calloutCount": 9
+    },
+    {
+      "sourceTerm": "Screw set",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Sensitometer",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Sensor beam interrupter bracket",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Shelf collector circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Shelf collector PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Shield fixing plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Shock absorber assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Side cover plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Side panel switch cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Side spring assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Signal spiral cable",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Sledge casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Sledge casting assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Sleeve",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Slide knob",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Slide piece frame",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Small cassette detector cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Small cassette microswitch assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Software chip",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Sophie remote display",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Spacer",
+      "calloutCount": 6
+    },
+    {
+      "sourceTerm": "Spacer bushing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Special tool kit",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Spiral cable",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Spring",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Spring guide",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Spring plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Star printer cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stationary column assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stationary column rear cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stationary column rear panel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stationary link piece",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stationary radiation shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stepper motor",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Stepper motor assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stereo beam limiter assy",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stereo control cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stereo control PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stereotactic control cable",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Stereotactic security cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stop bush",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stop switch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stop switch washer",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Stopping collar",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Strain gauge bracket",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Strain relief bracket",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Strain reliefer",
+      "calloutCount": 6
+    },
+    {
+      "sourceTerm": "Strain reliefer plate",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Support bar",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Support frame",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Support knob",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Support plate",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Switch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Switch assy",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Switch assy EAO",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Switch cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Switch holder",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Switch holder plate",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Switch panel cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Switch rubber",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Sync PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "SYNC PCB board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Table position sensing microswitch assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic column assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic column casting",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic column front cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic column installation plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic column rear panel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Telescopic radiation shield",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Test phantom",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Third spiral cable",
+      "calloutCount": 3
+    },
+    {
+      "sourceTerm": "Thumb wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tightening screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tightening wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting lever assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting lever axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting mech. bush",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting mech. cover plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting mechanism axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tilting mechanism cover",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Top cover grounding cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Transport handle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Transport handle hole cover plug",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Transportation handle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Trigger plate",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Trolley",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tube CPU PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tube processor circuit board",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tube software chip PLCC",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tubehead",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tubehead interface cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tubehead locking microswitch cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tubehead temperature sensor cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Tubehead to rear collector spiral cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Twincomp force adjusting axle",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Twincomp force adjusting pin",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Twincomp force adjusting wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Twincomp load spring",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "ULS",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "Upper chainwheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Upper cover",
+      "calloutCount": 4
+    },
+    {
+      "sourceTerm": "Upper keypanel collector PCB",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Upper switch cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Wedge",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Wheel assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Width adjustment wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Worm screw nut",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Worm screw nut assembly",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Worm-screw belt wheel",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "Worm-screw cap",
+      "calloutCount": 2
+    }
+  ]
+}

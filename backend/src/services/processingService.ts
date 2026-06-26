@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { analyzePageWithGemini } from './geminiService.js';
 import { embedConceptDefinition } from './conceptEmbeddingService.js';
 import { autoMergeProjectKeywords } from './conceptMergeService.js';
-import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import { canonicalSourceTerm, sourceTermLookupKey } from '../utils/normalizeSourceTerm.js';
 import { TimeoutError } from '../utils/withTimeout.js';
 import { scanPdfPages } from '../utils/pdfPageScan.js';
 import crypto from 'crypto';
@@ -25,16 +25,26 @@ export function sendSSEEvent(projectId: string, event: string, data: any) {
   });
 }
 
+import { ensurePageCacheDir } from '../utils/pageImageCache.js';
+
 export async function processPdfBackground(projectId: string, pdfPath: string) {
   const startTime = Date.now();
   console.log(`[Processing] Started project ${projectId}, pdf: ${pdfPath}`);
+  const cacheDir = ensurePageCacheDir(projectId);
 
   try {
     let processedPages = 0;
     let totalPages = 0;
 
+    const keywordByLookupKey = new Map(
+      (await prisma.keyword.findMany({ where: { projectId } })).map((keyword) => [
+        sourceTermLookupKey(keyword.sourceTerm),
+        keyword,
+      ])
+    );
+
     await scanPdfPages(pdfPath, {
-      filter: 'all',
+      outputDir: cacheDir,
       onPage: async ({ pageNumber, pageData, totalPages: pages, fetchAdjacentImages }) => {
         totalPages = pages;
         if (processedPages === 0) {
@@ -44,17 +54,6 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
 
         const pageStart = Date.now();
         try {
-          if (!pageData.hasIllustrations) {
-            console.log(`[Processing] Page ${pageNumber}: skipped (no illustrations)`);
-            sendSSEEvent(projectId, 'progress', {
-              current: ++processedPages,
-              total: totalPages,
-              skipped: true,
-              pageNumber,
-            });
-            return null;
-          }
-
           console.log(`[Processing] Page ${pageNumber}: extracting...`);
 
           console.log(`[Processing] Page ${pageNumber}: calling Gemini...`);
@@ -68,12 +67,11 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
             if (identifiers.length === 0) continue;
             if (!concept.sourceTerm?.trim()) continue;
 
-            const sourceTerm = normalizeSourceTerm(concept.sourceTerm);
+            const sourceTerm = canonicalSourceTerm(concept.sourceTerm);
             if (!sourceTerm) continue;
 
-            let keyword = await prisma.keyword.findFirst({
-              where: { projectId, sourceTerm },
-            });
+            const lookupKey = sourceTermLookupKey(sourceTerm);
+            let keyword = keywordByLookupKey.get(lookupKey);
 
             if (!keyword) {
               keyword = await prisma.keyword.create({
@@ -82,6 +80,7 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   sourceTerm,
                 },
               });
+              keywordByLookupKey.set(lookupKey, keyword);
             }
 
             const definitionHash = crypto

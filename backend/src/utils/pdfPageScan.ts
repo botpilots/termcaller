@@ -14,12 +14,9 @@ export interface PageScanContext {
   fetchAdjacentImages: () => Promise<AdjacentImages>;
 }
 
-export type PageScanFilter = 'all' | 'illustrations-only';
-
 export interface ScanPdfPagesOptions<T> {
   concurrency?: number;
-  /** When 'illustrations-only', non-illustration pages are skipped (handler not called). */
-  filter?: PageScanFilter;
+  outputDir?: string;
   onPage: (ctx: PageScanContext) => Promise<T | null>;
 }
 
@@ -32,23 +29,18 @@ export async function scanPdfPages<T>(
   options: ScanPdfPagesOptions<T>
 ): Promise<(T | null)[]> {
   const session = await PdfSession.open(pdfPath);
-  const filter = options.filter ?? 'all';
   const concurrency = options.concurrency ?? PDF_PAGE_CONCURRENCY;
   const totalPages = session.totalPages;
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   try {
     const results = await mapWithConcurrency(pageNumbers, concurrency, async pageNumber => {
-      const pageData = await session.extractPageData(pageNumber);
-
-      if (filter === 'illustrations-only' && !pageData.hasIllustrations) {
-        return null;
-      }
+      const pageData = await session.extractPageData(pageNumber, options.outputDir);
 
       const fetchAdjacentImages = async (): Promise<AdjacentImages> => {
         const [prevPage, nextPage] = await Promise.all([
-          pageNumber > 1 ? session.extractPageData(pageNumber - 1) : null,
-          pageNumber < totalPages ? session.extractPageData(pageNumber + 1) : null,
+          pageNumber > 1 ? session.extractPageData(pageNumber - 1, options.outputDir) : null,
+          pageNumber < totalPages ? session.extractPageData(pageNumber + 1, options.outputDir) : null,
         ]);
         return buildAdjacentImages(prevPage, nextPage);
       };

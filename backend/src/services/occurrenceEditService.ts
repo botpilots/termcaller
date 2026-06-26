@@ -1,6 +1,10 @@
 import crypto from 'crypto';
 import type { PrismaClient } from '@prisma/client';
-import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import {
+  canonicalSourceTerm,
+  sourceTermLookupKey,
+  sourceTermsMatch,
+} from '../utils/normalizeSourceTerm.js';
 import {
   refreshKeywordConceptEmbeddings,
   type KeywordConceptEmbedding,
@@ -40,7 +44,7 @@ export interface IgnoreOccurrenceResult {
 function definitionHash(definitionText: string, sourceTerm: string): string {
   return crypto
     .createHash('md5')
-    .update(definitionText.trim() + normalizeSourceTerm(sourceTerm))
+    .update(definitionText.trim() + sourceTermLookupKey(sourceTerm))
     .digest('hex');
 }
 
@@ -89,26 +93,24 @@ export async function saveOccurrenceEdit(
     throw new Error('Occurrence callouts not found');
   }
 
-  const normalizedNewTerm = normalizeSourceTerm(input.sourceTerm);
-  if (!normalizedNewTerm) {
+  const canonicalNewTerm = canonicalSourceTerm(input.sourceTerm);
+  if (!canonicalNewTerm) {
     throw new Error('Term is required');
   }
 
-  const normalizedOriginalTerm = normalizeSourceTerm(input.originalSourceTerm);
-  const termChanged = normalizedNewTerm !== normalizedOriginalTerm;
+  const termChanged = !sourceTermsMatch(canonicalNewTerm, input.originalSourceTerm);
   const newIds = splitIdentifiers(input.identifier);
-  const hash = definitionHash(input.definitionText, normalizedNewTerm);
+  const hash = definitionHash(input.definitionText, canonicalNewTerm);
 
   let resultKeywordId = keyword.id;
 
   if (termChanged) {
-    let newKeyword = await prisma.keyword.findFirst({
-      where: { projectId, sourceTerm: normalizedNewTerm },
-    });
+    const projectKeywords = await prisma.keyword.findMany({ where: { projectId } });
+    let newKeyword = projectKeywords.find((k) => sourceTermsMatch(k.sourceTerm, canonicalNewTerm));
 
     if (!newKeyword) {
       newKeyword = await prisma.keyword.create({
-        data: { projectId, sourceTerm: normalizedNewTerm },
+        data: { projectId, sourceTerm: canonicalNewTerm },
       });
     }
 
@@ -120,7 +122,7 @@ export async function saveOccurrenceEdit(
       dbConcept = await prisma.concept.create({
         data: {
           definitionHash: hash,
-          candidateConceptName: normalizedNewTerm,
+          candidateConceptName: canonicalNewTerm,
           definitionText: input.definitionText.trim(),
           projectId,
           keywords: { connect: { id: newKeyword.id } },
@@ -132,7 +134,7 @@ export async function saveOccurrenceEdit(
         data: {
           keywords: { connect: { id: newKeyword.id } },
           definitionText: input.definitionText.trim(),
-          candidateConceptName: normalizedNewTerm,
+          candidateConceptName: canonicalNewTerm,
         },
       });
     }
@@ -143,7 +145,7 @@ export async function saveOccurrenceEdit(
         where: { id: callout.id },
         data: {
           identifier: newIds[index] ?? newIds[0] ?? callout.identifier,
-          sourceTerm: normalizedNewTerm,
+          sourceTerm: canonicalNewTerm,
           conceptId: dbConcept.id,
         },
       });
@@ -169,7 +171,7 @@ export async function saveOccurrenceEdit(
         data: {
           definitionHash: hash,
           definitionText: input.definitionText.trim(),
-          candidateConceptName: normalizedNewTerm,
+          candidateConceptName: canonicalNewTerm,
         },
       });
     }
@@ -180,7 +182,7 @@ export async function saveOccurrenceEdit(
         where: { id: callout.id },
         data: {
           identifier: newIds[index] ?? newIds[0] ?? callout.identifier,
-          sourceTerm: normalizedNewTerm,
+          sourceTerm: canonicalNewTerm,
           conceptId: conceptIdToUse,
         },
       });

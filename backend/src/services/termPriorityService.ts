@@ -19,11 +19,11 @@ export interface RankedKeyword<T extends KeywordPriorityInput> extends T {
   priority: KeywordPriority;
 }
 
-/** Sub-linear exponent for figure count; between log (~0) and linear (1). */
-export const PRIORITY_FIGURE_EXPONENT = 0.75;
+/** Linear exponent for figure count in Priority score. */
+export const PRIORITY_FIGURE_EXPONENT = 1.0;
 
 /**
- * priority = figureCount^0.75 × corpusRarity
+ * priority = figureCount^1.0 × corpusRarity
  * corpusRarity = freqRank / (vocabSize - 1), 0 for head-of-distribution generics, 1 for OOV.
  */
 export function computeKeywordPriority(

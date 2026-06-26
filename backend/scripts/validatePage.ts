@@ -17,12 +17,6 @@ async function main() {
   const page = await extractPageData(pdfPath, pageNumber);
   console.log('\n--- Page text ---');
   console.log(page.text);
-  console.log('\nhasIllustrations:', page.hasIllustrations);
-
-  if (!page.hasIllustrations) {
-    console.log('No illustrations — skipping validation.');
-    return;
-  }
 
   const result = await validatePageFiguresWithGemini(page.imageBase64, [], undefined, page.text);
   console.log('\n--- Validation result ---');

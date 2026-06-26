@@ -33,9 +33,5 @@ describe('PDF Parser Service', () => {
     
     expect(imageExists).toBe(true);
     expect(textExists).toBe(true);
-
-    const page15 = await extractPageData(fixturePath, 15, outputDir);
-    expect(result.hasIllustrations).toBe(true);
-    expect(page15.hasIllustrations).toBe(false);
   }, 30000);
 });

@@ -23,12 +23,7 @@ describe.skipIf(!runGeminiTests)('Gemini Extraction Service', () => {
       extractPageData(fixturePath, pageNum + 1),
     ]);
 
-    console.log(`Page ${pageNum} has illustrations: ${currPage.hasIllustrations}`);
-
-    if (!currPage.hasIllustrations) {
-      console.log('Skipping Gemini analysis because page has no illustrations.');
-      return;
-    }
+    console.log(`Extracting page ${pageNum} for Gemini test`);
 
     const fetchAdjacentImages = async () => ({
       prevImageBase64: prevPage.imageBase64,

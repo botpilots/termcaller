@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { analyzePageWithGemini } from './geminiService.js';
-import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import { canonicalSourceTerm, sourceTermLookupKey } from '../utils/normalizeSourceTerm.js';
 import { scanPdfPages } from '../utils/pdfPageScan.js';
 import { TimeoutError } from '../utils/withTimeout.js';
 
@@ -12,7 +12,7 @@ export interface ExtractionSnapshot {
     concepts: number;
     illustrations: number;
     callouts: number;
-    pagesWithIllustrations: number;
+    pagesProcessed: number;
     pagesErrored: number;
     pagesTimedOut: number;
   };
@@ -22,21 +22,17 @@ export interface ExtractionSnapshot {
 export async function collectExtractionFromPdf(pdfPath: string): Promise<ExtractionSnapshot> {
   const sourceTerms = new Set<string>();
   const keywordCalloutCounts = new Map<string, number>();
+  const displayTermByKey = new Map<string, string>();
   const definitionHashes = new Set<string>();
   const illustrationKeys = new Set<string>();
   let calloutCount = 0;
-  let pagesWithIllustrations = 0;
+  let pagesProcessed = 0;
   let pagesErrored = 0;
   let pagesTimedOut = 0;
 
   await scanPdfPages(pdfPath, {
-    filter: 'all',
     onPage: async ({ pageNumber, pageData, fetchAdjacentImages }) => {
-      if (!pageData.hasIllustrations) {
-        return null;
-      }
-
-      pagesWithIllustrations++;
+      pagesProcessed++;
 
       try {
         const result = await analyzePageWithGemini(pageData.imageBase64, fetchAdjacentImages);
@@ -46,14 +42,19 @@ export async function collectExtractionFromPdf(pdfPath: string): Promise<Extract
           if (identifiers.length === 0) continue;
           if (!concept.sourceTerm?.trim()) continue;
 
-          const sourceTerm = normalizeSourceTerm(concept.sourceTerm);
+          const sourceTerm = canonicalSourceTerm(concept.sourceTerm);
           if (!sourceTerm) continue;
 
-          sourceTerms.add(sourceTerm);
+          const lookupKey = sourceTermLookupKey(sourceTerm);
+          if (!displayTermByKey.has(lookupKey)) {
+            displayTermByKey.set(lookupKey, sourceTerm);
+          }
+          const displayTerm = displayTermByKey.get(lookupKey)!;
+          sourceTerms.add(displayTerm);
 
           const definitionHash = crypto
             .createHash('md5')
-            .update(concept.functionalDescription + sourceTerm)
+            .update(concept.functionalDescription + lookupKey)
             .digest('hex');
           definitionHashes.add(definitionHash);
 
@@ -63,7 +64,7 @@ export async function collectExtractionFromPdf(pdfPath: string): Promise<Extract
           for (const identifier of identifiers) {
             if (!identifier) continue;
             calloutCount++;
-            keywordCalloutCounts.set(sourceTerm, (keywordCalloutCounts.get(sourceTerm) ?? 0) + 1);
+            keywordCalloutCounts.set(displayTerm, (keywordCalloutCounts.get(displayTerm) ?? 0) + 1);
           }
         }
       } catch (error) {
@@ -89,7 +90,7 @@ export async function collectExtractionFromPdf(pdfPath: string): Promise<Extract
       concepts: definitionHashes.size,
       illustrations: illustrationKeys.size,
       callouts: calloutCount,
-      pagesWithIllustrations,
+      pagesProcessed,
       pagesErrored,
       pagesTimedOut,
     },

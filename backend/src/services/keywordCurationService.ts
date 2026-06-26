@@ -5,7 +5,7 @@ import {
 } from './conceptMergeService.js';
 import { refreshKeywordConceptEmbeddings } from './conceptEmbeddingService.js';
 import { cosineSimilarity, computeCentroid, parseEmbedding } from '../utils/vectorMath.js';
-import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import { canonicalSourceTerm, sourceTermsMatch } from '../utils/normalizeSourceTerm.js';
 
 export const COHESION_CLOSE_MIN = 0.9;
 const COHESION_FAIR_MIN = 0.85;
@@ -298,22 +298,23 @@ export async function branchConcept(
     throw new Error('Concept does not belong to this keyword');
   }
 
-  const normalizedTerm = normalizeSourceTerm(input.newSourceTerm);
-  if (!normalizedTerm) {
+  const canonicalTerm = canonicalSourceTerm(input.newSourceTerm);
+  if (!canonicalTerm) {
     throw new Error('Term is required');
   }
 
-  if (normalizedTerm === keyword.sourceTerm) {
+  if (sourceTermsMatch(canonicalTerm, keyword.sourceTerm)) {
     throw new Error('New term must differ from the current keyword');
   }
 
-  let targetKeyword = await prisma.keyword.findFirst({
-    where: { projectId: keyword.projectId, sourceTerm: normalizedTerm },
+  const projectKeywords = await prisma.keyword.findMany({
+    where: { projectId: keyword.projectId },
   });
+  let targetKeyword = projectKeywords.find((k) => sourceTermsMatch(k.sourceTerm, canonicalTerm));
 
   if (!targetKeyword) {
     targetKeyword = await prisma.keyword.create({
-      data: { projectId: keyword.projectId, sourceTerm: normalizedTerm },
+      data: { projectId: keyword.projectId, sourceTerm: canonicalTerm },
     });
   }
 
@@ -321,7 +322,7 @@ export async function branchConcept(
     where: { id: input.conceptId },
     data: {
       excludedFromExport: false,
-      candidateConceptName: normalizedTerm,
+      candidateConceptName: canonicalTerm,
       keywords: {
         disconnect: { id: keyword.id },
         connect: { id: targetKeyword.id },

@@ -80,7 +80,7 @@ export function KeywordCurationPanel({
           {concept.figures.length > 0 && (
             <div>
               <span className="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1.5">
-                Provenance
+                Appears in:
               </span>
               <ul className="text-sm text-gray-600 space-y-1">
                 {concept.figures.map(figure => (

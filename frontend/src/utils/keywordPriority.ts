@@ -2,8 +2,8 @@ import { countFiguresForKeyword } from './figureOccurrences';
 
 export type KeywordSortMode = 'frequency' | 'both' | 'rarity';
 
-/** Sub-linear exponent for figure count; between log (~0) and linear (1). */
-export const PRIORITY_FIGURE_EXPONENT = 0.75;
+/** Linear exponent for figure count in Priority score. */
+export const PRIORITY_FIGURE_EXPONENT = 1.0;
 
 export interface CorpusTermScore {
   corpusRarity: number;

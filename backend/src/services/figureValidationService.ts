@@ -1,6 +1,7 @@
 import type { Prisma, PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import { extractPageData } from './pdfParser.js';
+import { ensurePageCacheDir } from '../utils/pageImageCache.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import {
   validatePageFiguresWithGemini,
@@ -118,17 +119,19 @@ async function loadIllustrationsForPage(
   });
 }
 
-async function validateSinglePage(
+export async function validateSinglePage(
   pdfPath: string,
   pageNumber: number,
   totalPages: number,
   illustrations: IllustrationWithCallouts[],
+  projectId?: string,
   pageImageBase64?: string,
   pageText?: string
 ): Promise<Array<{ figureNumber: string; validation: CalloutValidationResult }>> {
+  const cacheDir = projectId ? ensurePageCacheDir(projectId) : undefined;
   const pageData = pageImageBase64
     ? { imageBase64: pageImageBase64, text: pageText ?? '' }
-    : await extractPageData(pdfPath, pageNumber);
+    : await extractPageData(pdfPath, pageNumber, cacheDir);
   const knownFigures = buildKnownFigures(illustrations);
 
   const result = await validatePageFiguresWithGemini(
@@ -137,7 +140,7 @@ async function validateSinglePage(
     async direction => {
       const targetPage = direction === 'previous' ? pageNumber - 1 : pageNumber + 1;
       if (targetPage < 1 || targetPage > totalPages) return undefined;
-      return (await extractPageData(pdfPath, targetPage)).imageBase64;
+      return (await extractPageData(pdfPath, targetPage, cacheDir)).imageBase64;
     },
     pageData.text,
     { hasPrevious: pageNumber > 1, hasNext: pageNumber < totalPages }
@@ -156,7 +159,7 @@ export async function validateProjectFigure(
   const illustrations = sortIllustrationsByFigureNumber(
     pageIllustrations && pageIllustrations.length > 0 ? pageIllustrations : [illustration]
   );
-  const pageResults = await validateSinglePage(pdfPath, pageNumber, totalPages, illustrations);
+  const pageResults = await validateSinglePage(pdfPath, pageNumber, totalPages, illustrations, undefined);
   const match =
     pageResults.find(result => result.figureNumber === (illustration.figureNumber ?? '1')) ??
     pageResults[0];
@@ -195,10 +198,8 @@ export async function validateAllProjectFigures(
 
   const rawResults = await mapWithConcurrency(pageNumbers, concurrency, async pageNumber => {
     try {
-      const pageData = await extractPageData(pdfPath, pageNumber);
-      if (!pageData.hasIllustrations) {
-        return null;
-      }
+      const cacheDir = ensurePageCacheDir(projectId);
+      const pageData = await extractPageData(pdfPath, pageNumber, cacheDir);
 
       const illustrations = await loadIllustrationsForPage(prisma, projectId, pageNumber);
       const figureResults = await validateSinglePage(
@@ -206,6 +207,7 @@ export async function validateAllProjectFigures(
         pageNumber,
         totalPages,
         illustrations,
+        projectId,
         pageData.imageBase64,
         pageData.text
       );
