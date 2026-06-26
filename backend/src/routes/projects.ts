@@ -13,6 +13,7 @@ import {
 } from '../services/figureValidationService.js';
 import { saveFigureValidation, withParsedValidation } from '../services/figureValidationPersist.js';
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
+import { uploadPdfToGcs } from '../utils/gcsPdfStorage.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { getPdfPageCount } from '../utils/pdfPageCount.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
@@ -208,12 +209,16 @@ router.post('/:id/upload', authenticateToken, upload.single('file'), async (req:
     console.log(
       `[Upload] Received PDF for project ${id}: ${file.originalname} (${file.size} bytes, ${pageCount} pages)`
     );
+    
+    // Upload to GCS
+    const gcsUri = await uploadPdfToGcs(file.path, id);
+    
     await prisma.project.update({
       where: { id },
-      data: { pdfPath: file.path, pageCount },
+      data: { pdfPath: gcsUri, pageCount },
     });
 
-    res.json({ message: 'Upload successful', pdfPath: file.path, pageCount });
+    res.json({ message: 'Upload successful', pdfPath: gcsUri, pageCount });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to process upload' });

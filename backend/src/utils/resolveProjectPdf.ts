@@ -1,8 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import type { PrismaClient, Project } from '@prisma/client';
+import { downloadPdfFromGcs } from './gcsPdfStorage.js';
 
 const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
+if (!fs.existsSync(UPLOADS_DIR)) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
 
 function listUploadFiles(): { relativePath: string; mtime: number }[] {
   if (!fs.existsSync(UPLOADS_DIR)) return [];
@@ -26,7 +30,7 @@ function listUploadFiles(): { relativePath: string; mtime: number }[] {
 }
 
 function pdfPathExists(pdfPath: string | null | undefined): pdfPath is string {
-  return Boolean(pdfPath && fs.existsSync(pdfPath));
+  return Boolean(pdfPath && (pdfPath.startsWith('gs://') || fs.existsSync(pdfPath)));
 }
 
 /**
@@ -37,41 +41,55 @@ export async function resolveProjectPdfPath(
   project: Pick<Project, 'id' | 'userId' | 'pdfPath' | 'createdAt'>,
   prisma: PrismaClient
 ): Promise<string | null> {
-  if (pdfPathExists(project.pdfPath)) {
-    return project.pdfPath;
+  let resolvedPath = project.pdfPath;
+
+  if (!resolvedPath || !pdfPathExists(resolvedPath)) {
+    // legacy fallback
+    const userProjects = await prisma.project.findMany({
+      where: { userId: project.userId },
+      orderBy: { createdAt: 'asc' },
+      select: { id: true, pdfPath: true, createdAt: true },
+    });
+
+    const usedPaths = new Set(
+      userProjects.map(p => p.pdfPath).filter((p): p is string => pdfPathExists(p))
+    );
+
+    const unlinkedFiles = listUploadFiles()
+      .filter(f => !usedPaths.has(f.relativePath))
+      .sort((a, b) => a.mtime - b.mtime);
+
+    const unlinkedProjects = userProjects.filter(p => !pdfPathExists(p.pdfPath));
+    const slot = unlinkedProjects.findIndex(p => p.id === project.id);
+    if (slot >= 0 && slot < unlinkedFiles.length) {
+      const match = unlinkedFiles[slot];
+      if (match) {
+        resolvedPath = match.relativePath;
+        await prisma.project.update({
+          where: { id: project.id },
+          data: { pdfPath: resolvedPath },
+        });
+        console.log(`[PDF] Linked project ${project.id} → ${resolvedPath}`);
+      }
+    }
   }
 
-  const userProjects = await prisma.project.findMany({
-    where: { userId: project.userId },
-    orderBy: { createdAt: 'asc' },
-    select: { id: true, pdfPath: true, createdAt: true },
-  });
+  if (!resolvedPath) return null;
 
-  const usedPaths = new Set(
-    userProjects.map(p => p.pdfPath).filter((p): p is string => pdfPathExists(p))
-  );
-
-  const unlinkedFiles = listUploadFiles()
-    .filter(f => !usedPaths.has(f.relativePath))
-    .sort((a, b) => a.mtime - b.mtime);
-
-  const unlinkedProjects = userProjects.filter(p => !pdfPathExists(p.pdfPath));
-  const slot = unlinkedProjects.findIndex(p => p.id === project.id);
-  if (slot < 0 || slot >= unlinkedFiles.length) {
-    return null;
+  if (resolvedPath.startsWith('gs://')) {
+    const localDest = path.join(UPLOADS_DIR, `${project.id}.pdf`);
+    if (!fs.existsSync(localDest)) {
+      try {
+        await downloadPdfFromGcs(resolvedPath, localDest);
+      } catch (error) {
+        console.error(`[PDF] Failed to download PDF from GCS for project ${project.id}:`, error);
+        return null;
+      }
+    }
+    return localDest;
   }
 
-  const match = unlinkedFiles[slot];
-  if (!match) return null;
-
-  const pdfPath = match.relativePath;
-  await prisma.project.update({
-    where: { id: project.id },
-    data: { pdfPath },
-  });
-
-  console.log(`[PDF] Linked project ${project.id} → ${pdfPath}`);
-  return pdfPath;
+  return fs.existsSync(resolvedPath) ? resolvedPath : null;
 }
 
 export async function loadProjectPdfPath(

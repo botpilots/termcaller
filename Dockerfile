@@ -10,8 +10,8 @@ RUN npm run build
 FROM node:22-alpine
 WORKDIR /app
 
-# Build tools for better-sqlite3; ImageMagick + Ghostscript for gm PDF rendering
-RUN apk add --no-cache python3 make g++ sqlite imagemagick ghostscript openssl
+# Build tools for ImageMagick + Ghostscript for gm PDF rendering
+RUN apk add --no-cache imagemagick ghostscript openssl
 
 # Copy root package.json if it exists (optional, helps with workspaces)
 COPY package*.json ./
@@ -36,12 +36,10 @@ COPY --from=frontend-builder /app/frontend/dist ./dist
 # Switch back to backend to run
 WORKDIR /app/backend
 
-# The volume mount will be at /mnt/data
 # We'll override the database URL at runtime
-ENV DATABASE_URL="file:/mnt/data/database.sqlite"
 ENV PORT=8080
 
 EXPOSE 8080
 
-# Push DB schema before starting the server
-CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npx tsx src/index.ts"]
+# Deploy DB schema before starting the server
+CMD ["sh", "-c", "npx prisma migrate deploy && npx tsx src/index.ts"]

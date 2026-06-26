@@ -93,28 +93,33 @@ async function loadKeywordConceptsWithEmbeddings(
   prisma: PrismaClient,
   keywordId: string
 ): Promise<ConceptEmbeddingInput[]> {
-  let keyword = await prisma.keyword.findUnique({
-    where: { id: keywordId },
-    include: { concepts: true },
-  });
+  const concepts = await prisma.$queryRaw<Array<{ id: string, definitionText: string, vectorEmbedding: string }>>`
+    SELECT id, "definitionText", "vectorEmbedding"::text as "vectorEmbedding"
+    FROM "Concept"
+    WHERE id IN (
+      SELECT "B" FROM "_KeywordConcepts" WHERE "A" = ${keywordId}
+    )
+  `;
 
-  if (!keyword?.concepts.length) return [];
+  if (!concepts.length) return [];
 
-  const needsRefresh = keyword.concepts.some(concept => !parseEmbedding(concept.vectorEmbedding));
+  const needsRefresh = concepts.some(concept => !concept.vectorEmbedding);
   if (needsRefresh) {
     await refreshKeywordConceptEmbeddings(prisma, keywordId);
-    keyword = await prisma.keyword.findUnique({
-      where: { id: keywordId },
-      include: { concepts: true },
-    });
+    return loadKeywordConceptsWithEmbeddings(prisma, keywordId); // Recursive call after refresh
   }
 
-  if (!keyword?.concepts.length) return [];
-
   const embedded: ConceptEmbeddingInput[] = [];
-  for (const concept of keyword.concepts) {
-    const vector = parseEmbedding(concept.vectorEmbedding);
-    if (!vector) continue;
+  for (const concept of concepts) {
+    if (!concept.vectorEmbedding) continue;
+    // pgvector string format is '[1.23, 4.56, ...]'
+    let vector: number[];
+    try {
+      vector = JSON.parse(concept.vectorEmbedding);
+    } catch {
+      continue;
+    }
+    
     embedded.push({
       id: concept.id,
       definitionText: concept.definitionText,

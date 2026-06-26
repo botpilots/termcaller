@@ -31,21 +31,35 @@ export async function analyzeKeywordSimilarity(keywordId: string): Promise<Simil
     throw new Error('Keyword not found');
   }
 
-  if (keyword.concepts.length === 0) {
+  const conceptsDb = await prisma.$queryRaw<Array<{ id: string, definitionText: string, vectorEmbedding: string }>>`
+    SELECT id, "definitionText", "vectorEmbedding"::text as "vectorEmbedding"
+    FROM "Concept"
+    WHERE id IN (
+      SELECT "B" FROM "_KeywordConcepts" WHERE "A" = ${keywordId}
+    )
+  `;
+
+  if (!conceptsDb.length) {
     throw new Error('No concepts to analyse for this keyword');
   }
 
   const vectors: { conceptId: string; definitionText: string; vector: number[] }[] = [];
 
-  for (const concept of keyword.concepts) {
-    let vector = parseEmbedding(concept.vectorEmbedding);
+  for (const concept of conceptsDb) {
+    let vector: number[] | null = null;
+    try {
+      vector = JSON.parse(concept.vectorEmbedding);
+    } catch {
+      // invalid json
+    }
 
     if (!vector) {
       vector = await embedText(concept.definitionText);
-      await prisma.concept.update({
-        where: { id: concept.id },
-        data: { vectorEmbedding: JSON.stringify(vector) },
-      });
+      await prisma.$executeRaw`
+        UPDATE "Concept"
+        SET "vectorEmbedding" = ${vector}::vector
+        WHERE id = ${concept.id}
+      `;
     }
 
     vectors.push({

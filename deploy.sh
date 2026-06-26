@@ -52,8 +52,7 @@ gcloud run deploy $SERVICE_NAME \
   --allow-unauthenticated \
   --service-account $SA_EMAIL \
   --execution-environment gen2 \
-  --add-volume=name=sqlite-data,type=cloud-storage,bucket=$BUCKET_NAME \
-  --add-volume-mount=volume=sqlite-data,mount-path=/mnt/data \
-  --set-env-vars="DATABASE_URL=file:/mnt/data/database.sqlite"
+  --set-env-vars="GCS_BUCKET_NAME=$BUCKET_NAME" \
+  --set-secrets="DATABASE_URL=DATABASE_URL:latest,GEMINI_API_KEY=GEMINI_API_KEY:latest"
 
 echo "✅ Deployment complete!"

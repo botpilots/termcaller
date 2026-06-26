@@ -94,18 +94,25 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
 
             if (!dbConcept) {
               const vectorEmbedding = await embedConceptDefinition(concept.functionalDescription);
+              
+              // We create the concept first without the vector, then update it using raw SQL
               dbConcept = await prisma.concept.create({
                 data: {
                   definitionHash,
                   candidateConceptName: sourceTerm,
                   definitionText: concept.functionalDescription,
-                  vectorEmbedding,
                   projectId,
                   keywords: {
                     connect: { id: keyword.id },
                   },
                 },
               });
+              
+              await prisma.$executeRaw`
+                UPDATE "Concept"
+                SET "vectorEmbedding" = ${vectorEmbedding}::vector
+                WHERE id = ${dbConcept.id}
+              `;
             } else {
               await prisma.concept.update({
                 where: { id: dbConcept.id },
@@ -113,11 +120,23 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   keywords: {
                     connect: { id: keyword.id },
                   },
-                  ...(dbConcept.vectorEmbedding
-                    ? {}
-                    : { vectorEmbedding: await embedConceptDefinition(dbConcept.definitionText) }),
                 },
               });
+              
+              // Only embed and update if it doesn't already have one
+              const hasVector = await prisma.$queryRaw<Array<{ id: string }>>`
+                SELECT id FROM "Concept" 
+                WHERE id = ${dbConcept.id} AND "vectorEmbedding" IS NOT NULL
+              `;
+              
+              if (hasVector.length === 0) {
+                const vectorEmbedding = await embedConceptDefinition(dbConcept.definitionText);
+                await prisma.$executeRaw`
+                  UPDATE "Concept"
+                  SET "vectorEmbedding" = ${vectorEmbedding}::vector
+                  WHERE id = ${dbConcept.id}
+                `;
+              }
             }
 
             const figureNumber = concept.figureNumber?.trim() || '1';
