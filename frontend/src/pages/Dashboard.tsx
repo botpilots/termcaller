@@ -113,6 +113,7 @@ export const Dashboard = () => {
   const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
   const [corpusWordRank, setCorpusWordRank] = useState<CorpusWordRank | null>(null);
   const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
+  const [isExporting, setIsExporting] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
 
   const rankedKeywords = useMemo(
@@ -328,6 +329,32 @@ export const Dashboard = () => {
       setSelectedProjectId(projectId);
     } catch (error) {
       console.error('Failed to create project from file', error);
+    }
+  };
+
+  const handleExportTbx = async () => {
+    if (!selectedProjectId || isExporting) return;
+
+    setIsExporting(true);
+    try {
+      const response = await axios.get(`/api/projects/${selectedProjectId}/export/tbx`, {
+        responseType: 'blob',
+      });
+
+      const disposition = response.headers['content-disposition'] as string | undefined;
+      const filenameMatch = disposition?.match(/filename="([^"]+)"/);
+      const filename = filenameMatch?.[1] ?? 'termbase.tbx';
+
+      const url = URL.createObjectURL(new Blob([response.data], { type: 'application/xml' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to export TBX', error);
+    } finally {
+      setIsExporting(false);
     }
   };
 
@@ -603,7 +630,9 @@ export const Dashboard = () => {
         selectedProjectId={selectedProjectId}
         onProjectChange={setSelectedProjectId}
         onFileUpload={handleFileUpload}
+        onExportTbx={handleExportTbx}
         isProcessing={isProcessing}
+        isExporting={isExporting}
       />
 
       <div className="flex flex-1 overflow-hidden">

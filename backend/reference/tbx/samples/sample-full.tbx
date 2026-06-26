@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<martif type="TBX" xml:lang="en">
+  <martifHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sample Full TBX Termbase</title>
+      </titleStmt>
+      <sourceDesc>
+        <p>Created for testing purposes</p>
+      </sourceDesc>
+    </fileDesc>
+  </martifHeader>
+  <text>
+    <body>
+      <termEntry id="c1">
+        <descrip type="subjectField">Manufacturing</descrip>
+        <descrip type="definition">Concept level definition.</descrip>
+        <langSet xml:lang="en">
+          <descrip type="definition">Language level definition.</descrip>
+          <tig>
+            <term>manufacturing</term>
+            <termNote type="administrativeStatus">preferredTerm-admn-sts</termNote>
+            <descrip type="definition">Term level definition.</descrip>
+          </tig>
+          <tig>
+            <term>fabrication</term>
+            <termNote type="administrativeStatus">admittedTerm-admn-sts</termNote>
+          </tig>
+        </langSet>
+        <langSet xml:lang="sv">
+          <tig>
+            <term>tillverkning</term>
+            <termNote type="administrativeStatus">preferredTerm-admn-sts</termNote>
+          </tig>
+        </langSet>
+      </termEntry>
+    </body>
+  </text>
+</martif>

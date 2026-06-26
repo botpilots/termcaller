@@ -6,7 +6,9 @@
   "scripts": {
     "test": "vitest",
     "build:corpus": "tsx scripts/buildManualCorpus.ts",
-    "ocr:pdf": "tsx scripts/ocrPdfToText.ts"
+    "ocr:pdf": "tsx scripts/ocrPdfToText.ts",
+    "export:tbx": "tsx scripts/exportTbxArtifacts.ts",
+    "validate:tbx": "bash scripts/validateTbxArtifacts.sh"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +28,8 @@
     "gm": "^1.25.1",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
-    "pdfjs-dist": "^6.0.227"
+    "pdfjs-dist": "^6.0.227",
+    "xmlbuilder2": "^4.0.3"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -37,7 +40,9 @@
     "@types/multer": "^2.1.0",
     "@types/node": "^26.0.1",
     "@types/pdf-parse": "^1.1.5",
+    "@types/supertest": "^7.2.0",
     "prisma": "^5.22.0",
+    "supertest": "^7.2.2",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"

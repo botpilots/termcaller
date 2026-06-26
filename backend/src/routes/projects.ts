@@ -13,6 +13,7 @@ import {
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
+import { exportProjectTbxBasic } from '../services/tbxExportService.js';
 
 const router = express.Router();
 
@@ -63,6 +64,31 @@ router.post('/', authenticateToken, async (req: AuthRequest, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to create project' });
+  }
+});
+
+// Export project glossary as TBX-Basic
+router.get('/:id/export/tbx', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  const defaultLanguage =
+    typeof req.query.defaultLanguage === 'string' && req.query.defaultLanguage.trim()
+      ? req.query.defaultLanguage.trim()
+      : 'en';
+
+  try {
+    const exported = await exportProjectTbxBasic(prisma, id, req.user!.userId, defaultLanguage);
+    if (!exported) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="${exported.filename}"`);
+    res.send(exported.xml);
+  } catch (error) {
+    console.error('[TBX export] Failed:', error);
+    res.status(500).json({ error: 'Failed to export TBX' });
   }
 });
 

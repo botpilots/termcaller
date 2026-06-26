@@ -12,7 +12,9 @@ interface DashboardHeaderProps {
   selectedProjectId: string | null;
   onProjectChange: (projectId: string) => void;
   onFileUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onExportTbx: () => void;
   isProcessing: boolean;
+  isExporting: boolean;
 }
 
 export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
@@ -20,7 +22,9 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   selectedProjectId,
   onProjectChange,
   onFileUpload,
+  onExportTbx,
   isProcessing,
+  isExporting,
 }) => {
   return (
     <header className="shrink-0 border-b border-gray-200 bg-white px-6 py-3">
@@ -54,12 +58,23 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
         <button
           type="button"
-          disabled
-          title="TBX export is not implemented yet"
-          className="flex items-center px-4 py-2 bg-white text-gray-400 border border-gray-200 text-sm font-medium rounded-lg cursor-not-allowed shrink-0"
+          disabled={!selectedProjectId || isExporting}
+          title={
+            !selectedProjectId
+              ? 'Select a project to export'
+              : isExporting
+                ? 'Exporting TBX…'
+                : 'Download glossary as TBX-Basic'
+          }
+          onClick={onExportTbx}
+          className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg shrink-0 border ${
+            !selectedProjectId || isExporting
+              ? 'bg-white text-gray-400 border-gray-200 cursor-not-allowed'
+              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+          }`}
         >
           <Download className="mr-2" size={18} />
-          Export TBX
+          {isExporting ? 'Exporting…' : 'Export TBX'}
         </button>
       </div>
     </header>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<martif type="TBX-Basic" xml:lang="en">
+  <martifHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Sample TBX-Basic Termbase</title>
+      </titleStmt>
+      <sourceDesc>
+        <p>Created for testing purposes</p>
+      </sourceDesc>
+    </fileDesc>
+  </martifHeader>
+  <text>
+    <body>
+      <termEntry id="c1">
+        <descrip type="subjectField">Manufacturing</descrip>
+        <langSet xml:lang="en">
+          <descrip type="definition">A process of making things.</descrip>
+          <tig>
+            <term>manufacturing</term>
+            <termNote type="administrativeStatus">preferredTerm-admn-sts</termNote>
+          </tig>
+          <tig>
+            <term>fabrication</term>
+            <termNote type="administrativeStatus">admittedTerm-admn-sts</termNote>
+          </tig>
+        </langSet>
+        <langSet xml:lang="sv">
+          <descrip type="definition">En process för att tillverka saker.</descrip>
+          <tig>
+            <term>tillverkning</term>
+            <termNote type="administrativeStatus">preferredTerm-admn-sts</termNote>
+          </tig>
+          <tig>
+            <term>fabrikation</term>
+            <termNote type="administrativeStatus">admittedTerm-admn-sts</termNote>
+          </tig>
+        </langSet>
+      </termEntry>
+    </body>
+  </text>
+</martif>
