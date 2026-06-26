@@ -4,6 +4,7 @@ import { authenticateToken } from '../middleware/auth.js';
 import type { AuthRequest } from '../middleware/auth.js';
 import multer from 'multer';
 import fs from 'fs';
+import path from 'path';
 import { sseClients, processPdfBackground } from '../services/processingService.js';
 import {
   validateProjectFigure,
@@ -15,6 +16,10 @@ import { openPdfDocument } from '../utils/pdfjsLoad.js';
 import { getPdfPageCount } from '../utils/pdfPageCount.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
 import { exportProjectTbxBasic } from '../services/tbxExportService.js';
+import { extractPageData } from '../services/pdfParser.js';
+import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
+import { ensurePageCacheDir, pageCachePath } from '../utils/pageImageCache.js';
+import { locateOnPdfPage } from '../utils/pdfTextLocate.js';
 
 const router = express.Router();
 
@@ -332,6 +337,69 @@ router.post('/:id/figures/:pageNumber/validate', authenticateToken, async (req: 
   } catch (error) {
     console.error('[Validation] Figure validation failed:', error);
     res.status(500).json({ error: 'Figure validation failed' });
+  }
+});
+
+// Rendered page image (cached WebP)
+router.get('/:id/pages/:pageNumber/image', authenticateToken, async (req: AuthRequest, res) => {
+  const { id, pageNumber: pageNumberParam } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  const pageNumber = Number(pageNumberParam);
+  if (!Number.isInteger(pageNumber) || pageNumber < 1) {
+    return res.status(400).json({ error: 'Invalid page number' });
+  }
+
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
+    }
+
+    const cachePath = pageCachePath(id, pageNumber);
+    if (!fs.existsSync(cachePath)) {
+      ensurePageCacheDir(id);
+      const page = await extractPageData(loaded.pdfPath, pageNumber);
+      fs.writeFileSync(cachePath, Buffer.from(page.imageBase64, 'base64'));
+    }
+
+    res.setHeader('Content-Type', PDF_IMAGE_MIME_TYPE);
+    res.setHeader('Cache-Control', 'private, max-age=3600');
+    res.sendFile(cachePath);
+  } catch (error) {
+    console.error('[Pages] Failed to serve page image:', error);
+    res.status(500).json({ error: 'Failed to render page image' });
+  }
+});
+
+// Text-layer locate for highlight overlays
+router.get('/:id/pages/:pageNumber/locate', authenticateToken, async (req: AuthRequest, res) => {
+  const { id, pageNumber: pageNumberParam } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  const pageNumber = Number(pageNumberParam);
+  if (!Number.isInteger(pageNumber) || pageNumber < 1) {
+    return res.status(400).json({ error: 'Invalid page number' });
+  }
+
+  const term = typeof req.query.term === 'string' ? req.query.term : '';
+  const callout = typeof req.query.callout === 'string' ? req.query.callout : '';
+
+  if (!term.trim() && !callout.trim()) {
+    return res.status(400).json({ error: 'Provide term and/or callout query parameter' });
+  }
+
+  try {
+    const loaded = await loadProjectPdfPath(id, req.user!.userId, prisma);
+    if ('error' in loaded) {
+      return res.status(loaded.status).json({ error: loaded.error });
+    }
+
+    const result = await locateOnPdfPage(loaded.pdfPath, pageNumber, { term, callout });
+    res.json(result);
+  } catch (error) {
+    console.error('[Pages] Locate failed:', error);
+    res.status(500).json({ error: 'Failed to locate text on page' });
   }
 });
 

@@ -5,3 +5,33 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Scrollable regions that use a custom minimap instead of a native scrollbar */
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes highlight-pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(4);
+  }
+}
+
+.highlight-pulse-loop {
+  animation: highlight-pulse-scale 0.9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.highlight-pulse-once {
+  animation: highlight-pulse-scale 0.9s ease-in-out 3;
+  will-change: transform;
+}

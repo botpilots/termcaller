@@ -3,9 +3,10 @@ import { useAuth } from '../context/AuthContext';
 import { Folder, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
-import { SimilarityCluster, type SimilarityResult } from '../components/SimilarityCluster';
+import { type SimilarityResult } from '../components/SimilarityCluster';
 import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
 import { OccurrencesTable, type CalloutRow } from '../components/OccurrencesTable';
+import { KeywordDocumentView } from '../components/KeywordDocumentView';
 import {
   ValidationAnomalies,
   buildAnomalyMap,
@@ -721,8 +722,30 @@ export const Dashboard = () => {
           onLogout={logout}
         />
 
-        <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden">
+        <div className="flex-1 flex flex-col bg-gray-50 overflow-hidden min-w-0">
           {selectedProjectId ? (
+            browseTab === 'keywords' && selectedKeyword ? (
+              <div className="flex-1 flex flex-col min-h-0 min-w-0">
+                {isProcessing && progress && !keywords.length && (
+                  <div className="mb-4 max-w-5xl mx-auto w-full">
+                    <ProgressBanner current={progress.current} total={progress.total} label="Extracting keywords..." />
+                  </div>
+                )}
+                <KeywordDocumentView
+                  projectId={selectedProjectId}
+                  pageCount={selectedProject?.pageCount}
+                  sourceTerm={selectedKeyword.sourceTerm}
+                  conceptCount={selectedKeyword.concepts.length}
+                  keywordRows={keywordRows}
+                  activeTab={activeTab}
+                  onTabChange={setActiveTab}
+                  similarityResult={similarityResult}
+                  similarityError={similarityError}
+                  isAnalyzing={isAnalyzing}
+                  onAnalyzeSimilarity={handleAnalyzeSimilarity}
+                />
+              </div>
+            ) : (
             <div className="flex-1 p-8 flex flex-col max-w-5xl mx-auto w-full overflow-y-auto">
               <div className="w-full bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-6">
                 {isProcessing && progress && !keywords.length && browseTab === 'keywords' && (
@@ -731,87 +754,7 @@ export const Dashboard = () => {
                   </div>
                 )}
 
-                {browseTab === 'keywords' && selectedKeyword ? (
-                  <div>
-                    <div className="mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900">{selectedKeyword.sourceTerm}</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">
-                        {selectedKeyword.concepts.length} concept
-                        {selectedKeyword.concepts.length !== 1 ? 's' : ''} ·{' '}
-                        {countFiguresForKeyword(selectedKeyword.callouts)} figure
-                        {countFiguresForKeyword(selectedKeyword.callouts) !== 1 ? 's' : ''}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center justify-between border-b border-gray-200 mb-4">
-                      <div className="flex gap-1">
-                        <button
-                          type="button"
-                          onClick={() => setActiveTab('callouts')}
-                          className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                            activeTab === 'callouts'
-                              ? 'border-blue-600 text-blue-700'
-                              : 'border-transparent text-gray-500 hover:text-gray-700'
-                          }`}
-                        >
-                          Occurrences
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setActiveTab('similarity')}
-                          className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                            activeTab === 'similarity'
-                              ? 'border-indigo-600 text-indigo-700'
-                              : 'border-transparent text-gray-500 hover:text-gray-700'
-                          }`}
-                        >
-                          Similarity
-                        </button>
-                      </div>
-
-                      {activeTab === 'similarity' && (
-                        <button
-                          type="button"
-                          onClick={handleAnalyzeSimilarity}
-                          disabled={isAnalyzing || selectedKeyword.concepts.length === 0}
-                          className="mb-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
-                        >
-                          {isAnalyzing && <Loader2 className="animate-spin mr-2" size={16} />}
-                          Analyse Similarities
-                        </button>
-                      )}
-                    </div>
-
-                    {activeTab === 'callouts' ? (
-                      <OccurrencesTable
-                        rows={keywordRows}
-                        mode="keyword"
-                        emptyMessage="No callouts extracted for this keyword yet."
-                      />
-                    ) : (
-                      <div>
-                        {similarityError && (
-                          <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
-                            {similarityError}
-                          </div>
-                        )}
-                        {!similarityResult && !isAnalyzing && (
-                          <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
-                            Click &quot;Analyse Similarities&quot; to map how closely each definition aligns with the
-                            centroid.
-                          </div>
-                        )}
-                        {isAnalyzing && (
-                          <div className="flex items-center justify-center py-12 text-indigo-700">
-                            <Loader2 className="animate-spin mr-2" size={20} />
-                            Computing embeddings and similarity scores...
-                          </div>
-                        )}
-                        {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
-                      </div>
-                    )}
-                  </div>
-                ) : browseTab === 'figures' && selectedFigure ? (
+                {browseTab === 'figures' && selectedFigure ? (
                   <div>
                     <div className="mb-4">
                       <h3 className="text-lg font-semibold text-gray-900">
@@ -878,6 +821,7 @@ export const Dashboard = () => {
                 )}
               </div>
             </div>
+            )
           ) : (
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center text-gray-500">
