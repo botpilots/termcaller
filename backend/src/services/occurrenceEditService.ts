@@ -19,6 +19,19 @@ export interface SaveOccurrenceResult {
   termChanged: boolean;
 }
 
+export interface DeleteOccurrenceInput {
+  keywordId: string;
+  pageNumber: number;
+  figureNumber?: string;
+  identifiers: string;
+}
+
+export interface DeleteOccurrenceResult {
+  projectId: string;
+  keywordId: string | null;
+  keywordDeleted: boolean;
+}
+
 function definitionHash(definitionText: string, sourceTerm: string): string {
   return crypto
     .createHash('md5')
@@ -173,5 +186,106 @@ export async function saveOccurrenceEdit(
     projectId,
     keywordId: resultKeywordId,
     termChanged,
+  };
+}
+
+async function findOccurrenceCallouts(
+  prisma: PrismaClient,
+  userId: string,
+  input: { keywordId: string; pageNumber: number; figureNumber?: string; identifiers: string }
+) {
+  const keyword = await prisma.keyword.findFirst({
+    where: { id: input.keywordId, project: { userId } },
+  });
+  if (!keyword) return null;
+
+  const figureNumber = input.figureNumber?.trim() || '1';
+  const illustration = await prisma.illustration.findUnique({
+    where: {
+      projectId_pageNumber_figureNumber: {
+        projectId: keyword.projectId,
+        pageNumber: input.pageNumber,
+        figureNumber,
+      },
+    },
+    include: {
+      callouts: {
+        include: { concept: { include: { keywords: true } } },
+      },
+    },
+  });
+
+  if (!illustration) {
+    throw new Error('Figure not found');
+  }
+
+  const originalIds = splitIdentifiers(input.identifiers);
+  const targetCallouts = illustration.callouts.filter(
+    callout =>
+      originalIds.includes(callout.identifier) &&
+      callout.concept?.keywords.some(linked => linked.id === input.keywordId)
+  );
+
+  if (targetCallouts.length === 0) {
+    throw new Error('Occurrence callouts not found');
+  }
+
+  return { keyword, targetCallouts };
+}
+
+export async function deleteOccurrence(
+  prisma: PrismaClient,
+  userId: string,
+  input: DeleteOccurrenceInput
+): Promise<DeleteOccurrenceResult | null> {
+  const match = await findOccurrenceCallouts(prisma, userId, input);
+  if (!match) return null;
+
+  const { keyword, targetCallouts } = match;
+  const conceptIds = [...new Set(targetCallouts.map(callout => callout.conceptId).filter(Boolean))] as string[];
+
+  await prisma.callout.deleteMany({
+    where: { id: { in: targetCallouts.map(callout => callout.id) } },
+  });
+
+  for (const conceptId of conceptIds) {
+    const remainingForKeyword = await prisma.callout.count({
+      where: {
+        conceptId,
+        concept: { keywords: { some: { id: keyword.id } } },
+      },
+    });
+
+    if (remainingForKeyword === 0) {
+      await prisma.concept.update({
+        where: { id: conceptId },
+        data: { keywords: { disconnect: { id: keyword.id } } },
+      });
+    }
+
+    const remainingCallouts = await prisma.callout.count({ where: { conceptId } });
+    if (remainingCallouts === 0) {
+      await prisma.concept.delete({ where: { id: conceptId } });
+    }
+  }
+
+  const keywordWithConcepts = await prisma.keyword.findUnique({
+    where: { id: keyword.id },
+    include: { concepts: true },
+  });
+
+  if (keywordWithConcepts && keywordWithConcepts.concepts.length === 0) {
+    await prisma.keyword.delete({ where: { id: keyword.id } });
+    return {
+      projectId: keyword.projectId,
+      keywordId: null,
+      keywordDeleted: true,
+    };
+  }
+
+  return {
+    projectId: keyword.projectId,
+    keywordId: keyword.id,
+    keywordDeleted: false,
   };
 }

@@ -10,6 +10,7 @@ import { SimilarityCluster, type SimilarityResult } from './SimilarityCluster';
 import { countFiguresForKeyword } from '../utils/figureOccurrences';
 import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
 import { figureOccurrenceKey } from '../utils/figureOccurrences';
+import { ConfirmPromptModal } from './ConfirmPromptModal';
 import { useOccurrenceEditorState } from '../hooks/useOccurrenceEditorState';
 
 type MainTab = 'callouts' | 'similarity';
@@ -28,6 +29,7 @@ interface KeywordDocumentViewProps {
   isAnalyzing: boolean;
   onAnalyzeSimilarity: () => void;
   onOccurrenceSaved?: (keywordId: string) => void;
+  onOccurrenceDeleted?: (result: { keywordId: string | null; keywordDeleted: boolean }) => void;
 }
 
 function firstCalloutId(identifier: string): string {
@@ -48,6 +50,7 @@ export function KeywordDocumentView({
   isAnalyzing,
   onAnalyzeSimilarity,
   onOccurrenceSaved,
+  onOccurrenceDeleted,
 }: KeywordDocumentViewProps) {
   const [focusedPage, setFocusedPage] = useState<number | null>(null);
   const [selectedRowKey, setSelectedRowKey] = useState<string | null>(null);
@@ -197,7 +200,10 @@ export function KeywordDocumentView({
   }, [occurrenceSignature, sortedRows, locateOnPage]);
 
   const [isSavingOccurrence, setIsSavingOccurrence] = useState(false);
+  const [isDeletingOccurrence, setIsDeletingOccurrence] = useState(false);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const [occurrenceSaveError, setOccurrenceSaveError] = useState<string | null>(null);
+  const [occurrenceDeleteError, setOccurrenceDeleteError] = useState<string | null>(null);
 
   const previewEnabled = activeTab === 'callouts' && pageCount != null && pageCount > 0;
 
@@ -248,6 +254,38 @@ export function KeywordDocumentView({
     markDraftSaved,
     onOccurrenceSaved,
   ]);
+
+  const handleOccurrenceDeleteRequest = useCallback(() => {
+    if (!selectedRow || !originalDraft) return;
+    setDeleteConfirmOpen(true);
+  }, [selectedRow, originalDraft]);
+
+  const handleOccurrenceDeleteConfirm = useCallback(async () => {
+    if (!selectedRow || !originalDraft) return;
+
+    setDeleteConfirmOpen(false);
+    setIsDeletingOccurrence(true);
+    setOccurrenceDeleteError(null);
+
+    try {
+      const response = await axios.delete<{ keywordId: string | null; keywordDeleted: boolean }>(
+        `/api/keywords/${keywordId}/occurrences`,
+        {
+          data: {
+            pageNumber: selectedRow.pageNumber,
+            figureNumber: selectedRow.figureNumber ?? '1',
+            identifiers: originalDraft.identifier,
+          },
+        }
+      );
+
+      onOccurrenceDeleted?.(response.data);
+    } catch {
+      setOccurrenceDeleteError('Failed to delete concept. Please try again.');
+    } finally {
+      setIsDeletingOccurrence(false);
+    }
+  }, [selectedRow, originalDraft, keywordId, onOccurrenceDeleted]);
 
   const handleOccurrenceSelect = useCallback(
     (row: CalloutRow) => {
@@ -346,9 +384,12 @@ export function KeywordDocumentView({
                     onDraftChange={updateDraft}
                     onHighlightPulseHover={setHoverPulsePage}
                     onConfirm={() => void handleOccurrenceConfirm()}
+                    onDelete={handleOccurrenceDeleteRequest}
                     showTermChangeHint={isTermChanged(activeKey ?? '')}
                     isSaving={isSavingOccurrence}
+                    isDeleting={isDeletingOccurrence}
                     saveError={occurrenceSaveError}
+                    deleteError={occurrenceDeleteError}
                     compact={previewEnabled}
                   />
                 )
@@ -413,6 +454,25 @@ export function KeywordDocumentView({
           }}
         />
       </DocumentPreviewSidebar>
+
+      <ConfirmPromptModal
+        open={deleteConfirmOpen}
+        title="Delete concept?"
+        message={
+          selectedRow ? (
+            <>
+              Remove this concept from the keyword group? This deletes the callout and definition
+              for page {selectedRow.pageNumber}, figure {selectedRow.figureNumber ?? '1'}.
+            </>
+          ) : (
+            'Remove this concept from the keyword group?'
+          )
+        }
+        confirmLabel="Delete"
+        cancelLabel="Cancel"
+        onConfirm={() => void handleOccurrenceDeleteConfirm()}
+        onCancel={() => setDeleteConfirmOpen(false)}
+      />
     </div>
   );
 }

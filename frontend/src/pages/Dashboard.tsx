@@ -143,7 +143,8 @@ export const Dashboard = () => {
   const fetchKeywords = useCallback(async (projectId: string) => {
     const response = await axios.get(`/api/projects/${projectId}`);
     const data = mapCalloutsToKeywords(response.data);
-    setKeywords(data.keywords ?? []);
+    const nextKeywords = data.keywords ?? [];
+    setKeywords(nextKeywords);
     // Keep pdfPath and pageCount in sync — project list may be stale after upload or page reload
     if (response.data.pdfPath || response.data.pageCount != null) {
       setProjects(prev =>
@@ -158,6 +159,7 @@ export const Dashboard = () => {
         )
       );
     }
+    return nextKeywords;
   }, []);
 
   const fetchFigures = useCallback(async (projectId: string) => {
@@ -755,6 +757,15 @@ export const Dashboard = () => {
                   onOccurrenceSaved={keywordId => {
                     void fetchKeywords(selectedProjectId).then(() => {
                       setSelectedKeywordId(keywordId);
+                    });
+                  }}
+                  onOccurrenceDeleted={result => {
+                    void fetchKeywords(selectedProjectId).then(freshKeywords => {
+                      if (result.keywordDeleted || !result.keywordId) {
+                        setSelectedKeywordId(freshKeywords[0]?.id ?? null);
+                        return;
+                      }
+                      setSelectedKeywordId(result.keywordId);
                     });
                   }}
                 />

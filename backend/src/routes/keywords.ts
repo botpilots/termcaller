@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import { authenticateToken } from '../middleware/auth.js';
 import type { AuthRequest } from '../middleware/auth.js';
 import { analyzeKeywordSimilarity } from '../services/similarityService.js';
-import { saveOccurrenceEdit } from '../services/occurrenceEditService.js';
+import { deleteOccurrence, saveOccurrenceEdit } from '../services/occurrenceEditService.js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -53,6 +53,36 @@ router.patch('/:id/occurrences', authenticateToken, async (req: AuthRequest, res
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Failed to save occurrence';
     console.error('[Occurrence edit]', error);
+    res.status(500).json({ error: message });
+  }
+});
+
+router.delete('/:id/occurrences', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing keyword id' });
+
+  const { pageNumber, figureNumber, identifiers } = req.body ?? {};
+
+  if (typeof pageNumber !== 'number' || typeof identifiers !== 'string') {
+    return res.status(400).json({ error: 'Invalid occurrence payload' });
+  }
+
+  try {
+    const result = await deleteOccurrence(prisma, req.user!.userId, {
+      keywordId: id,
+      pageNumber,
+      figureNumber: typeof figureNumber === 'string' ? figureNumber : undefined,
+      identifiers,
+    });
+
+    if (!result) {
+      return res.status(404).json({ error: 'Keyword not found' });
+    }
+
+    res.json(result);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Failed to delete occurrence';
+    console.error('[Occurrence delete]', error);
     res.status(500).json({ error: message });
   }
 });
