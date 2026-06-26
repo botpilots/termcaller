@@ -4,8 +4,7 @@ import type { HighlightBox, HighlightPulseMode } from '../types/documentPreview'
 import { HighlightOverlay } from './HighlightOverlay';
 import { usePageImage } from '../hooks/usePageImage';
 import { PageMinimap } from './PageMinimap';
-
-const PAGE_ASPECT = 297 / 210;
+import { PAGE_ASPECT_HEIGHT_OVER_WIDTH } from '../utils/pageDimensions';
 
 interface DocumentPreviewProps {
   projectId: string;
@@ -96,7 +95,7 @@ function PageSlotInner({
       {showPlaceholder && !error && (
         <div
           className="flex items-center justify-center bg-gray-100 text-gray-400 text-sm"
-          style={{ aspectRatio: `1 / ${PAGE_ASPECT}` }}
+          style={{ aspectRatio: `1 / ${PAGE_ASPECT_HEIGHT_OVER_WIDTH}` }}
         >
           {showLoader ? (
             <>
@@ -112,7 +111,7 @@ function PageSlotInner({
       {error && (
         <div
           className="flex items-center justify-center bg-gray-100 text-gray-500 text-sm p-8"
-          style={{ aspectRatio: `1 / ${PAGE_ASPECT}` }}
+          style={{ aspectRatio: `1 / ${PAGE_ASPECT_HEIGHT_OVER_WIDTH}` }}
         >
           Could not load page {pageNumber}
         </div>

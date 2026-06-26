@@ -16,6 +16,7 @@ type MainTab = 'callouts' | 'similarity';
 
 interface KeywordDocumentViewProps {
   projectId: string;
+  keywordId: string;
   pageCount: number | null | undefined;
   sourceTerm: string;
   conceptCount: number;
@@ -26,6 +27,7 @@ interface KeywordDocumentViewProps {
   similarityError: string | null;
   isAnalyzing: boolean;
   onAnalyzeSimilarity: () => void;
+  onOccurrenceSaved?: (keywordId: string) => void;
 }
 
 function firstCalloutId(identifier: string): string {
@@ -34,6 +36,7 @@ function firstCalloutId(identifier: string): string {
 
 export function KeywordDocumentView({
   projectId,
+  keywordId,
   pageCount,
   sourceTerm,
   conceptCount,
@@ -44,6 +47,7 @@ export function KeywordDocumentView({
   similarityError,
   isAnalyzing,
   onAnalyzeSimilarity,
+  onOccurrenceSaved,
 }: KeywordDocumentViewProps) {
   const [focusedPage, setFocusedPage] = useState<number | null>(null);
   const [selectedRowKey, setSelectedRowKey] = useState<string | null>(null);
@@ -192,13 +196,58 @@ export function KeywordDocumentView({
     void locateOnPage(row.pageNumber, row, referencePage);
   }, [occurrenceSignature, sortedRows, locateOnPage]);
 
+  const [isSavingOccurrence, setIsSavingOccurrence] = useState(false);
+  const [occurrenceSaveError, setOccurrenceSaveError] = useState<string | null>(null);
+
   const previewEnabled = activeTab === 'callouts' && pageCount != null && pageCount > 0;
 
-  const { activeKey, selectedRow, draft, updateDraft, selectRow } = useOccurrenceEditorState(
-    keywordRows,
-    'keyword',
-    selectedRowKey
-  );
+  const {
+    activeKey,
+    selectedRow,
+    draft,
+    originalDraft,
+    updateDraft,
+    selectRow,
+    isTermChanged,
+    markDraftSaved,
+  } = useOccurrenceEditorState(keywordRows, 'keyword', selectedRowKey, sourceTerm);
+
+  const handleOccurrenceConfirm = useCallback(async () => {
+    if (!activeKey || !draft || !selectedRow || !originalDraft) return;
+
+    setIsSavingOccurrence(true);
+    setOccurrenceSaveError(null);
+
+    try {
+      const response = await axios.patch<{ keywordId: string }>(
+        `/api/keywords/${keywordId}/occurrences`,
+        {
+          pageNumber: selectedRow.pageNumber,
+          figureNumber: selectedRow.figureNumber ?? '1',
+          originalIdentifiers: originalDraft.identifier,
+          identifier: draft.identifier,
+          sourceTerm: draft.sourceTerm,
+          definitionText: draft.definitionText ?? '',
+          originalSourceTerm: originalDraft.sourceTerm,
+        }
+      );
+
+      markDraftSaved(activeKey);
+      onOccurrenceSaved?.(response.data.keywordId);
+    } catch {
+      setOccurrenceSaveError('Failed to save occurrence. Please try again.');
+    } finally {
+      setIsSavingOccurrence(false);
+    }
+  }, [
+    activeKey,
+    draft,
+    selectedRow,
+    originalDraft,
+    keywordId,
+    markDraftSaved,
+    onOccurrenceSaved,
+  ]);
 
   const handleOccurrenceSelect = useCallback(
     (row: CalloutRow) => {
@@ -220,58 +269,6 @@ export function KeywordDocumentView({
             : 'flex-1 rounded-xl shadow-sm border border-gray-200'
         }`}
       >
-        <div className={previewEnabled ? 'p-4 border-b border-gray-100 shrink-0' : 'p-8 pb-4 shrink-0'}>
-          <h3 className="text-lg font-semibold text-gray-900">{sourceTerm}</h3>
-          <p className="text-sm text-gray-500 mt-0.5">
-            {conceptCount} concept{conceptCount !== 1 ? 's' : ''} ·{' '}
-            {countFiguresForKeyword(keywordRows)} figure
-            {countFiguresForKeyword(keywordRows) !== 1 ? 's' : ''}
-          </p>
-        </div>
-
-        <div
-          className={`flex items-center justify-between border-b border-gray-200 shrink-0 ${
-            previewEnabled ? 'px-4' : 'px-8'
-          }`}
-        >
-          <div className="flex gap-1">
-            <button
-              type="button"
-              onClick={() => onTabChange('callouts')}
-              className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                activeTab === 'callouts'
-                  ? 'border-blue-600 text-blue-700'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Occurrences
-            </button>
-            <button
-              type="button"
-              onClick={() => onTabChange('similarity')}
-              className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                activeTab === 'similarity'
-                  ? 'border-indigo-600 text-indigo-700'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Similarity
-            </button>
-          </div>
-
-          {activeTab === 'similarity' && (
-            <button
-              type="button"
-              onClick={onAnalyzeSimilarity}
-              disabled={isAnalyzing || conceptCount === 0}
-              className="mb-2 px-3 py-1.5 bg-indigo-600 text-white text-xs font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
-            >
-              {isAnalyzing && <Loader2 className="animate-spin mr-1.5" size={14} />}
-              Analyse
-            </button>
-          )}
-        </div>
-
         <div className="flex flex-1 min-h-0">
           <OccurrenceRail
             rows={keywordRows}
@@ -282,43 +279,101 @@ export function KeywordDocumentView({
             className={previewEnabled ? '' : 'rounded-bl-xl'}
           />
 
-          <div className={`flex-1 min-h-0 min-w-0 overflow-y-auto ${previewEnabled ? '' : 'pb-8'}`}>
-            {activeTab === 'callouts' ? (
-              keywordRows.length === 0 ? (
-                <div className="text-sm text-gray-500 text-center py-12 px-6">
-                  No callouts extracted for this keyword yet.
-                </div>
-              ) : (
-                <OccurrenceForm
-                  selectedRow={selectedRow}
-                  draft={draft}
-                  mode="keyword"
-                  onDraftChange={updateDraft}
-                  onHighlightPulseHover={setHoverPulsePage}
-                  compact={previewEnabled}
-                />
-              )
-            ) : (
-              <div className={previewEnabled ? 'p-3' : 'p-5'}>
-                {similarityError && (
-                  <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
-                    {similarityError}
-                  </div>
-                )}
-                {!similarityResult && !isAnalyzing && (
-                  <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
-                    Click &quot;Analyse&quot; to map definition similarity.
-                  </div>
-                )}
-                {isAnalyzing && (
-                  <div className="flex items-center justify-center py-12 text-indigo-700 text-sm">
-                    <Loader2 className="animate-spin mr-2" size={18} />
-                    Computing embeddings…
-                  </div>
-                )}
-                {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
+          <div className="flex flex-col flex-1 min-h-0 min-w-0">
+            <div className={previewEnabled ? 'p-4 border-b border-gray-100 shrink-0' : 'p-8 pb-4 shrink-0'}>
+              <h3 className="text-lg font-semibold text-gray-900">{sourceTerm}</h3>
+              <p className="text-sm text-gray-500 mt-0.5">
+                {conceptCount} concept{conceptCount !== 1 ? 's' : ''} ·{' '}
+                {countFiguresForKeyword(keywordRows)} figure
+                {countFiguresForKeyword(keywordRows) !== 1 ? 's' : ''}
+              </p>
+            </div>
+
+            <div
+              className={`flex items-center justify-between border-b border-gray-200 shrink-0 ${
+                previewEnabled ? 'px-4' : 'px-8'
+              }`}
+            >
+              <div className="flex gap-1">
+                <button
+                  type="button"
+                  onClick={() => onTabChange('callouts')}
+                  className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    activeTab === 'callouts'
+                      ? 'border-blue-600 text-blue-700'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onTabChange('similarity')}
+                  className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                    activeTab === 'similarity'
+                      ? 'border-indigo-600 text-indigo-700'
+                      : 'border-transparent text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  Similarity
+                </button>
               </div>
-            )}
+
+              {activeTab === 'similarity' && (
+                <button
+                  type="button"
+                  onClick={onAnalyzeSimilarity}
+                  disabled={isAnalyzing || conceptCount === 0}
+                  className="mb-2 px-3 py-1.5 bg-indigo-600 text-white text-xs font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                >
+                  {isAnalyzing && <Loader2 className="animate-spin mr-1.5" size={14} />}
+                  Analyse
+                </button>
+              )}
+            </div>
+
+            <div className={`flex-1 min-h-0 min-w-0 overflow-y-auto ${previewEnabled ? '' : 'pb-8'}`}>
+              {activeTab === 'callouts' ? (
+                keywordRows.length === 0 ? (
+                  <div className="text-sm text-gray-500 text-center py-12 px-6">
+                    No callouts extracted for this keyword yet.
+                  </div>
+                ) : (
+                  <OccurrenceForm
+                    selectedRow={selectedRow}
+                    draft={draft}
+                    mode="keyword"
+                    onDraftChange={updateDraft}
+                    onHighlightPulseHover={setHoverPulsePage}
+                    onConfirm={() => void handleOccurrenceConfirm()}
+                    showTermChangeHint={isTermChanged(activeKey ?? '')}
+                    isSaving={isSavingOccurrence}
+                    saveError={occurrenceSaveError}
+                    compact={previewEnabled}
+                  />
+                )
+              ) : (
+                <div className={previewEnabled ? 'p-3' : 'p-5'}>
+                  {similarityError && (
+                    <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
+                      {similarityError}
+                    </div>
+                  )}
+                  {!similarityResult && !isAnalyzing && (
+                    <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
+                      Click &quot;Analyse&quot; to map definition similarity.
+                    </div>
+                  )}
+                  {isAnalyzing && (
+                    <div className="flex items-center justify-center py-12 text-indigo-700 text-sm">
+                      <Loader2 className="animate-spin mr-2" size={18} />
+                      Computing embeddings…
+                    </div>
+                  )}
+                  {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

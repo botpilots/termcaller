@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { PanelRightClose, PanelRightOpen } from 'lucide-react';
+import { maxDocumentPreviewSidebarWidth } from '../utils/pageDimensions';
 
 const STORAGE_WIDTH_KEY = 'termcaller-preview-sidebar-width';
 const STORAGE_MINIMIZED_KEY = 'termcaller-preview-sidebar-minimized';
@@ -35,8 +36,12 @@ interface DocumentPreviewSidebarProps {
 export function DocumentPreviewSidebar({ children, enabled }: DocumentPreviewSidebarProps) {
   const [width, setWidth] = useState(readStoredWidth);
   const [minimized, setMinimized] = useState(readStoredMinimized);
+  const [heightMaxWidth, setHeightMaxWidth] = useState(() =>
+    maxDocumentPreviewSidebarWidth(window.innerHeight)
+  );
   const widthBeforeMinimize = useRef(width);
   const dragging = useRef(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     sessionStorage.setItem(STORAGE_WIDTH_KEY, String(width));
@@ -46,10 +51,40 @@ export function DocumentPreviewSidebar({ children, enabled }: DocumentPreviewSid
     sessionStorage.setItem(STORAGE_MINIMIZED_KEY, minimized ? '1' : '0');
   }, [minimized]);
 
-  const clampWidth = useCallback((next: number) => {
-    const max = Math.max(MIN_WIDTH, Math.floor(window.innerWidth * MAX_WIDTH_RATIO));
-    return Math.min(max, Math.max(MIN_WIDTH, next));
-  }, []);
+  useEffect(() => {
+    if (!enabled || minimized) return;
+
+    const element = contentRef.current;
+    if (!element) return;
+
+    const updateHeightMax = () => {
+      setHeightMaxWidth(maxDocumentPreviewSidebarWidth(element.clientHeight));
+    };
+
+    updateHeightMax();
+    const observer = new ResizeObserver(updateHeightMax);
+    observer.observe(element);
+    window.addEventListener('resize', updateHeightMax);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateHeightMax);
+    };
+  }, [enabled, minimized]);
+
+  const clampWidth = useCallback(
+    (next: number) => {
+      const windowMax = Math.max(MIN_WIDTH, Math.floor(window.innerWidth * MAX_WIDTH_RATIO));
+      const max = Math.min(windowMax, heightMaxWidth);
+      return Math.min(max, Math.max(MIN_WIDTH, next));
+    },
+    [heightMaxWidth]
+  );
+
+  useEffect(() => {
+    if (minimized) return;
+    setWidth(current => clampWidth(current));
+  }, [clampWidth, minimized]);
 
   const startResize = useCallback(
     (event: React.MouseEvent) => {
@@ -147,7 +182,9 @@ export function DocumentPreviewSidebar({ children, enabled }: DocumentPreviewSid
             <PanelRightClose size={16} />
           </button>
         </div>
-        <div className="flex-1 min-h-0 min-w-0 p-2">{children}</div>
+        <div ref={contentRef} className="flex-1 min-h-0 min-w-0 p-2">
+          {children}
+        </div>
       </div>
     </div>
   );

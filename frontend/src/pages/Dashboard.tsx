@@ -504,7 +504,10 @@ export const Dashboard = () => {
       groupCalloutsByFigure(
         selectedKeyword?.callouts ?? [],
         selectedKeyword?.concepts[0]?.definitionText
-      ),
+      ).map(row => ({
+        ...row,
+        sourceTerm: selectedKeyword?.sourceTerm,
+      })),
     [selectedKeyword]
   );
 
@@ -738,6 +741,7 @@ export const Dashboard = () => {
                 )}
                 <KeywordDocumentView
                   projectId={selectedProjectId}
+                  keywordId={selectedKeyword.id}
                   pageCount={selectedProject?.pageCount}
                   sourceTerm={selectedKeyword.sourceTerm}
                   conceptCount={selectedKeyword.concepts.length}
@@ -748,6 +752,11 @@ export const Dashboard = () => {
                   similarityError={similarityError}
                   isAnalyzing={isAnalyzing}
                   onAnalyzeSimilarity={handleAnalyzeSimilarity}
+                  onOccurrenceSaved={keywordId => {
+                    void fetchKeywords(selectedProjectId).then(() => {
+                      setSelectedKeywordId(keywordId);
+                    });
+                  }}
                 />
               </div>
             ) : (

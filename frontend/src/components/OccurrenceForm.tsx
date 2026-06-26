@@ -9,6 +9,10 @@ interface OccurrenceFormProps {
   mode: 'keyword' | 'figure';
   onDraftChange: (patch: Partial<OccurrenceDraftFields>) => void;
   onHighlightPulseHover?: (pageNumber: number | null) => void;
+  onConfirm?: () => void;
+  showTermChangeHint?: boolean;
+  isSaving?: boolean;
+  saveError?: string | null;
   compact?: boolean;
   emptyMessage?: string;
 }
@@ -19,6 +23,10 @@ export function OccurrenceForm({
   mode,
   onDraftChange,
   onHighlightPulseHover,
+  onConfirm,
+  showTermChangeHint = false,
+  isSaving = false,
+  saveError = null,
   compact = false,
   emptyMessage,
 }: OccurrenceFormProps) {
@@ -59,6 +67,20 @@ export function OccurrenceForm({
         )}
 
         <div>
+          <label htmlFor="occurrence-term" className={labelClass}>
+            Term
+          </label>
+          <input
+            id="occurrence-term"
+            type="text"
+            value={draft.sourceTerm ?? ''}
+            onChange={event => onDraftChange({ sourceTerm: event.target.value })}
+            className={inputClass}
+            placeholder="Source term name"
+          />
+        </div>
+
+        <div>
           <label htmlFor="occurrence-callout" className={labelClass}>
             Callout
           </label>
@@ -71,31 +93,16 @@ export function OccurrenceForm({
           />
         </div>
 
-        {mode === 'figure' && (
-          <div>
-            <label htmlFor="occurrence-term" className={labelClass}>
-              Term
-            </label>
-            <input
-              id="occurrence-term"
-              type="text"
-              value={draft.sourceTerm ?? ''}
-              onChange={event => onDraftChange({ sourceTerm: event.target.value })}
-              className={inputClass}
-            />
-          </div>
-        )}
-
         <div>
           <label htmlFor="occurrence-definition" className={labelClass}>
             Definition
           </label>
           <textarea
             id="occurrence-definition"
-            rows={compact ? 3 : 5}
+            rows={4}
             value={draft.definitionText ?? ''}
             onChange={event => onDraftChange({ definitionText: event.target.value })}
-            className={`${inputClass} resize-y min-h-[4.5rem]`}
+            className={`${inputClass} resize-none`}
           />
         </div>
 
@@ -105,6 +112,30 @@ export function OccurrenceForm({
             <p className="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
               {selectedRow.anomaly}
             </p>
+          </div>
+        )}
+
+        {onConfirm && (
+          <div className="pt-2">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={onConfirm}
+                disabled={isSaving}
+                className="px-4 py-2 text-sm font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSaving ? 'Saving…' : 'Confirm'}
+              </button>
+            </div>
+            {showTermChangeHint && (
+              <p className="mt-3 text-sm italic text-gray-500">
+                This concept will appear in the keywords list under its new name; it will no longer
+                be tied to this keyword group.
+              </p>
+            )}
+            {saveError && (
+              <p className="mt-2 text-sm text-red-600">{saveError}</p>
+            )}
           </div>
         )}
       </div>
