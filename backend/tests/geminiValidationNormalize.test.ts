@@ -5,9 +5,6 @@ import {
   sanitizeValidationResult,
   textAssignsCalloutToPart,
   filterLabelMismatchesAgainstPageText,
-  availableAdjacentDirections,
-  remainingAdjacentDirections,
-  resolveAdjacentDirectionChoice,
 } from '../src/services/geminiValidationService.js';
 
 describe('discovered figure normalization', () => {
@@ -59,6 +56,17 @@ describe('isPlausibleCalloutLabel', () => {
   it('rejects long numeric serial-style values', () => {
     expect(isPlausibleCalloutLabel('10081322')).toBe(false);
     expect(isPlausibleCalloutLabel('1234')).toBe(false);
+  });
+
+  it('rejects dimension and unit annotations', () => {
+    expect(isPlausibleCalloutLabel('m2')).toBe(false);
+    expect(isPlausibleCalloutLabel('m²')).toBe(false);
+    expect(isPlausibleCalloutLabel('mm')).toBe(false);
+    expect(isPlausibleCalloutLabel('M4')).toBe(false);
+    expect(isPlausibleCalloutLabel('M4x8')).toBe(false);
+    expect(isPlausibleCalloutLabel('ø12')).toBe(false);
+    expect(isPlausibleCalloutLabel('10mm')).toBe(false);
+    expect(isPlausibleCalloutLabel('DIN 912')).toBe(false);
   });
 });
 
@@ -138,28 +146,5 @@ describe('filterLabelMismatchesAgainstPageText', () => {
     expect(filtered).toEqual([
       { textIdentifier: 'B', imageIdentifier: 'A', sourceTerm: 'cotter pin' },
     ]);
-  });
-});
-
-describe('adjacent page direction helpers', () => {
-  it('lists only available directions', () => {
-    expect(availableAdjacentDirections({ hasPrevious: true, hasNext: true })).toEqual([
-      'previous',
-      'next',
-    ]);
-    expect(availableAdjacentDirections({ hasPrevious: false, hasNext: true })).toEqual(['next']);
-  });
-
-  it('excludes already tried directions', () => {
-    const context = {
-      unreferencedCallouts: ['3'],
-      availableDirections: ['previous', 'next'] as const,
-      triedDirections: ['previous'] as const,
-    };
-
-    expect(remainingAdjacentDirections(context)).toEqual(['next']);
-    expect(resolveAdjacentDirectionChoice(context, 'next')).toBe('next');
-    expect(resolveAdjacentDirectionChoice(context, 'previous')).toBeNull();
-    expect(resolveAdjacentDirectionChoice(context, 'none')).toBeNull();
   });
 });

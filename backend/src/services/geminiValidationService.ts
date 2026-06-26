@@ -37,20 +37,6 @@ export interface FigureValidationInput {
   extractedConcepts: ExtractedCallout[];
 }
 
-export type AdjacentPageDirection = 'previous' | 'next';
-
-export type AdjacentPageDirectionChoice = AdjacentPageDirection | 'none';
-
-export type FetchAdjacentPageImage = (
-  direction: AdjacentPageDirection
-) => Promise<string | undefined>;
-
-export interface AdjacentPageContext {
-  unreferencedCallouts: string[];
-  availableDirections: AdjacentPageDirection[];
-  triedDirections: AdjacentPageDirection[];
-}
-
 interface LlmFigureValidation {
   unreferencedCallouts?: string[];
   uncalledReferences?: string[];
@@ -63,8 +49,15 @@ interface LlmDiscoverAndValidateResponse {
 
 const CALLOUT_RULES = `
 CALLOUT IDENTIFIER RULES (apply to every figure):
-- ONLY arrow/leader/pointer labels on illustrations (e.g. 1, 2, A, B, (3)).
-- NEVER treat serial numbers, model numbers, registration numbers, dimensions, quantities, dates, barcodes, scale markers, or decorative text as callouts.
+- Validate ONLY illustration callout leader labels: small numbers or letters on arrows/leaders/pointers pointing at parts (e.g. 1, 2, A, B, (3)).
+- A callout label is NEVER the same as body text, dimensions, units, torque values, or standards printed on or near the drawing.
+- IGNORE and NEVER report as unreferencedCallouts or uncalledReferences:
+  - Dimensions and measurements (10 mm, 0.5", ø12, φ4, 25.4)
+  - Units and unit annotations (mm, cm, m, m2, m², in, Nm, °)
+  - Fastener/thread sizing (M2, M4, M4x8, M30)
+  - Standards references (DIN 912, ISO 4762)
+  - Serial numbers, model numbers, registration numbers, quantities, dates, barcodes, scale markers, view labels (SECTION A-A), or decorative text
+- If text is printed along a dimension line, inside a measurement box, or next to a unit symbol, it is NOT a callout — skip it entirely.
 - Each figures[] entry covers ONE illustration only — do not report labels from other figures on this page.
 - Scope instructional text to each illustration using its "Figure X.X" caption on the page.
 - List identifiers only (no part names in unreferencedCallouts / uncalledReferences).
@@ -88,13 +81,13 @@ const figureValidationItemSchema = {
     unreferencedCallouts: {
       type: Type.ARRAY,
       description:
-        'Callout leader labels visible on THIS illustration but not explained in the page text. Identifiers only.',
+        'Callout leader labels (arrow/pointer numbers or letters only) visible on THIS illustration but not explained in the page text. Exclude dimensions, units, and all non-callout annotation text. Identifiers only.',
       items: { type: Type.STRING },
     },
     uncalledReferences: {
       type: Type.ARRAY,
       description:
-        'Callout leader labels assigned in the text to THIS illustration but missing from its image. Identifiers only.',
+        'Callout leader labels (arrow/pointer numbers or letters only) assigned in the text to THIS illustration but missing from its image. Exclude dimensions, units, and all non-callout annotation text. Identifiers only.',
       items: { type: Type.STRING },
     },
     labelMismatches: {
@@ -127,25 +120,27 @@ const pageValidateSchema = {
   required: ['figures'],
 };
 
-const adjacentDirectionSchema = {
-  type: Type.OBJECT,
-  properties: {
-    direction: {
-      type: Type.STRING,
-      enum: ['previous', 'next', 'none'],
-      description:
-        'Which single adjacent page is most likely to explain the unreferenced callouts, or none to stop.',
-    },
-  },
-  required: ['direction'],
-};
+/** Reject dimension, unit, and standard annotations that are not callout leader labels. */
+export function looksLikeDimensionOrUnitAnnotation(id: string): boolean {
+  const label = id.trim();
+  if (!label) return false;
 
-const MAX_ADJACENT_VALIDATION_CHECKS = 2;
+  const normalized = label.replace(/²/g, '2').toLowerCase();
+
+  if (/^(mm|cm|km|m\d*|in|ft|nm|psi|bar|kg|g|lb|oz|deg|°)$/.test(normalized)) return true;
+  if (/^m\d+(\s*x\s*\d+)?$/i.test(label)) return true;
+  if (/^[øØφ]\s*\d/i.test(label)) return true;
+  if (/^\d+(\.\d+)?\s*(mm|cm|m|in|ft|nm|°|deg)$/i.test(label)) return true;
+  if (/\b(DIN|ISO)\s*\d+/i.test(label)) return true;
+
+  return false;
+}
 
 /** Reject long numeric strings and other values that are not plausible callout leader labels. */
 export function isPlausibleCalloutLabel(id: string): boolean {
   const label = id.trim();
   if (!label || label.length > 6) return false;
+  if (looksLikeDimensionOrUnitAnnotation(label)) return false;
   if (/^\d{4,}$/.test(label)) return false;
   if (/^[A-Z0-9]{5,}$/i.test(label) && !/^[A-Z]\d?$/i.test(label)) return false;
   return true;
@@ -239,6 +234,7 @@ You are a technical documentation QA analyst discovering and validating figures 
 
 I am providing a manual page image. Read the page text and illustrations directly.
 Do NOT invent part names.
+Validate ONLY callout leader labels (arrow/pointer numbers and letters). Ignore dimensions, units, measurements, and all other printed annotation text on diagrams.
 
 INSTRUCTIONS:
 1. Return one entry in figures per illustration with callout leader labels, ordered top-to-bottom then left-to-right. Do not include figures with no callout labels.
@@ -265,6 +261,7 @@ You are a technical documentation QA analyst validating callout referential inte
 I am providing a manual page image. There are ${knownFigures.length} illustration(s) on this page in reading order (top-to-bottom, left-to-right).
 Return exactly ${knownFigures.length} entries in figures[], one per illustration, in that order.
 Do NOT invent part names.
+Validate ONLY callout leader labels (arrow/pointer numbers and letters). Ignore dimensions, units, measurements, and all other printed annotation text on diagrams.
 
 ${figureBlocks}
 
@@ -277,146 +274,46 @@ ${LABEL_MISMATCH_RULES}
 `;
 }
 
-export function availableAdjacentDirections(availability: {
-  hasPrevious: boolean;
-  hasNext: boolean;
-}): AdjacentPageDirection[] {
-  const directions: AdjacentPageDirection[] = [];
-  if (availability.hasPrevious) directions.push('previous');
-  if (availability.hasNext) directions.push('next');
-  return directions;
-}
-
-export function remainingAdjacentDirections(context: AdjacentPageContext): AdjacentPageDirection[] {
-  return context.availableDirections.filter(direction => !context.triedDirections.includes(direction));
-}
-
-export function resolveAdjacentDirectionChoice(
-  context: AdjacentPageContext,
-  choice: AdjacentPageDirectionChoice
-): AdjacentPageDirection | null {
-  if (choice === 'none') return null;
-
-  const remaining = remainingAdjacentDirections(context);
-  return remaining.includes(choice) ? choice : null;
-}
-
-function buildAdjacentDirectionPrompt(context: AdjacentPageContext): string {
-  const remaining = remainingAdjacentDirections(context);
-  const triedNote =
-    context.triedDirections.length > 0
-      ? `Already checked the ${context.triedDirections.join(' and ')} page(s); some callouts may still be unreferenced.\n`
-      : '';
-
-  return `${triedNote}Unreferenced callout labels on the current page: ${context.unreferencedCallouts.join(', ')}.
-
-Based on the manual page layout (legends, part lists, continued figures, facing-page spreads), which SINGLE adjacent page is most likely to explain these labels in its text?
-
-Reply with direction "previous", "next", or "none" if no remaining adjacent page would help.
-You may choose only from: ${[...remaining, 'none'].join(', ')}.`;
-}
-
-async function chooseAdjacentPageDirection(
-  pageImageBase64: string,
-  context: AdjacentPageContext
-): Promise<AdjacentPageDirection | null> {
-  const remaining = remainingAdjacentDirections(context);
-  if (remaining.length === 0) return null;
-  if (remaining.length === 1) return remaining[0]!;
-
-  const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
-    contents: [
-      {
-        role: 'user',
-        parts: [
-          { text: buildAdjacentDirectionPrompt(context) },
-          { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: pageImageBase64 } },
-        ],
-      },
-    ],
-    config: {
-      responseMimeType: 'application/json',
-      responseSchema: adjacentDirectionSchema,
-      temperature: 0.1,
-      thinkingConfig: {
-        thinkingLevel: GEMINI_VALIDATION_THINKING_LEVEL,
-      },
-    },
-  });
-
-  const parsed = JSON.parse(response.text || '{}') as { direction?: AdjacentPageDirectionChoice };
-  return resolveAdjacentDirectionChoice(context, parsed.direction ?? 'none');
-}
-
-function collectUnreferencedCallouts(result: PageValidationOutput): string[] {
-  return [...new Set(result.discoveredFigures.flatMap(figure => figure.unreferencedCallouts))];
-}
-
 async function runAdjacentFollowUp(
   chat: ReturnType<typeof ai.chats.create>,
-  pageImageBase64: string,
   result: PageValidationOutput,
-  fetchAdjacentPageImage: FetchAdjacentPageImage,
-  adjacentAvailability: { hasPrevious: boolean; hasNext: boolean },
+  fetchAdjacentImages: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>,
   pageText?: string
 ): Promise<PageValidationOutput> {
-  let current = result;
-  const triedDirections: AdjacentPageDirection[] = [];
-  const availableDirections = availableAdjacentDirections(adjacentAvailability);
+  const unreferenced = result.discoveredFigures.flatMap(figure => figure.unreferencedCallouts);
 
-  for (let attempt = 0; attempt < MAX_ADJACENT_VALIDATION_CHECKS; attempt++) {
-    const unreferenced = collectUnreferencedCallouts(current);
-    if (!unreferenced.length) {
-      return current;
-    }
-
-    const context: AdjacentPageContext = {
-      unreferencedCallouts: unreferenced,
-      availableDirections,
-      triedDirections,
-    };
-    const remaining = remainingAdjacentDirections(context);
-    if (!remaining.length) {
-      return current;
-    }
-
-    const direction =
-      remaining.length === 1
-        ? remaining[0]!
-        : await chooseAdjacentPageDirection(pageImageBase64, context);
-
-    if (!direction) {
-      return current;
-    }
-
-    console.log(
-      `[Gemini Validation] Checking ${direction} page for unreferenced callouts: ${unreferenced.join(', ')}`
-    );
-
-    const adjacentImage = await fetchAdjacentPageImage(direction);
-    if (!adjacentImage) {
-      return current;
-    }
-
-    triedDirections.push(direction);
-
-    const label = direction === 'previous' ? 'PREVIOUS' : 'NEXT';
-    const response = await chat.sendMessage({
-      message: [
-        `The ${direction} page image is provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the figures array and all validation fields. Keep figures array order unchanged.`,
-        `--- ${label} PAGE IMAGE ---`,
-        { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImage } },
-      ],
-    });
-
-    const parsed = JSON.parse(response.text || '{}') as LlmDiscoverAndValidateResponse;
-    current = {
-      discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
-    };
+  if (!unreferenced.length) {
+    return result;
   }
 
-  return current;
+  console.log(
+    `[Gemini Validation] Checking adjacent pages for unreferenced callouts: ${unreferenced.join(', ')}`
+  );
+
+  const adjacentImages = await fetchAdjacentImages();
+  const followUpContents: Array<string | { inlineData: { mimeType: string; data: string } }> = [
+    `Adjacent page images are provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the figures array and all validation fields. Keep figures array order unchanged. Remember: only arrow/pointer callout labels count — ignore dimensions, units (e.g. m2, mm), and other annotation text.`,
+  ];
+
+  if (adjacentImages.prevImageBase64) {
+    followUpContents.push('--- PREVIOUS PAGE IMAGE ---');
+    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.prevImageBase64 } });
+  }
+  if (adjacentImages.nextImageBase64) {
+    followUpContents.push('--- NEXT PAGE IMAGE ---');
+    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.nextImageBase64 } });
+  }
+
+  if (followUpContents.length <= 1) {
+    return result;
+  }
+
+  const response = await chat.sendMessage({ message: followUpContents });
+  const parsed = JSON.parse(response.text || '{}') as LlmDiscoverAndValidateResponse;
+
+  return {
+    discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
+  };
 }
 
 /** @deprecated Batch validation uses validatePageFiguresWithGemini. */
@@ -430,9 +327,8 @@ export function pickValidateMode(
 export async function validatePageFiguresWithGemini(
   imageBase64: string,
   knownFigures: FigureValidationInput[],
-  fetchAdjacentPageImage?: FetchAdjacentPageImage,
-  pageText?: string,
-  adjacentAvailability?: { hasPrevious: boolean; hasNext: boolean }
+  fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>,
+  pageText?: string
 ): Promise<PageValidationOutput> {
   const chat = ai.chats.create({
     model: 'gemini-3-flash-preview',
@@ -459,15 +355,8 @@ export async function validatePageFiguresWithGemini(
       discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
     };
 
-    if (fetchAdjacentPageImage && adjacentAvailability) {
-      result = await runAdjacentFollowUp(
-        chat,
-        imageBase64,
-        result,
-        fetchAdjacentPageImage,
-        adjacentAvailability,
-        pageText
-      );
+    if (fetchAdjacentImages) {
+      result = await runAdjacentFollowUp(chat, result, fetchAdjacentImages, pageText);
     }
 
     return result;
@@ -475,19 +364,6 @@ export async function validatePageFiguresWithGemini(
     console.error('Gemini Validation API Error:', error);
     throw error;
   }
-}
-
-function wrapLegacyAdjacentFetcher(
-  fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>
-): FetchAdjacentPageImage | undefined {
-  if (!fetchAdjacentImages) return undefined;
-
-  let cached: { prevImageBase64?: string; nextImageBase64?: string } | undefined;
-
-  return async direction => {
-    cached ??= await fetchAdjacentImages();
-    return direction === 'previous' ? cached.prevImageBase64 : cached.nextImageBase64;
-  };
 }
 
 /** @deprecated Use validatePageFiguresWithGemini */
@@ -502,13 +378,7 @@ export async function validatePageWithGemini(
       ? [{ figureNumber: '1', extractedConcepts }]
       : [];
 
-  const result = await validatePageFiguresWithGemini(
-    imageBase64,
-    knownFigures,
-    wrapLegacyAdjacentFetcher(fetchAdjacentImages),
-    undefined,
-    { hasPrevious: true, hasNext: true }
-  );
+  const result = await validatePageFiguresWithGemini(imageBase64, knownFigures, fetchAdjacentImages);
   const first = result.discoveredFigures[0];
 
   return {
@@ -528,9 +398,7 @@ export async function validatePageCalloutsWithGemini(
   const result = await validatePageFiguresWithGemini(
     imageBase64,
     [{ figureNumber: '1', extractedConcepts }],
-    wrapLegacyAdjacentFetcher(fetchAdjacentImages),
-    undefined,
-    { hasPrevious: true, hasNext: true }
+    fetchAdjacentImages
   );
 
   const first = result.discoveredFigures[0];
