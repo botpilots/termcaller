@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 import type { CalloutRow } from './OccurrencesTable';
-import { OccurrencesTable } from './OccurrencesTable';
-import { DocumentPreview } from './DocumentPreview';
+import { OccurrencesEditor } from './OccurrencesEditor';
+import { DocumentPreview, type DocumentPreviewHandle } from './DocumentPreview';
 import { DocumentPreviewSidebar } from './DocumentPreviewSidebar';
 import { SimilarityCluster, type SimilarityResult } from './SimilarityCluster';
 import { countFiguresForKeyword } from '../utils/figureOccurrences';
 import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
-import { occurrenceRowKey } from '../types/documentPreview';
+import { figureOccurrenceKey } from '../utils/figureOccurrences';
 
 type MainTab = 'callouts' | 'similarity';
 
@@ -58,6 +58,7 @@ export function KeywordDocumentView({
   highlightsByPageRef.current = highlightsByPage;
 
   const autoPulseConsumedRef = useRef(false);
+  const previewRef = useRef<DocumentPreviewHandle>(null);
 
   const triggerAutoPulse = useCallback((pageNumber: number) => {
     pulseGenerationRef.current += 1;
@@ -93,13 +94,22 @@ export function KeywordDocumentView({
   const sortedRows = useMemo(
     () =>
       [...keywordRows].sort(
-        (a, b) => a.pageNumber - b.pageNumber || a.identifier.localeCompare(b.identifier)
+        (a, b) =>
+          a.pageNumber - b.pageNumber ||
+          (a.figureNumber ?? '').localeCompare(b.figureNumber ?? '', undefined, { numeric: true }) ||
+          a.identifier.localeCompare(b.identifier)
       ),
     [keywordRows]
   );
 
+  const occurrenceSignature = useMemo(
+    () => `${sourceTerm}:${sortedRows.map(r => figureOccurrenceKey(r)).join('|')}`,
+    [sourceTerm, sortedRows]
+  );
+  const lastInitializedSignatureRef = useRef<string | null>(null);
+
   const locateOnPage = useCallback(
-    async (pageNumber: number, row: CalloutRow) => {
+    async (pageNumber: number, row: CalloutRow, referencePage: number) => {
       setLocateStatus('loading');
       setLocateHint(null);
 
@@ -110,6 +120,7 @@ export function KeywordDocumentView({
             params: {
               term: sourceTerm,
               callout: firstCalloutId(row.identifier),
+              referencePage,
             },
           }
         );
@@ -139,7 +150,9 @@ export function KeywordDocumentView({
 
   const focusRow = useCallback(
     (row: CalloutRow) => {
-      const key = occurrenceRowKey(row);
+      const key = figureOccurrenceKey(row);
+      const referencePage =
+        previewRef.current?.getViewportCenterPage() ?? focusedPage ?? row.pageNumber;
       scrollSettledPageRef.current = null;
       locateReadyPageRef.current = null;
       autoPulseConsumedRef.current = false;
@@ -147,13 +160,14 @@ export function KeywordDocumentView({
       setLocateHint(null);
       setSelectedRowKey(key);
       setFocusedPage(row.pageNumber);
-      void locateOnPage(row.pageNumber, row);
+      void locateOnPage(row.pageNumber, row, referencePage);
     },
-    [locateOnPage]
+    [locateOnPage, focusedPage]
   );
 
   useEffect(() => {
     if (sortedRows.length === 0) {
+      lastInitializedSignatureRef.current = null;
       setFocusedPage(null);
       setSelectedRowKey(null);
       setHighlightsByPage({});
@@ -161,16 +175,20 @@ export function KeywordDocumentView({
       return;
     }
 
+    if (lastInitializedSignatureRef.current === occurrenceSignature) return;
+    lastInitializedSignatureRef.current = occurrenceSignature;
+
     const row = sortedRows[0]!;
+    const referencePage = previewRef.current?.getViewportCenterPage() ?? row.pageNumber;
     scrollSettledPageRef.current = null;
     locateReadyPageRef.current = null;
     autoPulseConsumedRef.current = false;
     setAutoPulsePage(null);
     setLocateHint(null);
-    setSelectedRowKey(occurrenceRowKey(row));
+    setSelectedRowKey(figureOccurrenceKey(row));
     setFocusedPage(row.pageNumber);
-    void locateOnPage(row.pageNumber, row);
-  }, [sourceTerm, sortedRows, locateOnPage]);
+    void locateOnPage(row.pageNumber, row, referencePage);
+  }, [occurrenceSignature, sortedRows, locateOnPage]);
 
   const previewEnabled = activeTab === 'callouts' && pageCount != null && pageCount > 0;
 
@@ -237,12 +255,12 @@ export function KeywordDocumentView({
 
         <div className={`flex-1 min-h-0 overflow-y-auto ${previewEnabled ? 'p-3' : ''}`}>
           {activeTab === 'callouts' ? (
-            <OccurrencesTable
+            <OccurrencesEditor
               rows={keywordRows}
               mode="keyword"
               emptyMessage="No callouts extracted for this keyword yet."
-              selectedRowKey={selectedRowKey}
-              onRowClick={focusRow}
+              selectedKey={selectedRowKey}
+              onSelect={focusRow}
               onHighlightPulseHover={setHoverPulsePage}
               compact={previewEnabled}
             />
@@ -272,6 +290,7 @@ export function KeywordDocumentView({
 
       <DocumentPreviewSidebar enabled={previewEnabled}>
         <DocumentPreview
+          ref={previewRef}
           projectId={projectId}
           pageCount={pageCount!}
           occurrencePages={occurrencePages}
@@ -284,11 +303,22 @@ export function KeywordDocumentView({
           autoPulseGeneration={autoPulseGeneration}
           onScrollSettled={handleScrollSettled}
           onFocusedPageChange={pageNumber => {
+            const referencePage =
+              previewRef.current?.getViewportCenterPage() ?? focusedPage ?? pageNumber;
             setFocusedPage(pageNumber);
+
+            const currentRow = selectedRowKey
+              ? sortedRows.find(r => figureOccurrenceKey(r) === selectedRowKey)
+              : undefined;
+            if (currentRow?.pageNumber === pageNumber) {
+              void locateOnPage(pageNumber, currentRow, referencePage);
+              return;
+            }
+
             const row = sortedRows.find(r => r.pageNumber === pageNumber);
             if (row) {
-              setSelectedRowKey(occurrenceRowKey(row));
-              void locateOnPage(pageNumber, row);
+              setSelectedRowKey(figureOccurrenceKey(row));
+              void locateOnPage(pageNumber, row, referencePage);
             }
           }}
         />

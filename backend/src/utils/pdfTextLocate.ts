@@ -123,12 +123,27 @@ function findCalloutBoxes(
   return boxes;
 }
 
-/** Page search order: N, then N−1, then N+1 (clamped to document bounds). */
+/** Page numbers to scan when the occurrence page has no match. */
 export function adjacentPageSearchOrder(pageNumber: number, totalPages: number): number[] {
   const order = [pageNumber];
   if (pageNumber > 1) order.push(pageNumber - 1);
   if (pageNumber < totalPages) order.push(pageNumber + 1);
   return order;
+}
+
+/** Pick the candidate page closest to the viewport / scroll reference. */
+export function pickNearestPage(candidates: number[], referencePage: number): number {
+  if (candidates.length === 0) {
+    throw new Error('pickNearestPage requires at least one candidate');
+  }
+
+  return candidates.reduce((best, page) => {
+    const dist = Math.abs(page - referencePage);
+    const bestDist = Math.abs(best - referencePage);
+    if (dist < bestDist) return page;
+    if (dist > bestDist) return best;
+    return Math.min(page, best);
+  });
 }
 
 async function locateOnPdfPageInternal(
@@ -179,7 +194,8 @@ export async function locateOnPdfPageWithAdjacent(
   pdfPath: string,
   pageNumber: number,
   options: { term?: string; callout?: string },
-  totalPages?: number
+  totalPages?: number,
+  referencePage?: number
 ): Promise<{
   boxes: NormalizedBoxWithPage[];
   matchedPage: number | null;
@@ -196,29 +212,47 @@ export async function locateOnPdfPageWithAdjacent(
       throw new Error(`Invalid page number ${pageNumber}`);
     }
 
-    let fallback: PageLocateResult | null = null;
+    const refPage = referencePage ?? pageNumber;
+    const onOccurrencePage = await locateOnPdfPageInternal(pdfDocument, pageNumber, options);
+
+    if (onOccurrencePage.boxes.length > 0) {
+      return {
+        boxes: onOccurrencePage.boxes.map(box => ({ ...box, pageNumber })),
+        matchedPage: pageNumber,
+        imageWidth: onOccurrencePage.imageWidth,
+        imageHeight: onOccurrencePage.imageHeight,
+      };
+    }
+
+    const adjacentHits: Array<{ page: number; result: PageLocateResult }> = [];
 
     for (const candidate of adjacentPageSearchOrder(pageNumber, numPages)) {
+      if (candidate === pageNumber) continue;
       const result = await locateOnPdfPageInternal(pdfDocument, candidate, options);
       if (result.boxes.length > 0) {
-        return {
-          boxes: result.boxes.map(box => ({ ...box, pageNumber: candidate })),
-          matchedPage: candidate,
-          imageWidth: result.imageWidth,
-          imageHeight: result.imageHeight,
-        };
-      }
-      if (candidate === pageNumber) {
-        fallback = result;
+        adjacentHits.push({ page: candidate, result });
       }
     }
 
-    const empty = fallback ?? (await locateOnPdfPageInternal(pdfDocument, pageNumber, options));
+    if (adjacentHits.length > 0) {
+      const matchedPage = pickNearestPage(
+        adjacentHits.map(hit => hit.page),
+        refPage
+      );
+      const hit = adjacentHits.find(entry => entry.page === matchedPage)!;
+      return {
+        boxes: hit.result.boxes.map(box => ({ ...box, pageNumber: matchedPage })),
+        matchedPage,
+        imageWidth: hit.result.imageWidth,
+        imageHeight: hit.result.imageHeight,
+      };
+    }
+
     return {
       boxes: [],
       matchedPage: null,
-      imageWidth: empty.imageWidth,
-      imageHeight: empty.imageHeight,
+      imageWidth: onOccurrencePage.imageWidth,
+      imageHeight: onOccurrencePage.imageHeight,
     };
   } finally {
     await loadingTask.destroy();

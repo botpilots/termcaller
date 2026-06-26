@@ -5,7 +5,8 @@ import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
 import { type SimilarityResult } from '../components/SimilarityCluster';
 import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
-import { OccurrencesTable, type CalloutRow } from '../components/OccurrencesTable';
+import { OccurrencesEditor } from '../components/OccurrencesEditor';
+import type { CalloutRow } from '../components/OccurrencesTable';
 import { KeywordDocumentView } from '../components/KeywordDocumentView';
 import {
   ValidationAnomalies,
@@ -498,9 +499,13 @@ export const Dashboard = () => {
     }
   };
 
-  const keywordRows: CalloutRow[] = groupCalloutsByFigure(
-    selectedKeyword?.callouts ?? [],
-    selectedKeyword?.concepts[0]?.definitionText
+  const keywordRows: CalloutRow[] = useMemo(
+    () =>
+      groupCalloutsByFigure(
+        selectedKeyword?.callouts ?? [],
+        selectedKeyword?.concepts[0]?.definitionText
+      ),
+    [selectedKeyword]
   );
 
   const figureRows: CalloutRow[] = useMemo(() => {
@@ -778,7 +783,7 @@ export const Dashboard = () => {
                     />
 
                     <h4 className="text-sm font-medium text-gray-700 mb-3">Occurrences</h4>
-                    <OccurrencesTable
+                    <OccurrencesEditor
                       rows={figureRows}
                       mode="figure"
                       emptyMessage="No callouts on this figure."

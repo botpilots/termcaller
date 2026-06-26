@@ -15,6 +15,24 @@ export interface FigureOccurrenceRow {
   definitionText?: string;
 }
 
+/** Display label for a page.figure occurrence, e.g. `25.1`. */
+export function formatPageFigureId(pageNumber: number, figureNumber?: string): string {
+  return `${pageNumber}.${figureNumber?.trim() || '1'}`;
+}
+
+/** Stable key for a figure-level occurrence (one per page.figure). */
+export function figureOccurrenceKey(row: { pageNumber: number; figureNumber?: string }): string {
+  return `${row.pageNumber}:${row.figureNumber ?? ''}`;
+}
+
+/** Stable key for selecting an occurrence in the editor. */
+export function occurrenceEditorKey(
+  row: { pageNumber: number; figureNumber?: string; identifier: string },
+  mode: 'keyword' | 'figure'
+): string {
+  return mode === 'keyword' ? figureOccurrenceKey(row) : `${row.pageNumber}:${row.identifier}`;
+}
+
 /** One row per figure; callout labels comma-separated when multiple. */
 export function groupCalloutsByFigure(
   callouts: Array<{

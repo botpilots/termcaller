@@ -384,6 +384,11 @@ router.get('/:id/pages/:pageNumber/locate', authenticateToken, async (req: AuthR
 
   const term = typeof req.query.term === 'string' ? req.query.term : '';
   const callout = typeof req.query.callout === 'string' ? req.query.callout : '';
+  const referencePageParam = typeof req.query.referencePage === 'string' ? Number(req.query.referencePage) : undefined;
+  const referencePage =
+    referencePageParam !== undefined && Number.isInteger(referencePageParam) && referencePageParam > 0
+      ? referencePageParam
+      : undefined;
 
   if (!term.trim() && !callout.trim()) {
     return res.status(400).json({ error: 'Provide term and/or callout query parameter' });
@@ -395,7 +400,7 @@ router.get('/:id/pages/:pageNumber/locate', authenticateToken, async (req: AuthR
       return res.status(loaded.status).json({ error: loaded.error });
     }
 
-    const result = await locateOnPdfPageWithAdjacent(loaded.pdfPath, pageNumber, { term, callout });
+    const result = await locateOnPdfPageWithAdjacent(loaded.pdfPath, pageNumber, { term, callout }, undefined, referencePage);
     res.json(result);
   } catch (error) {
     console.error('[Pages] Locate failed:', error);

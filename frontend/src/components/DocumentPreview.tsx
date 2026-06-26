@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, memo } from 'react';
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import type { HighlightBox, HighlightPulseMode } from '../types/documentPreview';
 import { HighlightOverlay } from './HighlightOverlay';
@@ -21,6 +21,10 @@ interface DocumentPreviewProps {
   onFocusedPageChange: (pageNumber: number) => void;
   onScrollSettled: (pageNumber: number) => void;
   onFindOnPage?: () => void;
+}
+
+export interface DocumentPreviewHandle {
+  getViewportCenterPage(): number;
 }
 
 interface PageSlotProps {
@@ -132,26 +136,56 @@ function PageSlotInner({
 
 const PageSlot = memo(PageSlotInner);
 
-export function DocumentPreview({
-  projectId,
-  pageCount,
-  occurrencePages,
-  focusedPage,
-  highlightsByPage,
-  locateStatus,
-  locateHint,
-  hoverPulsePage,
-  autoPulsePage,
-  autoPulseGeneration,
-  onFocusedPageChange,
-  onScrollSettled,
-  onFindOnPage,
-}: DocumentPreviewProps) {
+export const DocumentPreview = forwardRef<DocumentPreviewHandle, DocumentPreviewProps>(function DocumentPreview(
+  {
+    projectId,
+    pageCount,
+    occurrencePages,
+    focusedPage,
+    highlightsByPage,
+    locateStatus,
+    locateHint,
+    hoverPulsePage,
+    autoPulsePage,
+    autoPulseGeneration,
+    onFocusedPageChange,
+    onScrollSettled,
+    onFindOnPage,
+  },
+  ref
+) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const slotRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const [scrollRatio, setScrollRatio] = useState(0);
   const onScrollSettledRef = useRef(onScrollSettled);
   onScrollSettledRef.current = onScrollSettled;
+
+  const getViewportCenterPage = useCallback((): number => {
+    const scrollEl = scrollRef.current;
+    if (!scrollEl || slotRefs.current.size === 0) {
+      return focusedPage ?? 1;
+    }
+
+    const scrollRect = scrollEl.getBoundingClientRect();
+    const centerY = scrollRect.top + scrollRect.height / 2;
+
+    let bestPage = focusedPage ?? 1;
+    let bestDist = Infinity;
+
+    for (const [pageNumber, slot] of slotRefs.current) {
+      const slotRect = slot.getBoundingClientRect();
+      const slotCenter = slotRect.top + slotRect.height / 2;
+      const dist = Math.abs(slotCenter - centerY);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestPage = pageNumber;
+      }
+    }
+
+    return bestPage;
+  }, [focusedPage]);
+
+  useImperativeHandle(ref, () => ({ getViewportCenterPage }), [getViewportCenterPage]);
 
   const updateScrollRatio = useCallback(() => {
     const el = scrollRef.current;
@@ -290,4 +324,4 @@ export function DocumentPreview({
       />
     </div>
   );
-}
+});

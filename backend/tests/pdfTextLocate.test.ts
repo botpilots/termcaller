@@ -5,6 +5,7 @@ import {
   adjacentPageSearchOrder,
   locateOnPdfPage,
   locateOnPdfPageWithAdjacent,
+  pickNearestPage,
 } from '../src/utils/pdfTextLocate.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -16,6 +17,18 @@ describe('adjacentPageSearchOrder', () => {
     expect(adjacentPageSearchOrder(1, 10)).toEqual([1, 2]);
     expect(adjacentPageSearchOrder(10, 10)).toEqual([10, 9]);
     expect(adjacentPageSearchOrder(1, 1)).toEqual([1]);
+  });
+});
+
+describe('pickNearestPage', () => {
+  it('picks the page closest to the reference', () => {
+    expect(pickNearestPage([14, 16], 15)).toBe(14);
+    expect(pickNearestPage([14, 16], 16)).toBe(16);
+    expect(pickNearestPage([14, 16], 17)).toBe(16);
+  });
+
+  it('breaks ties toward the lower page number', () => {
+    expect(pickNearestPage([14, 16], 15)).toBe(14);
   });
 });
 
@@ -47,5 +60,31 @@ describe('locateOnPdfPageWithAdjacent', () => {
     const result = await locateOnPdfPageWithAdjacent(fixturePath, 14, { term: 'BioDrill' });
     expect(result.matchedPage).toBe(14);
     expect(result.boxes.length).toBeGreaterThan(0);
+  }, 30000);
+
+  it('uses referencePage to choose among adjacent hits', async () => {
+    const onPage = await locateOnPdfPage(fixturePath, 15, { term: 'BioDrill' });
+    expect(onPage.boxes).toHaveLength(0);
+
+    const onNeighbor = await locateOnPdfPage(fixturePath, 14, { term: 'BioDrill' });
+    expect(onNeighbor.boxes.length).toBeGreaterThan(0);
+
+    const withRefNearNeighbor = await locateOnPdfPageWithAdjacent(
+      fixturePath,
+      15,
+      { term: 'BioDrill' },
+      undefined,
+      14
+    );
+    expect(withRefNearNeighbor.matchedPage).toBe(14);
+
+    const withRefFarFromNeighbor = await locateOnPdfPageWithAdjacent(
+      fixturePath,
+      15,
+      { term: 'BioDrill' },
+      undefined,
+      20
+    );
+    expect(withRefFarFromNeighbor.matchedPage).toBe(14);
   }, 30000);
 });
