@@ -1,6 +1,10 @@
 import crypto from 'crypto';
 import type { PrismaClient } from '@prisma/client';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
+import {
+  refreshKeywordConceptEmbeddings,
+  type KeywordConceptEmbedding,
+} from './conceptEmbeddingService.js';
 
 export interface SaveOccurrenceInput {
   keywordId: string;
@@ -17,6 +21,7 @@ export interface SaveOccurrenceResult {
   projectId: string;
   keywordId: string;
   termChanged: boolean;
+  concepts: KeywordConceptEmbedding[];
 }
 
 export interface DeleteOccurrenceInput {
@@ -182,10 +187,13 @@ export async function saveOccurrenceEdit(
     }
   }
 
+  const concepts = await refreshKeywordConceptEmbeddings(prisma, resultKeywordId);
+
   return {
     projectId,
     keywordId: resultKeywordId,
     termChanged,
+    concepts,
   };
 }
 

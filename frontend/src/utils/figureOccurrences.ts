@@ -13,6 +13,7 @@ export interface FigureOccurrenceRow {
   pageNumber: number;
   figureNumber?: string;
   definitionText?: string;
+  conceptId?: string;
 }
 
 /** Display label for a page.figure occurrence, e.g. `25.1`. */
@@ -39,7 +40,7 @@ export function groupCalloutsByFigure(
     identifier: string;
     pageNumber?: number;
     figureNumber?: string;
-    concept?: { definitionText?: string };
+    concept?: { id?: string; definitionText?: string };
   }>,
   fallbackDefinition?: string
 ): FigureOccurrenceRow[] {
@@ -49,12 +50,16 @@ export function groupCalloutsByFigure(
     const pageNumber = callout.pageNumber ?? 0;
     const key = `${pageNumber}:${callout.figureNumber ?? ''}`;
     const definitionText = callout.concept?.definitionText ?? fallbackDefinition;
+    const conceptId = callout.concept?.id;
 
     const existing = byFigure.get(key);
     if (existing) {
       existing.identifiers.push(callout.identifier);
       if (!existing.definitionText && definitionText) {
         existing.definitionText = definitionText;
+      }
+      if (!existing.conceptId && conceptId) {
+        existing.conceptId = conceptId;
       }
     } else {
       byFigure.set(key, {
@@ -63,6 +68,7 @@ export function groupCalloutsByFigure(
         pageNumber,
         figureNumber: callout.figureNumber,
         definitionText,
+        conceptId,
       });
     }
   }

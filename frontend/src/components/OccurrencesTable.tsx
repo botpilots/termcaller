@@ -1,4 +1,5 @@
 import { Eye } from 'lucide-react';
+import type { CohesionRating } from '../utils/conceptCohesion';
 
 export interface CalloutRow {
   identifier: string;
@@ -6,6 +7,8 @@ export interface CalloutRow {
   pageNumber: number;
   sourceTerm?: string;
   definitionText?: string;
+  conceptId?: string;
+  cohesionRating?: CohesionRating;
   anomaly?: string;
 }
 

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import type { CalloutRow } from './OccurrencesTable';
+import { CohesionBadge } from './CohesionBadge';
 import { formatPageFigureId, occurrenceEditorKey } from '../utils/figureOccurrences';
 
 interface OccurrenceRailProps {
@@ -31,7 +32,14 @@ export function OccurrenceRail({
   );
 
   const railWidth = compact ? 'w-[3.75rem]' : 'w-[4.5rem]';
-  const buttonSize = compact ? 'w-[3.25rem] h-[3.25rem] text-xs' : 'w-16 h-16 text-sm';
+  const buttonSize =
+    mode === 'keyword'
+      ? compact
+        ? 'w-[3.25rem] h-[4rem] text-xs'
+        : 'w-16 h-[4.5rem] text-sm'
+      : compact
+        ? 'w-[3.25rem] h-[3.25rem] text-xs'
+        : 'w-16 h-16 text-sm';
   const railPadding = compact ? 'py-2 gap-1.5 px-1' : 'py-3 gap-2 px-1.5';
 
   return (
@@ -58,7 +66,7 @@ export function OccurrenceRail({
                 : `Callout ${row.identifier}`
             }
             onClick={() => onSelect(row)}
-            className={`relative flex items-center justify-center font-semibold tabular-nums transition-colors border-l-[3px] rounded-sm mx-auto ${buttonSize} ${
+            className={`relative flex flex-col items-center justify-center font-semibold tabular-nums transition-colors border-l-[3px] rounded-sm mx-auto ${buttonSize} ${
               isSelected
                 ? 'border-blue-600 bg-blue-50 text-blue-800'
                 : row.anomaly
@@ -67,6 +75,9 @@ export function OccurrenceRail({
             }`}
           >
             <span className="leading-tight text-center px-1">{label}</span>
+            {mode === 'keyword' && row.cohesionRating && (
+              <CohesionBadge rating={row.cohesionRating} compact className="mt-0.5" />
+            )}
           </button>
         );
       })}

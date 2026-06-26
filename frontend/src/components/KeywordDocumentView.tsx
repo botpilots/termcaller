@@ -1,19 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
-import { Loader2 } from 'lucide-react';
 import type { CalloutRow } from './OccurrencesTable';
 import { OccurrenceForm } from './OccurrenceForm';
 import { OccurrenceRail } from './OccurrenceRail';
 import { DocumentPreview, type DocumentPreviewHandle } from './DocumentPreview';
 import { DocumentPreviewSidebar } from './DocumentPreviewSidebar';
-import { SimilarityCluster, type SimilarityResult } from './SimilarityCluster';
 import { countFiguresForKeyword } from '../utils/figureOccurrences';
 import type { HighlightBox, PageLocateResult } from '../types/documentPreview';
 import { figureOccurrenceKey } from '../utils/figureOccurrences';
 import { ConfirmPromptModal } from './ConfirmPromptModal';
 import { useOccurrenceEditorState } from '../hooks/useOccurrenceEditorState';
-
-type MainTab = 'callouts' | 'similarity';
+import type { KeywordConceptEmbedding } from '../types/keywordConcept';
 
 interface KeywordDocumentViewProps {
   projectId: string;
@@ -22,13 +19,7 @@ interface KeywordDocumentViewProps {
   sourceTerm: string;
   conceptCount: number;
   keywordRows: CalloutRow[];
-  activeTab: MainTab;
-  onTabChange: (tab: MainTab) => void;
-  similarityResult: SimilarityResult | null;
-  similarityError: string | null;
-  isAnalyzing: boolean;
-  onAnalyzeSimilarity: () => void;
-  onOccurrenceSaved?: (keywordId: string) => void;
+  onOccurrenceSaved?: (result: { keywordId: string; concepts: KeywordConceptEmbedding[] }) => void;
   onOccurrenceDeleted?: (result: { keywordId: string | null; keywordDeleted: boolean }) => void;
 }
 
@@ -43,12 +34,6 @@ export function KeywordDocumentView({
   sourceTerm,
   conceptCount,
   keywordRows,
-  activeTab,
-  onTabChange,
-  similarityResult,
-  similarityError,
-  isAnalyzing,
-  onAnalyzeSimilarity,
   onOccurrenceSaved,
   onOccurrenceDeleted,
 }: KeywordDocumentViewProps) {
@@ -205,7 +190,7 @@ export function KeywordDocumentView({
   const [occurrenceSaveError, setOccurrenceSaveError] = useState<string | null>(null);
   const [occurrenceDeleteError, setOccurrenceDeleteError] = useState<string | null>(null);
 
-  const previewEnabled = activeTab === 'callouts' && pageCount != null && pageCount > 0;
+  const previewEnabled = pageCount != null && pageCount > 0;
 
   const {
     activeKey,
@@ -225,21 +210,24 @@ export function KeywordDocumentView({
     setOccurrenceSaveError(null);
 
     try {
-      const response = await axios.patch<{ keywordId: string }>(
-        `/api/keywords/${keywordId}/occurrences`,
-        {
-          pageNumber: selectedRow.pageNumber,
-          figureNumber: selectedRow.figureNumber ?? '1',
-          originalIdentifiers: originalDraft.identifier,
-          identifier: draft.identifier,
-          sourceTerm: draft.sourceTerm,
-          definitionText: draft.definitionText ?? '',
-          originalSourceTerm: originalDraft.sourceTerm,
-        }
-      );
+      const response = await axios.patch<{
+        keywordId: string;
+        concepts: KeywordConceptEmbedding[];
+      }>(`/api/keywords/${keywordId}/occurrences`, {
+        pageNumber: selectedRow.pageNumber,
+        figureNumber: selectedRow.figureNumber ?? '1',
+        originalIdentifiers: originalDraft.identifier,
+        identifier: draft.identifier,
+        sourceTerm: draft.sourceTerm,
+        definitionText: draft.definitionText ?? '',
+        originalSourceTerm: originalDraft.sourceTerm,
+      });
 
       markDraftSaved(activeKey);
-      onOccurrenceSaved?.(response.data.keywordId);
+      onOccurrenceSaved?.({
+        keywordId: response.data.keywordId,
+        concepts: response.data.concepts,
+      });
     } catch {
       setOccurrenceSaveError('Failed to save occurrence. Please try again.');
     } finally {
@@ -290,12 +278,9 @@ export function KeywordDocumentView({
   const handleOccurrenceSelect = useCallback(
     (row: CalloutRow) => {
       selectRow(row);
-      if (activeTab !== 'callouts') {
-        onTabChange('callouts');
-      }
       focusRow(row);
     },
-    [activeTab, focusRow, onTabChange, selectRow]
+    [focusRow, selectRow]
   );
 
   return (
@@ -327,92 +312,28 @@ export function KeywordDocumentView({
               </p>
             </div>
 
-            <div
-              className={`flex items-center justify-between border-b border-gray-200 shrink-0 ${
-                previewEnabled ? 'px-4' : 'px-8'
-              }`}
-            >
-              <div className="flex gap-1">
-                <button
-                  type="button"
-                  onClick={() => onTabChange('callouts')}
-                  className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                    activeTab === 'callouts'
-                      ? 'border-blue-600 text-blue-700'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onTabChange('similarity')}
-                  className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                    activeTab === 'similarity'
-                      ? 'border-indigo-600 text-indigo-700'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  Similarity
-                </button>
-              </div>
-
-              {activeTab === 'similarity' && (
-                <button
-                  type="button"
-                  onClick={onAnalyzeSimilarity}
-                  disabled={isAnalyzing || conceptCount === 0}
-                  className="mb-2 px-3 py-1.5 bg-indigo-600 text-white text-xs font-medium rounded-lg hover:bg-indigo-700 shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
-                >
-                  {isAnalyzing && <Loader2 className="animate-spin mr-1.5" size={14} />}
-                  Analyse
-                </button>
-              )}
-            </div>
-
             <div className={`flex-1 min-h-0 min-w-0 overflow-y-auto ${previewEnabled ? '' : 'pb-8'}`}>
-              {activeTab === 'callouts' ? (
-                keywordRows.length === 0 ? (
-                  <div className="text-sm text-gray-500 text-center py-12 px-6">
-                    No callouts extracted for this keyword yet.
-                  </div>
-                ) : (
-                  <OccurrenceForm
-                    selectedRow={selectedRow}
-                    draft={draft}
-                    mode="keyword"
-                    onDraftChange={updateDraft}
-                    onHighlightPulseHover={setHoverPulsePage}
-                    onConfirm={() => void handleOccurrenceConfirm()}
-                    onDelete={handleOccurrenceDeleteRequest}
-                    showTermChangeHint={isTermChanged(activeKey ?? '')}
-                    isSaving={isSavingOccurrence}
-                    isDeleting={isDeletingOccurrence}
-                    saveError={occurrenceSaveError}
-                    deleteError={occurrenceDeleteError}
-                    compact={previewEnabled}
-                  />
-                )
-              ) : (
-                <div className={previewEnabled ? 'p-3' : 'p-5'}>
-                  {similarityError && (
-                    <div className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">
-                      {similarityError}
-                    </div>
-                  )}
-                  {!similarityResult && !isAnalyzing && (
-                    <div className="text-sm text-gray-500 text-center py-12 border border-dashed border-gray-200 rounded-lg">
-                      Click &quot;Analyse&quot; to map definition similarity.
-                    </div>
-                  )}
-                  {isAnalyzing && (
-                    <div className="flex items-center justify-center py-12 text-indigo-700 text-sm">
-                      <Loader2 className="animate-spin mr-2" size={18} />
-                      Computing embeddings…
-                    </div>
-                  )}
-                  {similarityResult && !isAnalyzing && <SimilarityCluster result={similarityResult} />}
+              {keywordRows.length === 0 ? (
+                <div className="text-sm text-gray-500 text-center py-12 px-6">
+                  No callouts extracted for this keyword yet.
                 </div>
+              ) : (
+                <OccurrenceForm
+                  selectedRow={selectedRow}
+                  draft={draft}
+                  mode="keyword"
+                  onDraftChange={updateDraft}
+                  onHighlightPulseHover={setHoverPulsePage}
+                  onConfirm={() => void handleOccurrenceConfirm()}
+                  onDelete={handleOccurrenceDeleteRequest}
+                  showTermChangeHint={isTermChanged(activeKey ?? '')}
+                  isSaving={isSavingOccurrence}
+                  isDeleting={isDeletingOccurrence}
+                  saveError={occurrenceSaveError}
+                  deleteError={occurrenceDeleteError}
+                  cohesionRating={selectedRow?.cohesionRating ?? null}
+                  compact={previewEnabled}
+                />
               )}
             </div>
           </div>

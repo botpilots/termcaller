@@ -1,5 +1,7 @@
 import { Eye, Trash2 } from 'lucide-react';
 import type { CalloutRow } from './OccurrencesTable';
+import { CohesionBadge } from './CohesionBadge';
+import type { CohesionRating } from '../utils/conceptCohesion';
 
 export type OccurrenceDraftFields = Pick<CalloutRow, 'identifier' | 'definitionText' | 'sourceTerm'>;
 
@@ -16,6 +18,7 @@ interface OccurrenceFormProps {
   isDeleting?: boolean;
   saveError?: string | null;
   deleteError?: string | null;
+  cohesionRating?: CohesionRating | null;
   compact?: boolean;
   emptyMessage?: string;
 }
@@ -33,6 +36,7 @@ export function OccurrenceForm({
   isDeleting = false,
   saveError = null,
   deleteError = null,
+  cohesionRating = null,
   compact = false,
   emptyMessage,
 }: OccurrenceFormProps) {
@@ -118,9 +122,12 @@ export function OccurrenceForm({
         </div>
 
         <div>
-          <label htmlFor="occurrence-definition" className={labelClass}>
-            Definition
-          </label>
+          <div className="flex items-center justify-between gap-3 mb-1.5">
+            <label htmlFor="occurrence-definition" className={`${labelClass} mb-0`}>
+              Definition
+            </label>
+            {cohesionRating && <CohesionBadge rating={cohesionRating} />}
+          </div>
           <textarea
             id="occurrence-definition"
             rows={4}

@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { analyzePageWithGemini } from './geminiService.js';
+import { embedConceptDefinition } from './conceptEmbeddingService.js';
 import { normalizeSourceTerm } from '../utils/normalizeSourceTerm.js';
 import { TimeoutError } from '../utils/withTimeout.js';
 import { scanPdfPages } from '../utils/pdfPageScan.js';
@@ -92,11 +93,13 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
             });
 
             if (!dbConcept) {
+              const vectorEmbedding = await embedConceptDefinition(concept.functionalDescription);
               dbConcept = await prisma.concept.create({
                 data: {
                   definitionHash,
                   candidateConceptName: sourceTerm,
                   definitionText: concept.functionalDescription,
+                  vectorEmbedding,
                   projectId,
                   keywords: {
                     connect: { id: keyword.id },
@@ -110,6 +113,9 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                   keywords: {
                     connect: { id: keyword.id },
                   },
+                  ...(dbConcept.vectorEmbedding
+                    ? {}
+                    : { vectorEmbedding: await embedConceptDefinition(dbConcept.definitionText) }),
                 },
               });
             }

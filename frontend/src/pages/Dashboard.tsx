@@ -3,11 +3,12 @@ import { useAuth } from '../context/AuthContext';
 import { Folder, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { DashboardHeader } from '../components/DashboardHeader';
-import { type SimilarityResult } from '../components/SimilarityCluster';
 import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, IndeterminateProgressBanner, type BrowseTab } from '../components/BrowsePanel';
 import { OccurrencesEditor } from '../components/OccurrencesEditor';
 import type { CalloutRow } from '../components/OccurrencesTable';
 import { KeywordDocumentView } from '../components/KeywordDocumentView';
+import type { KeywordConceptEmbedding } from '../types/keywordConcept';
+import { computeConceptCohesionScores } from '../utils/conceptCohesion';
 import {
   ValidationAnomalies,
   buildAnomalyMap,
@@ -26,6 +27,7 @@ interface Concept {
   id: string;
   candidateConceptName: string;
   definitionText: string;
+  vectorEmbedding?: string | null;
 }
 
 interface Callout {
@@ -72,7 +74,22 @@ interface Progress {
   skipped?: boolean;
 }
 
-type MainTab = 'callouts' | 'similarity';
+function mergeKeywordConceptEmbeddings(
+  concepts: Concept[],
+  updates: KeywordConceptEmbedding[]
+): Concept[] {
+  const byId = new Map(concepts.map(concept => [concept.id, concept]));
+  for (const update of updates) {
+    const existing = byId.get(update.id);
+    byId.set(update.id, {
+      id: update.id,
+      candidateConceptName: existing?.candidateConceptName ?? '',
+      definitionText: update.definitionText,
+      vectorEmbedding: update.vectorEmbedding,
+    });
+  }
+  return [...byId.values()];
+}
 
 function mapCalloutsToKeywords(data: Project): Project {
   if (!data.keywords || !data.illustrations) return data;
@@ -106,10 +123,6 @@ export const Dashboard = () => {
   const [selectedFigureId, setSelectedFigureId] = useState<string | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [activeTab, setActiveTab] = useState<MainTab>('callouts');
-  const [similarityResult, setSimilarityResult] = useState<SimilarityResult | null>(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [similarityError, setSimilarityError] = useState<string | null>(null);
   const [figureValidations, setFigureValidations] = useState<Record<string, FigureValidationResult>>({});
   const [figureValidationErrors, setFigureValidationErrors] = useState<Record<string, string>>({});
   const [isValidatingAll, setIsValidatingAll] = useState(false);
@@ -211,21 +224,12 @@ export const Dashboard = () => {
     setBrowseTab('keywords');
     setSelectedKeywordId(null);
     setSelectedFigureId(null);
-    setActiveTab('callouts');
-    setSimilarityResult(null);
-    setSimilarityError(null);
     setFigureValidations({});
     setFigureValidationErrors({});
     setValidationBatchError(null);
     setKeywords([]);
     setFigures([]);
   }, [selectedProjectId]);
-
-  useEffect(() => {
-    setActiveTab('callouts');
-    setSimilarityResult(null);
-    setSimilarityError(null);
-  }, [selectedKeywordId]);
 
   useEffect(() => {
     const keywordList = rankedKeywords;
@@ -483,35 +487,20 @@ export const Dashboard = () => {
     }
   };
 
-  const handleAnalyzeSimilarity = async () => {
-    if (!selectedKeyword) return;
+  const keywordRows: CalloutRow[] = useMemo(() => {
+    if (!selectedKeyword) return [];
 
-    setIsAnalyzing(true);
-    setSimilarityError(null);
+    const cohesionScores = computeConceptCohesionScores(selectedKeyword.concepts);
 
-    try {
-      const response = await axios.post(`/api/keywords/${selectedKeyword.id}/analyze-similarity`);
-      setSimilarityResult(response.data);
-    } catch (error) {
-      console.error('Failed to analyse similarity', error);
-      setSimilarityError('Failed to analyse similarities. Ensure concepts exist and try again.');
-      setSimilarityResult(null);
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
-
-  const keywordRows: CalloutRow[] = useMemo(
-    () =>
-      groupCalloutsByFigure(
-        selectedKeyword?.callouts ?? [],
-        selectedKeyword?.concepts[0]?.definitionText
-      ).map(row => ({
-        ...row,
-        sourceTerm: selectedKeyword?.sourceTerm,
-      })),
-    [selectedKeyword]
-  );
+    return groupCalloutsByFigure(
+      selectedKeyword.callouts ?? [],
+      selectedKeyword.concepts[0]?.definitionText
+    ).map(row => ({
+      ...row,
+      sourceTerm: selectedKeyword.sourceTerm,
+      cohesionRating: row.conceptId ? cohesionScores.get(row.conceptId)?.rating : undefined,
+    }));
+  }, [selectedKeyword]);
 
   const figureRows: CalloutRow[] = useMemo(() => {
     if (!selectedFigure) return [];
@@ -748,13 +737,17 @@ export const Dashboard = () => {
                   sourceTerm={selectedKeyword.sourceTerm}
                   conceptCount={selectedKeyword.concepts.length}
                   keywordRows={keywordRows}
-                  activeTab={activeTab}
-                  onTabChange={setActiveTab}
-                  similarityResult={similarityResult}
-                  similarityError={similarityError}
-                  isAnalyzing={isAnalyzing}
-                  onAnalyzeSimilarity={handleAnalyzeSimilarity}
-                  onOccurrenceSaved={keywordId => {
+                  onOccurrenceSaved={({ keywordId, concepts }) => {
+                    setKeywords(prev =>
+                      prev.map(keyword =>
+                        keyword.id === keywordId
+                          ? {
+                              ...keyword,
+                              concepts: mergeKeywordConceptEmbeddings(keyword.concepts, concepts),
+                            }
+                          : keyword
+                      )
+                    );
                     void fetchKeywords(selectedProjectId).then(() => {
                       setSelectedKeywordId(keywordId);
                     });
