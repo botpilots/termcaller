@@ -85,7 +85,10 @@ export function KeywordCurationPanel({
               <ul className="text-sm text-gray-600 space-y-1">
                 {concept.figures.map(figure => (
                   <li key={`${figure.pageNumber}:${figure.figureNumber}`}>
-                    {formatPageFigureId(figure.pageNumber, figure.figureNumber)} ·{' '}
+                    <span className="font-semibold text-gray-800">
+                      {formatPageFigureId(figure.pageNumber, figure.figureNumber)}
+                    </span>
+                    {' · '}
                     {figure.identifiers}
                   </li>
                 ))}
