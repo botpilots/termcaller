@@ -21,12 +21,15 @@ export async function uploadPdfToGcs(localPath: string, projectId: string): Prom
 }
 
 export async function downloadPdfFromGcs(gcsUri: string, localDest: string): Promise<void> {
-  if (!gcsUri.startsWith(`gs://${bucketName}/`)) {
-    throw new Error(`Invalid GCS URI or bucket mismatch: ${gcsUri}`);
+  const bucketUrlMatch = gcsUri.match(/^gs:\/\/([^/]+)\/(.+)$/);
+  if (!bucketUrlMatch) {
+    throw new Error(`Invalid GCS URI: ${gcsUri}`);
   }
   
-  const gcsPath = gcsUri.replace(`gs://${bucketName}/`, '');
-  const bucket = storage.bucket(bucketName);
+  const parsedBucketName = bucketUrlMatch[1];
+  const gcsPath = bucketUrlMatch[2];
+  
+  const bucket = storage.bucket(parsedBucketName);
   const file = bucket.file(gcsPath);
   
   await file.download({ destination: localDest });
