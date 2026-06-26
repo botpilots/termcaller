@@ -33,9 +33,10 @@ export async function refreshKeywordConceptEmbeddings(
     const concept = concepts[index]!;
     const vectorEmbedding = vectors[index] ?? [];
     
+    const vectorStr = JSON.stringify(vectorEmbedding);
     await prisma.$executeRaw`
       UPDATE "Concept"
-      SET "vectorEmbedding" = ${vectorEmbedding}::vector
+      SET "vectorEmbedding" = ${vectorStr}::vector
       WHERE id = ${concept.id}
     `;
 

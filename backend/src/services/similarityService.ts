@@ -55,9 +55,10 @@ export async function analyzeKeywordSimilarity(keywordId: string): Promise<Simil
 
     if (!vector) {
       vector = await embedText(concept.definitionText);
+      const vectorStr = JSON.stringify(vector);
       await prisma.$executeRaw`
         UPDATE "Concept"
-        SET "vectorEmbedding" = ${vector}::vector
+        SET "vectorEmbedding" = ${vectorStr}::vector
         WHERE id = ${concept.id}
       `;
     }

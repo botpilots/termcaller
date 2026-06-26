@@ -108,9 +108,10 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
                 },
               });
               
+              const vectorStr = JSON.stringify(vectorEmbedding);
               await prisma.$executeRaw`
                 UPDATE "Concept"
-                SET "vectorEmbedding" = ${vectorEmbedding}::vector
+                SET "vectorEmbedding" = ${vectorStr}::vector
                 WHERE id = ${dbConcept.id}
               `;
             } else {
@@ -131,9 +132,10 @@ export async function processPdfBackground(projectId: string, pdfPath: string) {
               
               if (hasVector.length === 0) {
                 const vectorEmbedding = await embedConceptDefinition(dbConcept.definitionText);
+                const vectorStr = JSON.stringify(vectorEmbedding);
                 await prisma.$executeRaw`
                   UPDATE "Concept"
-                  SET "vectorEmbedding" = ${vectorEmbedding}::vector
+                  SET "vectorEmbedding" = ${vectorStr}::vector
                   WHERE id = ${dbConcept.id}
                 `;
               }
