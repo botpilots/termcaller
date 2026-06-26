@@ -54,6 +54,7 @@ interface Project {
   id: string;
   name: string;
   pdfPath?: string | null;
+  pageCount?: number | null;
   keywords?: Keyword[];
   illustrations?: Illustration[];
 }
@@ -114,6 +115,7 @@ export const Dashboard = () => {
   const [corpusScores, setCorpusScores] = useState<Record<string, CorpusTermScore>>({});
   const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
   const [isExporting, setIsExporting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
 
   const rankedKeywords = useMemo(
@@ -140,10 +142,18 @@ export const Dashboard = () => {
     const response = await axios.get(`/api/projects/${projectId}`);
     const data = mapCalloutsToKeywords(response.data);
     setKeywords(data.keywords ?? []);
-    // Keep pdfPath in sync — project list may be stale after upload or page reload
-    if (response.data.pdfPath) {
+    // Keep pdfPath and pageCount in sync — project list may be stale after upload or page reload
+    if (response.data.pdfPath || response.data.pageCount != null) {
       setProjects(prev =>
-        prev.map(p => (p.id === projectId ? { ...p, pdfPath: response.data.pdfPath } : p))
+        prev.map(p =>
+          p.id === projectId
+            ? {
+                ...p,
+                ...(response.data.pdfPath ? { pdfPath: response.data.pdfPath } : {}),
+                ...(response.data.pageCount != null ? { pageCount: response.data.pageCount } : {}),
+              }
+            : p
+        )
       );
     }
   }, []);
@@ -344,7 +354,11 @@ export const Dashboard = () => {
       });
 
       setProjects([
-        { ...response.data, pdfPath: uploadResponse.data.pdfPath ?? 'uploaded' },
+        {
+          ...response.data,
+          pdfPath: uploadResponse.data.pdfPath ?? 'uploaded',
+          pageCount: uploadResponse.data.pageCount ?? null,
+        },
         ...projects,
       ]);
       setSelectedProjectId(projectId);
@@ -376,6 +390,38 @@ export const Dashboard = () => {
       console.error('Failed to export TBX', error);
     } finally {
       setIsExporting(false);
+    }
+  };
+
+  const handleDeleteProject = async () => {
+    if (!selectedProjectId || isDeleting || isProcessing) return;
+
+    const projectName = selectedProject?.name ?? 'this project';
+    const confirmed = window.confirm(
+      `Delete "${projectName}"? This permanently removes the PDF and all extracted keywords and figures.`
+    );
+    if (!confirmed) return;
+
+    const deletedId = selectedProjectId;
+
+    if (eventSourceRef.current) {
+      eventSourceRef.current.close();
+      eventSourceRef.current = null;
+    }
+
+    setIsDeleting(true);
+    try {
+      await axios.delete(`/api/projects/${deletedId}`);
+
+      const remaining = projects.filter(p => p.id !== deletedId);
+      setProjects(remaining);
+      setSelectedProjectId(remaining[0]?.id ?? null);
+      setIsProcessing(false);
+      setProgress(null);
+    } catch (error) {
+      console.error('Failed to delete project', error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -649,11 +695,14 @@ export const Dashboard = () => {
       <DashboardHeader
         projects={projects}
         selectedProjectId={selectedProjectId}
+        selectedPageCount={selectedProject?.pageCount}
         onProjectChange={setSelectedProjectId}
         onFileUpload={handleFileUpload}
         onExportTbx={handleExportTbx}
+        onDeleteProject={handleDeleteProject}
         isProcessing={isProcessing}
         isExporting={isExporting}
+        isDeleting={isDeleting}
       />
 
       <div className="flex flex-1 overflow-hidden">

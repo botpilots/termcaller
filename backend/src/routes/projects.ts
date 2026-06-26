@@ -12,6 +12,7 @@ import {
 } from '../services/figureValidationService.js';
 import { loadProjectPdfPath, resolveProjectPdfPath } from '../utils/resolveProjectPdf.js';
 import { openPdfDocument } from '../utils/pdfjsLoad.js';
+import { getPdfPageCount } from '../utils/pdfPageCount.js';
 import { attachKeywordPriorities } from '../utils/attachKeywordPriorities.js';
 import { exportProjectTbxBasic } from '../services/tbxExportService.js';
 
@@ -134,6 +135,46 @@ router.get('/:id', authenticateToken, async (req: AuthRequest, res) => {
   }
 });
 
+// Delete a project and its uploaded PDF
+router.delete('/:id', authenticateToken, async (req: AuthRequest, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).json({ error: 'Missing project id' });
+
+  try {
+    const project = await prisma.project.findFirst({
+      where: { id, userId: req.user!.userId },
+    });
+
+    if (!project) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    if (project.pdfPath && fs.existsSync(project.pdfPath)) {
+      try {
+        fs.unlinkSync(project.pdfPath);
+        console.log(`[Delete] Removed PDF for project ${id}: ${project.pdfPath}`);
+      } catch (error) {
+        console.warn(`[Delete] Failed to remove PDF for project ${id}:`, error);
+      }
+    }
+
+    const clients = sseClients.get(id);
+    if (clients) {
+      for (const client of clients) {
+        client.end();
+      }
+      sseClients.delete(id);
+    }
+
+    await prisma.project.delete({ where: { id } });
+    console.log(`[Delete] Removed project ${id}`);
+    res.json({ message: 'Project deleted' });
+  } catch (error) {
+    console.error('[Delete] Failed:', error);
+    res.status(500).json({ error: 'Failed to delete project' });
+  }
+});
+
 // Upload PDF only — extraction is started separately via POST /:id/extract
 router.post('/:id/upload', authenticateToken, upload.single('file'), async (req: AuthRequest, res) => {
   const { id } = req.params;
@@ -153,14 +194,16 @@ router.post('/:id/upload', authenticateToken, upload.single('file'), async (req:
       return res.status(404).json({ error: 'Project not found' });
     }
 
-    // Persist PDF path only
-    console.log(`[Upload] Received PDF for project ${id}: ${file.originalname} (${file.size} bytes)`);
+    const pageCount = await getPdfPageCount(file.path);
+    console.log(
+      `[Upload] Received PDF for project ${id}: ${file.originalname} (${file.size} bytes, ${pageCount} pages)`
+    );
     await prisma.project.update({
       where: { id },
-      data: { pdfPath: file.path },
+      data: { pdfPath: file.path, pageCount },
     });
 
-    res.json({ message: 'Upload successful', pdfPath: file.path });
+    res.json({ message: 'Upload successful', pdfPath: file.path, pageCount });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to process upload' });
