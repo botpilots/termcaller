@@ -142,27 +142,6 @@ export function resolveCorpusStats(
   return corpus.resolveStats(sourceTerm);
 }
 
-export function getCorpusTermsMap(): {
-  docs: number;
-  totalTokens: number;
-  vocabSize: number;
-  terms: Record<string, { f: number; d: number; r: number }>;
-} {
-  const data = readWordRankFile();
-  const terms: Record<string, { f: number; d: number; r: number }> = {};
-
-  for (let i = 0; i < data.v.length; i++) {
-    terms[data.v[i]] = { f: data.f[i], d: data.d[i], r: i };
-  }
-
-  return {
-    docs: data.docs,
-    totalTokens: data.n,
-    vocabSize: data.v.length,
-    terms,
-  };
-}
-
 export function loadCorpusIndex(): CorpusIndex {
   const stat = fs.statSync(WORD_RANK_PATH);
   if (cachedIndex && stat.mtimeMs === cachedMtimeMs) {

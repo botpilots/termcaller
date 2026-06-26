@@ -14,7 +14,7 @@ import {
 } from '../components/ValidationAnomalies';
 import {
   rankKeywords,
-  type CorpusWordRank,
+  type CorpusTermScore,
   type KeywordPriority,
   type KeywordSortMode,
 } from '../utils/keywordPriority';
@@ -111,14 +111,14 @@ export const Dashboard = () => {
   const [figureValidationErrors, setFigureValidationErrors] = useState<Record<string, string>>({});
   const [isValidatingAll, setIsValidatingAll] = useState(false);
   const [validationBatchError, setValidationBatchError] = useState<string | null>(null);
-  const [corpusWordRank, setCorpusWordRank] = useState<CorpusWordRank | null>(null);
+  const [corpusScores, setCorpusScores] = useState<Record<string, CorpusTermScore>>({});
   const [keywordSortMode, setKeywordSortMode] = useState<KeywordSortMode>('both');
   const [isExporting, setIsExporting] = useState(false);
   const eventSourceRef = useRef<EventSource | null>(null);
 
   const rankedKeywords = useMemo(
-    () => rankKeywords(keywords, corpusWordRank, keywordSortMode),
-    [keywords, corpusWordRank, keywordSortMode]
+    () => rankKeywords(keywords, Object.keys(corpusScores).length ? corpusScores : null, keywordSortMode),
+    [keywords, corpusScores, keywordSortMode]
   );
 
   const selectedKeyword = rankedKeywords.find(k => k.id === selectedKeywordId) ?? null;
@@ -156,12 +156,8 @@ export const Dashboard = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const [projectsResponse, corpusResponse] = await Promise.all([
-          axios.get('/api/projects'),
-          axios.get('/api/corpus/word-rank'),
-        ]);
+        const projectsResponse = await axios.get('/api/projects');
         setProjects(projectsResponse.data);
-        setCorpusWordRank(corpusResponse.data);
         if (projectsResponse.data.length > 0) {
           setSelectedProjectId(projectsResponse.data[0].id);
         }
@@ -171,6 +167,31 @@ export const Dashboard = () => {
     };
     fetchProjects();
   }, []);
+
+  useEffect(() => {
+    if (!keywords.length) {
+      setCorpusScores({});
+      return;
+    }
+
+    const handle = window.setTimeout(async () => {
+      try {
+        const response = await axios.post<{ items: Array<CorpusTermScore & { id: string }> }>(
+          '/api/corpus/prioritize',
+          { items: keywords.map((k) => ({ id: k.id, term: k.sourceTerm })) }
+        );
+        const scores: Record<string, CorpusTermScore> = {};
+        for (const item of response.data.items) {
+          scores[item.id] = { corpusRarity: item.corpusRarity, inCorpus: item.inCorpus };
+        }
+        setCorpusScores(scores);
+      } catch (error) {
+        console.error('Failed to fetch corpus scores', error);
+      }
+    }, 200);
+
+    return () => window.clearTimeout(handle);
+  }, [keywords]);
 
   useEffect(() => {
     setBrowseTab('keywords');
