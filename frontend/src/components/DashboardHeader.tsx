@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Download, Trash2 } from 'lucide-react';
+import { Plus, Download, Trash2, HelpCircle } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface Project {
@@ -17,6 +17,7 @@ interface DashboardHeaderProps {
   onFileUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onExportTbx: () => void;
   onDeleteProject: () => void;
+  onShowTutorial: () => void;
   isProcessing: boolean;
   isExporting: boolean;
   isDeleting: boolean;
@@ -30,6 +31,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   onFileUpload,
   onExportTbx,
   onDeleteProject,
+  onShowTutorial,
   isProcessing,
   isExporting,
   isDeleting,
@@ -71,6 +73,16 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={onShowTutorial}
+            className="flex items-center px-3 py-2 text-sm font-medium rounded-lg border bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+            title="How TermCaller works"
+          >
+            <HelpCircle className="mr-2" size={18} />
+            How it works
+          </button>
+
           <button
             type="button"
             disabled={!selectedProjectId || isDeleting || isProcessing}

@@ -6,6 +6,7 @@ import { DashboardHeader } from '../components/DashboardHeader';
 import { BrowsePanel, ProgressBanner, BrowseSectionHeader, KeywordSortToggle, type BrowseTab } from '../components/BrowsePanel';
 import { KeywordDocumentView } from '../components/KeywordDocumentView';
 import { FigureDocumentView } from '../components/FigureDocumentView';
+import { TutorialModal } from '../components/TutorialModal';
 import {
   figureHasAnomalies,
   type FigureValidationResult,
@@ -118,6 +119,8 @@ export const Dashboard = () => {
   const [warningsByKeyword, setWarningsByKeyword] = useState<Record<string, boolean>>({});
   const [isExporting, setIsExporting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
+  const [tutorialStep, setTutorialStep] = useState<'extraction' | 'validation'>('extraction');
   const eventSourceRef = useRef<EventSource | null>(null);
 
   const rankedKeywords = useMemo(
@@ -697,6 +700,11 @@ export const Dashboard = () => {
         onFileUpload={handleFileUpload}
         onExportTbx={handleExportTbx}
         onDeleteProject={handleDeleteProject}
+        onShowTutorial={() => {
+          setTutorialStep('extraction');
+          setShowTutorial(true);
+          handleBrowseTabChange('keywords');
+        }}
         isProcessing={isProcessing}
         isExporting={isExporting}
         isDeleting={isDeleting}
@@ -706,6 +714,7 @@ export const Dashboard = () => {
         <BrowsePanel
           activeTab={browseTab}
           onTabChange={handleBrowseTabChange}
+          highlightTab={showTutorial ? (tutorialStep === 'extraction' ? 'keywords' : 'figures') : null}
           progressSlot={
             browseTab === 'keywords' && isProcessing && progress ? (
               <ProgressBanner current={progress.current} total={progress.total} compact label="Extracting..." />
@@ -816,6 +825,20 @@ export const Dashboard = () => {
           )}
         </div>
       </div>
+      {showTutorial && (
+        <TutorialModal
+          step={tutorialStep}
+          setStep={(step) => {
+            setTutorialStep(step);
+            if (step === 'validation') {
+              handleBrowseTabChange('figures');
+            } else {
+              handleBrowseTabChange('keywords');
+            }
+          }}
+          onClose={() => setShowTutorial(false)}
+        />
+      )}
     </div>
   );
 };

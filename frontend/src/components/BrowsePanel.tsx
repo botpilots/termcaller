@@ -10,6 +10,7 @@ interface BrowsePanelProps {
   listContent: ReactNode;
   username: string;
   onLogout: () => void;
+  highlightTab?: BrowseTab | null;
 }
 
 export function BrowseSectionHeader({
@@ -106,6 +107,7 @@ export function BrowsePanel({
   listContent,
   username,
   onLogout,
+  highlightTab,
 }: BrowsePanelProps) {
   const tabs: { id: BrowseTab; label: string; icon: typeof Tag }[] = [
     { id: 'keywords', label: 'Keywords', icon: Tag },
@@ -115,28 +117,35 @@ export function BrowsePanel({
   return (
     <div className="flex flex-col h-full shrink-0 border-r border-gray-200 bg-gray-50">
       <div className="flex flex-1 min-h-0">
-        <div className="flex flex-col w-11 shrink-0 border-r border-gray-200 bg-white">
-          {tabs.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => onTabChange(id)}
-              title={label}
-              className={`flex flex-col items-center justify-center gap-1 py-4 px-1 text-[10px] font-semibold uppercase tracking-wide transition-colors border-l-2 ${
-                activeTab === id
-                  ? 'border-blue-600 bg-blue-50 text-blue-800'
-                  : 'border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-700'
-              }`}
-            >
-              <Icon size={16} />
-              <span
-                className="leading-tight"
-                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        <div className="flex flex-col w-14 shrink-0 border-r border-gray-200 bg-white relative">
+          {tabs.map(({ id, label, icon: Icon }) => {
+            const isHighlighted = highlightTab === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onTabChange(id)}
+                title={label}
+                className={`flex flex-col items-center justify-center gap-2 py-6 px-1 text-xs font-bold uppercase tracking-widest transition-colors border-l-4 ${
+                  activeTab === id
+                    ? 'border-blue-600 bg-blue-50 text-blue-800'
+                    : `border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-800 ${isHighlighted ? 'bg-white' : ''}`
+                } ${
+                  isHighlighted
+                    ? 'relative z-[102] ring-2 ring-blue-400 ring-offset-2 animate-pulse shadow-lg'
+                    : ''
+                }`}
               >
-                {label}
-              </span>
-            </button>
-          ))}
+                <Icon size={20} />
+                <span
+                  className="leading-tight"
+                  style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+                >
+                  {label}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="w-80 min-w-0 overflow-y-auto p-4">

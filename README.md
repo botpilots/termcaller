@@ -1,17 +1,17 @@
 # 🌍 Reality-Grounded Terminology Generation (termcaller)
 
-> **Elevator Pitch:** *Termcaller* revolutionizes technical translation by using vision AI to understand what words actually mean in physical reality. Instead of blindly extracting generic terms from text, we analyze diagrams and illustrations to generate precise, visually-grounded concepts—empowering technical authors and localization teams with better terminology, faster.
+> **Elevator Pitch:** *Termcaller* revolutionizes terminology extraction and callout validation for technical translation by using vision AI to understand what words actually mean in physical reality. Instead of blindly extracting terms from text, TermCaller extracts terms from callouts of illustrations to generate visually-grounded definitions.
 
 **Built in 48 hours for the Localization Hackathon.**
 
 ---
 
-## 🚀 What We Achieved in 48 Hours
+## 🚀 What I Achieved in 48 Hours
 
-During this hackathon, we built a fully functional end-to-end web application capable of multimodal terminology extraction:
+During this hackathon, I built a fully functional end-to-end web application capable of multimodal terminology extraction:
 
 - **Multimodal AI Integration:** Integrated **Google Gemini 3 Flash** to analyze visual diagrams alongside local text to generate accurate concept definitions.
-- **Semantic Vector Clustering:** Used `text-embedding-004` to semantically group and cluster concepts based on physical meaning, automatically merging identical concepts (≥95% similarity).
+- **Semantic Vector Clustering:** Used `gemini-embedding-001` to semantically cluster concepts based on physical meaning, automatically merging identical generated concepts (≥95% similarity).
 - **Domain Corpus Scoring:** Developed an algorithm to score and deprioritize generic words using a service manual corpus.
 - **PDF Processing Pipeline:** Implemented extraction of illustrations and text context directly from technical manuals.
 - **Interactive UI:** Built a complete React frontend allowing users to upload PDFs, curate terminology, visualize semantic outliers, and manage concepts.
@@ -42,7 +42,7 @@ Traditional terminology extraction operates on text alone. AI tends to extract e
 
 ## 🛠️ Our Approach
 
-Rather than extracting terminology from language alone, we generate concept candidates from **visual evidence**. 
+Rather than extracting terminology from language alone, I generated concept candidates from **visual evidence**. 
 
 Images contain information missing from text. A diagram may reveal that an "attachment point" is actually a "top tether anchor." A component described as a "cover" may visually correspond to an inspection panel or battery compartment cover. The image becomes the primary source of semantic information, while the surrounding text provides local grounding.
 
@@ -109,9 +109,3 @@ npm run dev
 npm run build
 npm start
 ```
-
----
-
-## 🔮 Future Work
-
-Future versions may introduce document-wide concept analysis, including automatic clustering of concepts, concept merging/splitting recommendations, and multilingual terminology generation. The MVP provides the foundation for these capabilities while remaining simple, explainable, and practical.
