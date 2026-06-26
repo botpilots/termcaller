@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
-import { GEMINI_EXTRACTION_TIMEOUT_MS } from '../constants/gemini.js';
+import { GEMINI_EXTRACTION_TIMEOUT_MS, GEMINI_EXTRACTION_THINKING_LEVEL } from '../constants/gemini.js';
+import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import { withTimeout } from '../utils/withTimeout.js';
 
 dotenv.config();
@@ -101,12 +102,14 @@ export async function analyzePageWithGemini(
       responseMimeType: 'application/json',
       responseSchema: responseSchema,
       temperature: 0.1,
+      thinkingConfig: {
+        thinkingLevel: GEMINI_EXTRACTION_THINKING_LEVEL,
+      },
     },
   });
 
   const initialPrompt = `
-You are an expert technical documentation analyst.
-I am providing a high-resolution image of a single manual page.
+You are a technical manual callout extractor. Scan the page image and list labeled parts — no analysis beyond what is visible.
 
 INSTRUCTIONS:
 1. If the page has no illustrations or technical diagrams with callout labels, return {"extractedConcepts": []}. Do not invent figures or callouts.
@@ -124,7 +127,7 @@ INSTRUCTIONS:
       chat.sendMessage({
         message: [
           { text: initialPrompt },
-          { inlineData: { mimeType: 'image/png', data: imageBase64 } },
+          { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: imageBase64 } },
         ],
       }),
       GEMINI_EXTRACTION_TIMEOUT_MS,
@@ -146,11 +149,11 @@ INSTRUCTIONS:
 
       if (adjacentImages.prevImageBase64) {
         followUpContents.push('--- PREVIOUS PAGE IMAGE ---');
-        followUpContents.push({ inlineData: { mimeType: 'image/png', data: adjacentImages.prevImageBase64 } });
+        followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.prevImageBase64 } });
       }
       if (adjacentImages.nextImageBase64) {
         followUpContents.push('--- NEXT PAGE IMAGE ---');
-        followUpContents.push({ inlineData: { mimeType: 'image/png', data: adjacentImages.nextImageBase64 } });
+        followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.nextImageBase64 } });
       }
 
       if (followUpContents.length > 1) {

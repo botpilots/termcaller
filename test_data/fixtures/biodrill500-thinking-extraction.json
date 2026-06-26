@@ -1,0 +1,100 @@
+{
+  "projectId": "884957d3-a676-4d49-8f2f-6be814878d03",
+  "projectName": "Instructionbook_10081322_BioDrill500.pdf",
+  "pdfFile": "Instructionbook_10081322_BioDrill500.pdf",
+  "capturedAt": "2026-06-25T23:53:32.262Z",
+  "extractionMode": "with-thinking",
+  "notes": "Baseline snapshot from live extraction with thinking enabled. Compare re-runs via extractionRegression.test.ts (semantic coverage ≥90%). level guard has no callout on the page — omitting it is correct.",
+  "counts": {
+    "uniqueKeywords": 21,
+    "concepts": 38,
+    "illustrations": 32,
+    "callouts": 245
+  },
+  "keywords": [
+    {
+      "sourceTerm": "arrow",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "ball valve",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "catch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "cotter pin",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "dial",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "electric screw",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "flange",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "grey knob",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "hatch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "level guard",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "locking pin",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "motor cable",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "plug",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "roller",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "rubber lid",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "screw",
+      "calloutCount": 2
+    },
+    {
+      "sourceTerm": "seed feed housing",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "seed hose",
+      "calloutCount": 220
+    },
+    {
+      "sourceTerm": "sliding hatch",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "tramlining motor",
+      "calloutCount": 1
+    },
+    {
+      "sourceTerm": "wing nut",
+      "calloutCount": 1
+    }
+  ]
+}

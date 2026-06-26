@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
+import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import type { ExtractedCallout } from './geminiService.js';
 
 dotenv.config();
@@ -147,11 +148,11 @@ async function runAdjacentFollowUp(
 
   if (adjacentImages.prevImageBase64) {
     followUpContents.push('--- PREVIOUS PAGE IMAGE ---');
-    followUpContents.push({ inlineData: { mimeType: 'image/png', data: adjacentImages.prevImageBase64 } });
+    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.prevImageBase64 } });
   }
   if (adjacentImages.nextImageBase64) {
     followUpContents.push('--- NEXT PAGE IMAGE ---');
-    followUpContents.push({ inlineData: { mimeType: 'image/png', data: adjacentImages.nextImageBase64 } });
+    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.nextImageBase64 } });
   }
 
   if (followUpContents.length <= 1) {
@@ -205,7 +206,7 @@ export async function validatePageWithGemini(
     let response = await chat.sendMessage({
       message: [
         { text: buildPrompt(mode, extractedConcepts) },
-        { inlineData: { mimeType: 'image/png', data: imageBase64 } },
+        { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: imageBase64 } },
       ],
     });
 

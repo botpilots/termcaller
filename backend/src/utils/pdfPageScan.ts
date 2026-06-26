@@ -38,7 +38,7 @@ export async function scanPdfPages<T>(
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   try {
-    return mapWithConcurrency(pageNumbers, concurrency, async pageNumber => {
+    const results = await mapWithConcurrency(pageNumbers, concurrency, async pageNumber => {
       const pageData = await session.extractPageData(pageNumber);
 
       if (filter === 'illustrations-only' && !pageData.hasIllustrations) {
@@ -61,6 +61,7 @@ export async function scanPdfPages<T>(
         fetchAdjacentImages,
       });
     });
+    return results;
   } finally {
     await session.close();
   }

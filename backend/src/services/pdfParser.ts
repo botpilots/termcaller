@@ -2,14 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import gm from 'gm';
-import { PDF_RENDER_DENSITY } from '../constants/pdfProcessing.js';
+import { PDF_RENDER_DENSITY, PDF_RENDER_FORMAT, PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import { loadPdfDocument, type PdfDocument } from '../utils/pdfjsLoad.js';
 import { joinPdfTextItems } from '../utils/joinPdfTextItems.js';
+import { AsyncMutex } from '../utils/asyncMutex.js';
 
 export interface ParsedPage {
   pageNumber: number;
   text: string;
   imageBase64: string;
+  imageMimeType: string;
   hasIllustrations: boolean;
 }
 
@@ -41,6 +43,8 @@ export class PdfSession {
   readonly totalPages: number;
   private readonly pdfDocument: PdfDocument;
   private readonly loadingTask: PdfLoadingTask;
+  /** pdf.js worker transport is not safe for concurrent page reads on one document. */
+  private readonly pdfjsMutex = new AsyncMutex();
 
   private constructor(pdfPath: string, pdfDocument: PdfDocument, loadingTask: PdfLoadingTask) {
     this.pdfPath = pdfPath;
@@ -65,39 +69,48 @@ export class PdfSession {
       throw new Error(`Invalid page number ${pageNumber}. Document has ${this.totalPages} pages.`);
     }
 
-    const page = await this.pdfDocument.getPage(pageNumber);
+    const { hasIllustrations, text } = await this.pdfjsMutex.run(async () => {
+      const page = await this.pdfDocument.getPage(pageNumber);
 
-    const opList = await page.getOperatorList();
-    const opCounts: Record<number, number> = {};
-    for (const fn of opList.fnArray) {
-      opCounts[fn] = (opCounts[fn] || 0) + 1;
-    }
+      const opList = await page.getOperatorList();
+      const opCounts: Record<number, number> = {};
+      for (const fn of opList.fnArray) {
+        opCounts[fn] = (opCounts[fn] || 0) + 1;
+      }
 
-    const hasIllustrations = pageHasIllustrations(opCounts);
-
-    const textContent = await page.getTextContent();
-    const text = joinPdfTextItems(textContent.items);
+      const textContent = await page.getTextContent();
+      return {
+        hasIllustrations: pageHasIllustrations(opCounts),
+        text: joinPdfTextItems(textContent.items),
+      };
+    });
 
     const imageMagick = gm.subClass({ imageMagick: true });
 
     return new Promise((resolve, reject) => {
-      imageMagick(`${this.pdfPath}[${pageNumber - 1}]`)
+      let pipeline = imageMagick(`${this.pdfPath}[${pageNumber - 1}]`)
         .density(PDF_RENDER_DENSITY, PDF_RENDER_DENSITY)
         .background('white')
-        .flatten()
-        .toBuffer('PNG', (err: Error | null, buffer: Buffer) => {
+        .flatten();
+
+      if (PDF_RENDER_FORMAT === 'WEBP') {
+        pipeline = pipeline.define('webp:lossless=true');
+      }
+
+      pipeline.toBuffer(PDF_RENDER_FORMAT, (err: Error | null, buffer: Buffer) => {
           if (err) {
             return reject(err);
           }
 
           const base64Data = buffer.toString('base64');
+          const imageExt = PDF_RENDER_FORMAT.toLowerCase();
 
           if (outputDir) {
             if (!fs.existsSync(outputDir)) {
               fs.mkdirSync(outputDir, { recursive: true });
             }
 
-            const imagePath = path.join(outputDir, `page_${pageNumber}.png`);
+            const imagePath = path.join(outputDir, `page_${pageNumber}.${imageExt}`);
             fs.writeFileSync(imagePath, buffer);
 
             const textPath = path.join(outputDir, `page_${pageNumber}.txt`);
@@ -108,6 +121,7 @@ export class PdfSession {
             pageNumber,
             text,
             imageBase64: base64Data,
+            imageMimeType: PDF_IMAGE_MIME_TYPE,
             hasIllustrations,
           });
         });

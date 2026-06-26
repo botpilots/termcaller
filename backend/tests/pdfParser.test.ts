@@ -28,7 +28,7 @@ describe('PDF Parser Service', () => {
     // Assert the image is a valid base64 string
     expect(result.imageBase64.length).toBeGreaterThan(1000); 
     
-    const imageExists = fs.existsSync(path.join(outputDir, `page_${pageNumber}.png`));
+    const imageExists = fs.existsSync(path.join(outputDir, `page_${pageNumber}.webp`));
     const textExists = fs.existsSync(path.join(outputDir, `page_${pageNumber}.txt`));
     
     expect(imageExists).toBe(true);

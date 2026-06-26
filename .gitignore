@@ -1,4 +1,5 @@
 /node_modules
+/output
 /backend/tests/output
 /backend/uploads
 /backend/.ocr-run.log
