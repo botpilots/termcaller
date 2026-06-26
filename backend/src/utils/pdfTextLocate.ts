@@ -90,7 +90,7 @@ interface TextSegment {
   run: TextRun;
 }
 
-function findInSingleRuns(runs: TextRun[], query: string): RawBox[] {
+function findInSingleRuns(runs: TextRun[], query: string, matchWholeWord = false): RawBox[] {
   if (!query.trim()) return [];
 
   const needle = query.trim().toLowerCase();
@@ -101,14 +101,26 @@ function findInSingleRuns(runs: TextRun[], query: string): RawBox[] {
     let start = 0;
     let index = haystack.indexOf(needle, start);
     while (index !== -1) {
-      const fractionStart = needle.length > 0 ? index / run.str.length : 0;
-      const fractionWidth = needle.length / run.str.length;
-      boxes.push({
-        x: run.x + run.width * fractionStart,
-        y: run.y,
-        width: Math.max(run.width * fractionWidth, 2),
-        height: run.height,
-      });
+      let isMatch = true;
+      if (matchWholeWord) {
+        const before = index > 0 ? haystack[index - 1] : '';
+        const after = index + needle.length < haystack.length ? haystack[index + needle.length] : '';
+        const isAlnum = (char: string) => /[a-z0-9\u00C0-\u024F]/i.test(char);
+        if ((before && isAlnum(before)) || (after && isAlnum(after))) {
+          isMatch = false;
+        }
+      }
+
+      if (isMatch) {
+        const fractionStart = needle.length > 0 ? index / run.str.length : 0;
+        const fractionWidth = needle.length / run.str.length;
+        boxes.push({
+          x: run.x + run.width * fractionStart,
+          y: run.y,
+          width: Math.max(run.width * fractionWidth, 2),
+          height: run.height,
+        });
+      }
       start = index + needle.length;
       index = haystack.indexOf(needle, start);
     }
@@ -157,7 +169,7 @@ function boxesForTextRange(segments: TextSegment[], matchStart: number, matchEnd
   return boxes;
 }
 
-function findInReadingOrder(runs: TextRun[], query: string): RawBox[] {
+function findInReadingOrder(runs: TextRun[], query: string, matchWholeWord = false): RawBox[] {
   if (!query.trim() || runs.length === 0) return [];
 
   const needle = query.trim().toLowerCase();
@@ -168,7 +180,19 @@ function findInReadingOrder(runs: TextRun[], query: string): RawBox[] {
   let start = 0;
   let index = haystack.indexOf(needle, start);
   while (index !== -1) {
-    boxes.push(...boxesForTextRange(segments, index, index + needle.length));
+    let isMatch = true;
+    if (matchWholeWord) {
+      const before = index > 0 ? haystack[index - 1] : '';
+      const after = index + needle.length < haystack.length ? haystack[index + needle.length] : '';
+      const isAlnum = (char: string) => /[a-z0-9\u00C0-\u024F]/i.test(char);
+      if ((before && isAlnum(before)) || (after && isAlnum(after))) {
+        isMatch = false;
+      }
+    }
+
+    if (isMatch) {
+      boxes.push(...boxesForTextRange(segments, index, index + needle.length));
+    }
     start = index + needle.length;
     index = haystack.indexOf(needle, start);
   }
@@ -177,14 +201,14 @@ function findInReadingOrder(runs: TextRun[], query: string): RawBox[] {
 }
 
 /** Locate term text: full phrase in a run, then across runs, then each token individually. */
-export function findTermBoxes(runs: TextRun[], query: string): RawBox[] {
+export function findTermBoxes(runs: TextRun[], query: string, matchWholeWord = false): RawBox[] {
   const phrase = query.trim();
   if (!phrase) return [];
 
-  const inSingleRun = findInSingleRuns(runs, phrase);
+  const inSingleRun = findInSingleRuns(runs, phrase, matchWholeWord);
   if (inSingleRun.length > 0) return inSingleRun;
 
-  const acrossRuns = findInReadingOrder(runs, phrase);
+  const acrossRuns = findInReadingOrder(runs, phrase, matchWholeWord);
   if (acrossRuns.length > 0) return acrossRuns;
 
   const tokens = phrase.split(/\s+/).filter(Boolean);
@@ -192,7 +216,7 @@ export function findTermBoxes(runs: TextRun[], query: string): RawBox[] {
 
   const perToken: RawBox[][] = [];
   for (const token of tokens) {
-    const tokenBoxes = findInSingleRuns(runs, token);
+    const tokenBoxes = findInSingleRuns(runs, token, matchWholeWord);
     if (tokenBoxes.length === 0) return [];
     perToken.push(tokenBoxes);
   }
@@ -201,7 +225,7 @@ export function findTermBoxes(runs: TextRun[], query: string): RawBox[] {
 }
 
 function findSubstringBoxes(runs: TextRun[], query: string): RawBox[] {
-  return findTermBoxes(runs, query);
+  return findTermBoxes(runs, query, false);
 }
 
 /** Legend-style patterns for a callout identifier when no source term is available. */
@@ -216,7 +240,7 @@ export function calloutSearchPatterns(calloutId: string): string[] {
 /** Locate callout legend labels in the PDF text layer. */
 export function findCalloutBoxes(runs: TextRun[], calloutId: string): RawBox[] {
   for (const pattern of calloutSearchPatterns(calloutId)) {
-    const hits = findSubstringBoxes(runs, pattern);
+    const hits = findTermBoxes(runs, pattern, true);
     if (hits.length > 0) {
       return hits;
     }
@@ -253,10 +277,12 @@ function locateBoxesOnPage(
 }
 
 /** Page numbers to scan when the occurrence page has no match. */
-export function adjacentPageSearchOrder(pageNumber: number, totalPages: number): number[] {
+export function adjacentPageSearchOrder(pageNumber: number, totalPages: number, radius = 5): number[] {
   const order = [pageNumber];
-  if (pageNumber > 1) order.push(pageNumber - 1);
-  if (pageNumber < totalPages) order.push(pageNumber + 1);
+  for (let d = 1; d <= radius; d++) {
+    if (pageNumber - d > 0) order.push(pageNumber - d);
+    if (pageNumber + d <= totalPages) order.push(pageNumber + d);
+  }
   return order;
 }
 

@@ -16,10 +16,10 @@ const fixturePath = path.resolve(__dirname, '../../test_data/Instructionbook_100
 
 describe('adjacentPageSearchOrder', () => {
   it('searches N, then N−1, then N+1 within bounds', () => {
-    expect(adjacentPageSearchOrder(5, 10)).toEqual([5, 4, 6]);
-    expect(adjacentPageSearchOrder(1, 10)).toEqual([1, 2]);
-    expect(adjacentPageSearchOrder(10, 10)).toEqual([10, 9]);
-    expect(adjacentPageSearchOrder(1, 1)).toEqual([1]);
+    expect(adjacentPageSearchOrder(5, 10, 1)).toEqual([5, 4, 6]);
+    expect(adjacentPageSearchOrder(1, 10, 1)).toEqual([1, 2]);
+    expect(adjacentPageSearchOrder(10, 10, 1)).toEqual([10, 9]);
+    expect(adjacentPageSearchOrder(1, 1, 1)).toEqual([1]);
   });
 });
 
@@ -152,8 +152,8 @@ describe('locateOnPdfPageWithAdjacent', () => {
       15,
       { term: 'BioDrill' },
       undefined,
-      20
+      50
     );
-    expect(withRefFarFromNeighbor.matchedPage).toBe(14);
+    expect(withRefFarFromNeighbor.matchedPage).toBe(20); // wait, radius=5 around 15 is 10..20, 20 is closest to 50
   }, 30000);
 });
