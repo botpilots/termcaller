@@ -22,9 +22,23 @@ export interface CalloutValidationResult {
   labelMismatches: LabelMismatch[];
 }
 
+export interface DiscoveredFigureValidation extends CalloutValidationResult {
+  figureNumber: string;
+}
+
 export interface PageValidationOutput extends CalloutValidationResult {
-  /** Set when mode is discoverAndValidate; otherwise omitted. */
-  figureNumber?: string;
+  /** Populated in discoverAndValidate mode — one entry per illustration in reading order. */
+  discoveredFigures?: DiscoveredFigureValidation[];
+}
+
+interface LlmFigureValidation {
+  unreferencedCallouts?: string[];
+  uncalledReferences?: string[];
+  labelMismatches?: LabelMismatch[];
+}
+
+interface LlmDiscoverAndValidateResponse {
+  figures?: LlmFigureValidation[];
 }
 
 const validationSchema = {
@@ -57,18 +71,27 @@ const validationSchema = {
   required: ['unreferencedCallouts', 'uncalledReferences', 'labelMismatches'],
 };
 
-const discoverAndValidateSchema = {
+const figureValidationItemSchema = {
   type: Type.OBJECT,
   properties: {
-    figureNumber: {
-      type: Type.STRING,
-      description: 'Page-local figure index: "1" for the first illustration in reading order on this page, then "2", "3", etc. Ignore document-printed figure numbers.',
-    },
     unreferencedCallouts: validationSchema.properties.unreferencedCallouts,
     uncalledReferences: validationSchema.properties.uncalledReferences,
     labelMismatches: validationSchema.properties.labelMismatches,
   },
-  required: ['figureNumber', 'unreferencedCallouts', 'uncalledReferences', 'labelMismatches'],
+  required: ['unreferencedCallouts', 'uncalledReferences', 'labelMismatches'],
+};
+
+const discoverAndValidateSchema = {
+  type: Type.OBJECT,
+  properties: {
+    figures: {
+      type: Type.ARRAY,
+      description:
+        'One entry per illustration in reading order (top-to-bottom, left-to-right). Do not include figures with no callout labels.',
+      items: figureValidationItemSchema,
+    },
+  },
+  required: ['figures'],
 };
 
 function normalizeValidationResult(raw: Record<string, unknown>): CalloutValidationResult {
@@ -77,6 +100,14 @@ function normalizeValidationResult(raw: Record<string, unknown>): CalloutValidat
     uncalledReferences: (raw.uncalledReferences as string[]) ?? [],
     labelMismatches: (raw.labelMismatches as LabelMismatch[]) ?? [],
   };
+}
+
+/** Flatten ordered figure validation array with auto-assigned figure numbers. */
+export function normalizeDiscoveredFigures(raw: LlmDiscoverAndValidateResponse): DiscoveredFigureValidation[] {
+  return (raw.figures ?? []).map((figure, figureIndex) => ({
+    figureNumber: String(figureIndex + 1),
+    ...normalizeValidationResult(figure as Record<string, unknown>),
+  }));
 }
 
 function buildPrompt(mode: PageValidateMode, extractedConcepts: ExtractedCallout[]): string {
@@ -118,32 +149,37 @@ I am providing a manual page image. Read the page text and illustration directly
 Do NOT invent part names.
 
 INSTRUCTIONS:
-1. figureNumber: page-local index starting at "1" in reading order. Ignore document-printed numbers. Use "1" when only one illustration.
-2. unreferencedCallouts: labels visible in the image but not explained in the page text. List identifiers only.
-3. uncalledReferences: the text assigns a callout label but that label is missing from the illustrations.
-4. labelMismatches: text assigns label X but the image shows label Y for the same part. Use empty string for sourceTerm when unknown.
+1. Return one entry in figures per illustration with callout labels, ordered top-to-bottom then left-to-right. Do not include figures with no callout labels.
+2. For each figure: unreferencedCallouts — labels visible in the image but not explained in the page text. List identifiers only.
+3. For each figure: uncalledReferences — the text assigns a callout label but that label is missing from the illustrations.
+4. For each figure: labelMismatches — text assigns label X but the image shows label Y for the same part. Use empty string for sourceTerm when unknown.
 `;
 }
 
 async function runAdjacentFollowUp(
   chat: ReturnType<typeof ai.chats.create>,
-  result: CalloutValidationResult,
+  result: PageValidationOutput,
   fetchAdjacentImages: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>,
   mode: PageValidateMode
-): Promise<CalloutValidationResult & { figureNumber?: string }> {
-  if (!result.unreferencedCallouts?.length) {
+): Promise<PageValidationOutput> {
+  const unreferenced =
+    mode === 'discoverAndValidate'
+      ? (result.discoveredFigures ?? []).flatMap((figure) => figure.unreferencedCallouts)
+      : result.unreferencedCallouts;
+
+  if (!unreferenced.length) {
     return result;
   }
 
   console.log(
-    `[Gemini Validation] Checking adjacent pages for unreferenced callouts: ${result.unreferencedCallouts.join(', ')}`
+    `[Gemini Validation] Checking adjacent pages for unreferenced callouts: ${unreferenced.join(', ')}`
   );
 
   const adjacentImages = await fetchAdjacentImages();
   const followUpContents: Array<string | { inlineData: { mimeType: string; data: string } }> = [
     mode === 'discoverAndValidate'
-      ? `Adjacent page images are provided. Re-check unreferenced callouts: ${result.unreferencedCallouts.join(', ')}. Update figureNumber and all validation arrays.`
-      : `Adjacent page images are provided. Re-check unreferenced callouts: ${result.unreferencedCallouts.join(', ')}. Update the validation arrays.`,
+      ? `Adjacent page images are provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the figures array and all validation fields. Keep figures array order unchanged.`
+      : `Adjacent page images are provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the validation arrays.`,
   ];
 
   if (adjacentImages.prevImageBase64) {
@@ -161,16 +197,18 @@ async function runAdjacentFollowUp(
 
   const response = await chat.sendMessage({ message: followUpContents });
   const parsed = JSON.parse(response.text || '{}') as Record<string, unknown>;
-  const validation = normalizeValidationResult(parsed);
 
   if (mode === 'discoverAndValidate') {
+    const discoveredFigures = normalizeDiscoveredFigures(parsed as LlmDiscoverAndValidateResponse);
     return {
-      ...validation,
-      figureNumber: typeof parsed.figureNumber === 'string' ? parsed.figureNumber : '',
+      unreferencedCallouts: [],
+      uncalledReferences: [],
+      labelMismatches: [],
+      discoveredFigures,
     };
   }
 
-  return validation;
+  return normalizeValidationResult(parsed);
 }
 
 export function pickValidateMode(
@@ -211,27 +249,21 @@ export async function validatePageWithGemini(
     });
 
     let parsed = JSON.parse(response.text || '{}') as Record<string, unknown>;
-    let validation = normalizeValidationResult(parsed);
-    let figureNumber = mode === 'discoverAndValidate' && typeof parsed.figureNumber === 'string'
-      ? parsed.figureNumber
-      : undefined;
+    let result: PageValidationOutput =
+      mode === 'discoverAndValidate'
+        ? {
+            unreferencedCallouts: [],
+            uncalledReferences: [],
+            labelMismatches: [],
+            discoveredFigures: normalizeDiscoveredFigures(parsed as LlmDiscoverAndValidateResponse),
+          }
+        : normalizeValidationResult(parsed);
 
     if (fetchAdjacentImages) {
-      const updated = await runAdjacentFollowUp(chat, validation, fetchAdjacentImages, mode);
-      validation = {
-        unreferencedCallouts: updated.unreferencedCallouts,
-        uncalledReferences: updated.uncalledReferences,
-        labelMismatches: updated.labelMismatches,
-      };
-      if (mode === 'discoverAndValidate' && updated.figureNumber !== undefined) {
-        figureNumber = updated.figureNumber;
-      }
+      result = await runAdjacentFollowUp(chat, result, fetchAdjacentImages, mode);
     }
 
-    return {
-      ...validation,
-      ...(figureNumber !== undefined ? { figureNumber } : {}),
-    };
+    return result;
   } catch (error) {
     console.error('Gemini Validation API Error:', error);
     throw error;

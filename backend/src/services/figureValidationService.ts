@@ -66,7 +66,10 @@ async function validatePageByMode(
   mode: PageValidateMode,
   illustration: IllustrationWithCallouts | null,
   imageBase64?: string
-): Promise<{ validation: CalloutValidationResult; figureNumber?: string }> {
+): Promise<{
+  validation: CalloutValidationResult;
+  discoveredFigures?: Array<{ figureNumber: string; validation: CalloutValidationResult }>;
+}> {
   const pageImage = imageBase64 ?? (await extractPageData(pdfPath, pageNumber)).imageBase64;
   const extractedConcepts =
     mode === 'withConcepts' && illustration
@@ -86,13 +89,32 @@ async function validatePageByMode(
     }
   );
 
+  if (mode === 'discoverAndValidate') {
+    const discoveredFigures = (validation.discoveredFigures ?? []).map((figure) => ({
+      figureNumber: figure.figureNumber,
+      validation: {
+        unreferencedCallouts: figure.unreferencedCallouts,
+        uncalledReferences: figure.uncalledReferences,
+        labelMismatches: figure.labelMismatches,
+      },
+    }));
+
+    return {
+      validation: {
+        unreferencedCallouts: [],
+        uncalledReferences: [],
+        labelMismatches: [],
+      },
+      ...(discoveredFigures.length > 0 ? { discoveredFigures } : {}),
+    };
+  }
+
   return {
     validation: {
       unreferencedCallouts: validation.unreferencedCallouts,
       uncalledReferences: validation.uncalledReferences,
       labelMismatches: validation.labelMismatches,
     },
-    ...(validation.figureNumber !== undefined ? { figureNumber: validation.figureNumber } : {}),
   };
 }
 
@@ -143,7 +165,7 @@ export async function validateAllProjectFigures(
 
       if (illustrations.length === 0) {
         const mode: PageValidateMode = 'discoverAndValidate';
-        const { validation, figureNumber: discoveredFigureNumber } = await validatePageByMode(
+        const { discoveredFigures } = await validatePageByMode(
           pdfPath,
           pageNumber,
           totalPages,
@@ -152,20 +174,28 @@ export async function validateAllProjectFigures(
           pageData.imageBase64
         );
 
-        const upserted = await upsertIllustration(
-          prisma,
-          projectId,
-          pageNumber,
-          discoveredFigureNumber?.trim() || '1'
-        );
+        const figuresToUpsert =
+          discoveredFigures && discoveredFigures.length > 0
+            ? discoveredFigures
+            : [{ figureNumber: '1', validation: { unreferencedCallouts: [], uncalledReferences: [], labelMismatches: [] } }];
 
-        pageResults.push({
-          pageNumber,
-          figureNumber: upserted.figureNumber,
-          calloutCount: 0,
-          mode,
-          validation,
-        });
+        for (const discovered of figuresToUpsert) {
+          const upserted = await upsertIllustration(
+            prisma,
+            projectId,
+            pageNumber,
+            discovered.figureNumber
+          );
+
+          pageResults.push({
+            pageNumber,
+            figureNumber: upserted.figureNumber,
+            calloutCount: 0,
+            mode,
+            validation: discovered.validation,
+          });
+        }
+
         return pageResults;
       }
 
