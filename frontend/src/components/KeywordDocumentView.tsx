@@ -47,6 +47,7 @@ export function KeywordDocumentView({
   const [selectedRowKey, setSelectedRowKey] = useState<string | null>(null);
   const [highlightsByPage, setHighlightsByPage] = useState<Record<number, HighlightBox[]>>({});
   const [locateStatus, setLocateStatus] = useState<'idle' | 'loading' | 'hit' | 'miss'>('idle');
+  const [locateHint, setLocateHint] = useState<string | null>(null);
   const [hoverPulsePage, setHoverPulsePage] = useState<number | null>(null);
   const [autoPulsePage, setAutoPulsePage] = useState<number | null>(null);
   const [autoPulseGeneration, setAutoPulseGeneration] = useState(0);
@@ -100,6 +101,7 @@ export function KeywordDocumentView({
   const locateOnPage = useCallback(
     async (pageNumber: number, row: CalloutRow) => {
       setLocateStatus('loading');
+      setLocateHint(null);
 
       try {
         const response = await axios.get<PageLocateResult>(
@@ -113,17 +115,19 @@ export function KeywordDocumentView({
         );
 
         const boxes = response.data.boxes ?? [];
+        const matchedPage = response.data.matchedPage ?? pageNumber;
+
         if (boxes.length > 0) {
-          setHighlightsByPage({ [pageNumber]: boxes });
+          setHighlightsByPage({ [matchedPage]: boxes });
           setLocateStatus('hit');
-          locateReadyPageRef.current = pageNumber;
-          maybeStartAutoPulse(pageNumber);
+          locateReadyPageRef.current = matchedPage;
+          if (matchedPage !== pageNumber) {
+            setLocateHint(`Matched on page ${matchedPage}`);
+            setFocusedPage(matchedPage);
+          }
+          maybeStartAutoPulse(matchedPage);
         } else {
-          setHighlightsByPage(prev => {
-            const next = { ...prev };
-            delete next[pageNumber];
-            return next;
-          });
+          setHighlightsByPage({});
           setLocateStatus('miss');
         }
       } catch {
@@ -140,6 +144,7 @@ export function KeywordDocumentView({
       locateReadyPageRef.current = null;
       autoPulseConsumedRef.current = false;
       setAutoPulsePage(null);
+      setLocateHint(null);
       setSelectedRowKey(key);
       setFocusedPage(row.pageNumber);
       void locateOnPage(row.pageNumber, row);
@@ -161,6 +166,7 @@ export function KeywordDocumentView({
     locateReadyPageRef.current = null;
     autoPulseConsumedRef.current = false;
     setAutoPulsePage(null);
+    setLocateHint(null);
     setSelectedRowKey(occurrenceRowKey(row));
     setFocusedPage(row.pageNumber);
     void locateOnPage(row.pageNumber, row);
@@ -272,6 +278,7 @@ export function KeywordDocumentView({
           focusedPage={focusedPage}
           highlightsByPage={highlightsByPage}
           locateStatus={locateStatus}
+          locateHint={locateHint}
           hoverPulsePage={hoverPulsePage}
           autoPulsePage={autoPulsePage}
           autoPulseGeneration={autoPulseGeneration}

@@ -14,6 +14,7 @@ interface DocumentPreviewProps {
   focusedPage: number | null;
   highlightsByPage: Record<number, HighlightBox[]>;
   locateStatus: 'idle' | 'loading' | 'hit' | 'miss';
+  locateHint?: string | null;
   hoverPulsePage: number | null;
   autoPulsePage: number | null;
   autoPulseGeneration: number;
@@ -138,6 +139,7 @@ export function DocumentPreview({
   focusedPage,
   highlightsByPage,
   locateStatus,
+  locateHint,
   hoverPulsePage,
   autoPulsePage,
   autoPulseGeneration,
@@ -244,7 +246,12 @@ export function DocumentPreview({
                 )}
               </>
             )}
-            {locateStatus === 'hit' && <span className="text-green-600">Highlighted</span>}
+            {locateStatus === 'hit' && (
+              <span className="text-green-600">
+                Highlighted
+                {locateHint ? ` · ${locateHint}` : ''}
+              </span>
+            )}
           </span>
         </div>
 

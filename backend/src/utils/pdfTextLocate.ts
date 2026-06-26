@@ -11,12 +11,22 @@ export interface NormalizedBox {
   matchType: 'term' | 'callout';
 }
 
+export interface NormalizedBoxWithPage extends NormalizedBox {
+  pageNumber: number;
+}
+
 interface TextRun {
   str: string;
   x: number;
   y: number;
   width: number;
   height: number;
+}
+
+interface PageLocateResult {
+  boxes: NormalizedBox[];
+  imageWidth: number;
+  imageHeight: number;
 }
 
 function isTextItem(item: unknown): item is { str: string; transform: number[]; width: number } {
@@ -113,11 +123,43 @@ function findCalloutBoxes(
   return boxes;
 }
 
+/** Page search order: N, then N−1, then N+1 (clamped to document bounds). */
+export function adjacentPageSearchOrder(pageNumber: number, totalPages: number): number[] {
+  const order = [pageNumber];
+  if (pageNumber > 1) order.push(pageNumber - 1);
+  if (pageNumber < totalPages) order.push(pageNumber + 1);
+  return order;
+}
+
+async function locateOnPdfPageInternal(
+  pdfDocument: Awaited<ReturnType<typeof loadPdfDocument>['promise']>,
+  pageNumber: number,
+  options: { term?: string; callout?: string }
+): Promise<PageLocateResult> {
+  const page = await pdfDocument.getPage(pageNumber);
+  const scale = PDF_RENDER_DENSITY / 72;
+  const viewport = page.getViewport({ scale });
+  const runs = await textRunsFromPage(page, viewport);
+
+  const termBoxes = findSubstringBoxes(runs, options.term ?? '');
+  const calloutBoxes =
+    termBoxes.length > 0 ? [] : findCalloutBoxes(runs, options.callout ?? '');
+
+  const rawBoxes = termBoxes.length > 0 ? termBoxes : calloutBoxes;
+  const matchType: 'term' | 'callout' = termBoxes.length > 0 ? 'term' : 'callout';
+
+  return {
+    boxes: rawBoxes.map(box => normalizeBox(box, viewport, matchType)),
+    imageWidth: Math.round(viewport.width),
+    imageHeight: Math.round(viewport.height),
+  };
+}
+
 export async function locateOnPdfPage(
   pdfPath: string,
   pageNumber: number,
   options: { term?: string; callout?: string }
-): Promise<{ boxes: NormalizedBox[]; imageWidth: number; imageHeight: number }> {
+): Promise<PageLocateResult> {
   const data = new Uint8Array(fs.readFileSync(pdfPath));
   const loadingTask = loadPdfDocument(data);
   const pdfDocument = await loadingTask.promise;
@@ -127,22 +169,56 @@ export async function locateOnPdfPage(
       throw new Error(`Invalid page number ${pageNumber}`);
     }
 
-    const page = await pdfDocument.getPage(pageNumber);
-    const scale = PDF_RENDER_DENSITY / 72;
-    const viewport = page.getViewport({ scale });
-    const runs = await textRunsFromPage(page, viewport);
+    return await locateOnPdfPageInternal(pdfDocument, pageNumber, options);
+  } finally {
+    await loadingTask.destroy();
+  }
+}
 
-    const termBoxes = findSubstringBoxes(runs, options.term ?? '');
-    const calloutBoxes =
-      termBoxes.length > 0 ? [] : findCalloutBoxes(runs, options.callout ?? '');
+export async function locateOnPdfPageWithAdjacent(
+  pdfPath: string,
+  pageNumber: number,
+  options: { term?: string; callout?: string },
+  totalPages?: number
+): Promise<{
+  boxes: NormalizedBoxWithPage[];
+  matchedPage: number | null;
+  imageWidth: number;
+  imageHeight: number;
+}> {
+  const data = new Uint8Array(fs.readFileSync(pdfPath));
+  const loadingTask = loadPdfDocument(data);
+  const pdfDocument = await loadingTask.promise;
 
-    const rawBoxes = termBoxes.length > 0 ? termBoxes : calloutBoxes;
-    const matchType: 'term' | 'callout' = termBoxes.length > 0 ? 'term' : 'callout';
+  try {
+    const numPages = totalPages ?? pdfDocument.numPages;
+    if (pageNumber < 1 || pageNumber > numPages) {
+      throw new Error(`Invalid page number ${pageNumber}`);
+    }
 
+    let fallback: PageLocateResult | null = null;
+
+    for (const candidate of adjacentPageSearchOrder(pageNumber, numPages)) {
+      const result = await locateOnPdfPageInternal(pdfDocument, candidate, options);
+      if (result.boxes.length > 0) {
+        return {
+          boxes: result.boxes.map(box => ({ ...box, pageNumber: candidate })),
+          matchedPage: candidate,
+          imageWidth: result.imageWidth,
+          imageHeight: result.imageHeight,
+        };
+      }
+      if (candidate === pageNumber) {
+        fallback = result;
+      }
+    }
+
+    const empty = fallback ?? (await locateOnPdfPageInternal(pdfDocument, pageNumber, options));
     return {
-      boxes: rawBoxes.map(box => normalizeBox(box, viewport, matchType)),
-      imageWidth: Math.round(viewport.width),
-      imageHeight: Math.round(viewport.height),
+      boxes: [],
+      matchedPage: null,
+      imageWidth: empty.imageWidth,
+      imageHeight: empty.imageHeight,
     };
   } finally {
     await loadingTask.destroy();

@@ -19,7 +19,7 @@ import { exportProjectTbxBasic } from '../services/tbxExportService.js';
 import { extractPageData } from '../services/pdfParser.js';
 import { PDF_IMAGE_MIME_TYPE } from '../constants/pdfProcessing.js';
 import { ensurePageCacheDir, pageCachePath } from '../utils/pageImageCache.js';
-import { locateOnPdfPage } from '../utils/pdfTextLocate.js';
+import { locateOnPdfPageWithAdjacent } from '../utils/pdfTextLocate.js';
 
 const router = express.Router();
 
@@ -395,7 +395,7 @@ router.get('/:id/pages/:pageNumber/locate', authenticateToken, async (req: AuthR
       return res.status(loaded.status).json({ error: loaded.error });
     }
 
-    const result = await locateOnPdfPage(loaded.pdfPath, pageNumber, { term, callout });
+    const result = await locateOnPdfPageWithAdjacent(loaded.pdfPath, pageNumber, { term, callout });
     res.json(result);
   } catch (error) {
     console.error('[Pages] Locate failed:', error);

@@ -5,10 +5,12 @@ export interface HighlightBox {
   width: number;
   height: number;
   matchType: 'term' | 'callout';
+  pageNumber?: number;
 }
 
 export interface PageLocateResult {
   boxes: HighlightBox[];
+  matchedPage?: number | null;
   imageWidth: number;
   imageHeight: number;
 }
