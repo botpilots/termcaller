@@ -9,7 +9,6 @@ import {
   type PageValidateMode,
 } from './geminiValidationService.js';
 import type { ExtractedCallout } from './geminiService.js';
-import { buildAdjacentImages } from '../utils/adjacentImages.js';
 import { mapWithConcurrency } from '../utils/mapWithConcurrency.js';
 import { upsertIllustration } from './illustrationUpsert.js';
 import { saveFigureValidation } from './figureValidationPersist.js';
@@ -135,14 +134,13 @@ async function validateSinglePage(
   const result = await validatePageFiguresWithGemini(
     pageData.imageBase64,
     knownFigures,
-    async () => {
-      const [prevPage, nextPage] = await Promise.all([
-        pageNumber > 1 ? extractPageData(pdfPath, pageNumber - 1) : null,
-        pageNumber < totalPages ? extractPageData(pdfPath, pageNumber + 1) : null,
-      ]);
-      return buildAdjacentImages(prevPage, nextPage);
+    async direction => {
+      const targetPage = direction === 'previous' ? pageNumber - 1 : pageNumber + 1;
+      if (targetPage < 1 || targetPage > totalPages) return undefined;
+      return (await extractPageData(pdfPath, targetPage)).imageBase64;
     },
-    pageData.text
+    pageData.text,
+    { hasPrevious: pageNumber > 1, hasNext: pageNumber < totalPages }
   );
 
   return mapPageValidationToFigures(knownFigures, result.discoveredFigures);
@@ -319,10 +317,23 @@ export async function validateFigurePage(
   fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>
 ): Promise<{ extractedConcepts: ExtractedCallout[]; validation: CalloutValidationResult }> {
   const extractedConcepts = buildExtractedConceptsFromCallouts(illustration, callouts);
+  let fetchAdjacentPageImage:
+    | ((direction: 'previous' | 'next') => Promise<string | undefined>)
+    | undefined;
+  if (fetchAdjacentImages) {
+    let cached: { prevImageBase64?: string; nextImageBase64?: string } | undefined;
+    fetchAdjacentPageImage = async direction => {
+      cached ??= await fetchAdjacentImages();
+      return direction === 'previous' ? cached.prevImageBase64 : cached.nextImageBase64;
+    };
+  }
+
   const result = await validatePageFiguresWithGemini(
     (await extractPageData(pdfPath, pageNumber)).imageBase64,
     [{ figureNumber: illustration.figureNumber ?? '1', extractedConcepts }],
-    fetchAdjacentImages
+    fetchAdjacentPageImage,
+    undefined,
+    fetchAdjacentPageImage ? { hasPrevious: pageNumber > 1, hasNext: true } : undefined
   );
 
   const first = result.discoveredFigures[0];

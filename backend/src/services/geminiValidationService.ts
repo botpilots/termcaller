@@ -37,6 +37,20 @@ export interface FigureValidationInput {
   extractedConcepts: ExtractedCallout[];
 }
 
+export type AdjacentPageDirection = 'previous' | 'next';
+
+export type AdjacentPageDirectionChoice = AdjacentPageDirection | 'none';
+
+export type FetchAdjacentPageImage = (
+  direction: AdjacentPageDirection
+) => Promise<string | undefined>;
+
+export interface AdjacentPageContext {
+  unreferencedCallouts: string[];
+  availableDirections: AdjacentPageDirection[];
+  triedDirections: AdjacentPageDirection[];
+}
+
 interface LlmFigureValidation {
   unreferencedCallouts?: string[];
   uncalledReferences?: string[];
@@ -112,6 +126,21 @@ const pageValidateSchema = {
   },
   required: ['figures'],
 };
+
+const adjacentDirectionSchema = {
+  type: Type.OBJECT,
+  properties: {
+    direction: {
+      type: Type.STRING,
+      enum: ['previous', 'next', 'none'],
+      description:
+        'Which single adjacent page is most likely to explain the unreferenced callouts, or none to stop.',
+    },
+  },
+  required: ['direction'],
+};
+
+const MAX_ADJACENT_VALIDATION_CHECKS = 2;
 
 /** Reject long numeric strings and other values that are not plausible callout leader labels. */
 export function isPlausibleCalloutLabel(id: string): boolean {
@@ -248,46 +277,146 @@ ${LABEL_MISMATCH_RULES}
 `;
 }
 
+export function availableAdjacentDirections(availability: {
+  hasPrevious: boolean;
+  hasNext: boolean;
+}): AdjacentPageDirection[] {
+  const directions: AdjacentPageDirection[] = [];
+  if (availability.hasPrevious) directions.push('previous');
+  if (availability.hasNext) directions.push('next');
+  return directions;
+}
+
+export function remainingAdjacentDirections(context: AdjacentPageContext): AdjacentPageDirection[] {
+  return context.availableDirections.filter(direction => !context.triedDirections.includes(direction));
+}
+
+export function resolveAdjacentDirectionChoice(
+  context: AdjacentPageContext,
+  choice: AdjacentPageDirectionChoice
+): AdjacentPageDirection | null {
+  if (choice === 'none') return null;
+
+  const remaining = remainingAdjacentDirections(context);
+  return remaining.includes(choice) ? choice : null;
+}
+
+function buildAdjacentDirectionPrompt(context: AdjacentPageContext): string {
+  const remaining = remainingAdjacentDirections(context);
+  const triedNote =
+    context.triedDirections.length > 0
+      ? `Already checked the ${context.triedDirections.join(' and ')} page(s); some callouts may still be unreferenced.\n`
+      : '';
+
+  return `${triedNote}Unreferenced callout labels on the current page: ${context.unreferencedCallouts.join(', ')}.
+
+Based on the manual page layout (legends, part lists, continued figures, facing-page spreads), which SINGLE adjacent page is most likely to explain these labels in its text?
+
+Reply with direction "previous", "next", or "none" if no remaining adjacent page would help.
+You may choose only from: ${[...remaining, 'none'].join(', ')}.`;
+}
+
+async function chooseAdjacentPageDirection(
+  pageImageBase64: string,
+  context: AdjacentPageContext
+): Promise<AdjacentPageDirection | null> {
+  const remaining = remainingAdjacentDirections(context);
+  if (remaining.length === 0) return null;
+  if (remaining.length === 1) return remaining[0]!;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: [
+      {
+        role: 'user',
+        parts: [
+          { text: buildAdjacentDirectionPrompt(context) },
+          { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: pageImageBase64 } },
+        ],
+      },
+    ],
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: adjacentDirectionSchema,
+      temperature: 0.1,
+      thinkingConfig: {
+        thinkingLevel: GEMINI_VALIDATION_THINKING_LEVEL,
+      },
+    },
+  });
+
+  const parsed = JSON.parse(response.text || '{}') as { direction?: AdjacentPageDirectionChoice };
+  return resolveAdjacentDirectionChoice(context, parsed.direction ?? 'none');
+}
+
+function collectUnreferencedCallouts(result: PageValidationOutput): string[] {
+  return [...new Set(result.discoveredFigures.flatMap(figure => figure.unreferencedCallouts))];
+}
+
 async function runAdjacentFollowUp(
   chat: ReturnType<typeof ai.chats.create>,
+  pageImageBase64: string,
   result: PageValidationOutput,
-  fetchAdjacentImages: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>,
+  fetchAdjacentPageImage: FetchAdjacentPageImage,
+  adjacentAvailability: { hasPrevious: boolean; hasNext: boolean },
   pageText?: string
 ): Promise<PageValidationOutput> {
-  const unreferenced = result.discoveredFigures.flatMap(figure => figure.unreferencedCallouts);
+  let current = result;
+  const triedDirections: AdjacentPageDirection[] = [];
+  const availableDirections = availableAdjacentDirections(adjacentAvailability);
 
-  if (!unreferenced.length) {
-    return result;
+  for (let attempt = 0; attempt < MAX_ADJACENT_VALIDATION_CHECKS; attempt++) {
+    const unreferenced = collectUnreferencedCallouts(current);
+    if (!unreferenced.length) {
+      return current;
+    }
+
+    const context: AdjacentPageContext = {
+      unreferencedCallouts: unreferenced,
+      availableDirections,
+      triedDirections,
+    };
+    const remaining = remainingAdjacentDirections(context);
+    if (!remaining.length) {
+      return current;
+    }
+
+    const direction =
+      remaining.length === 1
+        ? remaining[0]!
+        : await chooseAdjacentPageDirection(pageImageBase64, context);
+
+    if (!direction) {
+      return current;
+    }
+
+    console.log(
+      `[Gemini Validation] Checking ${direction} page for unreferenced callouts: ${unreferenced.join(', ')}`
+    );
+
+    const adjacentImage = await fetchAdjacentPageImage(direction);
+    if (!adjacentImage) {
+      return current;
+    }
+
+    triedDirections.push(direction);
+
+    const label = direction === 'previous' ? 'PREVIOUS' : 'NEXT';
+    const response = await chat.sendMessage({
+      message: [
+        `The ${direction} page image is provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the figures array and all validation fields. Keep figures array order unchanged.`,
+        `--- ${label} PAGE IMAGE ---`,
+        { inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImage } },
+      ],
+    });
+
+    const parsed = JSON.parse(response.text || '{}') as LlmDiscoverAndValidateResponse;
+    current = {
+      discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
+    };
   }
 
-  console.log(
-    `[Gemini Validation] Checking adjacent pages for unreferenced callouts: ${unreferenced.join(', ')}`
-  );
-
-  const adjacentImages = await fetchAdjacentImages();
-  const followUpContents: Array<string | { inlineData: { mimeType: string; data: string } }> = [
-    `Adjacent page images are provided. Re-check unreferenced callouts: ${unreferenced.join(', ')}. Update the figures array and all validation fields. Keep figures array order unchanged.`,
-  ];
-
-  if (adjacentImages.prevImageBase64) {
-    followUpContents.push('--- PREVIOUS PAGE IMAGE ---');
-    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.prevImageBase64 } });
-  }
-  if (adjacentImages.nextImageBase64) {
-    followUpContents.push('--- NEXT PAGE IMAGE ---');
-    followUpContents.push({ inlineData: { mimeType: PDF_IMAGE_MIME_TYPE, data: adjacentImages.nextImageBase64 } });
-  }
-
-  if (followUpContents.length <= 1) {
-    return result;
-  }
-
-  const response = await chat.sendMessage({ message: followUpContents });
-  const parsed = JSON.parse(response.text || '{}') as LlmDiscoverAndValidateResponse;
-
-  return {
-    discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
-  };
+  return current;
 }
 
 /** @deprecated Batch validation uses validatePageFiguresWithGemini. */
@@ -301,8 +430,9 @@ export function pickValidateMode(
 export async function validatePageFiguresWithGemini(
   imageBase64: string,
   knownFigures: FigureValidationInput[],
-  fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>,
-  pageText?: string
+  fetchAdjacentPageImage?: FetchAdjacentPageImage,
+  pageText?: string,
+  adjacentAvailability?: { hasPrevious: boolean; hasNext: boolean }
 ): Promise<PageValidationOutput> {
   const chat = ai.chats.create({
     model: 'gemini-3-flash-preview',
@@ -329,8 +459,15 @@ export async function validatePageFiguresWithGemini(
       discoveredFigures: normalizeDiscoveredFigures(parsed, pageText),
     };
 
-    if (fetchAdjacentImages) {
-      result = await runAdjacentFollowUp(chat, result, fetchAdjacentImages, pageText);
+    if (fetchAdjacentPageImage && adjacentAvailability) {
+      result = await runAdjacentFollowUp(
+        chat,
+        imageBase64,
+        result,
+        fetchAdjacentPageImage,
+        adjacentAvailability,
+        pageText
+      );
     }
 
     return result;
@@ -338,6 +475,19 @@ export async function validatePageFiguresWithGemini(
     console.error('Gemini Validation API Error:', error);
     throw error;
   }
+}
+
+function wrapLegacyAdjacentFetcher(
+  fetchAdjacentImages?: () => Promise<{ prevImageBase64?: string; nextImageBase64?: string }>
+): FetchAdjacentPageImage | undefined {
+  if (!fetchAdjacentImages) return undefined;
+
+  let cached: { prevImageBase64?: string; nextImageBase64?: string } | undefined;
+
+  return async direction => {
+    cached ??= await fetchAdjacentImages();
+    return direction === 'previous' ? cached.prevImageBase64 : cached.nextImageBase64;
+  };
 }
 
 /** @deprecated Use validatePageFiguresWithGemini */
@@ -352,7 +502,13 @@ export async function validatePageWithGemini(
       ? [{ figureNumber: '1', extractedConcepts }]
       : [];
 
-  const result = await validatePageFiguresWithGemini(imageBase64, knownFigures, fetchAdjacentImages);
+  const result = await validatePageFiguresWithGemini(
+    imageBase64,
+    knownFigures,
+    wrapLegacyAdjacentFetcher(fetchAdjacentImages),
+    undefined,
+    { hasPrevious: true, hasNext: true }
+  );
   const first = result.discoveredFigures[0];
 
   return {
@@ -372,7 +528,9 @@ export async function validatePageCalloutsWithGemini(
   const result = await validatePageFiguresWithGemini(
     imageBase64,
     [{ figureNumber: '1', extractedConcepts }],
-    fetchAdjacentImages
+    wrapLegacyAdjacentFetcher(fetchAdjacentImages),
+    undefined,
+    { hasPrevious: true, hasNext: true }
   );
 
   const first = result.discoveredFigures[0];
